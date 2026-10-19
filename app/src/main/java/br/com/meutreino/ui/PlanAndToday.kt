@@ -96,11 +96,11 @@ import java.time.temporal.TemporalAdjusters
         Subtext("${p.objective} · ${history.count{it.status=="COMPLETED"}} sessões concluídas")
         if(active!=null) Pane {
             Text("Treino em andamento",color=LightBlue);Text(active.title)
-            PrimaryButton("Retomar treino",onClick=onResume)
+            PrimaryButton("Retomar treino", onClick = onResume)
         } else if(todaySession!=null) Pane {
             Text("PROGRAMADO PARA HOJE",color=LightBlue)
             Text(todaySession.title,style=MaterialTheme.typography.titleLarge)
-            Subtext("${todaySession.minutes} min · ${todaySession.exercises.size} exercícios · $env")
+            Subtext("${todaySession.minutes} min de musculação · ${todaySession.exercises.size} exercícios · $env")
             todaySession.exercises.forEachIndexed { i,x->Text("${i+1}. ${x.exercise.name}") }
             todaySession.warning?.let { Text(it,color=Color(0xFFFFC77A)) }
             PrimaryButton("Começar treino de hoje",onClick={onStart(todaySession)})

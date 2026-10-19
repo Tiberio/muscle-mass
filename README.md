@@ -2,6 +2,8 @@
 
 **Novidade:** `docs/FUNDAMENTACAO_CIENTIFICA.md` (diretrizes médicas, descanso, cardio e fórmula do Índice de Atividade Acumulada).
 
+**v0.2.0 corrigida:** tempos de musculação e cardio são **independentes**. Exemplo: 45 min de musculação + 20 min de cardio = 65 min de atividade. Inclui a correção do botão Retomar treino e testes de regressão. A compilação do APK ainda deverá ser validada pelo GitHub Actions.
+
 **Alterações e cuidados ao atualizar:** `docs/ALTERACOES_v0.2.0.md`.
 
 **Compilação:** pelo GitHub Actions existente, em `.github/workflows/android-debug.yml`. Esta versão ainda precisa passar pela compilação Android real e testes no celular.

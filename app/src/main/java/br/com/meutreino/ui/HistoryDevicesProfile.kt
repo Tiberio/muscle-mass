@@ -198,7 +198,7 @@ import java.util.Locale
         Triple("Ambientes e padrão",p.defaultEnvironment.ifBlank{"Não definido"},"environments"),
         Triple("Equipamentos",p.equipments.joinToString().ifBlank{"Nenhum"},"equipment"),
         Triple("Disponibilidade",p.weekdays.joinToString().ifBlank{"Rotina flexível"},"days"),
-        Triple("Tempo por sessão","${p.minutesPerSession} minutos","duration"),
+        Triple("Tempo de musculação","${p.minutesPerSession} min (cardio à parte)","duration"),
         Triple("Cardio",p.cardioActivities.joinToString().ifBlank{"Não selecionado"},"cardio"),
         Triple("Duração do cardio","${p.cardioMinutes} min","cardioDuration"),
         Triple("Frequência do cardio",if(p.cardioWeeklyDays==7)"Todos os dias" else if(p.cardioWeeklyDays==0)"Nos dias da musculação" else "${p.cardioWeeklyDays} dias/semana","cardioFrequency"),

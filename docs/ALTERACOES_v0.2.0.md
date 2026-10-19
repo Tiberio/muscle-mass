@@ -46,3 +46,15 @@ Se você deseja preservar os dados de teste antigos, não desinstale imediatamen
 - 8 verificações de distribuição do cardio em 5+7 dias.
 - 8 verificações da contagem diária e expiração de pontos.
 - Total: **30 verificações isoladas**, sem substituir compilação Android e testes no aparelho.
+
+## Correção complementar na própria v0.2.0 — tempos independentes
+
+- `minutesPerSession` é o tempo de **musculação**, incluindo aquecimento e descanso entre séries.
+- `cardioMinutes` é um tempo **adicional** por sessão de cardio. Não é descontado da musculação, mesmo quando marcado para depois do treino de força.
+- Exemplo: 45 min de musculação + 20 min de cardio = aproximadamente 65 min de atividades no dia, quando ambos ocorrerem.
+- A contagem aproximada de exercícios na musculação permanece limitada a 2–5, dependendo do tempo de musculação e das opções disponíveis.
+- Atualizados os textos no cadastro, no Perfil, na ficha do dia e no planejador de cardio.
+- Acrescentados testes de regressão para impedir que a duração do cardio reduza o número de exercícios.
+- Incluída neste pacote a correção já aplicada no GitHub ao botão **Retomar treino** (`onClick = onResume`).
+
+O ZIP contém **código-fonte**, não um APK já compilado: a compilação final continua sendo feita pelo GitHub Actions.

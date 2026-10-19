@@ -22,7 +22,7 @@ object CardioPlanner {
             val separate=rest||p.cardioWhen=="Dias separados"
             CardioDay(day,p.cardioMinutes,chosen,separate,
                 if(rest)"Dia sem musculação: intensidade menor sugerida; você pode adaptar."
-                else "Combinar com a musculação sem ultrapassar o tempo definido.")
+                else "Cardio adicional, com duração independente da musculação.")
         }
     }
 }

@@ -22,6 +22,17 @@ fun main() {
     check(flexible.sessions.size==4)
     val withoutPriority=TrainingPlanner.build(p.copy(priorityMuscles=emptyList()))
     check(withoutPriority.explanation.contains("Distribuição geral"))
+    // Regressão v0.2.0: cardio diário e independente NÃO subtrai tempo da musculação.
+    val strength45 = p.copy(minutesPerSession=45,cardioActivities=listOf("Caminhada"),
+        cardioWhen="Após musculação",cardioMinutes=30,cardioWeeklyDays=7)
+    val plan45 = TrainingPlanner.build(strength45)
+    check(plan45.sessions.first().exercises.size==4)
+    check(plan45.sessions.map{it.exercises.size} ==
+        TrainingPlanner.build(strength45.copy(cardioActivities=emptyList())).sessions.map{it.exercises.size})
+    check(plan45.explanation.contains("independente"))
+    val strength60 = TrainingPlanner.build(strength45.copy(minutesPerSession=60,cardioMinutes=90))
+    check(strength60.sessions.first().exercises.size==5)
+    check(strength60.sessions.first().minutes==60)
     val balance=BalanceAnalyzer.analyze(plan)
     check(balance.effectiveSets.isNotEmpty())
     check(balance.effectiveSets.values.all{it>=0.0})
@@ -32,5 +43,5 @@ fun main() {
     check(five.sessions[1].title.startsWith("Inferiores"))
     check(five.sessions[2].title.startsWith("Superiores"))
     check(five.sessions[0].exercises.map{it.exercise.id} != five.sessions[2].exercises.map{it.exercise.id}) { "Treinos superiores A/B idênticos" }
-    println("OK: 14 verificações do núcleo de planejamento e equilíbrio passaram.")
+    println("OK: núcleo de planejamento, alternância e tempos independentes passaram.")
 }

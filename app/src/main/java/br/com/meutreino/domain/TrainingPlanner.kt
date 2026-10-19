@@ -13,8 +13,10 @@ object TrainingPlanner {
         }
         val count = preferredDays.size.coerceAtLeast(1)
         val minutes = p.minutesPerSession.coerceIn(10, 240)
-        // Limite aproximado, incluindo pausas e aquecimento. Evita propor 6 exercícios em 20 min.
-        val availableMinutes = (minutes - (if (p.cardioActivities.isNotEmpty() && p.cardioWhen != "Dias separados") p.cardioMinutes else 0) - 5).coerceAtLeast(10)
+        // minutesPerSession representa APENAS a musculação: o cardio tem duração independente.
+        // Reservamos 5 minutos da sessão de força para aquecimento, sem descontar cardioMinutes.
+        // Estimativa inicial: até cinco exercícios, cerca de nove minutos por exercício.
+        val availableMinutes = (minutes - 5).coerceAtLeast(10)
         val exerciseCount = (availableMinutes / 9).coerceIn(2, 5)
         val environment = p.defaultEnvironment.ifBlank { p.environments.firstOrNull() ?: "Casa sem equipamentos" }
         val pool = ExerciseCatalog.options(environment, p.equipments, p.experience)
@@ -71,11 +73,12 @@ object TrainingPlanner {
         if (sessions.any { it.exercises.isEmpty() }) warnings += "Poucos exercícios compatíveis com os equipamentos informados."
         if (p.limitations.isNotBlank()) warnings += "Você informou limitações. Revise os exercícios individualmente antes de iniciar; o protótipo ainda não faz triagem clínica."
         if(p.cardioWeeklyDays==7 && p.cardioActivities.isNotEmpty())warnings += "Cardio diário mantido: recomenda-se variar o esforço e usar atividades leves nos dias de recuperação da musculação. Não é necessário fazer cardio vigoroso sete dias."
-        if(count>=5 && p.cardioActivities.isNotEmpty() && p.cardioWhen!="Dias separados" && minutes<p.cardioMinutes+20)warnings += "A duração do cardio mais o aquecimento deixa pouco tempo para musculação; considere sessões separadas ou ampliar o tempo."
         if (count >= 5) warnings += "Treino frequente: distribuímos sessões predominantemente superiores e inferiores, mas a recuperação real depende de volume, esforço, sono e limitações. Consulte os dias e ajuste a carga."
         if (count == 3 && preferredDays.zipWithNext().any { (a,b)-> allDays.indexOf(b)-allDays.indexOf(a)==1 }) warnings += "Você programou musculação em dias consecutivos. Revise a recuperação de músculos principais e secundários."
         if (count >= 6) warnings += "Frequência alta: ajuste intensidade, volume e recuperação antes de executar todas as sessões."
-        val explanation = "O plano usa ${sessions.size} sessão(ões) de $minutes minutos. ${if(p.priorityMuscles.isEmpty())"Distribuição geral do corpo." else "Ênfase em ${p.priorityMuscles.joinToString(", ")}, sem excluir pernas e costas quando o equipamento permite."} Exercícios e duração são estimativas iniciais ajustáveis."
+        val explanation = "O plano usa ${sessions.size} sessão(ões) de musculação de $minutes minutos cada. " +
+            "${if(p.priorityMuscles.isEmpty())"Distribuição geral do corpo." else "Ênfase em ${p.priorityMuscles.joinToString(", ")}, sem excluir pernas e costas quando o equipamento permite."} " +
+            "O cardio, quando selecionado, é planejado com duração adicional e independente. Exercícios e duração são estimativas iniciais ajustáveis."
         return TrainingPlan(sessions, explanation, warnings.toList())
     }
 }

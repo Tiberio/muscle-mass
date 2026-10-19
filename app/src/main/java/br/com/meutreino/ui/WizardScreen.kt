@@ -149,10 +149,10 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     }
                 }
                 "duration" -> Pane {
-                    Text("Tempo total disponível por sessão")
+                    Text("Tempo disponível para musculação")
                     ToggleDuration(p.minutesPerSession,{v->vm.edit{it.copy(minutesPerSession=v)}})
                     Row(verticalAlignment=Alignment.CenterVertically){Checkbox(checked=p.flexibleDuration,onCheckedChange={v->vm.edit{it.copy(flexibleDuration=v)}});Text("Meu tempo varia entre os dias")}
-                    Subtext("O tempo inclui séries, aquecimento e descansos. A duração de um dia pode ser alterada sem trocar o padrão.")
+                    Subtext("Duração somente da musculação, incluindo séries, aquecimento e descansos. O cardio é adicional e tem tempo independente.")
                 }
                 "time" -> Pane {
                     Text("Horário preferido")
@@ -205,7 +205,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     ReviewRow("Locais e padrão","${p.environments.joinToString().ifBlank{"—"}} · Padrão: ${p.defaultEnvironment}","environments",{idx=steps.indexOfFirst{it.id=="environments"};editingFromReview=true})
                     ReviewRow("Equipamentos",p.equipments.joinToString().ifBlank{"Nenhum cadastrado"},"equipment",{idx=steps.indexOfFirst{it.id=="equipment"};editingFromReview=true})
                     ReviewRow("Dias disponíveis",if(p.scheduleMode=="Dias definidos")p.weekdays.joinToString() else "${p.weeklyCount} sessões flexíveis","days",{idx=steps.indexOfFirst{it.id=="days"};editingFromReview=true})
-                    ReviewRow("Duração","${p.minutesPerSession} minutos por treino","duration",{idx=steps.indexOfFirst{it.id=="duration"};editingFromReview=true})
+                    ReviewRow("Musculação","${p.minutesPerSession} minutos por sessão de força","duration",{idx=steps.indexOfFirst{it.id=="duration"};editingFromReview=true})
                     ReviewRow("Horário",p.preferredTime,"time",{idx=steps.indexOfFirst{it.id=="time"};editingFromReview=true})
                     ReviewRow("Cardio",p.cardioActivities.joinToString().ifBlank{"Sem cardio"},"cardio",{idx=steps.indexOfFirst{it.id=="cardio"};editingFromReview=true})
                     ReviewRow("Frequência do cardio",if(p.cardioWeeklyDays==7)"Todos os dias" else if(p.cardioWeeklyDays==0)"Nos dias da musculação" else "${p.cardioWeeklyDays} dias por semana","cardioFrequency",{idx=steps.indexOfFirst{it.id=="cardioFrequency"};editingFromReview=true})
