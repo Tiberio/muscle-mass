@@ -96,7 +96,7 @@ import java.time.temporal.TemporalAdjusters
         Subtext("${p.objective} · ${history.count{it.status=="COMPLETED"}} sessões concluídas")
         if(active!=null) Pane {
             Text("Treino em andamento",color=LightBlue);Text(active.title)
-            PrimaryButton("Retomar treino",onResume)
+            PrimaryButton("Retomar treino",onClick=onResume)
         } else if(todaySession!=null) Pane {
             Text("PROGRAMADO PARA HOJE",color=LightBlue)
             Text(todaySession.title,style=MaterialTheme.typography.titleLarge)
