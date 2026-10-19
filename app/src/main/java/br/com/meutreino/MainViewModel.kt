@@ -7,6 +7,13 @@ import androidx.room.Room
 import br.com.meutreino.data.SettingsStore
 import br.com.meutreino.data.CardioActivityEntity
 import br.com.meutreino.data.MIGRATION_1_2
+import br.com.meutreino.data.MIGRATION_2_3
+import br.com.meutreino.data.WeightMeasurementEntity
+import br.com.meutreino.devices.HealthConnectGateway
+import br.com.meutreino.devices.HealthSnapshot
+import br.com.meutreino.devices.MiScaleScanner
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.UUID
 import br.com.meutreino.data.WorkoutDatabase
 import br.com.meutreino.data.WorkoutSessionEntity
@@ -24,8 +31,14 @@ import kotlinx.coroutines.sync.withLock
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     private val store = SettingsStore(application)
-    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2).build()
+    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2,MIGRATION_2_3).build()
     private val dao = db.dao()
+    private val health = HealthConnectGateway(application)
+    val scaleScanner = MiScaleScanner(application)
+    val healthSnapshot = MutableStateFlow<HealthSnapshot?>(null)
+    val healthMessage = MutableStateFlow("Acesso opcional. Você controla as permissões no Android.")
+    val healthBusy = MutableStateFlow(false)
+    val weightHistory = dao.observeWeights().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     private val writeLock = Mutex()
     val prefs: StateFlow<UserPrefs?> = store.data.stateIn(viewModelScope,SharingStarted.Eagerly,null)
     val sessions = dao.observeSessions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
@@ -96,7 +109,51 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             onSaved()
         }
     }
+    fun healthAvailable(): Boolean = try {
+        HealthConnectGateway.available(getApplication())
+    } catch (_: Exception) { false }
+
+    fun refreshHealth() {
+        if (healthBusy.value) return
+        viewModelScope.launch {
+            healthBusy.value = true
+            try {
+                if (!healthAvailable()) {
+                    healthMessage.value = "Health Connect não está disponível. No Android 13 ou anterior, instale-o pela Play Store."
+                    return@launch
+                }
+                if (health.grantedPermissions().intersect(HealthConnectGateway.permissions).isEmpty()) {
+                    healthMessage.value = "Autorize pelo menos um tipo de dado antes de atualizar. As demais permissões são opcionais."
+                    healthSnapshot.value = null
+                    return@launch
+                }
+                healthSnapshot.value = withContext(Dispatchers.IO) { health.readSnapshot() }
+                healthMessage.value = "Leitura concluída. Dados fornecidos pelo Health Connect, não necessariamente pela Mi Band."
+            } catch (e: SecurityException) {
+                healthMessage.value = "Permissões revogadas ou insuficientes."
+                healthSnapshot.value = null
+            } catch (e: Exception) {
+                healthMessage.value = "Falha ao ler Health Connect: ${e.localizedMessage ?: "erro desconhecido"}"
+            } finally { healthBusy.value = false }
+        }
+    }
+    fun saveScaleWeight(measurement: MiScaleScanner.Result, onDone:()->Unit) {
+        if (measurement.kilograms !in 2.0..350.0) return
+        viewModelScope.launch {
+            dao.insertWeight(WeightMeasurementEntity(
+                recordedAt = measurement.receivedAt,
+                kilograms = measurement.kilograms,
+                source = "Mi Body Composition Scale 2 (Bluetooth; confirmado)"
+            ))
+            onDone()
+        }
+    }
+    fun importLatestSavedWeight() {
+        val mostRecent = weightHistory.value.firstOrNull() ?: return
+        edit { it.copy(weightKg = String.format(java.util.Locale.US, "%.2f", mostRecent.kilograms)) }
+        notify("Peso importado do histórico da balança. Você pode editá-lo no Perfil.")
+    }
     fun notify(text:String){showMessage.value=text}
     fun clearMessage(){showMessage.value=null}
-    override fun onCleared() { super.onCleared(); db.close() }
+    override fun onCleared() { scaleScanner.stop(); super.onCleared(); db.close() }
 }

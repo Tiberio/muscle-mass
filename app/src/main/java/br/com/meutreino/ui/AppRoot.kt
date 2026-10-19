@@ -24,6 +24,8 @@ import br.com.meutreino.domain.UserPrefs
     val allSets by vm.allSets.collectAsState()
     val sessions by vm.sessions.collectAsState()
     val cardioRecords by vm.cardioActivities.collectAsState()
+    val weights by vm.weightHistory.collectAsState()
+    val healthSnapshot by vm.healthSnapshot.collectAsState()
     val plan=remember(p){TrainingPlanner.build(p)}
     
     val showTabs=p.onboardingCompleted&&p.planAccepted&&page=="main"
@@ -54,8 +56,8 @@ import br.com.meutreino.domain.UserPrefs
                         vm.start(s.id,s.title,env){page="workout"}
                     },onResume={page="workout"})
                     "Plano" -> PlanScreen(p,plan,onChangeDay={id,day->vm.changeAssignment(id,day)},onOverride={id,ex,replacement->vm.changeExercise(id,ex,replacement)},onRefresh={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
-                    "Histórico" -> HistoryScreen(sessions,allSets,cardioRecords,vm::deleteSession,vm::addManualCardio)
-                    "Dispositivos" -> DeviceScreen(p)
+                    "Histórico" -> HistoryScreen(sessions,allSets,cardioRecords,vm::deleteSession,vm::addManualCardio,weights,healthSnapshot)
+                    "Dispositivos" -> DeviceScreen(p,vm)
                     else -> ProfileScreen(p,onEdit={ target ->wizardTarget=target;editFromProfile=true;page="wizard" },onResetPlan={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
                 }
             }

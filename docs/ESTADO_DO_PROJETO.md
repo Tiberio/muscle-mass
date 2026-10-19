@@ -1,28 +1,10 @@
-> Atualização 19/10/2026: a implementação v0.2.0 foi preparada. Consulte docs/ALTERACOES_v0.2.0.md e docs/FUNDAMENTACAO_CIENTIFICA.md. A compilação Android completa ainda não foi executada neste ambiente.
+# Estado do Meu Treino — 19/10/2026
 
-# Estado de implementação — 17/10/2026
+- v0.1.1: compilada e executada no celular pelo usuário.
+- v0.2.0 corrigida: usuário confirmou funcionamento no celular, após separar tempos de musculação e cardio.
+- **v0.3.0: código-fonte preparado; compilação Android completa e funcionamento dos dispositivos ainda NÃO validados**.
+- Integrações previstas na v0.3.0: leitura opcional do Health Connect, scanner BLE de pesagem da Mi Body Composition Scale 2 (experimental), histórico local de pesos e importação ao perfil.
+- Mi Band 7: sem conexão direta implementada; depende de aplicativo que efetivamente compartilhe com Health Connect.
+- v0.4.0: aprovado ampliar base para pelo menos 150 exercícios, incluindo calistenia.
 
-## Implementado em código
-
-- Modelos de dados, catálogo local, planejador determinístico e análise exploratória de equilíbrio.
-- DataStore para perfil e preferências, Room para sessões e séries.
-- Wizard de configuração, revisão final completa, navegação e editor de preferências.
-- Tela Hoje, proposta inicial, aba Plano (alteração de dia e exercício), histórico, dispositivos informativos e perfil.
-- Registro persistente por série, encerramento de sessão e retomar treino incompleto.
-
-## Comprovação feita
-
-O código **puro Kotlin** em `domain/*.kt` compilou com `kotlinc 1.9.0` e executou 10 checagens sem falhas. O Android SDK e Gradle não estão disponíveis no ambiente de geração; logo a compilação das telas, o APK e a execução em dispositivo permanecem **não verificadas**.
-
-## Fases futuras obrigatórias
-
-- Validar compilação APK e navegação no celular.
-- Fazer revisão de acessibilidade, layout e persistência após reinícios.
-- Implementar permissões Health Connect e Bluetooth somente quando os adaptadores estiverem disponíveis.
-- Trabalhar dados de saúde com deduplicação, procedência e autorização.
-- Validar pessoalmente e/ou profissionalmente os exercícios e vídeos antes do uso definitivo.
-
-### Ajustes finais nesta entrega
-- A aba Hoje escolhe a próxima sessão ainda não concluída da semana, em vez de mostrar sempre a primeira.
-- Trocas de exercícios/dias dentro do plano não invalidam o aceite da proposta; mudanças de perfil solicitam nova revisão.
-- Cardio inicia em zero minutos para não registrar automaticamente atividade não realizada.
+Lembretes: não alegar PAI real; não duplicar cardio/IAA; conservar os dados locais durante atualizações do APK.

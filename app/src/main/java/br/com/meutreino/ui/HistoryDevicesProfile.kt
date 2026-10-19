@@ -1,6 +1,14 @@
 package br.com.meutreino.ui
 
 import androidx.compose.foundation.*
+import android.Manifest
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import br.com.meutreino.MainViewModel
+import br.com.meutreino.data.WeightMeasurementEntity
+import br.com.meutreino.devices.HealthConnectGateway
+import br.com.meutreino.devices.HealthSnapshot
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,7 +32,8 @@ import java.util.Locale
 
 @Composable fun HistoryScreen(sessions:List<WorkoutSessionEntity>,sets:List<WorkoutSetEntity>,
     cardio:List<CardioActivityEntity>,onDelete:(Long,()->Unit)->Unit,
-    onAddCardio:(Int,String,String,()->Unit)->Unit){
+    onAddCardio:(Int,String,String,()->Unit)->Unit,
+    weights:List<WeightMeasurementEntity>,health:HealthSnapshot?){
     var section by remember{mutableStateOf("Sessões")}
     var deleteConfirm by remember{mutableStateOf(false)}
     var manualMinutes by remember{mutableStateOf("")}
@@ -88,8 +97,18 @@ import java.util.Locale
                 else -> {
                     Pane{
                         Text("Dados de saúde",color=LightBlue)
-                        Subtext("Ainda não recebemos dados de Mi Band, balança ou Health Connect.")
-                        Subtext("Quando a integração estiver pronta, peso, frequência cardíaca, passos e sono aparecerão com identificação da fonte.")
+                        Subtext("Leituras do Health Connect são feitas sob demanda, na aba Dispositivos. Não entram automaticamente no IAA.")
+                        if(health!=null){
+                            Subtext("Passos hoje: ${health.stepsToday?:"sem permissão"} · 7 dias: ${health.stepsLast7Days?:"sem permissão"}")
+                            Subtext("Peso no Health Connect: ${health.latestWeightKg?.let{String.format(Locale.getDefault(),"%.1f kg",it)}?:"sem dados"}")
+                            Subtext("Última frequência cardíaca: ${health.latestHeartBpm?.let{"$it bpm"}?:"sem dados"}")
+                        } else Subtext("Nenhuma leitura de Health Connect nesta sessão do aplicativo.")
+                        if(weights.isNotEmpty()){
+                            Text("Pesagens confirmadas: ${weights.size}")
+                            weights.take(5).forEach { w ->
+                                Subtext("${formatter.format(Date(w.recordedAt))}: ${String.format(Locale.getDefault(),"%.2f kg",w.kilograms)} · ${w.source}")
+                            }
+                        } else Subtext("Nenhuma pesagem confirmada armazenada neste celular.")
                     }
                     Pane{Text("PAI Xiaomi");Subtext("Não disponível. Não é possível calcular ou exibir o PAI original sem uma fonte compatível.")}
                     ActivityScoreCard(summary)
@@ -125,10 +144,32 @@ import java.util.Locale
         dismissButton={TextButton(onClick={deleteConfirm=false}){Text("Cancelar")}})
 }
 
-@Composable fun DeviceScreen(p:UserPrefs){
-    var section by remember{mutableStateOf("Dispositivos")}
+@Composable fun DeviceScreen(p:UserPrefs, vm:MainViewModel){
+    var section by remember{mutableStateOf("Conexões")}
     var selectedBrand by remember{mutableStateOf("Xiaomi")}
     var selectedModel by remember{mutableStateOf<String?>(null)}
+    val health by vm.healthSnapshot.collectAsState()
+    val healthMessage by vm.healthMessage.collectAsState()
+    val healthBusy by vm.healthBusy.collectAsState()
+    val scanner = vm.scaleScanner
+    val scanMessage by scanner.message.collectAsState()
+    val scanning by scanner.scanning.collectAsState()
+    val scanReading by scanner.reading.collectAsState()
+    val weights by vm.weightHistory.collectAsState()
+
+    val healthPermissions = HealthConnectGateway.permissions
+    val healthLauncher = rememberLauncherForActivityResult(HealthConnectGateway.permissionsContract()) { granted ->
+        if(granted.isNotEmpty()) vm.refreshHealth()
+        else vm.notify("Nenhuma permissão de saúde concedida. Você pode continuar utilizando o aplicativo sem elas.")
+    }
+    val btPermissions = if(Build.VERSION.SDK_INT>=31)
+        arrayOf(Manifest.permission.BLUETOOTH_SCAN,Manifest.permission.BLUETOOTH_CONNECT)
+    else arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+    val btLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){ result ->
+        if(btPermissions.all{result[it]==true}) scanner.start()
+        else vm.notify("Sem permissão, não é possível procurar a balança por Bluetooth.")
+    }
+    DisposableEffect(Unit) { onDispose { scanner.stop() } }
     val catalog=mapOf(
         "Xiaomi" to listOf("Mi Band 7","Mi Body Composition Scale 2","Smart Band (outras gerações)"),
         "Polar" to listOf("H9","H10","Verity Sense"),
@@ -146,16 +187,19 @@ import java.util.Locale
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
             when(section){
                 "Dispositivos" -> {
-                    Subtext("Equipamentos informados no cadastro. Não significa que estejam conectados.")
+                    Subtext("Dispositivos cadastrados não são, necessariamente, fontes conectadas.")
                     if(p.deviceNames.isEmpty())Pane{Subtext("Nenhum aparelho cadastrado. Adicione no Perfil ou consulte o catálogo.")}
                     p.deviceNames.forEach{name->Pane{
-                        Row(verticalAlignment=Alignment.CenterVertically){Icon(Icons.Default.Watch,null,tint=LightBlue);Spacer(Modifier.width(12.dp));Text(name)}
-                        Subtext("Estado: cadastrado · acesso aos dados não verificado")
+                        Row(verticalAlignment=Alignment.CenterVertically){
+                            Icon(Icons.Default.Watch,null,tint=LightBlue)
+                            Spacer(Modifier.width(12.dp));Text(name)
+                        }
+                        Subtext("Cadastrado · conexão e fornecimento de dados não garantidos")
                     }}
-                    PrimaryButton("Ver marcas e modelos",onClick={section="Catálogo"})
+                    PrimaryButton("Abrir conexões",onClick={section="Conexões"})
                 }
                 "Catálogo" -> {
-                    Subtext("Catálogo informativo: não afirmamos compatibilidade até testar cada método.")
+                    Subtext("Informações de compatibilidade — não equivalem a testes concluídos.")
                     catalog.keys.chunked(3).forEach{row->Row(horizontalArrangement=Arrangement.spacedBy(5.dp)){
                         row.forEach{brand->Choice(brand,brand==selectedBrand,{selectedBrand=brand;selectedModel=null},Modifier.weight(1f))}
                         repeat(3-row.size){Spacer(Modifier.weight(1f))}
@@ -163,24 +207,73 @@ import java.util.Locale
                     catalog[selectedBrand].orEmpty().forEach{device->Pane{
                         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
                             Text(device,Modifier.weight(1f))
-                            TextButton(onClick={selectedModel=if(selectedModel==device)null else device}){Text("Ver")}
+                            TextButton(onClick={selectedModel=if(selectedModel==device)null else device}){Text("Detalhes")}
                         }
                         if(selectedModel==device){
                             Subtext(when {
-                                device=="Mi Body Composition Scale 2"->"Bluetooth direto: candidato prioritário para testes com base no projeto openScale."
-                                device=="Mi Band 7"->"Via Zepp Life: investigar sincronização intermediada, sem API pública garantida."
-                                device in listOf("H9","H10","Verity Sense")->"Bluetooth direto documentado pela Polar; integração ainda não codificada."
-                                else->"Via aplicativo do fabricante/Health Connect, quando disponível. Integração não verificada."
+                                device=="Mi Body Composition Scale 2"->"Leitura experimental de pesagem estável via anúncios BLE (serviço 0x181B). Exige teste no aparelho real."
+                                device=="Mi Band 7"->"Sem conexão BLE direta nesta versão. Importação possível somente se um app publicar os dados no Health Connect."
+                                else->"Pode depender do aplicativo do fabricante e de sua compatibilidade com Health Connect. Não verificado."
                             })
                         }
                     }}
                 }
                 else -> {
-                    Pane{Text("Bluetooth direto",color=LightBlue)
-                        Subtext("Ainda não implementado nesta versão. Não solicitamos permissões de Bluetooth nem simulamos conexões.")}
-                    Pane{Text("Health Connect",color=LightBlue)
-                        Subtext("Integração futura. Nenhum dado de saúde é lido sem permissão real do Android.")}
-                    Pane{Text("Aplicativo informado");Text(p.deviceApp);Subtext("Histórico anterior: ${if(p.importHistory)"deseja importar quando possível" else "não solicitado"}")}
+                    Pane {
+                        Text("Health Connect",color=LightBlue,style=MaterialTheme.typography.titleMedium)
+                        Subtext("Leia dados existentes no celular, somente com sua autorização. Nada é importado automaticamente para o índice IAA.")
+                        Subtext(if(vm.healthAvailable()) "Serviço disponível neste Android." else
+                            "Indisponível neste aparelho. Android 14+: verifique Configurações. Android 9–13: instale/atualize Health Connect pela Play Store.")
+                        Subtext(healthMessage)
+                        PrimaryButton("Autorizar leitura",enabled=vm.healthAvailable()&&!healthBusy,onClick={
+                            healthLauncher.launch(healthPermissions)
+                        })
+                        OutlineButton("Atualizar dados",onClick={vm.refreshHealth()})
+                        if(healthBusy) CircularProgressIndicator()
+                        if(health!=null){
+                            HorizontalDivider()
+                            val h=health!!
+                            Text("Passos hoje: ${h.stepsToday?:"sem permissão"}")
+                            Text("Passos em 7 dias: ${h.stepsLast7Days?:"sem permissão"}")
+                            Text("Último peso: ${h.latestWeightKg?.let{String.format(Locale.getDefault(),"%.2f kg",it)}?:"sem registro nos últimos 30 dias"}")
+                            if(h.latestWeightSource!=null) Subtext("Fonte do peso: ${h.latestWeightSource}")
+                            Text("Frequência cardíaca: ${h.latestHeartBpm?.let{"$it bpm"}?:"sem amostra nas últimas 24 horas"}")
+                            if(h.latestHeartSource!=null) Subtext("Fonte da FC: ${h.latestHeartSource}")
+                            Subtext("Sessões registradas em 7 dias: ${h.exerciseSessionsLast7Days?:"sem permissão"}")
+                            Subtext("Fonte: Health Connect (pode reunir informações de vários aplicativos, não exclusivamente Xiaomi).")
+                        }
+                    }
+                    Pane {
+                        Text("Mi Body Composition Scale 2 — Bluetooth",color=LightBlue,style=MaterialTheme.typography.titleMedium)
+                        Subtext("Busca experimental por até 25 segundos. Ligue a balança, suba nela e aguarde a estabilização.")
+                        Subtext("Não identifica o usuário automaticamente. Confirme o peso antes de salvar. Não calcula gordura corporal ou PAI.")
+                        Subtext(scanMessage)
+                        PrimaryButton(if(scanning) "Procurando…" else "Procurar pesagem",enabled=!scanning,onClick={
+                            if(scanner.hasPermission()) scanner.start() else btLauncher.launch(btPermissions)
+                        })
+                        if(scanning) OutlineButton("Cancelar busca",onClick={scanner.stop()})
+                        if(scanReading!=null){
+                            Text("Peso detectado: ${String.format(Locale.getDefault(),"%.2f kg",scanReading!!.kilograms)}",
+                                style=MaterialTheme.typography.titleLarge)
+                            PrimaryButton("Confirmar e salvar meu peso",onClick={
+                                val measured = scanReading!!
+                                vm.saveScaleWeight(measured){
+                                    scanner.reading.value = null
+                                    vm.notify("Pesagem salva no celular. Use Importar da balança no Perfil para preencher o peso.")
+                                }
+                            })
+                        }
+                        if(weights.isNotEmpty()){
+                            Subtext("Último peso confirmado: ${String.format(Locale.getDefault(),"%.2f kg",weights.first().kilograms)}")
+                            OutlineButton("Usar último peso no Perfil",onClick={vm.importLatestSavedWeight()})
+                        }
+                    }
+                    Pane {
+                        Text("Mi Band 7 e Zepp Life",color=LightBlue)
+                        Subtext("A Mi Band 7 não é lida diretamente aqui. Se seu app sincronizador enviar passos e frequência cardíaca ao Health Connect, eles poderão aparecer acima.")
+                        Subtext("Aplicativo informado: ${p.deviceApp}")
+                        Subtext("Para importar dados é necessário haver outra fonte publicando registros no Health Connect. Não é garantido pelo cadastro da pulseira.")
+                    }
                 }
             }
         }

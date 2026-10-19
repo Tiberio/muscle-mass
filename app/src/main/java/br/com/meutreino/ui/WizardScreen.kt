@@ -9,6 +9,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
@@ -34,6 +36,12 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                                     numeric:Boolean=false,decimal:Boolean=false,modifier:Modifier=Modifier){
     // O cursor pertence ao estado local de edição, não à gravação assíncrona no DataStore.
     var field by remember(label){ mutableStateOf(TextFieldValue(value)) }
+    var focused by remember(label) { mutableStateOf(false) }
+    // Importação externa pode mudar o valor; não sobrescrever digitação/cursor em andamento.
+    LaunchedEffect(value,focused) {
+        if(!focused && value != field.text)
+            field=TextFieldValue(value,selection=TextRange(value.length))
+    }
     OutlinedTextField(value=field,onValueChange={ next ->
         val cleaned=if(!numeric)next.text.take(500) else if(decimal)
             next.text.replace(',','.').filter { it.isDigit()||it=='.' }.take(7)
@@ -43,7 +51,8 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
         onValue(cleaned)
     }, label={Text(label)},keyboardOptions=KeyboardOptions(keyboardType=when {
         decimal->KeyboardType.Decimal;numeric->KeyboardType.Number;else->KeyboardType.Text
-    }), modifier=modifier.fillMaxWidth(),singleLine=!(!numeric&&label.contains("evitar")))
+    }), modifier=modifier.fillMaxWidth().onFocusChanged { focused=it.isFocused },
+        singleLine=!(!numeric&&label.contains("evitar")))
 }
 @Composable private fun InputNumber(value:String,label:String,onValue:(String)->Unit,modifier:Modifier=Modifier){
     StableInput(value,label,onValue,numeric=true,decimal=label.startsWith("Peso"),modifier=modifier)
@@ -68,6 +77,8 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
 @Composable fun WizardScreen(p:UserPrefs,vm:MainViewModel,target:String?,fromProfile:Boolean,onDone:()->Unit,onClose:()->Unit){
     var idx by remember(target,fromProfile){mutableIntStateOf(steps.indexOfFirst{it.id==target}.takeIf{it>=0}?:0)}
     var editingFromReview by remember {mutableStateOf(false)}
+    val savedWeights by vm.weightHistory.collectAsState()
+    val focusManager= LocalFocusManager.current
     val item=steps[idx]
     val inReview=item.id=="review"
     val phaseSteps=steps.filter{it.phase==item.phase}
@@ -100,8 +111,9 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     InputNumber(p.age,"Idade (anos)",{vm.edit{a->a.copy(age=it)}})
                     InputNumber(p.heightCm,"Altura (cm, opcional)",{vm.edit{a->a.copy(heightCm=it)}})
                     InputNumber(p.weightKg,"Peso (kg, opcional)",{vm.edit{a->a.copy(weightKg=it)}})
-                    OutlinedButton(onClick={},enabled=false,modifier=Modifier.fillMaxWidth()){Text("Importar da balança (em breve)")}
-                    Subtext("Nenhuma balança está conectada nesta versão.")
+                    OutlinedButton(onClick={focusManager.clearFocus();vm.importLatestSavedWeight()},enabled=savedWeights.isNotEmpty(),modifier=Modifier.fillMaxWidth()){Text("Importar da balança")}
+                    Subtext(if(savedWeights.isEmpty()) "Primeiro salve uma pesagem na aba Dispositivos; depois será possível importá-la aqui."
+                        else "Último peso salvo: ${savedWeights.first().kilograms} kg. Toque para copiar ao Perfil.")
                 }
                 "experience" -> Pane {
                     Text("Qual sua experiência com musculação?")
@@ -189,7 +201,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                 }
                 "deviceApp" -> Pane {
                     SingleList(listOf("Zepp Life","Mi Fitness","Outro / não sei"),p.deviceApp){v->vm.edit{it.copy(deviceApp=v)}}
-                    Subtext("Você poderá escolher marca e modelo, Bluetooth ou Health Connect na aba Dispositivos. Essas integrações ainda estão em desenvolvimento.")
+                    Subtext("Você poderá escolher marca e modelo, Bluetooth ou Health Connect na aba Dispositivos. Health Connect e leitura básica da balança estão disponíveis; outras integrações seguem em desenvolvimento.")
                 }
                 "dataAccess" -> Pane {
                     Row(verticalAlignment=Alignment.CenterVertically){Checkbox(checked=p.importHistory,onCheckedChange={v->vm.edit{it.copy(importHistory=v)}});Text("Tenho interesse em importar histórico antigo")}

@@ -52,7 +52,18 @@ data class CardioActivityEntity(
     val source: String = "manual"
 )
 
+@Entity(tableName="weight_measurements", indices=[Index(value=["recordedAt"])])
+data class WeightMeasurementEntity(
+    @PrimaryKey(autoGenerate=true) val id: Long = 0,
+    val recordedAt: Long,
+    val kilograms: Double,
+    val source: String
+)
+
 @Dao interface WorkoutDao {
+    @Insert suspend fun insertWeight(measurement: WeightMeasurementEntity): Long
+    @Query("SELECT * FROM weight_measurements ORDER BY recordedAt DESC, id DESC")
+    fun observeWeights(): Flow<List<WeightMeasurementEntity>>
     @Insert suspend fun insertSession(session: WorkoutSessionEntity): Long
     @Insert suspend fun insertSet(set: WorkoutSetEntity): Long
     @Insert suspend fun insertCardio(activity: CardioActivityEntity)
@@ -72,7 +83,7 @@ data class CardioActivityEntity(
     fun observeAllSets(): Flow<List<WorkoutSetEntity>>
 }
 
-@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class],version=2,exportSchema=false)
+@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class,WeightMeasurementEntity::class],version=3,exportSchema=false)
 abstract class WorkoutDatabase: RoomDatabase() {
     abstract fun dao(): WorkoutDao
 }
@@ -83,5 +94,13 @@ val MIGRATION_1_2 = object: Migration(1,2) {
         db.execSQL("ALTER TABLE sessions ADD COLUMN cardioIntensity TEXT NOT NULL DEFAULT 'UNKNOWN'")
         db.execSQL("CREATE TABLE IF NOT EXISTS cardio_activities (`id` TEXT NOT NULL, `recordedAt` INTEGER NOT NULL, `minutes` INTEGER NOT NULL, `intensity` TEXT NOT NULL, `modality` TEXT NOT NULL, `source` TEXT NOT NULL, PRIMARY KEY(`id`))")
         db.execSQL("CREATE INDEX IF NOT EXISTS index_cardio_activities_recordedAt ON cardio_activities (`recordedAt`)")
+    }
+}
+
+/** A migração 2→3 adiciona somente pesagens confirmadas, preservando históricos antigos. */
+val MIGRATION_2_3 = object: Migration(2,3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS `weight_measurements` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `recordedAt` INTEGER NOT NULL, `kilograms` REAL NOT NULL, `source` TEXT NOT NULL)")
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_weight_measurements_recordedAt` ON `weight_measurements` (`recordedAt`)")
     }
 }
