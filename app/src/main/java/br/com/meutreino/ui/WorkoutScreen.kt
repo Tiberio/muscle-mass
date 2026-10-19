@@ -34,6 +34,7 @@ import kotlinx.coroutines.delay
     var rir by remember(active.id){mutableStateOf<Int?>(null)}
     var showVideoHelp by remember{mutableStateOf(false)}
     var cardioMinutes by remember(active.id){mutableStateOf("0")}
+    var cardioIntensity by remember(active.id){mutableStateOf("MODERADA")}
     var cardioPage by remember(active.id){mutableStateOf(false)}
     val context=LocalContext.current
     val total=planned.sumOf{it.sets}
@@ -47,7 +48,11 @@ import kotlinx.coroutines.delay
     LaunchedEffect(resting){ while(resting&&seconds>0){delay(1000);seconds--} }
     val pres=planned.getOrNull(index)
     val base=pres?.exercise
-    val ex=base?.let{ExerciseCatalog.byId(p.overrides["${active.planId}:${it.id}"]?:it.id)?:it}
+    val ex=base?.let { baseEx ->
+        val candidate=ExerciseCatalog.byId(p.overrides["${active.planId}:${baseEx.id}"]?:baseEx.id)
+        val allowed=ExerciseCatalog.options(active.environment,p.equipments,p.experience)
+        candidate?.takeIf { it in allowed && it.pattern==baseEx.pattern } ?: baseEx
+    }
     val doneForExercise=base?.let{b->logged.count{it.exerciseId==b.id}}?:0
     val hasLoad=ex?.required?.any{it=="Halteres"||it=="Máquinas"}==true
     fun advance(){
@@ -70,13 +75,21 @@ import kotlinx.coroutines.delay
                         Text("${logged.size} séries registradas")
                         Subtext("Se realizou cardio, informe a duração em minutos; caso contrário, use zero.")
                         OutlinedTextField(value=cardioMinutes,onValueChange={cardioMinutes=it.filter(Char::isDigit).take(3)},label={Text("Cardio realizado (min)")},keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number),modifier=Modifier.fillMaxWidth())
+                        if ((cardioMinutes.toIntOrNull()?:0)>0) {
+                            Subtext("Intensidade efetivamente realizada (teste da fala)")
+                            Row(horizontalArrangement=Arrangement.spacedBy(4.dp)) {
+                                listOf("LEVE","MODERADA","VIGOROSA").forEach { mode ->
+                                    Choice(mode.lowercase().replaceFirstChar { it.uppercase() },cardioIntensity==mode,{cardioIntensity=mode},Modifier.weight(1f))
+                                }
+                            }
+                        }
                         PrimaryButton("Salvar e concluir",enabled=cardioMinutes.toIntOrNull() in 0..180){
-                            vm.finish(active.id,cardioMinutes.toIntOrNull()?:0,onFinished)
+                            vm.finish(active.id,cardioMinutes.toIntOrNull()?:0,cardioIntensity,onFinished)
                         }
                     }
                 }
                 ex==null -> {Title("Sem exercícios compatíveis");Subtext("Revise o ambiente e os equipamentos. Você poderá encerrar esta sessão sem séries.")
-                    PrimaryButton("Concluir sessão",onClick={vm.finish(active.id,0,onFinished)})}
+                    PrimaryButton("Concluir sessão",onClick={vm.finish(active.id,0,"UNKNOWN",onFinished)})}
                 resting -> {
                     Title("Intervalo entre séries")
                     Pane {

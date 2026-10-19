@@ -36,7 +36,7 @@ class SettingsStore(private val context: Context) {
         put("weeklyCount",p.weeklyCount);put("minutesPerSession",p.minutesPerSession)
         put("preferredTime",p.preferredTime);put("flexibleDuration",p.flexibleDuration)
         put("cardioActivities",JSONArray(p.cardioActivities));put("cardioWhen",p.cardioWhen)
-        put("cardioMinutes",p.cardioMinutes);put("cardioIntensity",p.cardioIntensity)
+        put("cardioMinutes",p.cardioMinutes);put("cardioWeeklyDays",p.cardioWeeklyDays);put("cardioIntensity",p.cardioIntensity)
         put("deviceNames",JSONArray(p.deviceNames));put("deviceApp",p.deviceApp)
         put("importHistory",p.importHistory)
         put("overrides",JSONObject(p.overrides));put("assignments",JSONObject(p.assignments))
@@ -52,7 +52,7 @@ class SettingsStore(private val context: Context) {
         weekdays=list(o,"weekdays"),weeklyCount=o.optInt("weeklyCount",3),
         minutesPerSession=o.optInt("minutesPerSession",45),preferredTime=o.optString("preferredTime","Sem preferência"),
         flexibleDuration=o.optBoolean("flexibleDuration",false),cardioActivities=list(o,"cardioActivities"),
-        cardioWhen=o.optString("cardioWhen","Misto"),cardioMinutes=o.optInt("cardioMinutes",15),
+        cardioWhen=o.optString("cardioWhen","Misto"),cardioMinutes=o.optInt("cardioMinutes",15),cardioWeeklyDays=o.optInt("cardioWeeklyDays",0),
         cardioIntensity=o.optString("cardioIntensity","Adaptativa"),deviceNames=list(o,"deviceNames"),
         deviceApp=o.optString("deviceApp","Zepp Life"),importHistory=o.optBoolean("importHistory",false),
         overrides=map(o,"overrides"),assignments=map(o,"assignments"),

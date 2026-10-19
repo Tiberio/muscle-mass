@@ -1,3 +1,5 @@
+> Atualização 19/10/2026: a implementação v0.2.0 foi preparada. Consulte docs/ALTERACOES_v0.2.0.md e docs/FUNDAMENTACAO_CIENTIFICA.md. A compilação Android completa ainda não foi executada neste ambiente.
+
 # Estado de implementação — 17/10/2026
 
 ## Implementado em código

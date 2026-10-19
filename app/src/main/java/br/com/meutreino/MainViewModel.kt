@@ -5,6 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import br.com.meutreino.data.SettingsStore
+import br.com.meutreino.data.CardioActivityEntity
+import br.com.meutreino.data.MIGRATION_1_2
+import java.util.UUID
 import br.com.meutreino.data.WorkoutDatabase
 import br.com.meutreino.data.WorkoutSessionEntity
 import br.com.meutreino.data.WorkoutSetEntity
@@ -21,12 +24,13 @@ import kotlinx.coroutines.sync.withLock
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     private val store = SettingsStore(application)
-    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").build()
+    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2).build()
     private val dao = db.dao()
     private val writeLock = Mutex()
     val prefs: StateFlow<UserPrefs?> = store.data.stateIn(viewModelScope,SharingStarted.Eagerly,null)
     val sessions = dao.observeSessions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     val allSets = dao.observeAllSets().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val cardioActivities = dao.observeCardio().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     val activeSession=MutableStateFlow<WorkoutSessionEntity?>(null)
     val temporaryEnvironment=MutableStateFlow<String?>(null)
     val showMessage=MutableStateFlow<String?>(null)
@@ -70,12 +74,26 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             onSaved()
         }
     }
-    fun finish(sessionId:Long,cardio:Int,onDone:()->Unit) {
+    fun finish(sessionId:Long,cardio:Int,intensity:String,onDone:()->Unit) {
         viewModelScope.launch {
-            dao.finishSession(sessionId,System.currentTimeMillis(),cardio)
+            dao.finishSession(sessionId,System.currentTimeMillis(),cardio,intensity)
             activeSession.value=null
             temporaryEnvironment.value=null
             onDone()
+        }
+    }
+    fun deleteSession(id:Long,onDone:()->Unit) {
+        viewModelScope.launch {
+            dao.deleteSession(id) // FK CASCADE remove as séries da sessão
+            if(activeSession.value?.id==id)activeSession.value=null
+            onDone()
+        }
+    }
+    fun addManualCardio(minutes:Int,intensity:String,modality:String,onSaved:()->Unit) {
+        if(minutes !in 1..720 || intensity !in listOf("LEVE","MODERADA","VIGOROSA")) return
+        viewModelScope.launch {
+            dao.insertCardio(CardioActivityEntity(UUID.randomUUID().toString(),System.currentTimeMillis(),minutes,intensity,modality))
+            onSaved()
         }
     }
     fun notify(text:String){showMessage.value=text}

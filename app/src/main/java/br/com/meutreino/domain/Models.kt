@@ -15,6 +15,7 @@ data class UserPrefs(
     val preferredTime: String = "Sem preferência", val flexibleDuration: Boolean = false,
     val cardioActivities: List<String> = emptyList(),
     val cardioWhen: String = "Misto", val cardioMinutes: Int = 15,
+    val cardioWeeklyDays: Int = 0, // 0 = junto aos dias de musculação
     val cardioIntensity: String = "Adaptativa",
     val deviceNames: List<String> = emptyList(),
     val deviceApp: String = "Zepp Life", val importHistory: Boolean = false,

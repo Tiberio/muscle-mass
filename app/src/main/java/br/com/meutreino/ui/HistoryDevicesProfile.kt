@@ -14,13 +14,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import br.com.meutreino.data.WorkoutSessionEntity
 import br.com.meutreino.data.WorkoutSetEntity
+import br.com.meutreino.data.CardioActivityEntity
+import br.com.meutreino.domain.ActivityEvents
+import java.time.LocalDate
 import br.com.meutreino.domain.UserPrefs
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-@Composable fun HistoryScreen(sessions:List<WorkoutSessionEntity>,sets:List<WorkoutSetEntity>){
+@Composable fun HistoryScreen(sessions:List<WorkoutSessionEntity>,sets:List<WorkoutSetEntity>,
+    cardio:List<CardioActivityEntity>,onDelete:(Long,()->Unit)->Unit,
+    onAddCardio:(Int,String,String,()->Unit)->Unit){
     var section by remember{mutableStateOf("Sessões")}
+    var deleteConfirm by remember{mutableStateOf(false)}
+    var manualMinutes by remember{mutableStateOf("")}
+    var manualIntensity by remember{mutableStateOf("MODERADA")}
+    var manualModality by remember{mutableStateOf("Caminhada")}
+    val summary=ActivityEvents.summary(sessions,sets,cardio,LocalDate.now())
     var selectedSession by remember{mutableStateOf<Long?>(null)}
     var selectedExercise by remember{mutableStateOf<String?>(null)}
     val completed=sessions.filter{it.status=="COMPLETED"}
@@ -41,6 +51,7 @@ import java.util.Locale
                             Text("${set.exerciseName} · Série ${set.setNumber}")
                             Subtext("${set.repetitions} repetições · ${set.loadKg?.let{v->"$v kg"}?:"peso corporal/elástico"} · RIR ${set.rir?.toString()?:"não informado"}")
                         }}
+                        OutlineButton("Excluir esta sessão (inclusive séries)",onClick={deleteConfirm=true})
                     }else{
                         Pane{Text("${completed.size} treinos concluídos",style=MaterialTheme.typography.titleLarge)
                             Subtext("${sets.size} séries salvas no celular · ${completed.sumOf{it.cardioMinutes}} min de cardio informado")}
@@ -81,11 +92,37 @@ import java.util.Locale
                         Subtext("Quando a integração estiver pronta, peso, frequência cardíaca, passos e sono aparecerão com identificação da fonte.")
                     }
                     Pane{Text("PAI Xiaomi");Subtext("Não disponível. Não é possível calcular ou exibir o PAI original sem uma fonte compatível.")}
-                    Pane{Text("Índice próprio de atividade");Subtext("Em desenvolvimento. A fórmula será documentada e não será apresentada como equivalente ao PAI.")}
+                    ActivityScoreCard(summary)
+                    Pane {
+                        Text("Adicionar cardio realizado",color=LightBlue)
+                        Subtext("Registre atividades fora das sessões de musculação. Dados reais, não planejados.")
+                        OutlinedTextField(value=manualMinutes,onValueChange={manualMinutes=it.filter(Char::isDigit).take(3)},
+                            label={Text("Minutos de cardio")},singleLine=true,modifier=Modifier.fillMaxWidth())
+                        Text("Intensidade (teste da fala)")
+                        listOf("LEVE","MODERADA","VIGOROSA").forEach{mode->
+                            Choice(mode.lowercase().replaceFirstChar{it.uppercase()},manualIntensity==mode,{manualIntensity=mode},Modifier.fillMaxWidth())
+                        }
+                        Text("Modalidade")
+                        listOf("Caminhada","Elíptico","Bicicleta","Corrida","Outro").forEach{v->
+                            Choice(v,manualModality==v,{manualModality=v},Modifier.fillMaxWidth())
+                        }
+                        PrimaryButton("Registrar cardio",enabled=manualMinutes.toIntOrNull() in 1..720,onClick={
+                            onAddCardio(manualMinutes.toIntOrNull()?:0,manualIntensity,manualModality){manualMinutes=""}
+                        })
+                    }
                 }
             }
         }
     }
+    if(deleteConfirm && selectedSession!=null)AlertDialog(onDismissRequest={deleteConfirm=false},
+        title={Text("Excluir sessão de treino?")},
+        text={Text("Esta sessão e todas as suas séries serão excluídas permanentemente. A ficha do plano será mantida.")},
+        confirmButton={TextButton(onClick={
+            val id=selectedSession!!
+            deleteConfirm=false
+            onDelete(id){selectedSession=null}
+        }){Text("Excluir")}},
+        dismissButton={TextButton(onClick={deleteConfirm=false}){Text("Cancelar")}})
 }
 
 @Composable fun DeviceScreen(p:UserPrefs){
@@ -164,6 +201,7 @@ import java.util.Locale
         Triple("Tempo por sessão","${p.minutesPerSession} minutos","duration"),
         Triple("Cardio",p.cardioActivities.joinToString().ifBlank{"Não selecionado"},"cardio"),
         Triple("Duração do cardio","${p.cardioMinutes} min","cardioDuration"),
+        Triple("Frequência do cardio",if(p.cardioWeeklyDays==7)"Todos os dias" else if(p.cardioWeeklyDays==0)"Nos dias da musculação" else "${p.cardioWeeklyDays} dias/semana","cardioFrequency"),
         Triple("Intensidade do cardio",p.cardioIntensity,"cardioIntensity"),
         Triple("Dispositivos",p.deviceNames.joinToString().ifBlank{"Nenhum"},"devices")
     )

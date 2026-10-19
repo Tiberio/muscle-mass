@@ -11,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.unit.dp
 import br.com.meutreino.MainViewModel
 import br.com.meutreino.domain.UserPrefs
@@ -22,15 +24,29 @@ private val steps=listOf(
     WizardItem("goal",3,"Objetivos"),WizardItem("muscles",3,"Prioridades musculares"),
     WizardItem("environments",4,"Locais de treino"),WizardItem("equipment",4,"Equipamentos"),
     WizardItem("days",5,"Disponibilidade"),WizardItem("duration",5,"Tempo por sessão"),WizardItem("time",5,"Horário preferido"),
-    WizardItem("cardio",6,"Atividades aeróbicas"),WizardItem("cardioWhen",6,"Organização do cardio"),WizardItem("cardioDuration",6,"Duração do cardio"),WizardItem("cardioIntensity",6,"Intensidade"),
+    WizardItem("cardio",6,"Atividades aeróbicas"),WizardItem("cardioWhen",6,"Organização do cardio"),WizardItem("cardioFrequency",6,"Dias de cardio"),WizardItem("cardioDuration",6,"Duração do cardio"),WizardItem("cardioIntensity",6,"Intensidade"),
     WizardItem("devices",7,"Seus dispositivos"),WizardItem("deviceApp",7,"Aplicativos de saúde"),WizardItem("dataAccess",7,"Dados e histórico"),
     WizardItem("review",8,"Revisão final")
 )
 private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
 
+@Composable private fun StableInput(value:String,label:String,onValue:(String)->Unit,
+                                    numeric:Boolean=false,decimal:Boolean=false,modifier:Modifier=Modifier){
+    // O cursor pertence ao estado local de edição, não à gravação assíncrona no DataStore.
+    var field by remember(label){ mutableStateOf(TextFieldValue(value)) }
+    OutlinedTextField(value=field,onValueChange={ next ->
+        val cleaned=if(!numeric)next.text.take(500) else if(decimal)
+            next.text.replace(',','.').filter { it.isDigit()||it=='.' }.take(7)
+        else next.text.filter(Char::isDigit).take(3)
+        val cursor=next.selection.start.coerceIn(0,cleaned.length)
+        field=next.copy(text=cleaned,selection=TextRange(cursor))
+        onValue(cleaned)
+    }, label={Text(label)},keyboardOptions=KeyboardOptions(keyboardType=when {
+        decimal->KeyboardType.Decimal;numeric->KeyboardType.Number;else->KeyboardType.Text
+    }), modifier=modifier.fillMaxWidth(),singleLine=!(!numeric&&label.contains("evitar")))
+}
 @Composable private fun InputNumber(value:String,label:String,onValue:(String)->Unit,modifier:Modifier=Modifier){
-    OutlinedTextField(value=value,onValueChange={onValue(it.filter(Char::isDigit).take(3))},label={Text(label)},
-        keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number),modifier=modifier.fillMaxWidth(),singleLine=true)
+    StableInput(value,label,onValue,numeric=true,decimal=label.startsWith("Peso"),modifier=modifier)
 }
 @Composable private fun ToggleList(title:String,items:List<String>,chosen:List<String>,onToggle:(String)->Unit,max:Int=100){
     Text(title,color=Muted)
@@ -95,7 +111,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                 }
                 "limitations" -> Pane {
                     Subtext("Existem movimentos que precisam ser evitados ou adaptados? Não é necessário informar diagnósticos.")
-                    OutlinedTextField(value=p.limitations,onValueChange={v->vm.edit{it.copy(limitations=v)}},label={Text("Movimentos a evitar (opcional)")},modifier=Modifier.fillMaxWidth(),minLines=2)
+                    StableInput(p.limitations,"Movimentos a evitar (opcional)",{v->vm.edit{it.copy(limitations=v)}})
                     Subtext("Se houver dor ou restrição importante, consulte um profissional habilitado antes de seguir a proposta automática.")
                 }
                 "goal" -> Pane {
@@ -151,6 +167,14 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     if(p.cardioActivities.isEmpty())Subtext("Você não selecionou cardio; esta etapa pode ser ignorada.")
                     else SingleList(listOf("Após musculação","Dias separados","Misto"),p.cardioWhen){v->vm.edit{it.copy(cardioWhen=v)}}
                 }
+                "cardioFrequency" -> Pane {
+                    Subtext("Com que frequência deseja fazer cardio? A opção diária inclui dias sem musculação.")
+                    if(p.cardioActivities.isEmpty())Subtext("Sem cardio selecionado.")
+                    else SingleList(listOf("Nos dias da musculação","3 dias por semana","5 dias por semana","Todos os dias (7)"),
+                        when(p.cardioWeeklyDays){3->"3 dias por semana";5->"5 dias por semana";7->"Todos os dias (7)";else->"Nos dias da musculação"}){v->
+                        vm.edit{it.copy(cardioWeeklyDays=when(v){"3 dias por semana"->3;"5 dias por semana"->5;"Todos os dias (7)"->7;else->0})}
+                    }
+                }
                 "cardioDuration" -> Pane {
                     if(p.cardioActivities.isEmpty())Subtext("Nenhuma duração de cardio necessária.")
                     else ToggleDuration(p.cardioMinutes,{v->vm.edit{it.copy(cardioMinutes=v)}},listOf(10,15,20,30))
@@ -184,6 +208,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     ReviewRow("Duração","${p.minutesPerSession} minutos por treino","duration",{idx=steps.indexOfFirst{it.id=="duration"};editingFromReview=true})
                     ReviewRow("Horário",p.preferredTime,"time",{idx=steps.indexOfFirst{it.id=="time"};editingFromReview=true})
                     ReviewRow("Cardio",p.cardioActivities.joinToString().ifBlank{"Sem cardio"},"cardio",{idx=steps.indexOfFirst{it.id=="cardio"};editingFromReview=true})
+                    ReviewRow("Frequência do cardio",if(p.cardioWeeklyDays==7)"Todos os dias" else if(p.cardioWeeklyDays==0)"Nos dias da musculação" else "${p.cardioWeeklyDays} dias por semana","cardioFrequency",{idx=steps.indexOfFirst{it.id=="cardioFrequency"};editingFromReview=true})
                     ReviewRow("Distribuição",p.cardioWhen,"cardioWhen",{idx=steps.indexOfFirst{it.id=="cardioWhen"};editingFromReview=true})
                     ReviewRow("Duração do cardio","${p.cardioMinutes} min","cardioDuration",{idx=steps.indexOfFirst{it.id=="cardioDuration"};editingFromReview=true})
                     ReviewRow("Intensidade do cardio",p.cardioIntensity,"cardioIntensity",{idx=steps.indexOfFirst{it.id=="cardioIntensity"};editingFromReview=true})
@@ -228,7 +253,7 @@ private fun toggle(items:List<String>,v:String)=if(v in items)items-v else items
     }
     Choice("Outro tempo",other,{other=true},Modifier.fillMaxWidth())
     if(other){
-        var temp by remember {mutableStateOf(value.toString())}
+        var temp by remember(value !in options) {mutableStateOf(value.toString())}
         OutlinedTextField(value=temp,onValueChange={ s->temp=s.filter(Char::isDigit).take(3);temp.toIntOrNull()?.let(onValue)},
             label={Text("Duração em minutos")},keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number),singleLine=true,modifier=Modifier.fillMaxWidth())
     }

@@ -23,8 +23,9 @@ import br.com.meutreino.domain.UserPrefs
     val active by vm.activeSession.collectAsState()
     val allSets by vm.allSets.collectAsState()
     val sessions by vm.sessions.collectAsState()
+    val cardioRecords by vm.cardioActivities.collectAsState()
     val plan=remember(p){TrainingPlanner.build(p)}
-    val currentPlan=plan.sessions.firstOrNull{it.id==selectedPlanId} ?:plan.sessions.firstOrNull()
+    
     val showTabs=p.onboardingCompleted&&p.planAccepted&&page=="main"
     val message by vm.showMessage.collectAsState()
     Scaffold(containerColor=Midnight,
@@ -47,13 +48,13 @@ import br.com.meutreino.domain.UserPrefs
                 page=="workout" && active!=null -> WorkoutScreen(vm, p,active!!,plan,allSets.filter{it.sessionId==active!!.id},
                     onExit={page="main"},onFinished={page="main";tab="Histórico"})
                 else -> when(tab){
-                    "Hoje" -> TodayScreen(p,plan,temporary,active,sessions,onChangeToday=vm::changeTodayEnvironment,onStart={ s ->
+                    "Hoje" -> TodayScreen(p,plan,temporary,active,sessions,allSets,cardioRecords,onChangeToday=vm::changeTodayEnvironment,onStart={ s ->
                         selectedPlanId=s.id
                         val env=temporary ?: p.defaultEnvironment.ifBlank {p.environments.firstOrNull()?:"Casa sem equipamentos"}
                         vm.start(s.id,s.title,env){page="workout"}
                     },onResume={page="workout"})
                     "Plano" -> PlanScreen(p,plan,onChangeDay={id,day->vm.changeAssignment(id,day)},onOverride={id,ex,replacement->vm.changeExercise(id,ex,replacement)},onRefresh={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
-                    "Histórico" -> HistoryScreen(sessions,allSets)
+                    "Histórico" -> HistoryScreen(sessions,allSets,cardioRecords,vm::deleteSession,vm::addManualCardio)
                     "Dispositivos" -> DeviceScreen(p)
                     else -> ProfileScreen(p,onEdit={ target ->wizardTarget=target;editFromProfile=true;page="wizard" },onResetPlan={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
                 }

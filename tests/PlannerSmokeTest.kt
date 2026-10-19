@@ -26,5 +26,11 @@ fun main() {
     check(balance.effectiveSets.isNotEmpty())
     check(balance.effectiveSets.values.all{it>=0.0})
     check(BalanceAnalyzer.analyze(body).remarks.any{it.contains("puxar")})
-    println("OK: 10 verificações do núcleo de planejamento e equilíbrio passaram.")
+    val five=TrainingPlanner.build(p.copy(weekdays=listOf("Seg","Ter","Qua","Qui","Sex")))
+    check(five.sessions.size==5)
+    check(five.sessions[0].title.startsWith("Superiores"))
+    check(five.sessions[1].title.startsWith("Inferiores"))
+    check(five.sessions[2].title.startsWith("Superiores"))
+    check(five.sessions[0].exercises.map{it.exercise.id} != five.sessions[2].exercises.map{it.exercise.id}) { "Treinos superiores A/B idênticos" }
+    println("OK: 14 verificações do núcleo de planejamento e equilíbrio passaram.")
 }

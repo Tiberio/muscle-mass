@@ -1,3 +1,13 @@
+# Meu Treino — projeto Android v0.2.0
+
+**Novidade:** `docs/FUNDAMENTACAO_CIENTIFICA.md` (diretrizes médicas, descanso, cardio e fórmula do Índice de Atividade Acumulada).
+
+**Alterações e cuidados ao atualizar:** `docs/ALTERACOES_v0.2.0.md`.
+
+**Compilação:** pelo GitHub Actions existente, em `.github/workflows/android-debug.yml`. Esta versão ainda precisa passar pela compilação Android real e testes no celular.
+
+---
+
 # Meu Treino — Android (versão inicial 0.1)
 
 Projeto Android em **Kotlin + Jetpack Compose**, com tema Moderno Escuro, criado a partir da especificação funcional aprovada.
