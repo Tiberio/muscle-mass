@@ -75,3 +75,7 @@ docs/PLANEJAMENTO_v0.4.0.md
 ## Próxima atualização: v0.4.0
 
 Ampliação do catálogo para **≥150 exercícios distintos**, com calistenia, pesos livres, máquinas e elásticos. Cada registro terá grupos musculares, equipamentos, dificuldade e orientações claras, com testes de cobertura. As funcionalidades de dispositivos já introduzidas serão mantidas e corrigidas conforme os testes da v0.3.0.
+
+### Mi Band 7 — diagnóstico BLE experimental (v0.3.0)
+
+Em **Dispositivos → Conexões → Mi Band 7**, é possível procurar dispositivos BLE, testar a conexão GATT e verificar serviços padrão de bateria/FC. Isso **não é pareamento Huami nem acesso ao histórico**. Consulte `docs/MI_BAND_7_v0.3.0.md`.

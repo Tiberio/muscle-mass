@@ -12,6 +12,7 @@ import br.com.meutreino.data.WeightMeasurementEntity
 import br.com.meutreino.devices.HealthConnectGateway
 import br.com.meutreino.devices.HealthSnapshot
 import br.com.meutreino.devices.MiScaleScanner
+import br.com.meutreino.devices.MiBand7Probe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID
@@ -35,6 +36,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val dao = db.dao()
     private val health = HealthConnectGateway(application)
     val scaleScanner = MiScaleScanner(application)
+    val bandProbe = MiBand7Probe(application)
     val healthSnapshot = MutableStateFlow<HealthSnapshot?>(null)
     val healthMessage = MutableStateFlow("Acesso opcional. Você controla as permissões no Android.")
     val healthBusy = MutableStateFlow(false)
@@ -155,5 +157,5 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     }
     fun notify(text:String){showMessage.value=text}
     fun clearMessage(){showMessage.value=null}
-    override fun onCleared() { scaleScanner.stop(); super.onCleared(); db.close() }
+    override fun onCleared() { scaleScanner.stop(); bandProbe.close(); super.onCleared(); db.close() }
 }

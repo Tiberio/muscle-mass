@@ -152,6 +152,14 @@ import java.util.Locale
     val healthMessage by vm.healthMessage.collectAsState()
     val healthBusy by vm.healthBusy.collectAsState()
     val scanner = vm.scaleScanner
+    val band = vm.bandProbe
+    val bandMessage by band.message.collectAsState()
+    val bandScanning by band.scanning.collectAsState()
+    val bandConnected by band.connected.collectAsState()
+    val bandNearby by band.nearby.collectAsState()
+    val bandServices by band.services.collectAsState()
+    val bandBattery by band.batteryPercent.collectAsState()
+    val bandHeart by band.heartBpm.collectAsState()
     val scanMessage by scanner.message.collectAsState()
     val scanning by scanner.scanning.collectAsState()
     val scanReading by scanner.reading.collectAsState()
@@ -169,7 +177,11 @@ import java.util.Locale
         if(btPermissions.all{result[it]==true}) scanner.start()
         else vm.notify("Sem permissão, não é possível procurar a balança por Bluetooth.")
     }
-    DisposableEffect(Unit) { onDispose { scanner.stop() } }
+    val bandBtLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
+        if(btPermissions.all { result[it] == true }) band.startScan()
+        else vm.notify("Sem autorização, não é possível procurar a Mi Band 7 por Bluetooth.")
+    }
+    DisposableEffect(Unit) { onDispose { scanner.stop(); band.close() } }
     val catalog=mapOf(
         "Xiaomi" to listOf("Mi Band 7","Mi Body Composition Scale 2","Smart Band (outras gerações)"),
         "Polar" to listOf("H9","H10","Verity Sense"),
@@ -212,7 +224,7 @@ import java.util.Locale
                         if(selectedModel==device){
                             Subtext(when {
                                 device=="Mi Body Composition Scale 2"->"Leitura experimental de pesagem estável via anúncios BLE (serviço 0x181B). Exige teste no aparelho real."
-                                device=="Mi Band 7"->"Sem conexão BLE direta nesta versão. Importação possível somente se um app publicar os dados no Health Connect."
+                                device=="Mi Band 7"->"Diagnóstico Bluetooth direto experimental: busca e serviços GATT. A leitura de histórico privado ainda exige a chave de autenticação Huami; dados sincronizados podem chegar pelo Health Connect."
                                 else->"Pode depender do aplicativo do fabricante e de sua compatibilidade com Health Connect. Não verificado."
                             })
                         }
@@ -269,10 +281,37 @@ import java.util.Locale
                         }
                     }
                     Pane {
-                        Text("Mi Band 7 e Zepp Life",color=LightBlue)
-                        Subtext("A Mi Band 7 não é lida diretamente aqui. Se seu app sincronizador enviar passos e frequência cardíaca ao Health Connect, eles poderão aparecer acima.")
-                        Subtext("Aplicativo informado: ${p.deviceApp}")
-                        Subtext("Para importar dados é necessário haver outra fonte publicando registros no Health Connect. Não é garantido pelo cadastro da pulseira.")
+                        Text("Mi Band 7 — Bluetooth experimental",color=LightBlue,style=MaterialTheme.typography.titleMedium)
+                        Subtext("Diagnóstico direto, sem parear, desvincular ou alterar a configuração do Zepp Life. Uma conexão BLE não garante acesso ao histórico protegido por autenticação Huami.")
+                        Subtext(bandMessage)
+                        PrimaryButton(if(bandScanning) "Procurando dispositivos…" else "Procurar Mi Band 7",enabled=!bandScanning,onClick={
+                            if(band.hasPermission()) band.startScan() else bandBtLauncher.launch(btPermissions)
+                        })
+                        if(bandScanning) OutlineButton("Encerrar busca",onClick={band.stopScan()})
+                        if(bandNearby.isNotEmpty()) {
+                            Subtext("Dispositivos encontrados (nomes podem estar ausentes). Aproximar a pulseira ajuda a identificá-la. RSSI maior significa sinal mais forte.")
+                            bandNearby.take(12).forEach { device ->
+                                Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically) {
+                                    Column(Modifier.weight(1f)) {
+                                        Text("${if(device.probableBand) "⌚ " else ""}${device.name}")
+                                        Subtext("ID final ${device.shortId} · ${device.rssi} dBm${if(device.probableBand) " · possível pulseira" else " · não identificado"}")
+                                    }
+                                    TextButton(onClick={band.connect(device.address)}) { Text("Testar") }
+                                }
+                            }
+                        }
+                        if(bandConnected) {
+                            Text("Conexão BLE ativa (diagnóstico)",color=LightBlue)
+                            bandServices.forEach { Subtext(it) }
+                            Text("Bateria: ${bandBattery?.let { "$it%" } ?: "não disponível"}")
+                            Text("FC em tempo real: ${bandHeart?.let { "$it bpm" } ?: "não disponível"}")
+                            OutlineButton("Desconectar",onClick={band.closeConnection()})
+                        }
+                        Subtext("Não forneça senhas nem chaves da Xiaomi nesta tela. O IAA não usa dados BLE experimentais.")
+                        HorizontalDivider()
+                        Text("Dados via Zepp Life / Health Connect",color=LightBlue)
+                        Subtext("Aplicativo informado: ${p.deviceApp}. Uma opção é compartilhar os dados com o Google Fit, e deste com o Health Connect, caso a sincronização seja oferecida no aparelho.")
+                        Subtext("Em Health Connect, confira 'Fonte da FC': uma fonte como Google Fit identifica o aplicativo intermediário, mas não prova que a medição veio da Mi Band.")
                     }
                 }
             }

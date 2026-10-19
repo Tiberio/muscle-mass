@@ -73,3 +73,9 @@ Banco Room `version=3`. Migração `2 → 3` **aditiva**, cria `weight_measureme
 - Projeto livre: [openScale — Xiaomi Bluetooth Mi Scale](https://github.com/oliexdev/openScale/wiki/Xiaomi-Bluetooth-Mi-Scale)
 
 > Dados de saúde fornecidos por aplicativos e sensores não têm garantia de precisão clínica. O IAA é uma métrica própria e não reproduz o PAI Xiaomi.
+
+## 7. Diagnóstico da Mi Band 7 via Bluetooth (atualização incremental)
+
+Foi incluído `MiBand7Probe.kt`: scanner BLE sob demanda, seleção manual de candidato, conexão GATT temporária, diagnóstico de serviços, bateria e frequência cardíaca **apenas por serviços padronizados**, quando acessíveis. Não há autenticação Huami, sincronização histórica nem importação para o IAA.
+
+Consulte [MI_BAND_7_v0.3.0.md](MI_BAND_7_v0.3.0.md) para os limites e o procedimento de teste.
