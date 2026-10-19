@@ -59,7 +59,7 @@ import br.com.meutreino.domain.UserPrefs
                 }
             }
             if(message!=null){
-                AlertDialog(onDismissRequest={vm.clearMessage()},title={Text("Aviso")},text={Text(message?:"")},confirmButton={TextButton(onClick={vm.clearMessage}){Text("OK")}})
+                AlertDialog(onDismissRequest={vm.clearMessage()},title={Text("Aviso")},text={Text(message?:"")},confirmButton={TextButton(onClick={vm.clearMessage()}){Text("OK")}})
             }
         }
     }
