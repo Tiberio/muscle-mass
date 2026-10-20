@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_WEIGHT" />
     <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+    <uses-permission android:name="android.permission.health.READ_SLEEP" />
     <uses-permission android:name="android.permission.health.READ_EXERCISE" />
     <!-- Bluetooth: escaneamento explícito, sem localização inferida. -->
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />

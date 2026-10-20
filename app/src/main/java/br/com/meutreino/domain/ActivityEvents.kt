@@ -9,6 +9,10 @@ import java.time.LocalDate
 object ActivityEvents {
     fun summary(sessions:List<WorkoutSessionEntity>, sets:List<WorkoutSetEntity>,
                 cardio:List<CardioActivityEntity>, today:LocalDate):ActivityScore.Summary {
+        return ActivityScore.calculate(events(sessions,sets,cardio),today)
+    }
+    fun events(sessions:List<WorkoutSessionEntity>, sets:List<WorkoutSetEntity>,
+               cardio:List<CardioActivityEntity>):List<ActivityScore.Event> {
         val countBySession=sets.groupingBy{it.sessionId}.eachCount()
         val fromSessions=sessions.filter { it.status == "COMPLETED" }.flatMap { s ->
             buildList {
@@ -21,6 +25,6 @@ object ActivityEvents {
         }
         val manual=cardio.map { a -> ActivityScore.Event("extra:${a.id}",a.recordedAt,
             ActivityScore.Kind.CARDIO,a.minutes,ActivityScore.parseIntensity(a.intensity),source=a.source) }
-        return ActivityScore.calculate(fromSessions+manual,today)
+        return fromSessions+manual
     }
 }

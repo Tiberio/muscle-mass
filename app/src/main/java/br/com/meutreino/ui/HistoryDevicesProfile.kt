@@ -25,6 +25,7 @@ import br.com.meutreino.data.WorkoutSetEntity
 import br.com.meutreino.data.CardioActivityEntity
 import br.com.meutreino.domain.ActivityEvents
 import java.time.LocalDate
+import java.time.Instant
 import br.com.meutreino.domain.UserPrefs
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -145,7 +146,7 @@ import java.util.Locale
 }
 
 @Composable fun DeviceScreen(p:UserPrefs, vm:MainViewModel){
-    var section by remember{mutableStateOf("Conexões")}
+    var section by remember{mutableStateOf("Painel")}
     var selectedBrand by remember{mutableStateOf("Xiaomi")}
     var selectedModel by remember{mutableStateOf<String?>(null)}
     val health by vm.healthSnapshot.collectAsState()
@@ -165,6 +166,9 @@ import java.util.Locale
     val scanReading by scanner.reading.collectAsState()
     val weights by vm.weightHistory.collectAsState()
 
+    // Atualiza ao abrir a aba Dispositivos; nunca confunde horário de consulta
+    // com horário da medição fornecida pelo app de origem.
+    LaunchedEffect(Unit) { if (vm.healthAvailable()) vm.refreshHealth() }
     val healthPermissions = HealthConnectGateway.permissions
     val healthLauncher = rememberLauncherForActivityResult(HealthConnectGateway.permissionsContract()) { granted ->
         if(granted.isNotEmpty()) vm.refreshHealth()
@@ -193,11 +197,16 @@ import java.util.Locale
     )
     Column(Modifier.fillMaxSize().padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)){
         Title("Dispositivos")
-        Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
-            listOf("Dispositivos","Catálogo","Conexões").forEach{s->Choice(s,s==section,{section=s},Modifier.weight(1f))}
+        Column(verticalArrangement=Arrangement.spacedBy(6.dp)) {
+            listOf(listOf("Painel", "Dispositivos"), listOf("Conexões", "Catálogo")).forEach { group ->
+                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)) {
+                    group.forEach { name -> Choice(name,name==section,{section=name},Modifier.weight(1f)) }
+                }
+            }
         }
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
             when(section){
+                "Painel" -> HealthDashboard(vm)
                 "Dispositivos" -> {
                     Subtext("Dispositivos cadastrados não são, necessariamente, fontes conectadas.")
                     if(p.deviceNames.isEmpty())Pane{Subtext("Nenhum aparelho cadastrado. Adicione no Perfil ou consulte o catálogo.")}
@@ -233,7 +242,8 @@ import java.util.Locale
                 else -> {
                     Pane {
                         Text("Health Connect",color=LightBlue,style=MaterialTheme.typography.titleMedium)
-                        Subtext("Leia dados existentes no celular, somente com sua autorização. Nada é importado automaticamente para o índice IAA.")
+                        Subtext("Leia dados existentes no celular, somente com sua autorização. No Painel, o IAA integrado é uma estimativa temporária baseada em sessões com FC suficiente.")
+                        OutlineButton("Ver gráficos no Painel",onClick={section="Painel"})
                         Subtext(if(vm.healthAvailable()) "Serviço disponível neste Android." else
                             "Indisponível neste aparelho. Android 14+: verifique Configurações. Android 9–13: instale/atualize Health Connect pela Play Store.")
                         Subtext(healthMessage)
@@ -245,14 +255,37 @@ import java.util.Locale
                         if(health!=null){
                             HorizontalDivider()
                             val h=health!!
-                            Text("Passos hoje: ${h.stepsToday?:"sem permissão"}")
-                            Text("Passos em 7 dias: ${h.stepsLast7Days?:"sem permissão"}")
-                            Text("Último peso: ${h.latestWeightKg?.let{String.format(Locale.getDefault(),"%.2f kg",it)}?:"sem registro nos últimos 30 dias"}")
-                            if(h.latestWeightSource!=null) Subtext("Fonte do peso: ${h.latestWeightSource}")
-                            Text("Frequência cardíaca: ${h.latestHeartBpm?.let{"$it bpm"}?:"sem amostra nas últimas 24 horas"}")
-                            if(h.latestHeartSource!=null) Subtext("Fonte da FC: ${h.latestHeartSource}")
-                            Subtext("Sessões registradas em 7 dias: ${h.exerciseSessionsLast7Days?:"sem permissão"}")
-                            Subtext("Fonte: Health Connect (pode reunir informações de vários aplicativos, não exclusivamente Xiaomi).")
+                            Subtext("Consulta ao Health Connect: ${formatHealthInstant(h.updatedAt)}")
+                            Subtext("A consulta não força a sincronização do Mi Fitness com a pulseira.")
+                            Text("Passos hoje: ${h.stepsToday ?: "sem permissão"}")
+                            Text("Passos em 7 dias: ${h.stepsLast7Days ?: "sem permissão"}")
+                            if (h.stepsByDay.isNotEmpty()) {
+                                Text("Passos por dia", style=MaterialTheme.typography.titleSmall)
+                                h.stepsByDay.forEach { day ->
+                                    Subtext("${formatHealthDay(day.date)}: ${day.steps} passos")
+                                }
+                                Subtext("Os totais podem incluir passos de outras fontes, conforme a prioridade definida no Health Connect.")
+                            }
+                            HorizontalDivider()
+                            Text("Último peso: ${h.latestWeightKg?.let{String.format(Locale.getDefault(),"%.2f kg",it)}?:"sem registro recente"}")
+                            Subtext("Medido em: ${formatHealthInstant(h.latestWeightAt)}")
+                            if(h.latestWeightSource!=null) Subtext("Origem do peso: ${h.latestWeightSource}")
+                            Text("Última FC registrada: ${h.latestHeartBpm?.let{"$it bpm"}?:"sem amostra nos últimos 7 dias"}")
+                            Subtext("Medida em: ${formatHealthInstant(h.latestHeartAt)} · não é monitoramento ao vivo")
+                            if(h.latestHeartSource!=null) Subtext("Origem da FC: ${h.latestHeartSource}")
+                            HorizontalDivider()
+                            Text("Sessões em 7 dias: ${h.exerciseSessionsLast7Days?:"sem permissão"}")
+                            h.recentExercise.forEach { activity ->
+                                Subtext("${activity.title} · ${activity.minutes} min · ${formatHealthInstant(activity.startedAt)}")
+                                if (activity.source!=null) Subtext("Origem: ${activity.source}")
+                            }
+                            HorizontalDivider()
+                            if (h.sleepPermission) {
+                                Text("Último sono: ${h.lastSleepMinutes?.let{"${it / 60}h ${it % 60}min"}?:"sem registro nos últimos 7 dias"}")
+                                Subtext("Fim do sono: ${formatHealthInstant(h.lastSleepAt)}")
+                                if(h.lastSleepSource!=null) Subtext("Origem do sono: ${h.lastSleepSource}")
+                            } else Subtext("Sono: autorize a leitura para consultar registros disponíveis.")
+                            Subtext("Origem: Health Connect. Dados não entram automaticamente no IAA, evitando duplicidades.")
                         }
                     }
                     Pane {
@@ -359,3 +392,10 @@ import java.util.Locale
         confirmButton={TextButton(onClick={showConfirmation=false;onResetPlan()}){Text("Rever plano")}},
         dismissButton={TextButton(onClick={showConfirmation=false}){Text("Cancelar")}})
 }
+
+private fun formatHealthInstant(instant: Instant?): String =
+    instant?.let { SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("pt", "BR")).format(Date.from(it)) }
+        ?: "sem data disponível"
+
+private fun formatHealthDay(day: LocalDate): String =
+    "%02d/%02d".format(Locale("pt", "BR"), day.dayOfMonth, day.monthValue)
