@@ -148,7 +148,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                 }
                 "equipment" -> Pane {
                     if("Casa equipada" in p.environments){
-                        ToggleList("Equipamentos disponíveis em casa",listOf("Halteres","Banco","Barra fixa","Elásticos","Barra e anilhas","Kettlebell","Colchonete","Elíptico","Esteira","Bicicleta"),p.equipments,{v->vm.edit{it.copy(equipments=toggle(it.equipments,v))}})
+                        ToggleList("Equipamentos disponíveis em casa",listOf("Halteres","Banco","Barra fixa","Elásticos","Barra e anilhas","Kettlebell","Paralelas","Suspensão/TRX","Step","Banco Scott","Colchonete","Elíptico","Esteira","Bicicleta"),p.equipments,{v->vm.edit{it.copy(equipments=toggle(it.equipments,v))}})
                     }else Subtext("Sem equipamentos domésticos cadastrados. Você pode alterá-los depois no Perfil.")
                 }
                 "days" -> Pane {

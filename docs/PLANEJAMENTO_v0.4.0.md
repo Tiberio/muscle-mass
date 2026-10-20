@@ -1,17 +1,7 @@
-# Planejamento aprovado da v0.4.0 — catálogo de exercícios
+# Escopo entregue na v0.4.0
 
-A próxima versão v0.4.0 terá prioridade para expandir o catálogo de **no mínimo 150 exercícios únicos**, incluindo **calistenia**, treinamento com peso corporal, pesos livres, máquinas, elásticos e exercícios em casa.
+A meta de **pelo menos 150 exercícios únicos**, incluindo calistenia, foi atendida com **234 exercícios**, sendo **91 de calistenia**. O cadastro preserva os 23 IDs anteriores, inclui instruções, erros comuns de execução e progressões/regressões quando existem no próprio catálogo.
 
-Requisitos para cada exercício:
+**Implementado:** catálogo ampliado, filtro por ambiente/experiência/equipamento, biblioteca consultável na aba Plano, substituições mais conservadoras e testes automáticos.
 
-- identificador estável; nome em português; padrão de movimento;
-- grupo muscular primário e grupos secundários;
-- equipamentos obrigatórios e ambientes adequados;
-- faixa de dificuldade e regressão/progressão;
-- instruções de execução, erros comuns e contraindicações relativas;
-- referência visual/vídeo verificada (não inventar URLs);
-- variantes realmente distintas sem duplicatas cosméticas.
-
-Haverá testes de contagem (> = 150), unicidade de IDs, cobertura por padrões de movimento, coerência de equipamentos e disponibilidade de opções de calistenia nos três ambientes.
-
-**Não incluído na v0.3.0:** esta etapa restringe-se à integração de dispositivos e preserva o catálogo atual.
+**Ainda a aprimorar:** revisão especializada e vídeos verificados de todos os exercícios, estimativa de duração por séries e descanso, prescrição de séries por grupo individualizada, progressão automática de cargas (futura v0.5.0). Consulte `ALTERACOES_v0.4.0.md`.

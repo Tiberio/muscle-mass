@@ -34,13 +34,13 @@ import java.time.temporal.TemporalAdjusters
                 session.exercises.forEach { prescribed ->
                     val ex=prescribed.exercise
                     val key="${session.id}:${ex.id}"
-                    val actual=ExerciseCatalog.byId(p.overrides[key]?:ex.id)?.takeIf { it in ExerciseCatalog.options(p.defaultEnvironment,p.equipments,p.experience) && it.pattern==ex.pattern }?:ex
+                    val actual=ExerciseCatalog.byId(p.overrides[key]?:ex.id)?.takeIf { it in ExerciseCatalog.equivalents(ex,p.defaultEnvironment,p.equipments,p.experience) }?:ex
                     Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
                         Text("• ${actual.name} · ${prescribed.sets}×${prescribed.minReps}–${prescribed.maxReps}",modifier=Modifier.weight(1f))
                         TextButton(onClick={editingExercise=if(editingExercise==key)null else key}){Text("Trocar")}
                     }
                     if(editingExercise==key){
-                        val candidates=ExerciseCatalog.options(p.defaultEnvironment,p.equipments,p.experience).filter{it.pattern==ex.pattern}
+                        val candidates=ExerciseCatalog.equivalents(ex,p.defaultEnvironment,p.equipments,p.experience).take(30)
                         if(candidates.isEmpty())Subtext("Nenhuma alternativa compatível encontrada.")
                         candidates.forEach{candidate->
                             Choice(candidate.name,candidate.id==actual.id,{
@@ -145,16 +145,18 @@ import java.time.temporal.TemporalAdjusters
     onOverride:(String,String,String)->Unit,onRefresh:()->Unit){
     var selected by remember {mutableStateOf<String?>(null)}
     var showBalance by remember{mutableStateOf(false)}
+    var showLibrary by remember { mutableStateOf(false) }
     var swap by remember {mutableStateOf<String?>(null)}
     val current=plan.sessions.firstOrNull{it.id==selected}
     val days=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
     Column(Modifier.fillMaxSize().padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)){
         Row(verticalAlignment=Alignment.CenterVertically){
-            if(selected!=null||showBalance){TextButton(onClick={selected=null;swap=null;showBalance=false}){Icon(Icons.Default.ArrowBack,null);Text("Semana")}}
+            if(selected!=null||showBalance||showLibrary){TextButton(onClick={selected=null;swap=null;showBalance=false;showLibrary=false}){Icon(Icons.Default.ArrowBack,null);Text("Semana")}}
             else Title("Plano semanal")
         }
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
             when {
+                showLibrary -> ExerciseLibraryPanel(p)
                 showBalance -> {
                     Title("Equilíbrio muscular")
                     Subtext("Distribuição estimada, sem afirmar equivalência clínica entre exercícios.")
@@ -181,18 +183,19 @@ import java.time.temporal.TemporalAdjusters
                     }
                     current.exercises.forEachIndexed{index,prescription->
                         val ex=prescription.exercise
-                        val resolved=ExerciseCatalog.byId(p.overrides["${current.id}:${ex.id}"]?:ex.id)?.takeIf{it in ExerciseCatalog.options(p.defaultEnvironment,p.equipments,p.experience) && it.pattern==ex.pattern}?:ex
+                        val resolved=ExerciseCatalog.byId(p.overrides["${current.id}:${ex.id}"]?:ex.id)?.takeIf{it in ExerciseCatalog.equivalents(ex,p.defaultEnvironment,p.equipments,p.experience)}?:ex
                         Pane{
                             Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
                                 Column(Modifier.weight(1f)) {
                                     Text("${index+1}. ${resolved.name}")
-                                    Subtext("${prescription.sets}×${prescription.minReps}–${prescription.maxReps} · ${patternName(ex.pattern)}")
+                                    Subtext("${prescription.sets}×${prescription.minReps}–${prescription.maxReps} · ${patternName(ex.pattern)} · ${resolved.primaryMuscle}")
+                                    Subtext(resolved.advice)
                                 }
                                 TextButton(onClick={swap=if(swap==ex.id)null else ex.id}){Text("Trocar")}
                             }
                             if(swap==ex.id){
                                 val pool=ExerciseCatalog.options(p.defaultEnvironment,p.equipments,p.experience)
-                                val available=pool.filter{it.pattern==ex.pattern}
+                                val available=ExerciseCatalog.equivalents(ex,p.defaultEnvironment,p.equipments,p.experience).take(30)
                                 if(available.isEmpty())Subtext("Nenhuma alternativa equivalente encontrada neste ambiente.")
                                 else available.forEach{candidate->Choice(candidate.name,candidate.id==resolved.id,{onOverride(current.id,ex.id,candidate.id);swap=null},Modifier.fillMaxWidth())}
                             }
@@ -216,6 +219,7 @@ import java.time.temporal.TemporalAdjusters
                         }
                         Subtext("Cardio leve contribui para a atividade, mas não recebe pontos aeróbicos no IAA 0.2.0.")
                     }
+                    OutlineButton("Explorar biblioteca de ${ExerciseCatalog.all.size} exercícios",onClick={showLibrary=true})
                     OutlineButton("Ver equilíbrio muscular",onClick={showBalance=true})
                     OutlineButton("Gerar uma nova proposta",onRefresh)
                 }
@@ -223,4 +227,4 @@ import java.time.temporal.TemporalAdjusters
         }
     }
 }
-private fun patternName(p:String)=when(p){"push"->"Empurrar";"pull"->"Puxar";"squat"->"Agachar";"hinge"->"Quadril";"lunge"->"Avanço";"verticalPush"->"Empurrar vertical";"core"->"Core";else->"Isolamento"}
+private fun patternName(p:String)=when(p){"push"->"Empurrar";"pull"->"Puxar";"squat"->"Agachar";"hinge"->"Quadril";"lunge"->"Avanço";"verticalPush"->"Empurrar vertical";"core"->"Core";"calf"->"Panturrilha";"carry"->"Transporte de carga";else->"Isolamento"}

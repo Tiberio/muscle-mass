@@ -2,7 +2,7 @@ package br.com.meutreino.domain
 
 /** Catálogo inicial com instruções breves. Vídeos ausentes NÃO são inventados. */
 object ExerciseCatalog {
-    val all: List<Exercise> = listOf(
+    private val legacy: List<Exercise> = listOf(
         Exercise("pushup", "Flexão de braços", "push", "Peito", setOf("Braços", "Ombros"), advice="Mantenha o corpo alinhado, sem forçar a amplitude."),
         Exercise("inclinepush", "Flexão inclinada", "push", "Peito", setOf("Braços", "Ombros"), advice="Apoie as mãos numa superfície firme e estável."),
         Exercise("dbbench", "Supino com halteres", "push", "Peito", setOf("Braços", "Ombros"), setOf("Halteres", "Banco"), advice="Controle a descida e mantenha ombros e pés estáveis.", youtubeVideoId="XhmFJfVaHjg"),
@@ -27,13 +27,68 @@ object ExerciseCatalog {
         Exercise("deadbug", "Dead bug", "core", "Abdômen", advice="Movimente braços e pernas sem perder o controle lombar."),
         Exercise("bird", "Bird dog", "core", "Abdômen", setOf("Costas"), advice="Estenda membros opostos mantendo o tronco estável.")
     )
-    fun byId(id: String): Exercise? = all.firstOrNull { it.id == id }
+    private val progressionChains = listOf(
+        listOf("wallpush", "inclinepush", "kneepush", "pushup", "tempopush", "declinepush", "archerpush"),
+        listOf("pikepush", "elevatedpike", "wallhandstandpush"),
+        listOf("scapularpull", "negativepull", "pullup", "strictpull", "archerpull"),
+        listOf("regressedsquat", "squat", "pausesquat", "pistolsupport", "pistolsquat"),
+        listOf("splitbw", "lunge", "bulgarianbw", "dbbulgarian"),
+        listOf("bridge", "glutebridgepause", "glutebridgeone"),
+        listOf("plank", "sideplank", "sideplankleg"),
+        listOf("deadbug", "deadbugextended", "hollowhold", "hollowrock"),
+        listOf("calfstand", "calfone", "calfstep"),
+        listOf("bandcurl", "curl", "dbhammer", "dbinclinecurl"),
+        listOf("bandrow", "dbrow", "dbchestrow", "bbrow")
+    )
+    private val mistakes = mapOf(
+        "push" to "Evite perder o alinhamento do tronco e acelerar sem controle.",
+        "pull" to "Evite elevar os ombros ou impulsionar a carga com o tronco.",
+        "squat" to "Evite deixar joelhos colapsarem para dentro ou perder o apoio dos pés.",
+        "lunge" to "Evite passos instáveis e amplitudes que provoquem dor.",
+        "hinge" to "Evite flexionar a lombar para compensar a falta de mobilidade do quadril.",
+        "verticalPush" to "Evite arquear excessivamente a lombar durante a elevação.",
+        "isolation" to "Evite balanço corporal e cargas que obriguem a compensar o movimento.",
+        "calf" to "Evite realizar movimentos rápidos sem controlar o retorno.",
+        "carry" to "Evite inclinar o corpo para compensar o peso.",
+        "core" to "Evite prender a respiração ou perder o controle da região lombar."
+    )
+    val all: List<Exercise> by lazy {
+        val chainPosition = progressionChains.flatMap { chain -> chain.mapIndexed { i, id -> id to Triple(chain.getOrNull(i-1), chain.getOrNull(i+1), chain.size) } }.toMap()
+        (legacy + ExerciseLibraryData.extra).map { ex ->
+            val chain = chainPosition[ex.id]
+            ex.copy(
+                modality = if (ex.required.isEmpty() || ex.required.all { it in setOf("Barra fixa","Paralelas","Suspensão/TRX","Parede","Step","Banco") }) "Calistenia" else ex.modality,
+                commonMistakes = mistakes[ex.pattern] ?: "Mantenha amplitude confortável e execução controlada.",
+                regressionId = chain?.first,
+                progressionId = chain?.second,
+                safetyNote = if (ex.minimumLevel >= 2) "Exercício avançado: progrida gradualmente e evite se houver dor ou falta de estabilidade." else "Interrompa se sentir dor ou instabilidade."
+            )
+        }
+    }
+    private val byIdIndex: Map<String, Exercise> by lazy { all.associateBy { it.id } }
+    fun byId(id: String): Exercise? = byIdIndex[id]
+    fun armAction(ex: Exercise): String {
+        if (ex.primaryMuscle != "Braços") return ""
+        val name = ex.name.lowercase()
+        return when {
+            "rosca" in name || "bíceps" in name -> "bíceps"
+            "tríceps" in name || "coice" in name || "mergulho" in name -> "tríceps"
+            else -> ""
+        }
+    }
+    fun equivalents(exercise: Exercise, environment: String, equipment: List<String>, experience: String): List<Exercise> {
+        val arm = armAction(exercise)
+        return options(environment, equipment, experience).filter { candidate ->
+            candidate.pattern == exercise.pattern && candidate.primaryMuscle == exercise.primaryMuscle &&
+                (arm.isBlank() || armAction(candidate) == arm)
+        }
+    }
     fun options(environment: String, equipment: List<String>, experience: String = "Iniciante"): List<Exercise> {
         val level = when(experience) { "Avançado" -> 2; "Intermediário" -> 1; else -> 0 }
         val allowed = when(environment) {
-            "Academia" -> setOf("Halteres","Banco","Máquinas","Elásticos","Barra fixa")
-            "Casa equipada" -> equipment.toSet()
-            else -> emptySet()
+            "Academia" -> setOf("Halteres","Banco","Máquinas","Elásticos","Barra fixa", "Barra e anilhas", "Kettlebell", "Banco Scott", "Paralelas", "Suspensão/TRX", "Parede", "Step")
+            "Casa equipada" -> equipment.toSet() + setOf("Parede")
+            else -> setOf("Parede")
         }
         return all.filter { it.minimumLevel <= level && allowed.containsAll(it.required) }
     }

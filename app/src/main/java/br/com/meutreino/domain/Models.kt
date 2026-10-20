@@ -34,7 +34,12 @@ data class Exercise(
     val required: Set<String> = emptySet(),
     val minimumLevel: Int = 0,
     val advice: String,
-    val youtubeVideoId: String? = null
+    val youtubeVideoId: String? = null,
+    val modality: String = "Musculação",
+    val commonMistakes: String = "",
+    val regressionId: String? = null,
+    val progressionId: String? = null,
+    val safetyNote: String = ""
 )
 
 data class PlannedExercise(val exercise: Exercise, val sets: Int, val minReps: Int, val maxReps: Int)

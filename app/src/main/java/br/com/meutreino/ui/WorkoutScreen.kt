@@ -50,11 +50,11 @@ import kotlinx.coroutines.delay
     val base=pres?.exercise
     val ex=base?.let { baseEx ->
         val candidate=ExerciseCatalog.byId(p.overrides["${active.planId}:${baseEx.id}"]?:baseEx.id)
-        val allowed=ExerciseCatalog.options(active.environment,p.equipments,p.experience)
-        candidate?.takeIf { it in allowed && it.pattern==baseEx.pattern } ?: baseEx
+        val allowed=ExerciseCatalog.equivalents(baseEx,active.environment,p.equipments,p.experience)
+        candidate?.takeIf { it in allowed } ?: baseEx
     }
     val doneForExercise=base?.let{b->logged.count{it.exerciseId==b.id}}?:0
-    val hasLoad=ex?.required?.any{it=="Halteres"||it=="Máquinas"}==true
+    val hasLoad=ex?.required?.any{it in setOf("Halteres","Máquinas","Barra e anilhas","Kettlebell")}==true
     fun advance(){
         resting=false;seconds=90;rir=null
         if(pres!=null && doneForExercise+1>=pres.sets){
@@ -109,6 +109,10 @@ import kotlinx.coroutines.delay
                     Pane {
                         Text("Demonstração",color=LightBlue)
                         Subtext(ex.advice)
+                        if(ex.commonMistakes.isNotBlank())Subtext("Evite: ${ex.commonMistakes}")
+                        if(ex.safetyNote.isNotBlank())Subtext(ex.safetyNote)
+                        ex.regressionId?.let { id -> ExerciseCatalog.byId(id)?.let { before -> Subtext("Versão mais fácil: ${before.name}") } }
+                        ex.progressionId?.let { id -> ExerciseCatalog.byId(id)?.let { after -> Subtext("Progressão: ${after.name}") } }
                         if(ex.youtubeVideoId!=null){
                             PrimaryButton("▶ Ver vídeo no YouTube",onClick={
                                 val url="https://www.youtube.com/watch?v=${ex.youtubeVideoId}"
@@ -125,7 +129,7 @@ import kotlinx.coroutines.delay
                         OutlinedTextField(value=reps,onValueChange={reps=it.filter(Char::isDigit).take(3)},
                             label={Text("Repetições")},singleLine=true,keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number),modifier=Modifier.fillMaxWidth())
                         if(hasLoad)OutlinedTextField(value=load,onValueChange={load=it.replace(',','.').filter{ch->ch.isDigit()||ch=='.'}.take(7)},
-                            label={Text(if("Halteres" in ex.required)"Carga (kg por halter)" else "Carga indicada (kg)")},
+                            label={Text(if("Halteres" in ex.required)"Carga (kg por halter)" else "Carga utilizada (kg)")},
                             singleLine=true,keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Decimal),modifier=Modifier.fillMaxWidth())
                         Text("Esforço (RIR), opcional",color=Muted)
                         Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)){

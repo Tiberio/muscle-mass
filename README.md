@@ -1,10 +1,12 @@
-# Meu Treino — Android v0.3.3
+# Meu Treino — Android v0.4.0
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
+**Novidade v0.4.0:** biblioteca expandida para **234 exercícios**, incluindo **91 de calistenia**, com busca e filtros em **Plano → Explorar biblioteca**, instruções de execução, erros comuns, compatibilidade por ambiente/experiência, progressões documentadas e substituições mais restritas por padrão/músculo principal. Mantém dados e funcionalidades das versões anteriores. Consulte [alterações v0.4.0](docs/ALTERACOES_v0.4.0.md).
+
 **Base v0.3.2:** painel colorido (passos, frequência cardíaca, sono e IAA) e leitura detalhada dos últimos 7 dias pelo Health Connect. Estimativa integrada do IAA a partir de sessões de exercício com amostras suficientes de FC, sem copiar dados externos para o banco; prioriza impedir duplicações. Mantidas as integrações Bluetooth com Mi Body Composition Scale 2 e diagnóstico da Mi Band 7 (bateria) existentes na v0.3.1.
 
-**Novidade v0.3.3:** alteração exclusivamente visual do Painel da aba Dispositivos: o cartão da última consulta ao Health Connect agora é o **último quadro**, após as informações e gráficos; frequência cardíaca, sono e IAA passaram a apresentar **escala vertical numérica** (bpm, horas e pontos), preservando os rótulos horizontais dos dias. Não alteramos fórmula do IAA, sincronização, permissões, catálogo ou banco de dados.
+**Base v0.3.3:** alteração exclusivamente visual do Painel da aba Dispositivos: o cartão da última consulta ao Health Connect agora é o **último quadro**, após as informações e gráficos; frequência cardíaca, sono e IAA passaram a apresentar **escala vertical numérica** (bpm, horas e pontos), preservando os rótulos horizontais dos dias. Não alteramos fórmula do IAA, sincronização, permissões, catálogo ou banco de dados.
 
 [Alterações e instruções da v0.3.3](docs/ALTERACOES_v0.3.3.md)
 
@@ -13,7 +15,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 - [Integração, permissões, testes e limitações](docs/INTEGRACAO_DISPOSITIVOS_v0.3.0.md)
 - [Fundamentação científica](docs/FUNDAMENTACAO_CIENTIFICA.md)
 - [Histórico das mudanças v0.2.0](docs/ALTERACOES_v0.2.0.md)
-- [Próxima v0.4.0: ≥150 exercícios, incluindo calistenia](docs/PLANEJAMENTO_v0.4.0.md)
+- [Escopo atendido na v0.4.0: 234 exercícios e calistenia](docs/PLANEJAMENTO_v0.4.0.md)
 
 ## O que funciona no código
 
@@ -21,7 +23,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 - Ambientes múltiplos; escolha do ambiente padrão e substituição temporária por sessão.
 - Plano de treino por dias, alternância de grupos musculares, cardio diário quando solicitado.
 - Musculação e cardio com durações **independentes**.
-- Catálogo inicial de exercícios, ainda pequeno (expansão na v0.4.0).
+- Catálogo com 234 exercícios e busca/filtros em Plano, preservando os 23 IDs anteriores.
 - Registro de séries, cargas, repetições, RIR, histórico e exclusão de sessões.
 - IAA de sete dias com ganho/expiração diária: valor local preservado e estimativa integrada adicional de sessões externas com FC suficiente.
 - Leitura de Health Connect ao abrir Dispositivos e sob demanda, com permissão Android: passos agregados, evolução diária de FC, sessões, peso e sono, quando presentes.
@@ -31,20 +33,20 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 ## Limitações importantes
 
-- **A v0.3.3 não foi compilada nem executada no Android neste ambiente de elaboração.** A compilação completa será validada pelo GitHub Actions; a v0.3.2 já havia sido validada no celular.
+- **A v0.4.0 ainda não foi compilada nem executada no Android neste ambiente de elaboração.** A compilação completa será validada pelo GitHub Actions; a v0.3.3 foi validada no celular pelo usuário.
 - Bluetooth com Mi Body Composition Scale 2 usa protocolo experimental. O usuário já confirmou leitura de pesagem estável no aparelho real; compatibilidade com outras unidades não é garantida.
 - Health Connect não é a Mi Band 7. A presença de um dispositivo no cadastro **não comprova** que o app do fabricante envia seus dados ao Health Connect.
 - O **IAA local** não importa cardio externo. O **IAA integrado experimental** no Painel calcula pontuação apenas para sessões externas que tenham FC suficiente, sem sobreposição com cardio local; passos e peso não pontuam.
 - Não há leitura do PAI original Xiaomi; o IAA é um indicador próprio, não clínico.
 - Percentuais de gordura, composição corporal e impedância da balança não são calculados; importamos apenas peso estabilizado.
 - Não há nuvem própria, conta, telemetria nem leitura em segundo plano.
-- O catálogo de pelo menos 150 exercícios e calistenia é **escopo da v0.4.0**, não desta.
+- O catálogo expandido contém 234 exercícios, com 91 classificados como calistenia. Exercícios sem vídeo verificado mostram instruções textuais.
 
 ## Compilação no GitHub Actions
 
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
-3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.3.3-debug`**.
+3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.0-debug`**.
 4. Extraia `app-debug.apk` do ZIP e instale-o.
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.
@@ -78,9 +80,9 @@ docs/INTEGRACAO_DISPOSITIVOS_v0.3.0.md
 docs/PLANEJAMENTO_v0.4.0.md
 ```
 
-## Próxima atualização: v0.4.0
+## Próxima atualização planejada: v0.5.0
 
-Ampliação do catálogo para **≥150 exercícios distintos**, com calistenia, pesos livres, máquinas e elásticos. Cada registro terá grupos musculares, equipamentos, dificuldade e orientações claras, com testes de cobertura. As funcionalidades de dispositivos já introduzidas serão mantidas e corrigidas conforme os testes da v0.3.2.
+Aprimorar progressão de cargas, controle do esforço e acompanhamento da evolução com base nos registros realizados. Antes disso, validar o catálogo e o planejador da v0.4.0 no Android e revisar exercícios com profissional habilitado.
 
 ### Mi Band 7 — diagnóstico BLE experimental (v0.3.0)
 
