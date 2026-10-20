@@ -12,12 +12,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.nativeCanvas
+import android.graphics.Paint
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.com.meutreino.MainViewModel
 import br.com.meutreino.domain.ActivityEvents
 import br.com.meutreino.domain.ActivityScore
 import br.com.meutreino.domain.HealthIaaBridge
+import br.com.meutreino.domain.ChartAxis
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -59,38 +63,60 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
     }
 }
 
-/** Gráfico sem biblioteca externa: preserva lacunas (null) e não fabrica medições. */
+/** Gráfico com escala numérica visível à esquerda e dias alinhados à área de desenho.
+ * Mantém lacunas (null): dados ausentes não são interpolados.
+ */
 @Composable private fun TrendPlot(days: List<LocalDate>, first: List<Double?>, firstColor: Color,
+                                   unit: ChartAxis.Unit,
                                    second: List<Double?> = emptyList(), secondColor: Color = Violet) {
-    val valid = (first + second).filterNotNull()
-    if(valid.isEmpty()) { Subtext("Sem medidas suficientes para traçar o gráfico."); return }
-    val lo = (valid.minOrNull() ?: 0.0) - 5.0
-    val hi = (valid.maxOrNull() ?: 1.0) + 5.0
-    val range = (hi - lo).coerceAtLeast(1.0)
-    Canvas(Modifier.fillMaxWidth().height(160.dp)) {
-        val w=size.width
-        val h=size.height
-        for (line in 0..3) {
-            val y=h*line/3f
-            drawLine(Color(0xFF355573),Offset(0f,y),Offset(w,y),strokeWidth=1.dp.toPx())
+    val scale = ChartAxis.calculate(first + second, unit)
+    if (scale == null) { Subtext("Sem medidas suficientes para traçar o gráfico."); return }
+    val axisStart = 46.dp
+    val axisEnd = 9.dp
+    Canvas(Modifier.fillMaxWidth().height(172.dp)) {
+        val left = axisStart.toPx()
+        val right = (size.width - axisEnd.toPx()).coerceAtLeast(left + 1f)
+        val top = 12.dp.toPx()
+        val bottom = size.height - 12.dp.toPx()
+        val plotWidth = right - left
+        val plotHeight = (bottom - top).coerceAtLeast(1f)
+        val axisRange = (scale.max - scale.min).coerceAtLeast(1.0)
+        fun yCoordinate(value: Double): Float =
+            bottom - (((value - scale.min) / axisRange).toFloat() * plotHeight)
+
+        val labelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = android.graphics.Color.rgb(172, 197, 222)
+            textSize = 11.sp.toPx()
+            textAlign = Paint.Align.RIGHT
         }
+        scale.ticks.forEach { value ->
+            val y = yCoordinate(value)
+            drawLine(Color(0xFF355573), Offset(left, y), Offset(right, y), strokeWidth = 1.dp.toPx())
+            drawContext.canvas.nativeCanvas.drawText(ChartAxis.label(value), left - 8.dp.toPx(),
+                y + 4.dp.toPx(), labelPaint)
+        }
+        drawLine(Color(0xFF6B849F), Offset(left, top), Offset(left, bottom), strokeWidth = 1.dp.toPx())
+
         fun drawSeries(series: List<Double?>, tint: Color) {
-            val pts=series.mapIndexed { idx, value ->
-                if(value == null) null else Offset(
-                    w*(idx.toFloat()/(days.size-1).coerceAtLeast(1)),
-                    ((hi-value)/range*h).toFloat().coerceIn(2.dp.toPx(),h-2.dp.toPx())
+            val pts = days.indices.map { idx ->
+                val value = series.getOrNull(idx)?.takeIf { it.isFinite() }
+                if (value == null) null else Offset(
+                    left + plotWidth * idx / (days.size - 1).coerceAtLeast(1).toFloat(),
+                    yCoordinate(value).coerceIn(top, bottom)
                 )
             }
-            pts.zipWithNext().forEach { (a,b) ->
-                if(a!=null && b!=null) drawLine(tint,a,b,strokeWidth=3.dp.toPx(),cap=StrokeCap.Round)
+            pts.zipWithNext().forEach { (a, b) ->
+                if (a != null && b != null) drawLine(tint, a, b, strokeWidth = 3.dp.toPx(), cap = StrokeCap.Round)
             }
-            pts.filterNotNull().forEach { p -> drawCircle(tint,4.dp.toPx(),p) }
+            pts.filterNotNull().forEach { p -> drawCircle(tint, 4.dp.toPx(), p) }
         }
-        drawSeries(first,firstColor)
-        if(second.isNotEmpty()) drawSeries(second,secondColor)
+        drawSeries(first, firstColor)
+        if (second.isNotEmpty()) drawSeries(second, secondColor)
     }
-    Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
-        days.forEach { Text(it.format(DateLabel).take(3),color=Muted,style=MaterialTheme.typography.labelSmall) }
+    Row(Modifier.fillMaxWidth().padding(start = axisStart, end = axisEnd),
+        horizontalArrangement = Arrangement.SpaceBetween) {
+        days.forEach { Text(it.format(DateLabel).take(3), color = Muted,
+            style = MaterialTheme.typography.labelSmall) }
     }
 }
 
@@ -108,35 +134,11 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
     val manual = ActivityScore.calculate(manualEvents,now)
 
     Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {
-        Pane {
-            Text("Painel de saúde e atividade",color=LightBlue,style=MaterialTheme.typography.titleLarge)
-            // Consulta concluída pelo Meu Treino. Não corresponde ao momento em que
-            // o Zepp Life enviou os registros ao Health Connect.
-            Row(
-                Modifier.fillMaxWidth().background(PanelLight, RoundedCornerShape(10.dp))
-                    .padding(horizontal=12.dp, vertical=9.dp),
-                horizontalArrangement=Arrangement.spacedBy(10.dp),
-                verticalAlignment=Alignment.CenterVertically
-            ) {
-                Icon(Icons.Default.AccessTime, contentDescription=null, tint=Aqua,
-                    modifier=Modifier.size(18.dp))
-                Column(Modifier.weight(1f), verticalArrangement=Arrangement.spacedBy(2.dp)) {
-                    Text("ÚLTIMA CONSULTA AO HEALTH CONNECT",
-                        style=MaterialTheme.typography.labelSmall,color=Muted)
-                    Text(h?.let { moment(it.updatedAt) } ?: "Ainda não consultado",
-                        style=MaterialTheme.typography.titleSmall,color=Aqua)
-                }
-                if(busy) CircularProgressIndicator(Modifier.size(18.dp),
-                    strokeWidth=2.dp,color=Aqua)
-            }
-            Subtext("Este é o horário da leitura pelo Meu Treino, não o da sincronização do Zepp Life.")
-            Subtext("Dados compartilhados com o Health Connect; não são uma leitura ao vivo da Mi Band 7.")
-            if(h==null) {
+        Text("Painel de saúde e atividade", color=LightBlue, style=MaterialTheme.typography.titleLarge)
+        if (h == null) {
+            Pane {
                 Subtext(message)
-                PrimaryButton("Ler Health Connect",enabled=!busy,onClick=vm::refreshHealth)
-            } else {
-                OutlineButton(if(busy) "Atualizando…" else "Atualizar leitura", onClick=vm::refreshHealth)
-                if(h!!.truncated) Text("Atenção: leitura parcial por limite de registros.",color=Amber)
+                PrimaryButton("Ler Health Connect", enabled=!busy, onClick=vm::refreshHealth)
             }
         }
         if(h!=null) {
@@ -150,6 +152,9 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
                 Metric("Último peso",snap.latestWeightKg?.let { "%.1f kg".format(Locale("pt","BR"),it) }?:"—",Amber,Modifier.weight(1f))
             }
             Subtext("Medições: FC em ${moment(snap.latestHeartAt)} · Peso em ${moment(snap.latestWeightAt)}")
+            Subtext("Dados compartilhados com o Health Connect; não são medições ao vivo da Mi Band 7.")
+            OutlineButton(if(busy) "Atualizando…" else "Atualizar leitura", onClick=vm::refreshHealth)
+            if(snap.truncated) Text("Atenção: leitura parcial por limite de registros.",color=Amber)
             Pane {
                 Text("Passos nos últimos 7 dias",style=MaterialTheme.typography.titleMedium,color=Aqua)
                 if(snap.stepsByDay.isNotEmpty()) {
@@ -159,8 +164,8 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
             }
             Pane {
                 Text("Frequência cardíaca",style=MaterialTheme.typography.titleMedium,color=Violet)
-                Subtext("Média diária de amostras disponíveis, em bpm. Uma média diária não é FC em repouso.")
-                TrendPlot(dates,dates.map { day -> snap.heartByDay.firstOrNull { it.date==day }?.average?.toDouble() },Violet)
+                Subtext("Média diária de amostras disponíveis, em bpm (eixo vertical). Uma média diária não é FC em repouso.")
+                TrendPlot(dates,dates.map { day -> snap.heartByDay.firstOrNull { it.date==day }?.average?.toDouble() },Violet,ChartAxis.Unit.BPM)
                 Subtext("Última medição: ${moment(snap.latestHeartAt)} · Fonte: ${snap.latestHeartSource?:"não informada"}")
                 snap.heartByDay.forEach { day ->
                     Subtext("${day.date.format(DateLabel)}: média ${day.average} · mín ${day.minimum} · máx ${day.maximum} bpm (${day.samples} amostras/minutos)")
@@ -169,8 +174,8 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
             Pane {
                 Text("Sono e recuperação",style=MaterialTheme.typography.titleMedium,color=Amber)
                 if(snap.sleepPermission && snap.sleepByDay.isNotEmpty()) {
-                    TrendPlot(dates,dates.map { day -> snap.sleepByDay.firstOrNull { it.date==day }?.minutes?.div(60.0) },Amber)
-                    Subtext("Gráfico em horas de sono registrado; última sessão terminou em ${moment(snap.lastSleepAt)}.")
+                    TrendPlot(dates,dates.map { day -> snap.sleepByDay.firstOrNull { it.date==day }?.minutes?.div(60.0) },Amber,ChartAxis.Unit.HOURS)
+                    Subtext("Gráfico em horas de sono registrado (eixo vertical); última sessão terminou em ${moment(snap.lastSleepAt)}.")
                     Subtext("Origem: ${snap.lastSleepSource?:"não informada"}")
                 } else Subtext(if(snap.sleepPermission) "Nenhum registro de sono recebido." else "Permita leitura de sono em Conexões, se desejar.")
             }
@@ -193,7 +198,9 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
                     Metric("Registros locais",points(manual.balance),LightBlue,Modifier.weight(1f))
                     Metric("Com Health Connect*",points(integrated.balance),Aqua,Modifier.weight(1f))
                 }
-                TrendPlot(dates,manual.days.map { it.balance },LightBlue,integrated.days.map { it.balance },Aqua)
+                Subtext("Eixo vertical: pontos do IAA · Eixo horizontal: dias")
+                TrendPlot(dates,manual.days.map { it.balance },LightBlue,ChartAxis.Unit.POINTS,
+                    integrated.days.map { it.balance },Aqua)
                 Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     Text("● Local",color=LightBlue,style=MaterialTheme.typography.labelSmall)
                     Text("● Integrado estimado",color=Aqua,style=MaterialTheme.typography.labelSmall)
@@ -227,6 +234,28 @@ private fun points(value: Double): String = String.format(Locale("pt", "BR"), "%
                 if(estimates.size>16) Subtext("Mostrando 16 de ${estimates.size} sessões.")
                 Subtext("A fonte identifica o app que gravou os dados, não necessariamente o sensor. Mais de um app pode gravar a mesma sessão.")
             }
+        }
+        // Último quadro do painel: horário da consulta feita pelo Meu Treino.
+        // Esse horário NÃO é o horário da sincronização da pulseira com Zepp Life.
+        Pane {
+            Row(
+                Modifier.fillMaxWidth().background(PanelLight, RoundedCornerShape(10.dp))
+                    .padding(horizontal = 12.dp, vertical = 9.dp),
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(Icons.Default.AccessTime, contentDescription = null, tint = Aqua,
+                    modifier = Modifier.size(18.dp))
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text("ÚLTIMA CONSULTA AO HEALTH CONNECT",
+                        style = MaterialTheme.typography.labelSmall, color = Muted)
+                    Text(h?.let { moment(it.updatedAt) } ?: "Ainda não consultado",
+                        style = MaterialTheme.typography.titleSmall, color = Aqua)
+                }
+                if (busy) CircularProgressIndicator(Modifier.size(18.dp),
+                    strokeWidth = 2.dp, color = Aqua)
+            }
+            Subtext("Horário da consulta concluída pelo Meu Treino, não da sincronização do Zepp Life.")
         }
     }
 }

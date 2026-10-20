@@ -1,8 +1,12 @@
-# Meu Treino — Android v0.3.2
+# Meu Treino — Android v0.3.3
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
-**Novidade v0.3.2:** painel colorido (passos, frequência cardíaca, sono e IAA) e leitura detalhada dos últimos 7 dias pelo Health Connect. Estimativa integrada do IAA a partir de sessões de exercício com amostras suficientes de FC, sem copiar dados externos para o banco; prioriza impedir duplicações. Mantidas as integrações Bluetooth com Mi Body Composition Scale 2 e diagnóstico da Mi Band 7 (bateria) existentes na v0.3.1.
+**Base v0.3.2:** painel colorido (passos, frequência cardíaca, sono e IAA) e leitura detalhada dos últimos 7 dias pelo Health Connect. Estimativa integrada do IAA a partir de sessões de exercício com amostras suficientes de FC, sem copiar dados externos para o banco; prioriza impedir duplicações. Mantidas as integrações Bluetooth com Mi Body Composition Scale 2 e diagnóstico da Mi Band 7 (bateria) existentes na v0.3.1.
+
+**Novidade v0.3.3:** alteração exclusivamente visual do Painel da aba Dispositivos: o cartão da última consulta ao Health Connect agora é o **último quadro**, após as informações e gráficos; frequência cardíaca, sono e IAA passaram a apresentar **escala vertical numérica** (bpm, horas e pontos), preservando os rótulos horizontais dos dias. Não alteramos fórmula do IAA, sincronização, permissões, catálogo ou banco de dados.
+
+[Alterações e instruções da v0.3.3](docs/ALTERACOES_v0.3.3.md)
 
 [Notas técnicas, método, limites e testes da v0.3.2](docs/INTEGRACAO_HEALTH_CONNECT_v0.3.2.md)
 
@@ -27,7 +31,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 ## Limitações importantes
 
-- **A v0.3.2 não foi compilada nem executada no Android neste ambiente de elaboração.** O primeiro teste de build completo será feito pelo GitHub Actions.
+- **A v0.3.3 não foi compilada nem executada no Android neste ambiente de elaboração.** A compilação completa será validada pelo GitHub Actions; a v0.3.2 já havia sido validada no celular.
 - Bluetooth com Mi Body Composition Scale 2 usa protocolo experimental. O usuário já confirmou leitura de pesagem estável no aparelho real; compatibilidade com outras unidades não é garantida.
 - Health Connect não é a Mi Band 7. A presença de um dispositivo no cadastro **não comprova** que o app do fabricante envia seus dados ao Health Connect.
 - O **IAA local** não importa cardio externo. O **IAA integrado experimental** no Painel calcula pontuação apenas para sessões externas que tenham FC suficiente, sem sobreposição com cardio local; passos e peso não pontuam.
@@ -40,7 +44,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
-3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.3.2-debug`**.
+3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.3.3-debug`**.
 4. Extraia `app-debug.apk` do ZIP e instale-o.
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.

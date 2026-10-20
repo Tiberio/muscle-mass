@@ -9,4 +9,5 @@
 
 Lembretes: não alegar PAI real; não duplicar cardio/IAA; conservar os dados locais durante atualizações do APK.
 
-- **v0.3.2 (código preparado):** novo painel de passos, FC, sono e IAA integrado estimado; compilação GitHub e testes Android ainda pendentes.
+- **v0.3.2:** painel de passos, FC, sono e IAA integrado estimado; compilação GitHub e execução no celular confirmadas pelo usuário.
+- **v0.3.3 (código preparado):** apenas interface do painel: horário da consulta no último quadro e eixos verticais numéricos nos gráficos de FC, sono e IAA. Build Android ainda pendente de confirmação.
