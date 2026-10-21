@@ -1,0 +1,119 @@
+[
+  {
+    "exercise_id": "machinepress",
+    "source_id": "machine_bench_press",
+    "matched_name": "Machine Chest Press",
+    "youtube_id": "Qu7-ceCvq7w",
+    "duration_seconds": null,
+    "source_line": 85853,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "bandcurl",
+    "source_id": "resistance_band_band_bicep_curls",
+    "matched_name": "Band Bicep Curls",
+    "youtube_id": "20xtfGZ37nw",
+    "duration_seconds": 6,
+    "source_line": 18102,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "bandpullapart",
+    "source_id": "resistance_band_band_pull_aparts",
+    "matched_name": "Band Pull Aparts",
+    "youtube_id": "Jcn93rBhUps",
+    "duration_seconds": 5,
+    "source_line": 18190,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbfloorpress",
+    "source_id": "dumbbells_db_floor_press",
+    "matched_name": "Dumbbell Floor Press",
+    "youtube_id": "O1x7AoUf5Vs",
+    "duration_seconds": null,
+    "source_line": 49115,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbinclinefly",
+    "source_id": "dumbbells_incline_dumbbell_flyes",
+    "matched_name": "Incline Dumbbell Flyes",
+    "youtube_id": "_8mLd6uZhYU",
+    "duration_seconds": null,
+    "source_line": 79032,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbinclinepress",
+    "source_id": "dumbbells_incline_dumbbell_press",
+    "matched_name": "Incline Dumbbell Press",
+    "youtube_id": "8fXfwG4ftaQ",
+    "duration_seconds": null,
+    "source_line": 79132,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbchestrow",
+    "source_id": "dumbbells_dumbbell_incline_row",
+    "matched_name": "Dumbbell Incline Row / Chest Supported Dumbbell Row",
+    "youtube_id": "2ByilQ4NaAs",
+    "duration_seconds": null,
+    "source_line": 78367,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbreversefly",
+    "source_id": "dumbbells_db_reverse_fly",
+    "matched_name": "Dumbbell Reverse Fly",
+    "youtube_id": "LsT-bR_zxLo",
+    "duration_seconds": null,
+    "source_line": 49476,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "dbzottman",
+    "source_id": "dumbbells_zottman_curl",
+    "matched_name": "Zottman Curl",
+    "youtube_id": "8Ubr8L_vo1Q",
+    "duration_seconds": null,
+    "source_line": 82558,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "bbhipthrust",
+    "source_id": "barbell_hip_thrust",
+    "matched_name": "Barbell Hip Thrust",
+    "youtube_id": "7SCoCTps6t0",
+    "duration_seconds": null,
+    "source_line": 22658,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "bbpushpress",
+    "source_id": "barbell_push_press",
+    "matched_name": "Push Press",
+    "youtube_id": "IBgVwW1RLFE",
+    "duration_seconds": null,
+    "source_line": 22562,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "smithsquat",
+    "source_id": "machine_smith_machine_squat",
+    "matched_name": "Smith Machine Squat",
+    "youtube_id": "iKCJCydYYrE",
+    "duration_seconds": null,
+    "source_line": 87410,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  },
+  {
+    "exercise_id": "seatedcalf",
+    "source_id": "machine_seated_calf_raise",
+    "matched_name": "Seated Calf Raise",
+    "youtube_id": "gpXQwBBzRz0",
+    "duration_seconds": null,
+    "source_line": 86526,
+    "status": "metadados_conferidos_sem_auditoria_visual"
+  }
+]

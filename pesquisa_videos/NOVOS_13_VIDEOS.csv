@@ -1,0 +1,14 @@
+exercise_id,name,youtube_url,source_duration_seconds,source_record,source_line,status
+machinepress,Machine Chest Press,https://www.youtube.com/watch?v=Qu7-ceCvq7w,,machine_bench_press,85853,metadados_conferidos_sem_auditoria_visual
+bandcurl,Band Bicep Curls,https://www.youtube.com/watch?v=20xtfGZ37nw,6,resistance_band_band_bicep_curls,18102,metadados_conferidos_sem_auditoria_visual
+bandpullapart,Band Pull Aparts,https://www.youtube.com/watch?v=Jcn93rBhUps,5,resistance_band_band_pull_aparts,18190,metadados_conferidos_sem_auditoria_visual
+dbfloorpress,Dumbbell Floor Press,https://www.youtube.com/watch?v=O1x7AoUf5Vs,,dumbbells_db_floor_press,49115,metadados_conferidos_sem_auditoria_visual
+dbinclinefly,Incline Dumbbell Flyes,https://www.youtube.com/watch?v=_8mLd6uZhYU,,dumbbells_incline_dumbbell_flyes,79032,metadados_conferidos_sem_auditoria_visual
+dbinclinepress,Incline Dumbbell Press,https://www.youtube.com/watch?v=8fXfwG4ftaQ,,dumbbells_incline_dumbbell_press,79132,metadados_conferidos_sem_auditoria_visual
+dbchestrow,Dumbbell Incline Row / Chest Supported Dumbbell Row,https://www.youtube.com/watch?v=2ByilQ4NaAs,,dumbbells_dumbbell_incline_row,78367,metadados_conferidos_sem_auditoria_visual
+dbreversefly,Dumbbell Reverse Fly,https://www.youtube.com/watch?v=LsT-bR_zxLo,,dumbbells_db_reverse_fly,49476,metadados_conferidos_sem_auditoria_visual
+dbzottman,Zottman Curl,https://www.youtube.com/watch?v=8Ubr8L_vo1Q,,dumbbells_zottman_curl,82558,metadados_conferidos_sem_auditoria_visual
+bbhipthrust,Barbell Hip Thrust,https://www.youtube.com/watch?v=7SCoCTps6t0,,barbell_hip_thrust,22658,metadados_conferidos_sem_auditoria_visual
+bbpushpress,Push Press,https://www.youtube.com/watch?v=IBgVwW1RLFE,,barbell_push_press,22562,metadados_conferidos_sem_auditoria_visual
+smithsquat,Smith Machine Squat,https://www.youtube.com/watch?v=iKCJCydYYrE,,machine_smith_machine_squat,87410,metadados_conferidos_sem_auditoria_visual
+seatedcalf,Seated Calf Raise,https://www.youtube.com/watch?v=gpXQwBBzRz0,,machine_seated_calf_raise,86526,metadados_conferidos_sem_auditoria_visual

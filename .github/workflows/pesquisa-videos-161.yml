@@ -1,0 +1,29 @@
+name: Pesquisa dos 161 videos pendentes
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'pesquisa_videos/**'
+      - '.github/workflows/pesquisa-videos-161.yml'
+permissions:
+  contents: read
+jobs:
+  pesquisa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Conferir cruzamento e testes
+        run: python3 pesquisa_videos/testar_pesquisa.py
+      - name: Consultar todos os exercicios no Workout Database
+        run: python3 pesquisa_videos/pesquisar_161.py --output resultado_pesquisa_161
+      - name: Publicar lista de videos pesquisados
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pesquisa-161-exercicios-WorkoutDB
+          path: resultado_pesquisa_161/
+          if-no-files-found: error

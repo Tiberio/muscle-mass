@@ -1,0 +1,175 @@
+exercise_id	english_name	material
+inclinepush	Incline Push Up	bodyweight
+machinepress	Chest Press Machine	machine
+bandrow	Resistance Band Row	resistance_band
+pullup	Band Assisted Pull Up	resistance_band
+lunge	Alternating Lunges	bodyweight
+bandshoulder	Resistance Band Shoulder Press	resistance_band
+bandcurl	Resistance Band Biceps Curl	resistance_band
+closepush	Close Grip Push Up	bodyweight
+widepush	Wide Push Ups	bodyweight
+declinepush	Decline Push Ups	bodyweight
+tempopush	Slow Tempo Push Ups	bodyweight
+pausepush	Pause Push Ups	bodyweight
+archerpush	Archer Push Up	bodyweight
+pseudoplanche	Pseudo Planche Push Up	bodyweight
+explosivepush	Explosive Push Ups	bodyweight
+spidermanpush	Spiderman Push Ups	bodyweight
+hindupush	Hindu Push Ups	bodyweight
+elevatedpike	Feet Elevated Pike Push Up	bodyweight
+wallhandstandpush	Wall Handstand Push Up	bodyweight
+benchedips	Bench Dips	bodyweight
+paralleldips	Parallel Bar Dips	parallettes
+assistedparalleldips	Assisted Dips	parallettes
+scapularpull	Scapular Pull Up	bodyweight
+negativepull	Negative Pull Up	bodyweight
+chinup	Chin Ups	bodyweight
+commando	Commando Pull Up	bodyweight
+archerpull	Archer Pull Up	bodyweight
+bodyweightrowrings	Suspension Row	trx_suspension
+ringfacepull	TRX Face Pull	trx_suspension
+proneyraise	Prone Y Raise	bodyweight
+pronewraise	Prone W Raise	bodyweight
+wallslide	Wall Slides	bodyweight
+scapularpush	Scapular Push Up	bodyweight
+shouldertap	Plank Shoulder Taps	bodyweight
+regressedsquat	Chair Squats	bodyweight
+temposquat	Tempo Bodyweight Squat	bodyweight
+pausesquat	Pause Squat	bodyweight
+sumosquat	Bodyweight Sumo Squat	bodyweight
+wallseat	Wall Sit	bodyweight
+cyclistsquat	Heels Elevated Squats	bodyweight
+pistolsupport	Assisted Pistol Squat	bodyweight
+pistolsquat	Pistol Squats	bodyweight
+shrimp	Shrimp Squat	bodyweight
+forwardlunge	Forward Lunges	bodyweight
+latlunge	Side Lunges	bodyweight
+cossack	Cossack Squats	bodyweight
+bulgarianbw	Bodyweight Bulgarian Split Squat	bodyweight
+stepupbw	Bodyweight Step Ups	bodyweight
+jumplunge	Jumping Lunges	bodyweight
+glutebridgeone	Single Leg Glute Bridge	bodyweight
+glutebridgepause	Glute Bridge Hold	bodyweight
+hipthrustbw	Bodyweight Hip Thrust	bodyweight
+hamwalkout	Hamstring Walkouts	bodyweight
+singlelegdeadliftbw	Bodyweight Single Leg Deadlift	bodyweight
+goodmorningbw	Bodyweight Good Morning	bodyweight
+superman	Superman	bodyweight
+calfstep	Calf Raises On Step	bodyweight
+tibialiswall	Tibialis Raises	bodyweight
+sideplankleg	Side Plank Leg Raise	bodyweight
+reverseplank	Reverse Plank	bodyweight
+hollowhold	Hollow Body Hold	bodyweight
+legraise	Lying Leg Raises	bodyweight
+kneetuck	Seated Knee Tuck	bodyweight
+bearhold	Bear Plank Hold	bodyweight
+bearcrawl	Bear Crawl	bodyweight
+mountainclimber	Mountain Climbers	bodyweight
+deadbugextended	Dead Bug Leg Extension	bodyweight
+birddogelbow	Bird Dog Knee To Elbow	bodyweight
+birdhold	Bird Dog Hold	bodyweight
+lsitparallels	L Sit	parallettes
+dbfloorpress	Dumbbell Floor Press	dumbbells
+dbinclinepress	Incline Dumbbell Bench Press	dumbbells
+dbinclinefly	Incline Dumbbell Fly	dumbbells
+dbsqueeze	Dumbbell Squeeze Press	dumbbells
+dbbentrow	Bent Over Dumbbell Row	dumbbells
+dbchestrow	Chest Supported Dumbbell Row	dumbbells
+dbwideelbowrow	Dumbbell Wide Elbow Row	dumbbells
+dbreversefly	Dumbbell Reverse Fly	dumbbells
+dbneutralpress	Neutral Grip Dumbbell Shoulder Press	dumbbells
+dblaterallean	Leaning Lateral Raise	dumbbells
+dbyraise	Dumbbell Y Raise	dumbbells
+dbshrug	Dumbbell Shrug	dumbbells
+dbhammer	Hammer Curl	dumbbells
+dbconcentration	Concentration Curl	dumbbells
+dbinclinecurl	Incline Dumbbell Curl	dumbbells
+dbspidercurl	Dumbbell Spider Curl	dumbbells
+dbzottman	Zottman Curl	dumbbells
+dbtricepsoverhead	Overhead Dumbbell Triceps Extension	dumbbells
+dbtricepskick	Dumbbell Triceps Kickback	dumbbells
+dbskullcrusher	Dumbbell Skull Crusher	dumbbells
+dbclosepress	Close Grip Dumbbell Bench Press	dumbbells
+dbfrontsquat	Dumbbell Front Squat	dumbbells
+dbsumosquat	Dumbbell Sumo Squat	dumbbells
+dbsplitsquat	Dumbbell Split Squat	dumbbells
+dbbulgarian	Dumbbell Bulgarian Split Squat	dumbbells
+dbstepup	Dumbbell Step Up	dumbbells
+dbsingleRDL	Single Leg Dumbbell Romanian Deadlift	dumbbells
+dbsumodead	Dumbbell Sumo Deadlift	dumbbells
+dbhipthrust	Dumbbell Hip Thrust	dumbbells
+dbcalf	Dumbbell Calf Raise	dumbbells
+dbfarmer	Dumbbell Farmers Walk	dumbbells
+dbsuitcase	Dumbbell Suitcase Carry	dumbbells
+bbclosebench	Close Grip Barbell Bench Press	barbell
+bbpendlay	Pendlay Row	barbell
+bbunderrow	Reverse Grip Barbell Row	barbell
+bboverhead	Barbell Overhead Press	barbell
+bbpushpress	Barbell Push Press	barbell
+bbboxsquat	Barbell Box Squat	barbell
+bbzercher	Zercher Squat	barbell
+bbrdl	Barbell Romanian Deadlift	barbell
+bbsumodead	Sumo Barbell Deadlift	barbell
+bbgoodmorning	Barbell Good Morning	barbell
+bbhipthrust	Barbell Hip Thrust	barbell
+bblunge	Barbell Lunge	barbell
+bbcalf	Barbell Calf Raise	barbell
+bbreversecurl	Barbell Reverse Curl	barbell
+bbpreachercurl	Barbell Preacher Curl	barbell
+bbskull	Barbell Skull Crusher	barbell
+bbupright	Barbell Upright Row	barbell
+inclinemachine	Incline Chest Press Machine	machine
+cablechest	Standing Cable Chest Press	cable
+neutralpulldown	Neutral Grip Lat Pulldown	cable
+closepulldown	Close Grip Lat Pulldown	cable
+highrowmachine	High Row Machine	machine
+chestrowmachine	Chest Supported Row Machine	machine
+machinepullover	Pullover Machine	machine
+assisteddipmachine	Assisted Dip Machine	machine
+shouldermachine	Shoulder Press Machine	machine
+lateralmachine	Lateral Raise Machine	machine
+reversepecdeck	Reverse Pec Deck	machine
+legextension	Leg Extension Machine	machine
+lyinglegcurl	Lying Leg Curl Machine	machine
+hacksquat	Hack Squat Machine	machine
+smithsquat	Smith Machine Squat	smith_machine
+smithsplit	Smith Machine Split Squat	smith_machine
+hipabduction	Hip Abduction Machine	machine
+hipadduction	Hip Adduction Machine	machine
+glutekickmachine	Glute Kickback Machine	machine
+seatedcalf	Seated Calf Raise Machine	machine
+standingcalfmachine	Standing Calf Raise Machine	machine
+cablecurl	Standing Biceps Cable Curl	cable
+preachermachine	Preacher Curl Machine	machine
+tricepsrope	Rope Triceps Pushdown	cable
+tricepsvbar	V Bar Triceps Pushdown	cable
+tricepsoverheadcable	Overhead Cable Triceps Extension	cable
+cablekickback	Cable Triceps Kickback	cable
+crunchmachine	Ab Crunch Machine	machine
+cablepallof	Cable Pallof Press	cable
+bandchestpress	Resistance Band Chest Press	resistance_band
+bandfly	Resistance Band Chest Fly	resistance_band
+bandpullapart	Band Pull Apart	resistance_band
+bandfacepull	Band Face Pull	resistance_band
+bandreversefly	Resistance Band Reverse Fly	resistance_band
+bandexternal	External Rotation with Band	resistance_band
+bandlateral	Resistance Band Lateral Raise	resistance_band
+bandfront	Resistance Band Front Raise	resistance_band
+bandtricepsoverhead	Overhead Triceps Extension with Band	resistance_band
+bandgoodmorning	Resistance Band Good Morning	resistance_band
+bandglutekick	Resistance Band Glute Kickback	resistance_band
+bandmonsterwalk	Resistance Band Lateral Walk	resistance_band
+bandpallof	Pallof Press with Band	resistance_band
+bandpallofhold	Pallof Press Hold with Band	resistance_band
+bandwoodchop	Resistance Band Woodchop	resistance_band
+kbgoblet	Kettlebell Goblet Squat	kettlebell
+kbfrontsquat	Double Kettlebell Front Squat	kettlebell
+kbsumo	Kettlebell Sumo Deadlift	kettlebell
+kbswing	Kettlebell Swing	kettlebell
+kbrow	Kettlebell Single Arm Row	kettlebell
+kboverhead	Kettlebell Overhead Press	kettlebell
+kbclean	Kettlebell Clean	kettlebell
+kbsnatch	Kettlebell Snatch	kettlebell
+kbturkish	Turkish Get Up	kettlebell
+kbfarmers	Kettlebell Farmer Carry	kettlebell
+kbsinglecarry	Single Kettlebell Suitcase Carry	kettlebell
