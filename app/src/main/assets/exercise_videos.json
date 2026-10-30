@@ -1,0 +1,1864 @@
+{
+  "schema_version": 1,
+  "notes": "v0.4.5: 234 exercícios; 44 vínculos preexistentes no player, 60 candidatos identificados por metadados (somente abertura externa para revisão), 130 buscas específicas. Não há auditoria visual completa nem recortes inventados; candidatos ainda não são demonstrações aprovadas.",
+  "videos": [
+    {
+      "exercise_id": "dbbench",
+      "youtube_id": "PziFsPH2EZI",
+      "author": "Andrew Coates",
+      "title": "Exercise Demo: Dumbbell Bench Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=PziFsPH2EZI"
+    },
+    {
+      "exercise_id": "squat",
+      "youtube_id": "vm1iZ16jJ3k",
+      "author": "JayTaylor",
+      "title": "Bodyweight Squat | Exercise Demo",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "pending_visual_review",
+      "source_url": "https://www.youtube.com/watch?v=vm1iZ16jJ3k"
+    },
+    {
+      "exercise_id": "bridge",
+      "youtube_id": "9TN73n6T31s",
+      "author": "JayTaylor",
+      "title": "Glute Bridge | Exercise Demo",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=9TN73n6T31s"
+    },
+    {
+      "exercise_id": "lateral",
+      "youtube_id": "Yrrx4sUmZA4",
+      "author": "JayTaylor",
+      "title": "Dumbbell Lateral Raise | Exercise Demo",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "pending_visual_review",
+      "source_url": "https://www.youtube.com/watch?v=Yrrx4sUmZA4"
+    },
+    {
+      "exercise_id": "curl",
+      "youtube_id": "P1A9yXYxwAg",
+      "author": "JayTaylor",
+      "title": "Dumbbell Bicep Curl | Exercise Demo",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=P1A9yXYxwAg"
+    },
+    {
+      "exercise_id": "goblet",
+      "youtube_id": "JO7D6GJ98wY",
+      "author": "Jack Hanrahan Fitness",
+      "title": "How To Do A Goblet Squat Correctly",
+      "start_seconds": 17,
+      "end_seconds": 86,
+      "verification": "creator_chapters",
+      "source_url": "https://www.youtube.com/watch?v=JO7D6GJ98wY"
+    },
+    {
+      "exercise_id": "dbrow",
+      "youtube_id": "H8jf3DwlIlo",
+      "author": "Charles_Vantor",
+      "title": "How To Single Arm Dumbbell Rows",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=H8jf3DwlIlo"
+    },
+    {
+      "exercise_id": "deadbug",
+      "youtube_id": "g_BYB0R-4Ws",
+      "author": "Children’s Hospital Colorado",
+      "title": "Core Exercise: Dead Bug",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=g_BYB0R-4Ws"
+    },
+    {
+      "exercise_id": "plank",
+      "youtube_id": "uKoYeus_qyY",
+      "author": "Health Warriors",
+      "title": "Exercise Demo: Plank (Core)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=uKoYeus_qyY"
+    },
+    {
+      "exercise_id": "pikepush",
+      "youtube_id": "-MIA2k0bzxg",
+      "author": "Treino em Foco",
+      "title": "Pike Push Up — Como fazer de forma correta?",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "metadata_checked",
+      "source_url": "https://www.youtube.com/watch?v=-MIA2k0bzxg"
+    },
+    {
+      "exercise_id": "pushup",
+      "youtube_id": "i9sTjhN4Z3M",
+      "author": "Mind Pump TV",
+      "title": "The RIGHT Way To Do Push-Ups (PERFECT FORM)",
+      "start_seconds": 145,
+      "end_seconds": 225,
+      "verification": "creator_chapters",
+      "source_url": "https://www.youtube.com/watch?v=i9sTjhN4Z3M",
+      "publisher_page": "https://www.youtube.com/watch?v=i9sTjhN4Z3M"
+    },
+    {
+      "exercise_id": "wallpush",
+      "youtube_id": "AJlRifnwwEY",
+      "author": "FITTR",
+      "title": "Wall pushups",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=AJlRifnwwEY",
+      "publisher_page": "https://www.fittr.com/exercise-video/wall-pushups-6865/"
+    },
+    {
+      "exercise_id": "kneepush",
+      "youtube_id": "s-3kM8rdbOE",
+      "author": "FITTR",
+      "title": "Push up on knee",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=s-3kM8rdbOE",
+      "publisher_page": "https://www.fittr.com/exercise-video/push-up-on-knee-118/"
+    },
+    {
+      "exercise_id": "sideplank",
+      "youtube_id": "NXr4Fw8q60o",
+      "author": "Howcast",
+      "title": "How to Do a Side Plank | Ab Workout",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=NXr4Fw8q60o",
+      "publisher_page": "https://www.youtube.com/watch?v=NXr4Fw8q60o"
+    },
+    {
+      "exercise_id": "strictpull",
+      "youtube_id": "zIVV_qatR2U",
+      "author": "FITTR",
+      "title": "Pull Ups",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=zIVV_qatR2U",
+      "publisher_page": "https://www.fittr.com/exercise-video/pull-ups-5/"
+    },
+    {
+      "exercise_id": "assistedpullmachine",
+      "youtube_id": "Q5TgT1bCyUg",
+      "author": "FITTR",
+      "title": "Self Assisted Pull Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=Q5TgT1bCyUg",
+      "publisher_page": "https://www.fittr.com/exercise-video/self-assisted-pull-up-108/"
+    },
+    {
+      "exercise_id": "reverselunge",
+      "youtube_id": "ufjvjxrGyFM",
+      "author": "DEYOFIT",
+      "title": "How to Perform a Reverse Lunge (Proper Form)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=ufjvjxrGyFM",
+      "publisher_page": "https://www.youtube.com/watch?v=ufjvjxrGyFM"
+    },
+    {
+      "exercise_id": "rdeadlift",
+      "youtube_id": "Jlb-gBv5MXg",
+      "author": "JayTaylor",
+      "title": "Dumbbell Romanian Deadlift | Exercise Demo (Form and Technique)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=Jlb-gBv5MXg",
+      "publisher_page": "https://www.youtube.com/watch?v=Jlb-gBv5MXg"
+    },
+    {
+      "exercise_id": "dbshoulder",
+      "youtube_id": "fjQdQNjqS1A",
+      "author": "FITTR",
+      "title": "Dumbbell Shoulder Press (Seated)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=fjQdQNjqS1A",
+      "publisher_page": "https://www.fittr.com/exercise-video/dumbbell-shoulder-press-seated-168/"
+    },
+    {
+      "exercise_id": "bbbacksquat",
+      "youtube_id": "GbUShgjRdkU",
+      "author": "FITTR",
+      "title": "Barbell Squat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=GbUShgjRdkU",
+      "publisher_page": "https://www.fittr.com/exercise-video/barbell-squat-14/"
+    },
+    {
+      "exercise_id": "bbdeadlift",
+      "youtube_id": "k7IrL7qmBAw",
+      "author": "FITTR",
+      "title": "Barbell Deadlift",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=k7IrL7qmBAw",
+      "publisher_page": "https://www.fittr.com/exercise-video/barbell-deadlift-42/"
+    },
+    {
+      "exercise_id": "bbcurl",
+      "youtube_id": "doiWKI0SgC8",
+      "author": "FITTR",
+      "title": "Barbell Biceps Curl",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=doiWKI0SgC8",
+      "publisher_page": "https://www.fittr.com/exercise-video/barbell-biceps-curl-4437/"
+    },
+    {
+      "exercise_id": "bandlat",
+      "youtube_id": "EXv43gku-wQ",
+      "author": "FITTR",
+      "title": "Resistance Band Lat Pull Down",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=EXv43gku-wQ",
+      "publisher_page": "https://www.fittr.com/exercise-video/resistance-band-lat-pull-down-1760/"
+    },
+    {
+      "exercise_id": "banddeadlift",
+      "youtube_id": "8sjla7C0C8A",
+      "author": "FITTR",
+      "title": "Resistance band deadlift",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=8sjla7C0C8A",
+      "publisher_page": "https://www.fittr.com/exercise-video/resistance-band-deadlift-3501/"
+    },
+    {
+      "exercise_id": "bandhammer",
+      "youtube_id": "j4uZXZ_O8uk",
+      "author": "FITTR",
+      "title": "Resistance band hammer curl",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=j4uZXZ_O8uk",
+      "publisher_page": "https://www.fittr.com/exercise-video/resistance-band-hammer-curl-4500/"
+    },
+    {
+      "exercise_id": "legpress",
+      "youtube_id": "6xwFYud808Y",
+      "author": "FITTR",
+      "title": "Bilateral Seated Leg press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=6xwFYud808Y",
+      "publisher_page": "https://www.fittr.com/exercise-video/bilateral-seated-leg-press-251/"
+    },
+    {
+      "exercise_id": "latpulldown",
+      "youtube_id": "X5n55mMqSUs",
+      "author": "FITTR",
+      "title": "Lat Pulldown(Machine)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=X5n55mMqSUs",
+      "publisher_page": "https://www.fittr.com/exercise-video/lat-pulldownmachine-30770/"
+    },
+    {
+      "exercise_id": "cable",
+      "youtube_id": "L69miffB9tc",
+      "author": "FITTR",
+      "title": "Seated cable row",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=L69miffB9tc",
+      "publisher_page": "https://www.fittr.com/exercise-video/seated-cable-row-1846/"
+    },
+    {
+      "exercise_id": "cablehammercurl",
+      "youtube_id": "1Quc_tOv97I",
+      "author": "FITTR",
+      "title": "Cable Hammer Curl",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=1Quc_tOv97I",
+      "publisher_page": "https://www.fittr.com/exercise-video/cable-hammer-curl-32120/"
+    },
+    {
+      "exercise_id": "facepullcable",
+      "youtube_id": "vMp5dg3Lnyw",
+      "author": "FITTR",
+      "title": "Cable Face Pull",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=vMp5dg3Lnyw",
+      "publisher_page": "https://www.fittr.com/exercise-video/cable-face-pull-1767/"
+    },
+    {
+      "exercise_id": "dbfly",
+      "youtube_id": "xZOpv3xa_ZA",
+      "author": "FITTR",
+      "title": "Dumbbell Fly - Flat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=xZOpv3xa_ZA",
+      "publisher_page": "https://www.fittr.com/exercise-video/dumbbell-fly-flat-14168/"
+    },
+    {
+      "exercise_id": "hipthrustmachine",
+      "youtube_id": "UlljOYPM57U",
+      "author": "FITTR",
+      "title": "Hip Thrust Machine",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=UlljOYPM57U",
+      "publisher_page": "https://www.fittr.com/exercise-video/hip-thrust-machine-31171/"
+    },
+    {
+      "exercise_id": "triceps",
+      "youtube_id": "QdtRlXt5gsI",
+      "author": "FITTR",
+      "title": "Tricep pushdown - Mini band",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=QdtRlXt5gsI",
+      "publisher_page": "https://www.fittr.com/exercise-video/tricep-pushdown-mini-band-5151/"
+    },
+    {
+      "exercise_id": "calfstand",
+      "youtube_id": "ix9LRCNb38U",
+      "author": "FITTR",
+      "title": "Bodyweight Calf Raises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=ix9LRCNb38U",
+      "publisher_page": "https://www.fittr.com/exercise-video/bodyweight-calf-raises-182/"
+    },
+    {
+      "exercise_id": "calfone",
+      "youtube_id": "Y4jcG6NiGt8",
+      "author": "FITTR",
+      "title": "Single Leg Bodyweight Calf Raises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=Y4jcG6NiGt8",
+      "publisher_page": "https://www.fittr.com/exercise-video/single-leg-bodyweight-calf-raises-219/"
+    },
+    {
+      "exercise_id": "bird",
+      "youtube_id": "GlOpvsoCzeU",
+      "author": "FITTR",
+      "title": "Bird Dog",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=GlOpvsoCzeU",
+      "publisher_page": "https://www.fittr.com/exercise-video/bird-dog-253/"
+    },
+    {
+      "exercise_id": "crunch",
+      "youtube_id": "tnZNcIqhGb0",
+      "author": "FITTR",
+      "title": "Ab Crunches",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=tnZNcIqhGb0",
+      "publisher_page": "https://www.fittr.com/exercise-video/ab-crunches-228/"
+    },
+    {
+      "exercise_id": "reversecrunch",
+      "youtube_id": "p03StPfWmWY",
+      "author": "FITTR",
+      "title": "Reverse Crunches",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=p03StPfWmWY",
+      "publisher_page": "https://www.fittr.com/exercise-video/reverse-crunches-200/"
+    },
+    {
+      "exercise_id": "bbbench",
+      "youtube_id": "gCq7ew9bPds",
+      "author": "FITTR",
+      "title": "Barbell Bench Press - Flat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=gCq7ew9bPds",
+      "publisher_page": "https://www.fittr.com/exercise-video/barbell-bench-press-flat-24/"
+    },
+    {
+      "exercise_id": "dbdeclinepress",
+      "youtube_id": "Wcs14F_FnJ4",
+      "author": "FITTR",
+      "title": "Decline Bench Press (Dumbbells)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=Wcs14F_FnJ4",
+      "publisher_page": "https://www.fittr.com/exercise-video/decline-bench-press-8892/"
+    },
+    {
+      "exercise_id": "cablefly",
+      "youtube_id": "EsXgqAxVKbA",
+      "author": "FITTR",
+      "title": "Cable Crossover",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=EsXgqAxVKbA",
+      "publisher_page": "https://www.fittr.com/exercise-video/cable-crossover-33545/"
+    },
+    {
+      "exercise_id": "dbarnold",
+      "youtube_id": "TEzehbTzBD0",
+      "author": "FITTR",
+      "title": "Dumbbell Arnold Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=TEzehbTzBD0",
+      "publisher_page": "https://www.fittr.com/exercise-video/dumbbell-arnold-press-66/"
+    },
+    {
+      "exercise_id": "dbfrontraise",
+      "youtube_id": "MOXObivNDv8",
+      "author": "FITTR",
+      "title": "Dumbbell Front Raise",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=MOXObivNDv8",
+      "publisher_page": "https://www.fittr.com/exercise-video/dumbbell-front-raise-174/"
+    },
+    {
+      "exercise_id": "pecdeck",
+      "youtube_id": "Lw6A9NCwReU",
+      "author": "FITTR",
+      "title": "Lever Pec Deck Fly",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "verification": "publisher_description_checked",
+      "source_url": "https://www.youtube.com/watch?v=Lw6A9NCwReU",
+      "publisher_page": "https://www.fittr.com/exercise-video/lever-pec-deck-fly-13/"
+    }
+  ],
+  "discovery": [
+    {
+      "exercise_id": "inclinepush",
+      "exercise_name": "Flexão inclinada",
+      "search_query": "Flexão inclinada exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandrow",
+      "exercise_name": "Remada com elástico",
+      "search_query": "Remada com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "lunge",
+      "exercise_name": "Avanço alternado",
+      "search_query": "Avanço alternado exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandshoulder",
+      "exercise_name": "Desenvolvimento com elástico",
+      "search_query": "Desenvolvimento com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "closepush",
+      "exercise_name": "Flexão com mãos próximas",
+      "search_query": "Flexão com mãos próximas exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "declinepush",
+      "exercise_name": "Flexão com pés elevados",
+      "search_query": "Flexão com pés elevados exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "tempopush",
+      "exercise_name": "Flexão com descida lenta",
+      "search_query": "Flexão com descida lenta exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "pausepush",
+      "exercise_name": "Flexão com pausa inferior",
+      "search_query": "Flexão com pausa inferior exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "archerpush",
+      "exercise_name": "Flexão arqueiro",
+      "search_query": "Flexão arqueiro exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "pseudoplanche",
+      "exercise_name": "Flexão pseudo-planche",
+      "search_query": "Flexão pseudo-planche exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "explosivepush",
+      "exercise_name": "Flexão explosiva",
+      "search_query": "Flexão explosiva exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hindupush",
+      "exercise_name": "Flexão hindu",
+      "search_query": "Flexão hindu exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "elevatedpike",
+      "exercise_name": "Flexão pike com pés elevados",
+      "search_query": "Flexão pike com pés elevados exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "wallhandstandpush",
+      "exercise_name": "Flexão de ombros na parede (parcial)",
+      "search_query": "Flexão de ombros na parede (parcial) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "benchedips",
+      "exercise_name": "Mergulho no banco",
+      "search_query": "Mergulho no banco exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "paralleldips",
+      "exercise_name": "Paralelas (mergulho)",
+      "search_query": "Paralelas (mergulho) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "assistedparalleldips",
+      "exercise_name": "Paralelas com pés apoiados",
+      "search_query": "Paralelas com pés apoiados exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "scapularpull",
+      "exercise_name": "Depressão escapular suspenso na barra",
+      "search_query": "Depressão escapular suspenso na barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "negativepull",
+      "exercise_name": "Barra fixa excêntrica",
+      "search_query": "Barra fixa excêntrica exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "commando",
+      "exercise_name": "Barra fixa com pegada alternada",
+      "search_query": "Barra fixa com pegada alternada exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "archerpull",
+      "exercise_name": "Barra fixa arqueiro",
+      "search_query": "Barra fixa arqueiro exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bodyweightrowrings",
+      "exercise_name": "Remada suspensa (TRX/argolas)",
+      "search_query": "Remada suspensa (TRX/argolas) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "ringfacepull",
+      "exercise_name": "Face pull suspenso (TRX/argolas)",
+      "search_query": "Face pull suspenso (TRX/argolas) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "proneyraise",
+      "exercise_name": "Elevação Y deitado",
+      "search_query": "Elevação Y deitado exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "pronewraise",
+      "exercise_name": "Elevação W deitado",
+      "search_query": "Elevação W deitado exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "wallslide",
+      "exercise_name": "Deslizamento de braços na parede",
+      "search_query": "Deslizamento de braços na parede exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "scapularpush",
+      "exercise_name": "Flexão escapular",
+      "search_query": "Flexão escapular exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "shouldertap",
+      "exercise_name": "Toques no ombro em prancha",
+      "search_query": "Toques no ombro em prancha exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "regressedsquat",
+      "exercise_name": "Sentar e levantar da cadeira",
+      "search_query": "Sentar e levantar da cadeira exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "temposquat",
+      "exercise_name": "Agachamento livre com descida lenta",
+      "search_query": "Agachamento livre com descida lenta exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "pausesquat",
+      "exercise_name": "Agachamento com pausa inferior",
+      "search_query": "Agachamento com pausa inferior exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "sumosquat",
+      "exercise_name": "Agachamento sumô livre",
+      "search_query": "Agachamento sumô livre exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "cyclistsquat",
+      "exercise_name": "Agachamento com calcanhares elevados",
+      "search_query": "Agachamento com calcanhares elevados exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "pistolsupport",
+      "exercise_name": "Agachamento unilateral com apoio",
+      "search_query": "Agachamento unilateral com apoio exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "shrimp",
+      "exercise_name": "Agachamento shrimp",
+      "search_query": "Agachamento shrimp exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "cossack",
+      "exercise_name": "Agachamento cossaco",
+      "search_query": "Agachamento cossaco exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bulgarianbw",
+      "exercise_name": "Agachamento búlgaro sem carga",
+      "search_query": "Agachamento búlgaro sem carga exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "stepupbw",
+      "exercise_name": "Subida no banco (step-up)",
+      "search_query": "Subida no banco (step-up) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "glutebridgepause",
+      "exercise_name": "Ponte de glúteos isométrica",
+      "search_query": "Ponte de glúteos isométrica exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hipthrustbw",
+      "exercise_name": "Elevação pélvica apoiada no banco",
+      "search_query": "Elevação pélvica apoiada no banco exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hamwalkout",
+      "exercise_name": "Caminhada de calcanhares na ponte",
+      "search_query": "Caminhada de calcanhares na ponte exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "singlelegdeadliftbw",
+      "exercise_name": "Inclinação de quadril unilateral sem carga",
+      "search_query": "Inclinação de quadril unilateral sem carga exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "goodmorningbw",
+      "exercise_name": "Bom dia sem carga",
+      "search_query": "Bom dia sem carga exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "calfstep",
+      "exercise_name": "Elevação de panturrilhas no degrau",
+      "search_query": "Elevação de panturrilhas no degrau exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "tibialiswall",
+      "exercise_name": "Dorsiflexão dos pés apoiado na parede",
+      "search_query": "Dorsiflexão dos pés apoiado na parede exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "sideplankleg",
+      "exercise_name": "Prancha lateral com abdução de perna",
+      "search_query": "Prancha lateral com abdução de perna exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "reverseplank",
+      "exercise_name": "Prancha invertida",
+      "search_query": "Prancha invertida exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hollowhold",
+      "exercise_name": "Hollow body hold",
+      "search_query": "Hollow body hold exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "legraise",
+      "exercise_name": "Elevação de pernas deitado",
+      "search_query": "Elevação de pernas deitado exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kneetuck",
+      "exercise_name": "Encolhimento de joelhos sentado",
+      "search_query": "Encolhimento de joelhos sentado exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bearhold",
+      "exercise_name": "Posição de urso isométrica",
+      "search_query": "Posição de urso isométrica exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "deadbugextended",
+      "exercise_name": "Dead bug com pernas estendidas",
+      "search_query": "Dead bug com pernas estendidas exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "birddogelbow",
+      "exercise_name": "Bird dog com cotovelo ao joelho",
+      "search_query": "Bird dog com cotovelo ao joelho exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "birdhold",
+      "exercise_name": "Bird dog isométrico",
+      "search_query": "Bird dog isométrico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbsqueeze",
+      "exercise_name": "Supino squeeze com halteres",
+      "search_query": "Supino squeeze com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbbentrow",
+      "exercise_name": "Remada curvada com halteres",
+      "search_query": "Remada curvada com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbwideelbowrow",
+      "exercise_name": "Remada com cotovelos abertos",
+      "search_query": "Remada com cotovelos abertos exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbneutralpress",
+      "exercise_name": "Desenvolvimento com pegada neutra",
+      "search_query": "Desenvolvimento com pegada neutra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dblaterallean",
+      "exercise_name": "Elevação lateral unilateral inclinada",
+      "search_query": "Elevação lateral unilateral inclinada exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbyraise",
+      "exercise_name": "Elevação em Y com halteres",
+      "search_query": "Elevação em Y com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbspidercurl",
+      "exercise_name": "Rosca spider no banco",
+      "search_query": "Rosca spider no banco exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbtricepsoverhead",
+      "exercise_name": "Extensão de tríceps acima da cabeça",
+      "search_query": "Extensão de tríceps acima da cabeça exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbtricepskick",
+      "exercise_name": "Coice de tríceps com halter",
+      "search_query": "Coice de tríceps com halter exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbclosepress",
+      "exercise_name": "Supino fechado com halteres",
+      "search_query": "Supino fechado com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbfrontsquat",
+      "exercise_name": "Agachamento com halteres nos ombros",
+      "search_query": "Agachamento com halteres nos ombros exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbsumosquat",
+      "exercise_name": "Agachamento sumô com halter",
+      "search_query": "Agachamento sumô com halter exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbbulgarian",
+      "exercise_name": "Agachamento búlgaro com halteres",
+      "search_query": "Agachamento búlgaro com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbstepup",
+      "exercise_name": "Step-up com halteres",
+      "search_query": "Step-up com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbsingleRDL",
+      "exercise_name": "Levantamento romeno unilateral com halter",
+      "search_query": "Levantamento romeno unilateral com halter exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbsumodead",
+      "exercise_name": "Levantamento terra sumô com halter",
+      "search_query": "Levantamento terra sumô com halter exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbhipthrust",
+      "exercise_name": "Elevação pélvica com halter",
+      "search_query": "Elevação pélvica com halter exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbcalf",
+      "exercise_name": "Elevação de panturrilhas com halteres",
+      "search_query": "Elevação de panturrilhas com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbfarmer",
+      "exercise_name": "Caminhada do fazendeiro com halteres",
+      "search_query": "Caminhada do fazendeiro com halteres exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "dbsuitcase",
+      "exercise_name": "Caminhada com halter unilateral",
+      "search_query": "Caminhada com halter unilateral exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbclosebench",
+      "exercise_name": "Supino fechado com barra",
+      "search_query": "Supino fechado com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbpendlay",
+      "exercise_name": "Remada Pendlay",
+      "search_query": "Remada Pendlay exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbunderrow",
+      "exercise_name": "Remada supinada com barra",
+      "search_query": "Remada supinada com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bboverhead",
+      "exercise_name": "Desenvolvimento militar com barra",
+      "search_query": "Desenvolvimento militar com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbboxsquat",
+      "exercise_name": "Agachamento com barra até o banco",
+      "search_query": "Agachamento com barra até o banco exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbrdl",
+      "exercise_name": "Levantamento romeno com barra",
+      "search_query": "Levantamento romeno com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbsumodead",
+      "exercise_name": "Levantamento terra sumô com barra",
+      "search_query": "Levantamento terra sumô com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbgoodmorning",
+      "exercise_name": "Bom dia com barra",
+      "search_query": "Bom dia com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbcalf",
+      "exercise_name": "Elevação de panturrilhas com barra",
+      "search_query": "Elevação de panturrilhas com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbreversecurl",
+      "exercise_name": "Rosca inversa com barra",
+      "search_query": "Rosca inversa com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbpreachercurl",
+      "exercise_name": "Rosca Scott com barra",
+      "search_query": "Rosca Scott com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbskull",
+      "exercise_name": "Tríceps testa com barra",
+      "search_query": "Tríceps testa com barra exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bbupright",
+      "exercise_name": "Remada alta com barra (amplitude confortável)",
+      "search_query": "Remada alta com barra (amplitude confortável) exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "inclinemachine",
+      "exercise_name": "Supino inclinado em máquina",
+      "search_query": "Supino inclinado em máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "cablechest",
+      "exercise_name": "Supino em pé nos cabos",
+      "search_query": "Supino em pé nos cabos exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "neutralpulldown",
+      "exercise_name": "Puxada neutra na polia",
+      "search_query": "Puxada neutra na polia exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "closepulldown",
+      "exercise_name": "Puxada fechada na polia",
+      "search_query": "Puxada fechada na polia exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "highrowmachine",
+      "exercise_name": "Remada alta articulada",
+      "search_query": "Remada alta articulada exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "chestrowmachine",
+      "exercise_name": "Remada com apoio peitoral na máquina",
+      "search_query": "Remada com apoio peitoral na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "machinepullover",
+      "exercise_name": "Pullover na máquina",
+      "search_query": "Pullover na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "assisteddipmachine",
+      "exercise_name": "Paralelas na máquina assistida",
+      "search_query": "Paralelas na máquina assistida exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "shouldermachine",
+      "exercise_name": "Desenvolvimento de ombros na máquina",
+      "search_query": "Desenvolvimento de ombros na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "lateralmachine",
+      "exercise_name": "Elevação lateral na máquina",
+      "search_query": "Elevação lateral na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "reversepecdeck",
+      "exercise_name": "Voador invertido",
+      "search_query": "Voador invertido exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "legextension",
+      "exercise_name": "Cadeira extensora",
+      "search_query": "Cadeira extensora exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "lyinglegcurl",
+      "exercise_name": "Mesa flexora deitada",
+      "search_query": "Mesa flexora deitada exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hacksquat",
+      "exercise_name": "Agachamento hack na máquina",
+      "search_query": "Agachamento hack na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "smithsplit",
+      "exercise_name": "Agachamento dividido no Smith",
+      "search_query": "Agachamento dividido no Smith exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hipabduction",
+      "exercise_name": "Cadeira abdutora",
+      "search_query": "Cadeira abdutora exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "hipadduction",
+      "exercise_name": "Cadeira adutora",
+      "search_query": "Cadeira adutora exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "glutekickmachine",
+      "exercise_name": "Coice de glúteos na máquina",
+      "search_query": "Coice de glúteos na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "standingcalfmachine",
+      "exercise_name": "Panturrilha em pé na máquina",
+      "search_query": "Panturrilha em pé na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "preachermachine",
+      "exercise_name": "Rosca Scott na máquina",
+      "search_query": "Rosca Scott na máquina exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "tricepsrope",
+      "exercise_name": "Tríceps na polia com corda",
+      "search_query": "Tríceps na polia com corda exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "tricepsvbar",
+      "exercise_name": "Tríceps na polia com barra V",
+      "search_query": "Tríceps na polia com barra V exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "tricepsoverheadcable",
+      "exercise_name": "Tríceps acima da cabeça no cabo",
+      "search_query": "Tríceps acima da cabeça no cabo exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "cablekickback",
+      "exercise_name": "Coice de tríceps na polia",
+      "search_query": "Coice de tríceps na polia exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "cablepallof",
+      "exercise_name": "Pallof press na polia",
+      "search_query": "Pallof press na polia exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandchestpress",
+      "exercise_name": "Supino em pé com elástico",
+      "search_query": "Supino em pé com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandfly",
+      "exercise_name": "Crucifixo com elástico",
+      "search_query": "Crucifixo com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandfacepull",
+      "exercise_name": "Face pull com elástico",
+      "search_query": "Face pull com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandreversefly",
+      "exercise_name": "Crucifixo invertido com elástico",
+      "search_query": "Crucifixo invertido com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandlateral",
+      "exercise_name": "Elevação lateral com elástico",
+      "search_query": "Elevação lateral com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandfront",
+      "exercise_name": "Elevação frontal com elástico",
+      "search_query": "Elevação frontal com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandtricepsoverhead",
+      "exercise_name": "Extensão de tríceps acima da cabeça com elástico",
+      "search_query": "Extensão de tríceps acima da cabeça com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandgoodmorning",
+      "exercise_name": "Bom dia com elástico",
+      "search_query": "Bom dia com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandglutekick",
+      "exercise_name": "Extensão de quadril com elástico",
+      "search_query": "Extensão de quadril com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandmonsterwalk",
+      "exercise_name": "Caminhada lateral com mini band",
+      "search_query": "Caminhada lateral com mini band exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandpallof",
+      "exercise_name": "Pallof press com elástico",
+      "search_query": "Pallof press com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandpallofhold",
+      "exercise_name": "Pallof isométrico com elástico",
+      "search_query": "Pallof isométrico com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "bandwoodchop",
+      "exercise_name": "Rotação diagonal com elástico",
+      "search_query": "Rotação diagonal com elástico exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kbsumo",
+      "exercise_name": "Levantamento terra sumô com kettlebell",
+      "search_query": "Levantamento terra sumô com kettlebell exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kbrow",
+      "exercise_name": "Remada unilateral com kettlebell",
+      "search_query": "Remada unilateral com kettlebell exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kboverhead",
+      "exercise_name": "Desenvolvimento com kettlebell",
+      "search_query": "Desenvolvimento com kettlebell exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kbfarmers",
+      "exercise_name": "Caminhada do fazendeiro com kettlebells",
+      "search_query": "Caminhada do fazendeiro com kettlebells exercício demonstração execução correta",
+      "status": "search_only"
+    },
+    {
+      "exercise_id": "kbsinglecarry",
+      "exercise_name": "Caminhada unilateral com kettlebell",
+      "search_query": "Caminhada unilateral com kettlebell exercício demonstração execução correta",
+      "status": "search_only"
+    }
+  ],
+  "candidates": [
+    {
+      "exercise_id": "machinepress",
+      "youtube_id": "Qu7-ceCvq7w",
+      "matched_title": "Machine Chest Press",
+      "source_url": "https://www.youtube.com/watch?v=Qu7-ceCvq7w",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "pullup",
+      "youtube_id": "COJxBrntnJY",
+      "matched_title": "Barra fixa assistida",
+      "source_url": "https://www.youtube.com/watch?v=COJxBrntnJY",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bandcurl",
+      "youtube_id": "20xtfGZ37nw",
+      "matched_title": "Band Bicep Curls",
+      "source_url": "https://www.youtube.com/watch?v=20xtfGZ37nw",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 6,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "widepush",
+      "youtube_id": "skWcxqxh2qw",
+      "matched_title": "Flexão com mãos afastadas",
+      "source_url": "https://www.youtube.com/watch?v=skWcxqxh2qw",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "spidermanpush",
+      "youtube_id": "o7hoH-AsAqs",
+      "matched_title": "Flexão com joelho lateral",
+      "source_url": "https://www.youtube.com/watch?v=o7hoH-AsAqs",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "invertedrow",
+      "youtube_id": "JdApfXGVaS4",
+      "matched_title": "Remada australiana na barra baixa",
+      "source_url": "https://www.youtube.com/watch?v=JdApfXGVaS4",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "chinup",
+      "youtube_id": "jIvbJzs1V4I",
+      "matched_title": "Chin-Up",
+      "source_url": "https://www.youtube.com/watch?v=jIvbJzs1V4I",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "neutralpull",
+      "youtube_id": "sXncV9s_-TU",
+      "matched_title": "Barra fixa pegada neutra",
+      "source_url": "https://www.youtube.com/watch?v=sXncV9s_-TU",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "wallseat",
+      "youtube_id": "mDdLC-yKudY",
+      "matched_title": "Agachamento isométrico na parede",
+      "source_url": "https://www.youtube.com/watch?v=mDdLC-yKudY",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 14,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "jumpsquat",
+      "youtube_id": "3HVpfJfgN_o",
+      "matched_title": "Agachamento com salto",
+      "source_url": "https://www.youtube.com/watch?v=3HVpfJfgN_o",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "pistolsquat",
+      "youtube_id": "fUGQ7oMEIFI",
+      "matched_title": "Agachamento pistola",
+      "source_url": "https://www.youtube.com/watch?v=fUGQ7oMEIFI",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "forwardlunge",
+      "youtube_id": "h52DNvumIyM",
+      "matched_title": "Forward Lunges",
+      "source_url": "https://www.youtube.com/watch?v=h52DNvumIyM",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 15,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "latlunge",
+      "youtube_id": "BHvVGnwp3Yg",
+      "matched_title": "Side Lunges",
+      "source_url": "https://www.youtube.com/watch?v=BHvVGnwp3Yg",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 17,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "splitbw",
+      "youtube_id": "W7_JqDzHsZE",
+      "matched_title": "Agachamento dividido sem carga",
+      "source_url": "https://www.youtube.com/watch?v=W7_JqDzHsZE",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "curtsylunge",
+      "youtube_id": "1f0QR8F5nzY",
+      "matched_title": "Afundo cruzado",
+      "source_url": "https://www.youtube.com/watch?v=1f0QR8F5nzY",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "jumplunge",
+      "youtube_id": "MiHy1Ijxqeo",
+      "matched_title": "Jumping Lunges",
+      "source_url": "https://www.youtube.com/watch?v=MiHy1Ijxqeo",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 10,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "glutebridgeone",
+      "youtube_id": "qB_bC7-CQjI",
+      "matched_title": "Ponte de glúteos unilateral",
+      "source_url": "https://www.youtube.com/watch?v=qB_bC7-CQjI",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "superman",
+      "youtube_id": "eKB5rv5c7FQ",
+      "matched_title": "Superman",
+      "source_url": "https://www.youtube.com/watch?v=eKB5rv5c7FQ",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 4,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "hollowrock",
+      "youtube_id": "p7j02V1fIzU",
+      "matched_title": "Hollow body rock",
+      "source_url": "https://www.youtube.com/watch?v=p7j02V1fIzU",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bicyclecrunch",
+      "youtube_id": "COiLIPQDMnA",
+      "matched_title": "Abdominal bicicleta",
+      "source_url": "https://www.youtube.com/watch?v=COiLIPQDMnA",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bearcrawl",
+      "youtube_id": "oMIwsHK6DyQ",
+      "matched_title": "Deslocamento em quatro apoios (bear crawl)",
+      "source_url": "https://www.youtube.com/watch?v=oMIwsHK6DyQ",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 59,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "mountainclimber",
+      "youtube_id": "7W4JEfEKuC4",
+      "matched_title": "Escalador (mountain climber)",
+      "source_url": "https://www.youtube.com/watch?v=7W4JEfEKuC4",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 8,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "hangingknee",
+      "youtube_id": "9qCRbu88hVY",
+      "matched_title": "Elevação de joelhos suspenso",
+      "source_url": "https://www.youtube.com/watch?v=9qCRbu88hVY",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "hangingleg",
+      "youtube_id": "3lykYcUcWNo",
+      "matched_title": "Elevação de pernas suspenso",
+      "source_url": "https://www.youtube.com/watch?v=3lykYcUcWNo",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "lsitparallels",
+      "youtube_id": "2UJaAnacHmI",
+      "matched_title": "L-Sit",
+      "source_url": "https://www.youtube.com/watch?v=2UJaAnacHmI",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbfloorpress",
+      "youtube_id": "O1x7AoUf5Vs",
+      "matched_title": "Dumbbell Floor Press",
+      "source_url": "https://www.youtube.com/watch?v=O1x7AoUf5Vs",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbinclinepress",
+      "youtube_id": "8fXfwG4ftaQ",
+      "matched_title": "Incline Dumbbell Press",
+      "source_url": "https://www.youtube.com/watch?v=8fXfwG4ftaQ",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbinclinefly",
+      "youtube_id": "_8mLd6uZhYU",
+      "matched_title": "Incline Dumbbell Flyes",
+      "source_url": "https://www.youtube.com/watch?v=_8mLd6uZhYU",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbpullover",
+      "youtube_id": "IOUGEVI_d3g",
+      "matched_title": "Pullover com halter no banco",
+      "source_url": "https://www.youtube.com/watch?v=IOUGEVI_d3g",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbchestrow",
+      "youtube_id": "2ByilQ4NaAs",
+      "matched_title": "Dumbbell Incline Row / Chest Supported Dumbbell Row",
+      "source_url": "https://www.youtube.com/watch?v=2ByilQ4NaAs",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbreversefly",
+      "youtube_id": "LsT-bR_zxLo",
+      "matched_title": "Dumbbell Reverse Fly",
+      "source_url": "https://www.youtube.com/watch?v=LsT-bR_zxLo",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbshrug",
+      "youtube_id": "rFsSeClGnNA",
+      "matched_title": "Dumbbell Shrug",
+      "source_url": "https://www.youtube.com/watch?v=rFsSeClGnNA",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbhammer",
+      "youtube_id": "BDpA9e9sZk0",
+      "matched_title": "Rosca martelo",
+      "source_url": "https://www.youtube.com/watch?v=BDpA9e9sZk0",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbconcentration",
+      "youtube_id": "EjUnEEfTSEY",
+      "matched_title": "Concentration Curls",
+      "source_url": "https://www.youtube.com/watch?v=EjUnEEfTSEY",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbinclinecurl",
+      "youtube_id": "uCUaRFlA9vE",
+      "matched_title": "Incline Dumbbell Curl",
+      "source_url": "https://www.youtube.com/watch?v=uCUaRFlA9vE",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbzottman",
+      "youtube_id": "8Ubr8L_vo1Q",
+      "matched_title": "Zottman Curl",
+      "source_url": "https://www.youtube.com/watch?v=8Ubr8L_vo1Q",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbskullcrusher",
+      "youtube_id": "arjVHiPdNOE",
+      "matched_title": "Lying Dumbbell Tricep Extension",
+      "source_url": "https://www.youtube.com/watch?v=arjVHiPdNOE",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "dbsplitsquat",
+      "youtube_id": "or1frhkjBDc",
+      "matched_title": "Split Squat with Dumbbells",
+      "source_url": "https://www.youtube.com/watch?v=or1frhkjBDc",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbincline",
+      "youtube_id": "I9QDN-MWm-A",
+      "matched_title": "Supino inclinado com barra",
+      "source_url": "https://www.youtube.com/watch?v=I9QDN-MWm-A",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbrow",
+      "youtube_id": "9Gf-Ourup_k",
+      "matched_title": "Remada curvada com barra",
+      "source_url": "https://www.youtube.com/watch?v=9Gf-Ourup_k",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbpushpress",
+      "youtube_id": "IBgVwW1RLFE",
+      "matched_title": "Push Press",
+      "source_url": "https://www.youtube.com/watch?v=IBgVwW1RLFE",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbfrontsquat",
+      "youtube_id": "s2mZmCchsks",
+      "matched_title": "Agachamento frontal com barra",
+      "source_url": "https://www.youtube.com/watch?v=s2mZmCchsks",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbzercher",
+      "youtube_id": "tL-sysfKC8c",
+      "matched_title": "Zercher Squats",
+      "source_url": "https://www.youtube.com/watch?v=tL-sysfKC8c",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bbhipthrust",
+      "youtube_id": "7SCoCTps6t0",
+      "matched_title": "Barbell Hip Thrust",
+      "source_url": "https://www.youtube.com/watch?v=7SCoCTps6t0",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bblunge",
+      "youtube_id": "EWBiNhxDnmQ",
+      "matched_title": "Barbell Lunges",
+      "source_url": "https://www.youtube.com/watch?v=EWBiNhxDnmQ",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "seatedlegcurl",
+      "youtube_id": "zDszHA7GnLY",
+      "matched_title": "Mesa flexora sentada",
+      "source_url": "https://www.youtube.com/watch?v=zDszHA7GnLY",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "smithsquat",
+      "youtube_id": "iKCJCydYYrE",
+      "matched_title": "Smith Machine Squat",
+      "source_url": "https://www.youtube.com/watch?v=iKCJCydYYrE",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "seatedcalf",
+      "youtube_id": "gpXQwBBzRz0",
+      "matched_title": "Seated Calf Raise",
+      "source_url": "https://www.youtube.com/watch?v=gpXQwBBzRz0",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "cablecurl",
+      "youtube_id": "CrbTqNOlFgE",
+      "matched_title": "Rosca bíceps na polia baixa",
+      "source_url": "https://www.youtube.com/watch?v=CrbTqNOlFgE",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "crunchmachine",
+      "youtube_id": "b6ONE9Rfgl8",
+      "matched_title": "Ab Crunch Machine",
+      "source_url": "https://www.youtube.com/watch?v=b6ONE9Rfgl8",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bandpullapart",
+      "youtube_id": "Jcn93rBhUps",
+      "matched_title": "Band Pull Aparts",
+      "source_url": "https://www.youtube.com/watch?v=Jcn93rBhUps",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 5,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bandexternal",
+      "youtube_id": "7DqYesMRkzU",
+      "matched_title": "Rotação externa de ombros com elástico",
+      "source_url": "https://www.youtube.com/watch?v=7DqYesMRkzU",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "bandsquat",
+      "youtube_id": "EUmcsU8tQF4",
+      "matched_title": "Agachamento com elástico",
+      "source_url": "https://www.youtube.com/watch?v=EUmcsU8tQF4",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbgoblet",
+      "youtube_id": "7-80HiXX1K8",
+      "matched_title": "Kettlebell Goblet Squat",
+      "source_url": "https://www.youtube.com/watch?v=7-80HiXX1K8",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbfrontsquat",
+      "youtube_id": "e7y8jEUbQiQ",
+      "matched_title": "Double Kettlebell Front Squat",
+      "source_url": "https://www.youtube.com/watch?v=e7y8jEUbQiQ",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 8,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbswing",
+      "youtube_id": "2gXtvqLa_T8",
+      "matched_title": "Balanço kettlebell (swing)",
+      "source_url": "https://www.youtube.com/watch?v=2gXtvqLa_T8",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 60,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbclean",
+      "youtube_id": "h4KafmF7Xwc",
+      "matched_title": "Kettlebell Clean",
+      "source_url": "https://www.youtube.com/watch?v=h4KafmF7Xwc",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbsnatch",
+      "youtube_id": "KqFYfLST3xc",
+      "matched_title": "Kettlebell Snatch",
+      "source_url": "https://www.youtube.com/watch?v=KqFYfLST3xc",
+      "source": "workout_database",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 16,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbhalo",
+      "youtube_id": "o4WDCCietJ0",
+      "matched_title": "Halo com kettlebell",
+      "source_url": "https://www.youtube.com/watch?v=o4WDCCietJ0",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": null,
+      "playback_status": "external_review_only"
+    },
+    {
+      "exercise_id": "kbturkish",
+      "youtube_id": "XVEMTDlNLyU",
+      "matched_title": "Turkish get-up",
+      "source_url": "https://www.youtube.com/watch?v=XVEMTDlNLyU",
+      "source": "levantamento_anterior",
+      "verification": "metadata_only",
+      "duration_seconds_from_source": 13,
+      "playback_status": "external_review_only"
+    }
+  ]
+}
