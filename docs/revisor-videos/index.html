@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061321"><meta name="description" content="Revisor manual de 60 vídeos demonstrativos de exercícios para o aplicativo Meu Treino.">
+<title>Revisor de vídeos — Meu Treino</title>
+<style>:root{color-scheme:dark;--bg:#061321;--panel:#0c2135;--panel2:#102c44;--panel3:#173653;--line:#24435c;--text:#edf6ff;--muted:#a5bfd3;--blue:#36a5ff;--green:#41d39a;--red:#ff7180;--yellow:#ffcf6e;--r:16px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -20%,#133b60 0%,#071929 45%,#061321 100%);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #7cc7ff;outline-offset:2px}a{color:#8fcfff}header{border-bottom:1px solid #24445c;background:rgba(6,19,33,.94);padding:19px max(18px,calc((100vw - 1360px)/2));position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}.head-row{display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:13px}.mark{display:grid;place-items:center;width:45px;height:45px;border-radius:12px;background:linear-gradient(145deg,#146bb3,#31b4dc);font-size:24px;box-shadow:0 6px 25px #0652ad66}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--blue);font-weight:700}h1{font-size:21px;margin:0;font-weight:800;letter-spacing:-.02em}h2{margin:0 0 2px;font-size:26px;letter-spacing:-.035em}h3{margin:0 0 6px;font-size:15px}.muted{color:var(--muted)}.small{font-size:12px}.head-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--panel3);color:var(--text);padding:10px 13px;border-radius:11px;font-weight:650;transition:.15s ease}.btn:hover{filter:brightness(1.17)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.primary{background:#1469ae;border-color:#258fe1}.btn.ghost{background:transparent}.stats{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:15px}.stat{font-size:13px;color:#bad2e2}.stat strong{font-size:16px;color:white}.stat.ok strong{color:var(--green)}.stat.no strong{color:var(--red)}.track{background:#24435e;border-radius:99px;height:9px;overflow:hidden;flex:1;min-width:150px}.track-fill{height:100%;background:linear-gradient(90deg,#1a85dd,#47d4b4);width:0;transition:width .2s}.wrap{max-width:1380px;margin:0 auto;padding:25px 18px 50px;display:grid;grid-template-columns:minmax(265px,320px) minmax(0,1fr);gap:22px;align-items:start}.sidebar,.maincard{border:1px solid var(--line);background:#0a1f33;border-radius:var(--r);box-shadow:0 18px 45px #020b1560}.sidebar{position:sticky;top:154px;max-height:calc(100vh - 175px);display:flex;flex-direction:column;overflow:hidden}.sidebar-top{padding:17px;border-bottom:1px solid var(--line)}.sidebar-top .muted{font-size:12px}input[type="search"],input[type="number"],textarea,select{background:#06192b;border:1px solid #355976;border-radius:9px;color:white;padding:10px 11px;width:100%}input[type="search"]::placeholder,textarea::placeholder{color:#829fb7}.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.filter{border:1px solid #35546c;border-radius:99px;background:transparent;color:#aac4d7;padding:6px 10px;font-size:12px}.filter.active{background:#164a72;border-color:#2787cf;color:white;font-weight:700}.item-list{overflow:auto;padding:7px;scrollbar-color:#3a5971 transparent}.nav-item{display:flex;text-align:left;gap:10px;align-items:center;border:1px solid transparent;background:transparent;color:var(--text);width:100%;padding:10px;border-radius:10px;min-height:66px}.nav-item:hover{background:#183750}.nav-item.current{background:#153955;border-color:#2c719d}.nav-num{color:#a8c8e1;font-variant-numeric:tabular-nums;font-size:12px;min-width:22px}.nav-title{font-size:13px;font-weight:680;display:block}.nav-sub{font-size:11px;color:#93b3c8;display:block;margin-top:2px}.nav-status{margin-left:auto;font-size:16px}.nav-status.ok{color:var(--green)}.nav-status.no{color:var(--red)}.nav-status.wait{color:#647f99}.maincard{padding:26px}.main-top{display:flex;justify-content:space-between;gap:18px;align-items:start;flex-wrap:wrap}.counter{color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}.english{font-size:16px;color:#a8cee7;margin:1px 0 10px}.chipline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.chip{font-size:11px;font-weight:750;border:1px solid #2d5e82;color:#a9d8f3;background:#0c3150;padding:5px 9px;border-radius:99px}.chip.warn{border-color:#8c6933;background:#3a2d1e;color:#ffd58a}.chip.ok{border-color:#327765;background:#13473e;color:#6ff2c1}.chip.no{border-color:#853a47;background:#481d30;color:#ffb3bd}.info-card{margin-top:17px;background:#0e2b44;border-left:3px solid #32a4e8;border-radius:9px;padding:14px 16px}.info-card .label{display:block;font-size:11px;color:#81b8d9;text-transform:uppercase;font-weight:750;letter-spacing:.08em;margin-bottom:5px}.info-card p{margin:0;font-size:14px}.warning{margin-top:12px;border:1px solid #835f36;background:#352919;padding:12px 14px;border-radius:10px;color:#ffdfa4;font-size:13px}.video-area{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}.screen{position:relative;width:100%;aspect-ratio:16/9;min-height:225px;background:#020b16;border:1px solid #29445d;border-radius:13px;overflow:hidden}.screen iframe{width:100%;height:100%;border:0;display:block}.poster{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:#020a15;isolation:isolate}.poster:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#071627ef 0%,#06152555 70%),var(--thumb) center/cover;z-index:-1;opacity:.85}.play{background:#e5233b;border:0;color:white;border-radius:99px;width:76px;height:52px;font-size:24px;box-shadow:0 8px 25px #000a;margin:auto auto 10px}.poster span{font-size:13px;color:#e5f5ff}.video-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.video-meta b{color:#cce6f9}.clipbox{margin-top:20px;background:#102b44;border:1px solid #335b78;border-radius:13px;padding:17px}.clipbox .clip-header{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}.clip-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:13px 0}.clip-fields label{display:block;font-size:12px;font-weight:700;color:#b4cee1}.clip-fields input{margin-top:7px}.clip-tip{font-size:12px;color:#e0c994;margin-top:8px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.choice{border:1px solid transparent;border-radius:13px;padding:16px 10px;font-size:16px;font-weight:780}.choice.approve{background:#11644e;color:#c2ffea;border-color:#209d73}.choice.reject{background:#6c2934;color:#ffe5e8;border-color:#a24451}.choice:hover{filter:brightness(1.15)}.choice .big{font-size:23px;vertical-align:middle;margin-right:5px}.notes{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.notes label{font-size:12px;color:#acc9df;font-weight:650;display:block}.notes label>*{margin-top:7px}.footnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:25px;padding-top:17px;border-top:1px solid var(--line)}.statusline{font-size:12px;color:#a9c5da}.notice{max-width:1380px;padding:0 18px 25px;margin:auto;color:#8caac0;font-size:12px}.notice a{color:#9ed5ff}.empty{padding:20px 14px;color:#90b1c6;text-align:center;font-size:13px}.toggle{display:flex;gap:7px;align-items:center;font-size:12px;color:var(--muted)}@media(max-width:860px){header{position:static;padding:16px}.wrap{display:block;padding:15px}.sidebar{position:static;max-height:none;margin-bottom:15px}.item-list{display:flex;max-height:135px;overflow-x:auto;overflow-y:hidden}.nav-item{flex:0 0 210px}.maincard{padding:18px}.stats{gap:9px}.track{flex-basis:100%}.notes{grid-template-columns:1fr}}@media(max-width:450px){.head-actions{width:100%}.head-actions .btn{flex:1;font-size:12px}.actions{gap:8px}.choice{padding:13px 4px;font-size:13px}h2{font-size:23px}.clip-fields{gap:8px}.stat{font-size:11px}.brand h1{font-size:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-row">
+    <div class="brand"><div class="mark" aria-hidden="true">▶</div><div><div class="eyebrow">Meu Treino · Curadoria de vídeos</div><h1>Revisão das 60 demonstrações</h1></div></div>
+    <div class="head-actions">
+      <button class="btn" type="button" id="importBtn">↥ Importar decisões</button>
+      <button class="btn" type="button" id="exportCsv">↧ Exportar CSV</button>
+      <button class="btn primary" type="button" id="exportJson">↧ Exportar JSON</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+    </div>
+  </div>
+  <div class="stats" aria-live="polite">
+    <div class="stat"><strong id="progressText">0 / 60 revisados</strong></div>
+    <div class="stat ok">✓ <strong id="approvedCount">0</strong> aprovados</div>
+    <div class="stat no">✕ <strong id="rejectedCount">0</strong> rejeitados</div>
+    <div class="stat">○ <strong id="pendingCount">60</strong> pendentes</div>
+    <div class="track" title="Progresso geral"><div class="track-fill" id="progressFill"></div></div>
+  </div>
+</header>
+<div class="wrap">
+  <aside class="sidebar" aria-label="Lista de exercícios">
+    <div class="sidebar-top">
+      <h3>Exercícios <span class="muted" id="visibleCount"></span></h3>
+      <input id="search" type="search" autocomplete="off" placeholder="Buscar em português ou inglês…" aria-label="Buscar exercício">
+      <div class="filters" aria-label="Filtrar exercícios">
+        <button class="filter active" data-filter="pending" type="button">Pendentes</button>
+        <button class="filter" data-filter="all" type="button">Todos</button>
+        <button class="filter" data-filter="approved" type="button">✓ Aprovados</button>
+        <button class="filter" data-filter="rejected" type="button">✕ Rejeitados</button>
+        <button class="filter" data-filter="long" type="button">Longos</button>
+      </div>
+    </div>
+    <div class="item-list" id="list" role="navigation"></div>
+  </aside>
+  <main class="maincard" id="maincard">
+    <div class="main-top">
+      <div><div class="counter" id="counter">Exercício 1 de 60</div><h2 id="namePt"></h2><div class="english" id="nameEn"></div></div>
+      <div class="chipline"><span class="chip" id="statusChip">Pendente</span><span class="chip" id="durationChip"></span></div>
+    </div>
+    <div class="info-card"><span class="label">Como realizar · orientação breve</span><p id="description"></p><p class="small muted" style="margin-top:8px">Grupo principal: <strong id="muscle"></strong></p></div>
+    <div class="warning" id="warning" style="display:none"></div>
+    <div class="video-area">
+      <div class="screen" id="screen" aria-label="Reprodutor do YouTube"></div>
+      <div class="video-meta"><span>Vídeo: <b id="videoTitle"></b> · <span id="channel"></span></span><span>Duração: <b id="duration"></b> · <a id="videoLink" target="_blank" rel="noopener noreferrer">Abrir no YouTube ↗</a></span></div>
+      <button class="btn ghost" type="button" id="entire">▶ Reproduzir vídeo completo</button>
+    </div>
+    <section class="clipbox" id="clipbox" style="display:none" aria-label="Definir trecho demonstrativo">
+      <div class="clip-header"><h3>✂ Selecionar trecho da demonstração</h3><span class="chip warn">Máximo de 40 segundos</span></div>
+      <p class="muted small">Este vídeo é mais longo. Assista ao original para localizar o movimento completo e deixe, se possível, 2–4 segundos antes e depois. Não há trecho previamente verificado.</p>
+      <div class="clip-fields"><label>Início (segundos)<input id="start" type="number" min="0" step="1" placeholder="Ex.: 12"></label><label>Fim (segundos)<input id="end" type="number" min="1" step="1" placeholder="Ex.: 42"></label></div>
+      <button id="previewClip" class="btn primary" type="button">▶ Reproduzir trecho selecionado</button>
+      <div id="clipValidity" class="clip-tip" role="status"></div>
+    </section>
+    <div class="notes">
+      <label>Motivo de rejeição (opcional)<select id="reason"><option value="">Escolha se rejeitar</option><option value="exercicio_errado">Exercício/variante incorreto</option><option value="tecnica_inadequada">Demonstração tecnicamente inadequada</option><option value="video_nao_abre">Vídeo não abre ou está indisponível</option><option value="trecho_indisponivel">Não há trecho demonstrativo adequado</option><option value="outro">Outro motivo</option></select></label>
+      <label>Comentário (opcional)<textarea id="observation" rows="2" placeholder="Ex.: o vídeo mostra agachamento búlgaro, não dividido…"></textarea></label>
+    </div>
+    <div class="actions"><button class="choice approve" type="button" id="approve"><span class="big">✓</span> Aprovar vídeo</button><button class="choice reject" type="button" id="reject"><span class="big">✕</span> Rejeitar vídeo</button></div>
+    <div class="footnav"><button class="btn" type="button" id="prev">← Anterior</button><span class="statusline" id="reviewState">Pendente</span><button class="btn" type="button" id="next">Próximo →</button></div>
+    <div style="text-align:center;margin-top:10px"><button id="clear" type="button" class="btn ghost small">↶ Remover decisão deste vídeo</button></div>
+  </main>
+</div>
+<div class="notice">As decisões são armazenadas apenas neste navegador, neste dispositivo. Exporte o JSON para preservar ou compartilhar o trabalho. Este site não envia suas aprovações ao GitHub nem altera o aplicativo automaticamente. O player reproduz conteúdo hospedado pelo YouTube.</div>
+<script id="dataset" type="application/json">{
+  "version": "1.0",
+  "origin": "Auditoria-60-videos-MeuTreino",
+  "total": 60,
+  "items": [
+    {
+      "id": "machinepress",
+      "pt": "Supino na máquina",
+      "en": "Machine chest press",
+      "description": "Ajuste o assento e mantenha as escápulas apoiadas.",
+      "muscle": "Peito",
+      "youtubeId": "Qu7-ceCvq7w",
+      "youtubeTitle": "The PERFECT Machine Chest Press",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "pullup",
+      "pt": "Barra fixa assistida",
+      "en": "Assisted pull-up",
+      "description": "Utilize assistência adequada para manter o controle.",
+      "muscle": "Costas",
+      "youtubeId": "COJxBrntnJY",
+      "youtubeTitle": "Resistance Band Assisted Pullups",
+      "channel": "Progression Training",
+      "duration": 6,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandcurl",
+      "pt": "Rosca com elástico",
+      "en": "Resistance band biceps curl",
+      "description": "Mantenha os cotovelos próximos ao corpo.",
+      "muscle": "Braços",
+      "youtubeId": "20xtfGZ37nw",
+      "youtubeTitle": "Resistance Band Bicep Curl",
+      "channel": "LGN Lyfestile",
+      "duration": 7,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "widepush",
+      "pt": "Flexão com mãos afastadas",
+      "en": "Wide push-up",
+      "description": "Não abra exageradamente os cotovelos nem force a amplitude.",
+      "muscle": "Peito",
+      "youtubeId": "skWcxqxh2qw",
+      "youtubeTitle": "Wide Pushups",
+      "channel": "Clayton Echard",
+      "duration": 12,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "spidermanpush",
+      "pt": "Flexão com joelho lateral",
+      "en": "Spiderman push-up",
+      "description": "Aproxime o joelho do cotovelo sem rodar excessivamente o quadril.",
+      "muscle": "Peito",
+      "youtubeId": "o7hoH-AsAqs",
+      "youtubeTitle": "Spiderman Pushups",
+      "channel": "Tony Duggan",
+      "duration": 10,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "invertedrow",
+      "pt": "Remada australiana na barra baixa",
+      "en": "Pronated inverted row",
+      "description": "Mantenha tronco rígido e puxe o peito em direção à barra.",
+      "muscle": "Costas",
+      "youtubeId": "JdApfXGVaS4",
+      "youtubeTitle": "Prone Grip Inverted Rows",
+      "channel": "FITTR",
+      "duration": 68,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "chinup",
+      "pt": "Barra fixa supinada",
+      "en": "Chin-up",
+      "description": "Puxe sem chutar as pernas, mantendo pescoço neutro.",
+      "muscle": "Costas",
+      "youtubeId": "jIvbJzs1V4I",
+      "youtubeTitle": "Chin ups #howtoexercise #chinups #upperbodyworkout",
+      "channel": "FIT Sisters - Lucy & Rosie",
+      "duration": 9,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "neutralpull",
+      "pt": "Barra fixa pegada neutra",
+      "en": "Neutral-grip pull-up",
+      "description": "Utilize barra adequada para pegada neutra sem torcer os punhos.",
+      "muscle": "Costas",
+      "youtubeId": "sXncV9s_-TU",
+      "youtubeTitle": "Neutral Close Grip Pull Ups",
+      "channel": "FITTR",
+      "duration": 72,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "wallseat",
+      "pt": "Agachamento isométrico na parede",
+      "en": "Wall sit",
+      "description": "Mantenha joelhos alinhados aos pés e não prenda a respiração.",
+      "muscle": "Pernas",
+      "youtubeId": "mDdLC-yKudY",
+      "youtubeTitle": "How to do a wall sit",
+      "channel": "YOGABODY",
+      "duration": 15,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "jumpsquat",
+      "pt": "Agachamento com salto",
+      "en": "Jump squat",
+      "description": "Aterrisse suavemente e suspenda se houver dor articular.",
+      "muscle": "Pernas",
+      "youtubeId": "3HVpfJfgN_o",
+      "youtubeTitle": "Jump Squat",
+      "channel": "FITTR",
+      "duration": 59,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "pistolsquat",
+      "pt": "Agachamento pistola",
+      "en": "Pistol squat",
+      "description": "Execute apenas com mobilidade e força suficientes.",
+      "muscle": "Pernas",
+      "youtubeId": "fUGQ7oMEIFI",
+      "youtubeTitle": "4 Best Pistol Squat Progressions",
+      "channel": "Marie Steffen - The Art of Health",
+      "duration": 16,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao",
+        "O título mostra progressões; confirme se o agachamento pistola completo aparece."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "forwardlunge",
+      "pt": "Afundo à frente",
+      "en": "Forward lunge",
+      "description": "Pise de forma controlada sem colapsar o joelho para dentro.",
+      "muscle": "Pernas",
+      "youtubeId": "h52DNvumIyM",
+      "youtubeTitle": "Bodyweight Forward Lunge",
+      "channel": "ONI",
+      "duration": 16,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "latlunge",
+      "pt": "Afundo lateral",
+      "en": "Lateral lunge",
+      "description": "Transfira o peso para uma perna sem perder estabilidade.",
+      "muscle": "Pernas",
+      "youtubeId": "BHvVGnwp3Yg",
+      "youtubeTitle": "How to Do Side Lunges 🍑  #fitness #sports #shorts",
+      "channel": "НИКИТА | ПРОСТО ДВИГАЙСЯ",
+      "duration": 18,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "splitbw",
+      "pt": "Agachamento dividido sem carga",
+      "en": "Bodyweight split squat",
+      "description": "Mantenha um pé à frente do outro e flexione ambos os joelhos.",
+      "muscle": "Pernas",
+      "youtubeId": "W7_JqDzHsZE",
+      "youtubeTitle": "Split Squats | How To | Proper Form & Technique",
+      "channel": "FITTR",
+      "duration": 56,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "curtsylunge",
+      "pt": "Afundo cruzado",
+      "en": "Curtsy lunge",
+      "description": "Cruze a perna para trás sem forçar a rotação do joelho.",
+      "muscle": "Glúteos",
+      "youtubeId": "1f0QR8F5nzY",
+      "youtubeTitle": "Curtsy Lunges",
+      "channel": "FITTR",
+      "duration": 67,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "jumplunge",
+      "pt": "Afundo com salto alternado",
+      "en": "Alternating jumping lunge",
+      "description": "Aterrisse suavemente, dominando antes a versão sem salto.",
+      "muscle": "Pernas",
+      "youtubeId": "MiHy1Ijxqeo",
+      "youtubeTitle": "Bodyweight Jumping Lunges Alternating",
+      "channel": "ONI",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "glutebridgeone",
+      "pt": "Ponte de glúteos unilateral",
+      "en": "Single-leg glute bridge",
+      "description": "Eleve o quadril sem deixar a pelve girar.",
+      "muscle": "Glúteos",
+      "youtubeId": "qB_bC7-CQjI",
+      "youtubeTitle": "Single leg glute bridge",
+      "channel": "Flood City Performance",
+      "duration": 6,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "superman",
+      "pt": "Extensão lombar no solo",
+      "en": "Superman hold",
+      "description": "Eleve braços e pernas pouco, sem forçar a lombar.",
+      "muscle": "Costas",
+      "youtubeId": "eKB5rv5c7FQ",
+      "youtubeTitle": "Superman Hold",
+      "channel": "Coach Nelsinho",
+      "duration": 5,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hollowrock",
+      "pt": "Hollow body rock",
+      "en": "Hollow body rock",
+      "description": "Balance lentamente sem perder a posição abdominal.",
+      "muscle": "Abdômen",
+      "youtubeId": "p7j02V1fIzU",
+      "youtubeTitle": "The Hollow Rock",
+      "channel": "CrossFit",
+      "duration": 31,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bicyclecrunch",
+      "pt": "Abdominal bicicleta",
+      "en": "Bicycle crunch",
+      "description": "Gire o tronco com controle sem puxar a cabeça.",
+      "muscle": "Abdômen",
+      "youtubeId": "COiLIPQDMnA",
+      "youtubeTitle": "Bicycle Crunch",
+      "channel": "FITTR",
+      "duration": 75,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bearcrawl",
+      "pt": "Deslocamento em quatro apoios (bear crawl)",
+      "en": "Bear crawl",
+      "description": "Desloque mãos e pés lentamente sem balançar a pelve.",
+      "muscle": "Abdômen",
+      "youtubeId": "oMIwsHK6DyQ",
+      "youtubeTitle": "LOW KNEES BEAR CRAWL Bodyweight Strength Exercise Tutorial #shorts",
+      "channel": "Human 2.0 Rehab",
+      "duration": 59,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "mountainclimber",
+      "pt": "Escalador (mountain climber)",
+      "en": "Mountain climber",
+      "description": "Traga os joelhos ao peito preservando a prancha.",
+      "muscle": "Abdômen",
+      "youtubeId": "7W4JEfEKuC4",
+      "youtubeTitle": "How to make progress with your mountain climbers 🔥 #shorts",
+      "channel": "LisaFiitt Workouts",
+      "duration": 8,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hangingknee",
+      "pt": "Elevação de joelhos suspenso",
+      "en": "Hanging knee raise",
+      "description": "Evite balanço e suba os joelhos com contração abdominal.",
+      "muscle": "Abdômen",
+      "youtubeId": "9qCRbu88hVY",
+      "youtubeTitle": "Hanging Leg Lift",
+      "channel": "FITTR",
+      "duration": 68,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao",
+        "O título menciona elevação de pernas; confirme se mostra elevação de joelhos."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hangingleg",
+      "pt": "Elevação de pernas suspenso",
+      "en": "Hanging leg raise",
+      "description": "Progrida após dominar o exercício com joelhos flexionados.",
+      "muscle": "Abdômen",
+      "youtubeId": "3lykYcUcWNo",
+      "youtubeTitle": "Hanging Leg Raises",
+      "channel": "FITTR",
+      "duration": 65,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "lsitparallels",
+      "pt": "L-sit nas paralelas",
+      "en": "L-sit on parallettes",
+      "description": "Sustente os ombros deprimidos e progrida em tempo curto.",
+      "muscle": "Abdômen",
+      "youtubeId": "2UJaAnacHmI",
+      "youtubeTitle": "L-Sit on Parallettes",
+      "channel": "ZOAR Fitness",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbfloorpress",
+      "pt": "Supino no chão com halteres",
+      "en": "Dumbbell floor press",
+      "description": "Apoie os braços no solo e evite bater os cotovelos.",
+      "muscle": "Peito",
+      "youtubeId": "O1x7AoUf5Vs",
+      "youtubeTitle": "The dumbbell floor press is a great exercise that can target different areas",
+      "channel": "Clans Master",
+      "duration": 12,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinepress",
+      "pt": "Supino inclinado com halteres",
+      "en": "Incline dumbbell press",
+      "description": "Ajuste o banco numa inclinação moderada e controle a carga.",
+      "muscle": "Peito",
+      "youtubeId": "8fXfwG4ftaQ",
+      "youtubeTitle": "The PERFECT Incline Dumbbell Chest Press",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 12,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinefly",
+      "pt": "Crucifixo inclinado com halteres",
+      "en": "Incline dumbbell fly",
+      "description": "Faça arco confortável com cargas leves e controladas.",
+      "muscle": "Peito",
+      "youtubeId": "_8mLd6uZhYU",
+      "youtubeTitle": "The Dumbbell Incline Fly is a great Chest exercise - Save and try your next workout",
+      "channel": "Lyfta",
+      "duration": 7,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbpullover",
+      "pt": "Pullover com halter no banco",
+      "en": "Dumbbell pullover",
+      "description": "Mova ombros com amplitude confortável e tronco estável.",
+      "muscle": "Costas",
+      "youtubeId": "IOUGEVI_d3g",
+      "youtubeTitle": "Dumbbell Pullover",
+      "channel": "FITTR",
+      "duration": 77,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbchestrow",
+      "pt": "Remada com peito apoiado",
+      "en": "Chest-supported dumbbell row",
+      "description": "Apoie o tórax no banco inclinado para evitar balanço.",
+      "muscle": "Costas",
+      "youtubeId": "2ByilQ4NaAs",
+      "youtubeTitle": "The PERFECT Chest-Supported Dumbbell Rows",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 18,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbreversefly",
+      "pt": "Crucifixo invertido com halteres",
+      "en": "Dumbbell reverse fly",
+      "description": "Abra os braços suavemente com tronco estável.",
+      "muscle": "Ombros",
+      "youtubeId": "LsT-bR_zxLo",
+      "youtubeTitle": "The PERFECT Dumbbell Rear Delt Fly (DO THIS!)",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbshrug",
+      "pt": "Encolhimento com halteres",
+      "en": "Dumbbell shrug",
+      "description": "Eleve ombros verticalmente sem rodá-los.",
+      "muscle": "Costas",
+      "youtubeId": "rFsSeClGnNA",
+      "youtubeTitle": "❌ You're Doing Dumbbell Shrugs WRONG!",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 15,
+      "warnings": [
+        "O título fala em erros na execução. Confira se o movimento correto aparece claramente."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbhammer",
+      "pt": "Rosca martelo",
+      "en": "Hammer curl",
+      "description": "Mantenha as palmas voltadas uma para a outra.",
+      "muscle": "Braços",
+      "youtubeId": "BDpA9e9sZk0",
+      "youtubeTitle": "Alternating DB Hammer Curls",
+      "channel": "Girls Gone Strong | Women's Health & Fitness",
+      "duration": 12,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbconcentration",
+      "pt": "Rosca concentrada",
+      "en": "Concentration curl",
+      "description": "Apoie o braço na coxa e evite balanço.",
+      "muscle": "Braços",
+      "youtubeId": "EjUnEEfTSEY",
+      "youtubeTitle": "❌ Concentration Curl Mistakes You Need To FIX",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [
+        "O título trata de erros frequentes. Verifique se há uma demonstração adequada."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinecurl",
+      "pt": "Rosca inclinada com halteres",
+      "en": "Incline dumbbell curl",
+      "description": "Deixe os braços estáveis e não eleve os ombros.",
+      "muscle": "Braços",
+      "youtubeId": "uCUaRFlA9vE",
+      "youtubeTitle": "How to Perform the PERFECT Incline Bicep Curl",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 13,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbzottman",
+      "pt": "Rosca Zottman",
+      "en": "Zottman curl",
+      "description": "Gire os punhos gradualmente na fase descendente.",
+      "muscle": "Braços",
+      "youtubeId": "8Ubr8L_vo1Q",
+      "youtubeTitle": "DB Zottman Curls",
+      "channel": "Tiffany LeRoy - Envision Personalized Training ",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbskullcrusher",
+      "pt": "Tríceps testa com halteres",
+      "en": "Lying dumbbell triceps extension",
+      "description": "Desça perto da cabeça com controle e carga leve.",
+      "muscle": "Braços",
+      "youtubeId": "arjVHiPdNOE",
+      "youtubeTitle": "✅Do vs Don’t ❌  lying tricep extensions tips💫 #triceps",
+      "channel": "DilekFit",
+      "duration": 8,
+      "warnings": [
+        "O vídeo compara execução correta e incorreta. Confirme qual parte deve ser usada."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbsplitsquat",
+      "pt": "Agachamento dividido com halteres",
+      "en": "Dumbbell split squat",
+      "description": "Mantenha tronco neutro e avance em amplitude controlada.",
+      "muscle": "Pernas",
+      "youtubeId": "or1frhkjBDc",
+      "youtubeTitle": "Bulgarian Split Squat Setup & Form Tips (DO THIS!)",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 16,
+      "warnings": [
+        "O vídeo menciona agachamento búlgaro. Verifique se corresponde ao agachamento dividido cadastrado."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbincline",
+      "pt": "Supino inclinado com barra",
+      "en": "Incline barbell bench press",
+      "description": "Ajuste inclinação e use apoio para a barra.",
+      "muscle": "Peito",
+      "youtubeId": "I9QDN-MWm-A",
+      "youtubeTitle": "Barbell Incline Bench Press | How To | Proper Form & Technique",
+      "channel": "FITTR",
+      "duration": 76,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbrow",
+      "pt": "Remada curvada com barra",
+      "en": "Bent-over barbell row",
+      "description": "Mantenha coluna neutra e puxe a barra ao tronco.",
+      "muscle": "Costas",
+      "youtubeId": "9Gf-Ourup_k",
+      "youtubeTitle": "Bent Over Barbell Row - OPEX Exercise Library",
+      "channel": "OPEX Fitness",
+      "duration": 11,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbpushpress",
+      "pt": "Push press com barra",
+      "en": "Barbell push press",
+      "description": "Use impulso curto de pernas e receba a barra com controle.",
+      "muscle": "Ombros",
+      "youtubeId": "IBgVwW1RLFE",
+      "youtubeTitle": "Barbell Push Press",
+      "channel": "Physical Balance",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbfrontsquat",
+      "pt": "Agachamento frontal com barra",
+      "en": "Barbell front squat",
+      "description": "Mantenha os cotovelos altos e trabalhe com suportes seguros.",
+      "muscle": "Pernas",
+      "youtubeId": "s2mZmCchsks",
+      "youtubeTitle": "Front Squat Movement Demo",
+      "channel": "The Active Life",
+      "duration": 31,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbzercher",
+      "pt": "Agachamento Zercher",
+      "en": "Zercher squat",
+      "description": "Mantenha barra apoiada no antebraço com carga conservadora.",
+      "muscle": "Pernas",
+      "youtubeId": "tL-sysfKC8c",
+      "youtubeTitle": "What is the Zercher Squat good for?",
+      "channel": "Movement Physio",
+      "duration": 8,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbhipthrust",
+      "pt": "Elevação pélvica com barra",
+      "en": "Barbell hip thrust",
+      "description": "Use proteção para a pelve e evite arquear a lombar.",
+      "muscle": "Glúteos",
+      "youtubeId": "7SCoCTps6t0",
+      "youtubeTitle": "How to: Barbell Hip Thrusts #glutes #exercise #workout",
+      "channel": "The Movement Collective",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bblunge",
+      "pt": "Afundo com barra",
+      "en": "Barbell lunge",
+      "description": "Controle equilíbrio com carga moderada.",
+      "muscle": "Pernas",
+      "youtubeId": "EWBiNhxDnmQ",
+      "youtubeTitle": "Exercise Tutorial - How to do barbell lunges",
+      "channel": "Conan Sandberg - Sandbox Fitness",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "seatedlegcurl",
+      "pt": "Mesa flexora sentada",
+      "en": "Seated leg curl",
+      "description": "Controle o retorno sem deixar a carga despencar.",
+      "muscle": "Pernas",
+      "youtubeId": "zDszHA7GnLY",
+      "youtubeTitle": "Leg Curl Machine",
+      "channel": "FITTR",
+      "duration": 65,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "smithsquat",
+      "pt": "Agachamento no Smith",
+      "en": "Smith machine squat",
+      "description": "Regule travas e posicionamento dos pés antes de iniciar.",
+      "muscle": "Pernas",
+      "youtubeId": "iKCJCydYYrE",
+      "youtubeTitle": "✅ The PERFECT Smith Machine Squat",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "seatedcalf",
+      "pt": "Panturrilha sentada na máquina",
+      "en": "Seated calf raise",
+      "description": "Faça flexão plantar controlada sem saltos.",
+      "muscle": "Pernas",
+      "youtubeId": "gpXQwBBzRz0",
+      "youtubeTitle": "Seated Calf Raise - Machine Demo",
+      "channel": "Yaralla Fitness Centre - Clinton",
+      "duration": 15,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "cablecurl",
+      "pt": "Rosca bíceps na polia baixa",
+      "en": "Low cable biceps curl",
+      "description": "Mantenha cotovelos estáveis e retorne lentamente.",
+      "muscle": "Braços",
+      "youtubeId": "CrbTqNOlFgE",
+      "youtubeTitle": "✅ The PERFECT Cable Bicep Curl",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 10,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "crunchmachine",
+      "pt": "Abdominal na máquina",
+      "en": "Ab crunch machine",
+      "description": "Flexione o tronco sem puxar pelo pescoço.",
+      "muscle": "Abdômen",
+      "youtubeId": "b6ONE9Rfgl8",
+      "youtubeTitle": "Ab Crunch Machine with Arms up",
+      "channel": "Felicia Chabot",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandpullapart",
+      "pt": "Abertura de elástico (pull-apart)",
+      "en": "Resistance band pull-apart",
+      "description": "Abra o elástico à frente com ombros baixos.",
+      "muscle": "Costas",
+      "youtubeId": "Jcn93rBhUps",
+      "youtubeTitle": "Pull-Apart | Resistance Bands",
+      "channel": "STRAFFR",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandexternal",
+      "pt": "Rotação externa de ombros com elástico",
+      "en": "Shoulder external rotation with band",
+      "description": "Mantenha cotovelo junto ao corpo e use pouca resistência.",
+      "muscle": "Ombros",
+      "youtubeId": "7DqYesMRkzU",
+      "youtubeTitle": "Shoulder External Rotation with Band",
+      "channel": "Proformance Sports Rehab & Nutrition",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandsquat",
+      "pt": "Agachamento com elástico",
+      "en": "Resistance band squat",
+      "description": "Posicione a resistência sem prender articulações.",
+      "muscle": "Pernas",
+      "youtubeId": "EUmcsU8tQF4",
+      "youtubeTitle": "Resistance Tube Squats",
+      "channel": "FITTR",
+      "duration": 80,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbgoblet",
+      "pt": "Agachamento goblet com kettlebell",
+      "en": "Kettlebell goblet squat",
+      "description": "Segure o peso junto ao peito e controle o agachamento.",
+      "muscle": "Pernas",
+      "youtubeId": "7-80HiXX1K8",
+      "youtubeTitle": "Goblet Squat [How To]",
+      "channel": "Le Sweat",
+      "duration": 17,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbfrontsquat",
+      "pt": "Agachamento frontal com dois kettlebells",
+      "en": "Double kettlebell front squat",
+      "description": "Apoie ambos os pesos em posição de rack sem forçar os punhos.",
+      "muscle": "Pernas",
+      "youtubeId": "e7y8jEUbQiQ",
+      "youtubeTitle": "Double kettlebell front rack squats",
+      "channel": "The Gym Hong Kong",
+      "duration": 9,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbswing",
+      "pt": "Balanço kettlebell (swing)",
+      "en": "Kettlebell swing",
+      "description": "O movimento nasce do quadril, não de levantar com os braços.",
+      "muscle": "Glúteos",
+      "youtubeId": "2gXtvqLa_T8",
+      "youtubeTitle": "Correctly Perform Kettlebell Swings!",
+      "channel": "Squat University",
+      "duration": 60,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbclean",
+      "pt": "Clean com kettlebell",
+      "en": "Kettlebell clean",
+      "description": "Aproxime o kettlebell do antebraço sem golpeá-lo.",
+      "muscle": "Glúteos",
+      "youtubeId": "h4KafmF7Xwc",
+      "youtubeTitle": "Single arm kettlebell clean and press",
+      "channel": "The Gym Hong Kong",
+      "duration": 11,
+      "warnings": [
+        "O vídeo inclui clean and press. Selecione somente a parte de clean, se existir."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbsnatch",
+      "pt": "Snatch com kettlebell",
+      "en": "Kettlebell snatch",
+      "description": "Progrida apenas após dominar o clean e o swing.",
+      "muscle": "Ombros",
+      "youtubeId": "KqFYfLST3xc",
+      "youtubeTitle": "Kettlebell Snatch - Slow Motion  #shorts",
+      "channel": "Pavel Krotov",
+      "duration": 17,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbhalo",
+      "pt": "Halo com kettlebell",
+      "en": "Kettlebell halo",
+      "description": "Passe o peso ao redor da cabeça mantendo tronco estável.",
+      "muscle": "Abdômen",
+      "youtubeId": "o4WDCCietJ0",
+      "youtubeTitle": "Kettlebell Halo",
+      "channel": "FITTR",
+      "duration": 70,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbturkish",
+      "pt": "Turkish get-up",
+      "en": "Turkish get-up",
+      "description": "Pratique cada transição com carga leve e supervisão.",
+      "muscle": "Abdômen",
+      "youtubeId": "XVEMTDlNLyU",
+      "youtubeTitle": "Kettlebell Turkish Get Up",
+      "channel": "Tribe Fitness",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    }
+  ]
+}</script>
+<script>/* Meu Treino — revisão manual de vídeos (sem backend e sem bibliotecas externas). */
+(() => {
+'use strict';
+const dataset = JSON.parse(document.getElementById('dataset').textContent);
+const ITEMS = dataset.items;
+const STORE_KEY = 'meutreino:video-review:2026-10:1';
+const byId = Object.fromEntries(ITEMS.map(x => [x.id, x]));
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (_) { saved = {}; }
+let reviews = saved.reviews && typeof saved.reviews === 'object' ? saved.reviews : {};
+let drafts = saved.drafts && typeof saved.drafts === 'object' ? saved.drafts : {};
+let currentId = ITEMS[0].id;
+let currentFilter = 'pending';
+let term = '';
+let clipPreviewedFor = '';
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clock = secs => `${Math.floor(secs / 60)}:${String(Math.floor(secs % 60)).padStart(2, '0')}`;
+const persist = () => { try {localStorage.setItem(STORE_KEY, JSON.stringify({reviews,drafts}));} catch (_) {alert('O navegador não permitiu salvar localmente. Exporte suas decisões antes de sair.');} };
+const status = id => reviews[id]?.decision || 'pending';
+const count = state => ITEMS.filter(v => status(v.id) === state).length;
+const idx = id => ITEMS.findIndex(v => v.id === id);
+const validClip = (v, draft) => {
+  if (!draft) return false;
+  const s = Number(draft.start), e = Number(draft.end);
+  return draft.start !== '' && draft.end !== '' && Number.isInteger(s) && Number.isInteger(e) && s >= 0 && e > s && e <= v.duration && e - s <= 40;
+};
+function filterItems() {
+  return ITEMS.filter(v => {
+    const matches = !term || [v.pt, v.en, v.id, v.youtubeTitle].some(x => x.toLocaleLowerCase('pt-BR').includes(term));
+    if (!matches) return false;
+    if (currentFilter === 'all') return true;
+    if (currentFilter === 'long') return v.duration > 40;
+    return status(v.id) === currentFilter;
+  });
+}
+function renderCounts() {
+  const approved = count('approved'), rejected = count('rejected');
+  $('approvedCount').textContent = approved;
+  $('rejectedCount').textContent = rejected;
+  $('pendingCount').textContent = 60 - approved - rejected;
+  $('progressText').textContent = `${approved + rejected} / 60 revisados`;
+  $('progressFill').style.width = `${(approved + rejected) / 60 * 100}%`;
+}
+function renderList() {
+  const list = filterItems();
+  $('visibleCount').textContent = `${list.length} exercícios`;
+  if (!list.length) { $('list').innerHTML = '<p class="empty">Nenhum exercício neste filtro. Escolha “Todos” para rever decisões.</p>'; return; }
+  $('list').innerHTML = list.map(v => {
+    const st = status(v.id), index = idx(v.id) + 1;
+    const dot = st === 'approved' ? '✓' : st === 'rejected' ? '✕' : '○';
+    return `<button type="button" class="nav-item ${v.id === currentId ? 'current' : ''}" data-id="${esc(v.id)}" aria-label="Abrir ${esc(v.pt)}">
+      <span class="nav-num">${String(index).padStart(2,'0')}</span><span style="min-width:0;flex:1"><span class="nav-title">${esc(v.pt)}</span><span class="nav-sub">${esc(v.en)} · ${clock(v.duration)}</span></span><span class="nav-status ${st==='approved'?'ok':st==='rejected'?'no':'wait'}">${dot}</span></button>`;
+  }).join('');
+  $('list').querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => select(b.dataset.id)));
+}
+function stopPlayer() { $('screen').innerHTML = ''; }
+function showPoster(v) {
+  stopPlayer();
+  const box = document.createElement('div'); box.className = 'poster';
+  box.style.setProperty('--thumb', `url("https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg")`);
+  const button = document.createElement('button');button.className='play';button.type='button';button.title='Reproduzir vídeo inteiro';button.textContent='▶';
+  button.addEventListener('click',() => loadPlayer(v, null));
+  const message=document.createElement('span');message.textContent='Clique para examinar o vídeo';
+  box.append(button,message);$('screen').append(box);
+}
+function loadPlayer(v, clip) {
+  const pars = new URLSearchParams({playsinline:'1',controls:'1',rel:'0',autoplay:'1'});
+  if (clip) { pars.set('start',String(clip.start)); pars.set('end',String(clip.end));clipPreviewedFor = `${v.id}:${clip.start}:${clip.end}`; }
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube-nocookie.com/embed/${v.youtubeId}?${pars.toString()}`;
+  iframe.title = 'Demonstração de ' + v.pt;
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+  stopPlayer(); $('screen').append(iframe);
+}
+function linkForVideo(v) { return `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}`; }
+function onClipChange() {
+  const v = byId[currentId];
+  const draft = {start:$('start').value, end:$('end').value};
+  drafts[v.id] = draft; clipPreviewedFor = '';persist();
+  const valid = validClip(v, draft);
+  $('clipValidity').textContent = valid ? `Trecho selecionado: ${clock(Number(draft.start))}–${clock(Number(draft.end))} (${Number(draft.end) - Number(draft.start)} s). Reveja o trecho antes de aprovar.` : 'Informe início e fim (segundos). O intervalo deve ter no máximo 40 segundos.';
+  $('clipValidity').style.color = valid ? '#7ce7c2' : '#ffcf81';
+  $('previewClip').disabled = !valid;
+}
+function select(id, shouldScroll = true) {
+  const v = byId[id]; if (!v) return;
+  currentId=id;clipPreviewedFor='';
+  $('counter').textContent = `Exercício ${idx(id)+1} de ${ITEMS.length}`;
+  $('namePt').textContent=v.pt; $('nameEn').textContent=v.en;
+  $('description').textContent = v.description;
+  $('muscle').textContent = v.muscle || '—';
+  $('duration').textContent=clock(v.duration);
+  $('videoTitle').textContent=v.youtubeTitle;
+  $('channel').textContent=v.channel || '—';
+  $('videoLink').href=linkForVideo(v);
+  $('statusChip').className='chip ' + (status(id)==='approved'?'ok':status(id)==='rejected'?'no':'');
+  $('statusChip').textContent = status(id)==='approved'?'✓ Aprovado':status(id)==='rejected'?'✕ Rejeitado':'Pendente de revisão';
+  $('durationChip').textContent=v.duration<=40?'Vídeo inteiro · até 40 s':'Vídeo longo · recorte necessário';
+  $('durationChip').className = 'chip ' + (v.duration>40?'warn':'');
+  $('warning').style.display = v.warnings.length?'block':'none';
+  $('warning').textContent=v.warnings.join(' · ');
+  $('clipbox').style.display = v.duration>40?'block':'none';
+  $('entire').textContent = v.duration>40?'▶ Assistir ao original para localizar o trecho':'▶ Reproduzir vídeo inteiro';
+  if (v.duration>40) {
+    const draft = drafts[v.id] || {};
+    $('start').value = draft.start ?? '';
+    $('end').value = draft.end ?? '';
+    $('start').max = String(v.duration);
+    $('end').max = String(v.duration);
+    onClipChange();
+  }
+  const rev=reviews[v.id]||{};
+  $('reason').value=rev.reason || '';
+  $('observation').value=rev.note || '';
+  $('reviewState').textContent = rev.decision ? `Última decisão: ${rev.decision==='approved'?'aprovado':'rejeitado'} (${new Date(rev.reviewed_at).toLocaleString('pt-BR')})` : 'Ainda não revisado';
+  showPoster(v);
+  renderCounts();renderList();
+  if (shouldScroll) $('maincard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function nextUnreviewed(afterId) {
+  const start=idx(afterId);
+  for(let n=1;n<=ITEMS.length;n++) {
+    const v=ITEMS[(start+n)%ITEMS.length];
+    if(status(v.id)==='pending') return v.id;
+  }
+  return null;
+}
+function decide(decision) {
+  const v = byId[currentId];
+  const draft = drafts[v.id] || {};
+  let start_seconds=null, end_seconds=null;
+  if(decision==='approved' && v.duration>40) {
+    if(!validClip(v,draft)) { alert('Para vídeos com mais de 40 segundos, selecione um trecho de até 40 segundos antes de aprovar.');$('start').focus();return; }
+    start_seconds = Number(draft.start);end_seconds=Number(draft.end);
+    if(clipPreviewedFor !== `${v.id}:${start_seconds}:${end_seconds}`) {alert('Reproduza o trecho selecionado antes de aprová-lo.');return;}
+  }
+  reviews[v.id]={ decision, youtube_id:v.youtubeId, start_seconds, end_seconds,
+    reason:decision==='rejected'?$('reason').value:'', note:$('observation').value.trim(),reviewed_at:new Date().toISOString() };
+  persist();
+  const next=nextUnreviewed(v.id);
+  if(next){select(next)} else {select(v.id); if(ITEMS.every(x=>status(x.id)!=='pending')) alert('Os 60 vídeos foram revisados! Exporte o JSON das decisões para integrar o resultado ao catálogo.');}
+}
+function navigate(dir) {let n = idx(currentId);n=(n+dir+ITEMS.length)%ITEMS.length;select(ITEMS[n].id);}
+function exportFile(format) {
+  const results=ITEMS.filter(v=>status(v.id)!=='pending').map(v=>({
+    exercise_id:v.id, exercise_name_pt:v.pt, exercise_name_en:v.en, youtube_id:v.youtubeId,
+    duration_seconds:v.duration, ...reviews[v.id]
+  }));
+  const summary={approved:count('approved'),rejected:count('rejected'),pending:ITEMS.length-results.length,total:ITEMS.length};
+  let payload,mime,filename;
+  if(format==='csv') {
+    const cols=['exercise_id','exercise_name_pt','exercise_name_en','youtube_id','duration_seconds','decision','start_seconds','end_seconds','reason','note','reviewed_at'];
+    const quote=v=>`"${String(v==null?'':v).replace(/"/g,'""')}"`;
+    payload='\ufeff'+[cols.join(';'),...results.map(r=>cols.map(k=>quote(r[k])).join(';'))].join('\r\n');mime='text/csv;charset=utf-8';filename='revisao_60_videos_meutreino.csv';
+  } else {
+    payload=JSON.stringify({schema_version:1,project:'Meu Treino v0.4.5',source:'Auditoria-60-videos-MeuTreino',exported_at:new Date().toISOString(),summary,results},null,2);
+    mime='application/json';filename='revisao_60_videos_meutreino.json';
+  }
+  const a=document.createElement('a');const url=URL.createObjectURL(new Blob([payload],{type:mime}));a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function importData(file) {
+  if(!file)return;
+  const reader=new FileReader();reader.onload=()=>{
+    try{
+      const obj=JSON.parse(reader.result);
+      if(!Array.isArray(obj.results)||!obj.results.every(r=>r&&byId[r.exercise_id]&&['approved','rejected'].includes(r.decision)))throw Error('Formato de revisão incompatível');
+      const incoming={};for(const r of obj.results) {
+        const v=byId[r.exercise_id];if(r.youtube_id !== v.youtubeId) throw Error(`Vídeo divergente: ${v.pt}`);
+        if(r.decision==='approved'&&v.duration>40&&!validClip(v,{start:r.start_seconds,end:r.end_seconds}))throw Error(`Trecho inválido: ${v.pt}`);
+        incoming[v.id]={decision:r.decision,youtube_id:r.youtube_id,start_seconds:r.start_seconds??null,end_seconds:r.end_seconds??null,reason:r.reason||'',note:r.note||'',reviewed_at:r.reviewed_at||new Date().toISOString()};
+        if(r.start_seconds!=null && r.end_seconds!=null)drafts[v.id]={start:r.start_seconds,end:r.end_seconds};
+      }
+      if(!confirm(`Importar ${Object.keys(incoming).length} decisões? As decisões dos mesmos exercícios serão substituídas.`))return;
+      reviews={...reviews,...incoming};persist();select(currentId);
+    }catch(err){alert('Não foi possível importar: '+err.message)}
+  };reader.readAsText(file);
+}
+$('search').addEventListener('input',e=>{term=e.target.value.toLocaleLowerCase('pt-BR').trim();renderList()});
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
+ currentFilter=button.dataset.filter;
+ document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('active',b===button));
+ renderList();
+}));
+$('entire').addEventListener('click',()=>loadPlayer(byId[currentId],null));
+$('previewClip').addEventListener('click',()=>{const v=byId[currentId],d=drafts[v.id];if(!validClip(v,d))return;loadPlayer(v,{start:Number(d.start),end:Number(d.end)})});
+$('start').addEventListener('input',onClipChange);$('end').addEventListener('input',onClipChange);
+$('approve').addEventListener('click',()=>decide('approved'));
+$('reject').addEventListener('click',()=>decide('rejected'));
+$('clear').addEventListener('click',()=>{if(!reviews[currentId])return;if(!confirm('Remover a decisão deste vídeo e deixá-lo pendente?'))return;delete reviews[currentId];persist();select(currentId)});
+$('prev').addEventListener('click',()=>navigate(-1));$('next').addEventListener('click',()=>navigate(1));
+$('exportJson').addEventListener('click',()=>exportFile('json'));
+$('exportCsv').addEventListener('click',()=>exportFile('csv'));
+$('importBtn').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',e=>{importData(e.target.files?.[0]);e.target.value='';});
+document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight')navigate(1);if(e.key==='ArrowLeft')navigate(-1)});
+const first=ITEMS.find(v=>status(v.id)==='pending')||ITEMS[0]; select(first.id, false);
+})();
+</script>
+</body>
+</html>

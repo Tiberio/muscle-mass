@@ -1,0 +1,911 @@
+{
+  "version": "1.0",
+  "origin": "Auditoria-60-videos-MeuTreino",
+  "total": 60,
+  "items": [
+    {
+      "id": "machinepress",
+      "pt": "Supino na máquina",
+      "en": "Machine chest press",
+      "description": "Ajuste o assento e mantenha as escápulas apoiadas.",
+      "muscle": "Peito",
+      "youtubeId": "Qu7-ceCvq7w",
+      "youtubeTitle": "The PERFECT Machine Chest Press",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "pullup",
+      "pt": "Barra fixa assistida",
+      "en": "Assisted pull-up",
+      "description": "Utilize assistência adequada para manter o controle.",
+      "muscle": "Costas",
+      "youtubeId": "COJxBrntnJY",
+      "youtubeTitle": "Resistance Band Assisted Pullups",
+      "channel": "Progression Training",
+      "duration": 6,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandcurl",
+      "pt": "Rosca com elástico",
+      "en": "Resistance band biceps curl",
+      "description": "Mantenha os cotovelos próximos ao corpo.",
+      "muscle": "Braços",
+      "youtubeId": "20xtfGZ37nw",
+      "youtubeTitle": "Resistance Band Bicep Curl",
+      "channel": "LGN Lyfestile",
+      "duration": 7,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "widepush",
+      "pt": "Flexão com mãos afastadas",
+      "en": "Wide push-up",
+      "description": "Não abra exageradamente os cotovelos nem force a amplitude.",
+      "muscle": "Peito",
+      "youtubeId": "skWcxqxh2qw",
+      "youtubeTitle": "Wide Pushups",
+      "channel": "Clayton Echard",
+      "duration": 12,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "spidermanpush",
+      "pt": "Flexão com joelho lateral",
+      "en": "Spiderman push-up",
+      "description": "Aproxime o joelho do cotovelo sem rodar excessivamente o quadril.",
+      "muscle": "Peito",
+      "youtubeId": "o7hoH-AsAqs",
+      "youtubeTitle": "Spiderman Pushups",
+      "channel": "Tony Duggan",
+      "duration": 10,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "invertedrow",
+      "pt": "Remada australiana na barra baixa",
+      "en": "Pronated inverted row",
+      "description": "Mantenha tronco rígido e puxe o peito em direção à barra.",
+      "muscle": "Costas",
+      "youtubeId": "JdApfXGVaS4",
+      "youtubeTitle": "Prone Grip Inverted Rows",
+      "channel": "FITTR",
+      "duration": 68,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "chinup",
+      "pt": "Barra fixa supinada",
+      "en": "Chin-up",
+      "description": "Puxe sem chutar as pernas, mantendo pescoço neutro.",
+      "muscle": "Costas",
+      "youtubeId": "jIvbJzs1V4I",
+      "youtubeTitle": "Chin ups #howtoexercise #chinups #upperbodyworkout",
+      "channel": "FIT Sisters - Lucy & Rosie",
+      "duration": 9,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "neutralpull",
+      "pt": "Barra fixa pegada neutra",
+      "en": "Neutral-grip pull-up",
+      "description": "Utilize barra adequada para pegada neutra sem torcer os punhos.",
+      "muscle": "Costas",
+      "youtubeId": "sXncV9s_-TU",
+      "youtubeTitle": "Neutral Close Grip Pull Ups",
+      "channel": "FITTR",
+      "duration": 72,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "wallseat",
+      "pt": "Agachamento isométrico na parede",
+      "en": "Wall sit",
+      "description": "Mantenha joelhos alinhados aos pés e não prenda a respiração.",
+      "muscle": "Pernas",
+      "youtubeId": "mDdLC-yKudY",
+      "youtubeTitle": "How to do a wall sit",
+      "channel": "YOGABODY",
+      "duration": 15,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "jumpsquat",
+      "pt": "Agachamento com salto",
+      "en": "Jump squat",
+      "description": "Aterrisse suavemente e suspenda se houver dor articular.",
+      "muscle": "Pernas",
+      "youtubeId": "3HVpfJfgN_o",
+      "youtubeTitle": "Jump Squat",
+      "channel": "FITTR",
+      "duration": 59,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "pistolsquat",
+      "pt": "Agachamento pistola",
+      "en": "Pistol squat",
+      "description": "Execute apenas com mobilidade e força suficientes.",
+      "muscle": "Pernas",
+      "youtubeId": "fUGQ7oMEIFI",
+      "youtubeTitle": "4 Best Pistol Squat Progressions",
+      "channel": "Marie Steffen - The Art of Health",
+      "duration": 16,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao",
+        "O título mostra progressões; confirme se o agachamento pistola completo aparece."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "forwardlunge",
+      "pt": "Afundo à frente",
+      "en": "Forward lunge",
+      "description": "Pise de forma controlada sem colapsar o joelho para dentro.",
+      "muscle": "Pernas",
+      "youtubeId": "h52DNvumIyM",
+      "youtubeTitle": "Bodyweight Forward Lunge",
+      "channel": "ONI",
+      "duration": 16,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "latlunge",
+      "pt": "Afundo lateral",
+      "en": "Lateral lunge",
+      "description": "Transfira o peso para uma perna sem perder estabilidade.",
+      "muscle": "Pernas",
+      "youtubeId": "BHvVGnwp3Yg",
+      "youtubeTitle": "How to Do Side Lunges 🍑  #fitness #sports #shorts",
+      "channel": "НИКИТА | ПРОСТО ДВИГАЙСЯ",
+      "duration": 18,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "splitbw",
+      "pt": "Agachamento dividido sem carga",
+      "en": "Bodyweight split squat",
+      "description": "Mantenha um pé à frente do outro e flexione ambos os joelhos.",
+      "muscle": "Pernas",
+      "youtubeId": "W7_JqDzHsZE",
+      "youtubeTitle": "Split Squats | How To | Proper Form & Technique",
+      "channel": "FITTR",
+      "duration": 56,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "curtsylunge",
+      "pt": "Afundo cruzado",
+      "en": "Curtsy lunge",
+      "description": "Cruze a perna para trás sem forçar a rotação do joelho.",
+      "muscle": "Glúteos",
+      "youtubeId": "1f0QR8F5nzY",
+      "youtubeTitle": "Curtsy Lunges",
+      "channel": "FITTR",
+      "duration": 67,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "jumplunge",
+      "pt": "Afundo com salto alternado",
+      "en": "Alternating jumping lunge",
+      "description": "Aterrisse suavemente, dominando antes a versão sem salto.",
+      "muscle": "Pernas",
+      "youtubeId": "MiHy1Ijxqeo",
+      "youtubeTitle": "Bodyweight Jumping Lunges Alternating",
+      "channel": "ONI",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "glutebridgeone",
+      "pt": "Ponte de glúteos unilateral",
+      "en": "Single-leg glute bridge",
+      "description": "Eleve o quadril sem deixar a pelve girar.",
+      "muscle": "Glúteos",
+      "youtubeId": "qB_bC7-CQjI",
+      "youtubeTitle": "Single leg glute bridge",
+      "channel": "Flood City Performance",
+      "duration": 6,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "superman",
+      "pt": "Extensão lombar no solo",
+      "en": "Superman hold",
+      "description": "Eleve braços e pernas pouco, sem forçar a lombar.",
+      "muscle": "Costas",
+      "youtubeId": "eKB5rv5c7FQ",
+      "youtubeTitle": "Superman Hold",
+      "channel": "Coach Nelsinho",
+      "duration": 5,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hollowrock",
+      "pt": "Hollow body rock",
+      "en": "Hollow body rock",
+      "description": "Balance lentamente sem perder a posição abdominal.",
+      "muscle": "Abdômen",
+      "youtubeId": "p7j02V1fIzU",
+      "youtubeTitle": "The Hollow Rock",
+      "channel": "CrossFit",
+      "duration": 31,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bicyclecrunch",
+      "pt": "Abdominal bicicleta",
+      "en": "Bicycle crunch",
+      "description": "Gire o tronco com controle sem puxar a cabeça.",
+      "muscle": "Abdômen",
+      "youtubeId": "COiLIPQDMnA",
+      "youtubeTitle": "Bicycle Crunch",
+      "channel": "FITTR",
+      "duration": 75,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bearcrawl",
+      "pt": "Deslocamento em quatro apoios (bear crawl)",
+      "en": "Bear crawl",
+      "description": "Desloque mãos e pés lentamente sem balançar a pelve.",
+      "muscle": "Abdômen",
+      "youtubeId": "oMIwsHK6DyQ",
+      "youtubeTitle": "LOW KNEES BEAR CRAWL Bodyweight Strength Exercise Tutorial #shorts",
+      "channel": "Human 2.0 Rehab",
+      "duration": 59,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "mountainclimber",
+      "pt": "Escalador (mountain climber)",
+      "en": "Mountain climber",
+      "description": "Traga os joelhos ao peito preservando a prancha.",
+      "muscle": "Abdômen",
+      "youtubeId": "7W4JEfEKuC4",
+      "youtubeTitle": "How to make progress with your mountain climbers 🔥 #shorts",
+      "channel": "LisaFiitt Workouts",
+      "duration": 8,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hangingknee",
+      "pt": "Elevação de joelhos suspenso",
+      "en": "Hanging knee raise",
+      "description": "Evite balanço e suba os joelhos com contração abdominal.",
+      "muscle": "Abdômen",
+      "youtubeId": "9qCRbu88hVY",
+      "youtubeTitle": "Hanging Leg Lift",
+      "channel": "FITTR",
+      "duration": 68,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao",
+        "O título menciona elevação de pernas; confirme se mostra elevação de joelhos."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "hangingleg",
+      "pt": "Elevação de pernas suspenso",
+      "en": "Hanging leg raise",
+      "description": "Progrida após dominar o exercício com joelhos flexionados.",
+      "muscle": "Abdômen",
+      "youtubeId": "3lykYcUcWNo",
+      "youtubeTitle": "Hanging Leg Raises",
+      "channel": "FITTR",
+      "duration": 65,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "lsitparallels",
+      "pt": "L-sit nas paralelas",
+      "en": "L-sit on parallettes",
+      "description": "Sustente os ombros deprimidos e progrida em tempo curto.",
+      "muscle": "Abdômen",
+      "youtubeId": "2UJaAnacHmI",
+      "youtubeTitle": "L-Sit on Parallettes",
+      "channel": "ZOAR Fitness",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbfloorpress",
+      "pt": "Supino no chão com halteres",
+      "en": "Dumbbell floor press",
+      "description": "Apoie os braços no solo e evite bater os cotovelos.",
+      "muscle": "Peito",
+      "youtubeId": "O1x7AoUf5Vs",
+      "youtubeTitle": "The dumbbell floor press is a great exercise that can target different areas",
+      "channel": "Clans Master",
+      "duration": 12,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinepress",
+      "pt": "Supino inclinado com halteres",
+      "en": "Incline dumbbell press",
+      "description": "Ajuste o banco numa inclinação moderada e controle a carga.",
+      "muscle": "Peito",
+      "youtubeId": "8fXfwG4ftaQ",
+      "youtubeTitle": "The PERFECT Incline Dumbbell Chest Press",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 12,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinefly",
+      "pt": "Crucifixo inclinado com halteres",
+      "en": "Incline dumbbell fly",
+      "description": "Faça arco confortável com cargas leves e controladas.",
+      "muscle": "Peito",
+      "youtubeId": "_8mLd6uZhYU",
+      "youtubeTitle": "The Dumbbell Incline Fly is a great Chest exercise - Save and try your next workout",
+      "channel": "Lyfta",
+      "duration": 7,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbpullover",
+      "pt": "Pullover com halter no banco",
+      "en": "Dumbbell pullover",
+      "description": "Mova ombros com amplitude confortável e tronco estável.",
+      "muscle": "Costas",
+      "youtubeId": "IOUGEVI_d3g",
+      "youtubeTitle": "Dumbbell Pullover",
+      "channel": "FITTR",
+      "duration": 77,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbchestrow",
+      "pt": "Remada com peito apoiado",
+      "en": "Chest-supported dumbbell row",
+      "description": "Apoie o tórax no banco inclinado para evitar balanço.",
+      "muscle": "Costas",
+      "youtubeId": "2ByilQ4NaAs",
+      "youtubeTitle": "The PERFECT Chest-Supported Dumbbell Rows",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 18,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbreversefly",
+      "pt": "Crucifixo invertido com halteres",
+      "en": "Dumbbell reverse fly",
+      "description": "Abra os braços suavemente com tronco estável.",
+      "muscle": "Ombros",
+      "youtubeId": "LsT-bR_zxLo",
+      "youtubeTitle": "The PERFECT Dumbbell Rear Delt Fly (DO THIS!)",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbshrug",
+      "pt": "Encolhimento com halteres",
+      "en": "Dumbbell shrug",
+      "description": "Eleve ombros verticalmente sem rodá-los.",
+      "muscle": "Costas",
+      "youtubeId": "rFsSeClGnNA",
+      "youtubeTitle": "❌ You're Doing Dumbbell Shrugs WRONG!",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 15,
+      "warnings": [
+        "O título fala em erros na execução. Confira se o movimento correto aparece claramente."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbhammer",
+      "pt": "Rosca martelo",
+      "en": "Hammer curl",
+      "description": "Mantenha as palmas voltadas uma para a outra.",
+      "muscle": "Braços",
+      "youtubeId": "BDpA9e9sZk0",
+      "youtubeTitle": "Alternating DB Hammer Curls",
+      "channel": "Girls Gone Strong | Women's Health & Fitness",
+      "duration": 12,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbconcentration",
+      "pt": "Rosca concentrada",
+      "en": "Concentration curl",
+      "description": "Apoie o braço na coxa e evite balanço.",
+      "muscle": "Braços",
+      "youtubeId": "EjUnEEfTSEY",
+      "youtubeTitle": "❌ Concentration Curl Mistakes You Need To FIX",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 11,
+      "warnings": [
+        "O título trata de erros frequentes. Verifique se há uma demonstração adequada."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbinclinecurl",
+      "pt": "Rosca inclinada com halteres",
+      "en": "Incline dumbbell curl",
+      "description": "Deixe os braços estáveis e não eleve os ombros.",
+      "muscle": "Braços",
+      "youtubeId": "uCUaRFlA9vE",
+      "youtubeTitle": "How to Perform the PERFECT Incline Bicep Curl",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 13,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbzottman",
+      "pt": "Rosca Zottman",
+      "en": "Zottman curl",
+      "description": "Gire os punhos gradualmente na fase descendente.",
+      "muscle": "Braços",
+      "youtubeId": "8Ubr8L_vo1Q",
+      "youtubeTitle": "DB Zottman Curls",
+      "channel": "Tiffany LeRoy - Envision Personalized Training ",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbskullcrusher",
+      "pt": "Tríceps testa com halteres",
+      "en": "Lying dumbbell triceps extension",
+      "description": "Desça perto da cabeça com controle e carga leve.",
+      "muscle": "Braços",
+      "youtubeId": "arjVHiPdNOE",
+      "youtubeTitle": "✅Do vs Don’t ❌  lying tricep extensions tips💫 #triceps",
+      "channel": "DilekFit",
+      "duration": 8,
+      "warnings": [
+        "O vídeo compara execução correta e incorreta. Confirme qual parte deve ser usada."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "dbsplitsquat",
+      "pt": "Agachamento dividido com halteres",
+      "en": "Dumbbell split squat",
+      "description": "Mantenha tronco neutro e avance em amplitude controlada.",
+      "muscle": "Pernas",
+      "youtubeId": "or1frhkjBDc",
+      "youtubeTitle": "Bulgarian Split Squat Setup & Form Tips (DO THIS!)",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 16,
+      "warnings": [
+        "O vídeo menciona agachamento búlgaro. Verifique se corresponde ao agachamento dividido cadastrado."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbincline",
+      "pt": "Supino inclinado com barra",
+      "en": "Incline barbell bench press",
+      "description": "Ajuste inclinação e use apoio para a barra.",
+      "muscle": "Peito",
+      "youtubeId": "I9QDN-MWm-A",
+      "youtubeTitle": "Barbell Incline Bench Press | How To | Proper Form & Technique",
+      "channel": "FITTR",
+      "duration": 76,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbrow",
+      "pt": "Remada curvada com barra",
+      "en": "Bent-over barbell row",
+      "description": "Mantenha coluna neutra e puxe a barra ao tronco.",
+      "muscle": "Costas",
+      "youtubeId": "9Gf-Ourup_k",
+      "youtubeTitle": "Bent Over Barbell Row - OPEX Exercise Library",
+      "channel": "OPEX Fitness",
+      "duration": 11,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbpushpress",
+      "pt": "Push press com barra",
+      "en": "Barbell push press",
+      "description": "Use impulso curto de pernas e receba a barra com controle.",
+      "muscle": "Ombros",
+      "youtubeId": "IBgVwW1RLFE",
+      "youtubeTitle": "Barbell Push Press",
+      "channel": "Physical Balance",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbfrontsquat",
+      "pt": "Agachamento frontal com barra",
+      "en": "Barbell front squat",
+      "description": "Mantenha os cotovelos altos e trabalhe com suportes seguros.",
+      "muscle": "Pernas",
+      "youtubeId": "s2mZmCchsks",
+      "youtubeTitle": "Front Squat Movement Demo",
+      "channel": "The Active Life",
+      "duration": 31,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbzercher",
+      "pt": "Agachamento Zercher",
+      "en": "Zercher squat",
+      "description": "Mantenha barra apoiada no antebraço com carga conservadora.",
+      "muscle": "Pernas",
+      "youtubeId": "tL-sysfKC8c",
+      "youtubeTitle": "What is the Zercher Squat good for?",
+      "channel": "Movement Physio",
+      "duration": 8,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bbhipthrust",
+      "pt": "Elevação pélvica com barra",
+      "en": "Barbell hip thrust",
+      "description": "Use proteção para a pelve e evite arquear a lombar.",
+      "muscle": "Glúteos",
+      "youtubeId": "7SCoCTps6t0",
+      "youtubeTitle": "How to: Barbell Hip Thrusts #glutes #exercise #workout",
+      "channel": "The Movement Collective",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bblunge",
+      "pt": "Afundo com barra",
+      "en": "Barbell lunge",
+      "description": "Controle equilíbrio com carga moderada.",
+      "muscle": "Pernas",
+      "youtubeId": "EWBiNhxDnmQ",
+      "youtubeTitle": "Exercise Tutorial - How to do barbell lunges",
+      "channel": "Conan Sandberg - Sandbox Fitness",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "seatedlegcurl",
+      "pt": "Mesa flexora sentada",
+      "en": "Seated leg curl",
+      "description": "Controle o retorno sem deixar a carga despencar.",
+      "muscle": "Pernas",
+      "youtubeId": "zDszHA7GnLY",
+      "youtubeTitle": "Leg Curl Machine",
+      "channel": "FITTR",
+      "duration": 65,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "smithsquat",
+      "pt": "Agachamento no Smith",
+      "en": "Smith machine squat",
+      "description": "Regule travas e posicionamento dos pés antes de iniciar.",
+      "muscle": "Pernas",
+      "youtubeId": "iKCJCydYYrE",
+      "youtubeTitle": "✅ The PERFECT Smith Machine Squat",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "seatedcalf",
+      "pt": "Panturrilha sentada na máquina",
+      "en": "Seated calf raise",
+      "description": "Faça flexão plantar controlada sem saltos.",
+      "muscle": "Pernas",
+      "youtubeId": "gpXQwBBzRz0",
+      "youtubeTitle": "Seated Calf Raise - Machine Demo",
+      "channel": "Yaralla Fitness Centre - Clinton",
+      "duration": 15,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "cablecurl",
+      "pt": "Rosca bíceps na polia baixa",
+      "en": "Low cable biceps curl",
+      "description": "Mantenha cotovelos estáveis e retorne lentamente.",
+      "muscle": "Braços",
+      "youtubeId": "CrbTqNOlFgE",
+      "youtubeTitle": "✅ The PERFECT Cable Bicep Curl",
+      "channel": "Andrew Kwong (DeltaBolic)",
+      "duration": 10,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "crunchmachine",
+      "pt": "Abdominal na máquina",
+      "en": "Ab crunch machine",
+      "description": "Flexione o tronco sem puxar pelo pescoço.",
+      "muscle": "Abdômen",
+      "youtubeId": "b6ONE9Rfgl8",
+      "youtubeTitle": "Ab Crunch Machine with Arms up",
+      "channel": "Felicia Chabot",
+      "duration": 10,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandpullapart",
+      "pt": "Abertura de elástico (pull-apart)",
+      "en": "Resistance band pull-apart",
+      "description": "Abra o elástico à frente com ombros baixos.",
+      "muscle": "Costas",
+      "youtubeId": "Jcn93rBhUps",
+      "youtubeTitle": "Pull-Apart | Resistance Bands",
+      "channel": "STRAFFR",
+      "duration": 6,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandexternal",
+      "pt": "Rotação externa de ombros com elástico",
+      "en": "Shoulder external rotation with band",
+      "description": "Mantenha cotovelo junto ao corpo e use pouca resistência.",
+      "muscle": "Ombros",
+      "youtubeId": "7DqYesMRkzU",
+      "youtubeTitle": "Shoulder External Rotation with Band",
+      "channel": "Proformance Sports Rehab & Nutrition",
+      "duration": 11,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "bandsquat",
+      "pt": "Agachamento com elástico",
+      "en": "Resistance band squat",
+      "description": "Posicione a resistência sem prender articulações.",
+      "muscle": "Pernas",
+      "youtubeId": "EUmcsU8tQF4",
+      "youtubeTitle": "Resistance Tube Squats",
+      "channel": "FITTR",
+      "duration": 80,
+      "warnings": [
+        "Titulos diferentes; conferir variante, equipamento e execucao"
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbgoblet",
+      "pt": "Agachamento goblet com kettlebell",
+      "en": "Kettlebell goblet squat",
+      "description": "Segure o peso junto ao peito e controle o agachamento.",
+      "muscle": "Pernas",
+      "youtubeId": "7-80HiXX1K8",
+      "youtubeTitle": "Goblet Squat [How To]",
+      "channel": "Le Sweat",
+      "duration": 17,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbfrontsquat",
+      "pt": "Agachamento frontal com dois kettlebells",
+      "en": "Double kettlebell front squat",
+      "description": "Apoie ambos os pesos em posição de rack sem forçar os punhos.",
+      "muscle": "Pernas",
+      "youtubeId": "e7y8jEUbQiQ",
+      "youtubeTitle": "Double kettlebell front rack squats",
+      "channel": "The Gym Hong Kong",
+      "duration": 9,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbswing",
+      "pt": "Balanço kettlebell (swing)",
+      "en": "Kettlebell swing",
+      "description": "O movimento nasce do quadril, não de levantar com os braços.",
+      "muscle": "Glúteos",
+      "youtubeId": "2gXtvqLa_T8",
+      "youtubeTitle": "Correctly Perform Kettlebell Swings!",
+      "channel": "Squat University",
+      "duration": 60,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbclean",
+      "pt": "Clean com kettlebell",
+      "en": "Kettlebell clean",
+      "description": "Aproxime o kettlebell do antebraço sem golpeá-lo.",
+      "muscle": "Glúteos",
+      "youtubeId": "h4KafmF7Xwc",
+      "youtubeTitle": "Single arm kettlebell clean and press",
+      "channel": "The Gym Hong Kong",
+      "duration": 11,
+      "warnings": [
+        "O vídeo inclui clean and press. Selecione somente a parte de clean, se existir."
+      ],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbsnatch",
+      "pt": "Snatch com kettlebell",
+      "en": "Kettlebell snatch",
+      "description": "Progrida apenas após dominar o clean e o swing.",
+      "muscle": "Ombros",
+      "youtubeId": "KqFYfLST3xc",
+      "youtubeTitle": "Kettlebell Snatch - Slow Motion  #shorts",
+      "channel": "Pavel Krotov",
+      "duration": 17,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbhalo",
+      "pt": "Halo com kettlebell",
+      "en": "Kettlebell halo",
+      "description": "Passe o peso ao redor da cabeça mantendo tronco estável.",
+      "muscle": "Abdômen",
+      "youtubeId": "o4WDCCietJ0",
+      "youtubeTitle": "Kettlebell Halo",
+      "channel": "FITTR",
+      "duration": 70,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    },
+    {
+      "id": "kbturkish",
+      "pt": "Turkish get-up",
+      "en": "Turkish get-up",
+      "description": "Pratique cada transição com carga leve e supervisão.",
+      "muscle": "Abdômen",
+      "youtubeId": "XVEMTDlNLyU",
+      "youtubeTitle": "Kettlebell Turkish Get Up",
+      "channel": "Tribe Fitness",
+      "duration": 14,
+      "warnings": [],
+      "inBrazil": true,
+      "embeddable": true
+    }
+  ]
+}
