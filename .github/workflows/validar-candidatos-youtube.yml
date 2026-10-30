@@ -1,0 +1,30 @@
+name: Validar videos candidatos YouTube
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  auditoria-videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obter codigo
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Consultar metadados oficiais do YouTube
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python scripts/validar_candidatos_youtube.py \
+            --catalog app/src/main/assets/exercise_videos.json \
+            --output reports/videos_yt
+      - name: Publicar relatorio para download
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Auditoria-60-videos-MeuTreino
+          path: reports/videos_yt/
+          if-no-files-found: error
