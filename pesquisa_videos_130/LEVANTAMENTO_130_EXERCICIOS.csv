@@ -1,0 +1,131 @@
+﻿exercise_id,nome_pt,nome_en,orientacao_pt,musculo,situacao,youtube_id,youtube_url,titulo_video,fonte,duracao_fonte_segundos,grau_correspondencia,observacao
+inclinepush,Flexão inclinada,Incline Push Up,Apoie as mãos numa superfície firme e estável.,,candidato,Gvm5Q29UHbk,https://www.youtube.com/watch?v=Gvm5Q29UHbk,Incline Push-Up,YouTube — pesquisa externa,,exata_por_titulo,Revisar visualmente duração e execução.
+bandrow,Remada com elástico,Resistance Band Row,Fixe o elástico num ponto seguro e puxe com controle.,,candidato,rMHC8KSej_Q,https://www.youtube.com/watch?v=rMHC8KSej_Q,Single Arm Band Row,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+lunge,Avanço alternado,Alternating Lunges,Faça passos controlados mantendo boa estabilidade.,,candidato,s2tC7WhZw2k,https://www.youtube.com/watch?v=s2tC7WhZw2k,Walking Lunges,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+bandshoulder,Desenvolvimento com elástico,Resistance Band Shoulder Press,Use resistência que permita movimento controlado.,,sem_link,,,,,,,
+closepush,Flexão com mãos próximas,Close Grip Push Up,Aproxime as mãos sem forçar os punhos e controle a descida.,Peito,sem_link,,,,,,,
+declinepush,Flexão com pés elevados,Decline Push Ups,Apoie os pés em superfície estável e sustente a região lombar.,Peito,sem_link,,,,,,,
+tempopush,Flexão com descida lenta,Slow Tempo Push Ups,Desça contando três segundos e suba sem perder alinhamento.,Peito,sem_link,,,,,,,
+pausepush,Flexão com pausa inferior,Pause Push Ups,Faça breve pausa próxima ao solo sem relaxar o tronco.,Peito,sem_link,,,,,,,
+archerpush,Flexão arqueiro,Archer Push Up,Distribua a carga gradualmente para um dos braços.,Peito,sem_link,,,,,,,
+pseudoplanche,Flexão pseudo-planche,Pseudo Planche Push Up,Avance levemente os ombros além das mãos mantendo controle dos punhos.,Peito,sem_link,,,,,,,
+explosivepush,Flexão explosiva,Explosive Push Ups,Só acelere a subida quando dominar a flexão convencional.,Peito,candidato,iO0sT5FDgj4,https://www.youtube.com/watch?v=iO0sT5FDgj4,Plyo Push Ups,Workout Database,6,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+hindupush,Flexão hindu,Hindu Push Ups,"Realize movimento controlado em arco, sem forçar a lombar.",Ombros,sem_link,,,,,,,
+elevatedpike,Flexão pike com pés elevados,Feet Elevated Pike Push Up,"Eleve os pés em suporte firme, com controle cervical.",Ombros,sem_link,,,,,,,
+wallhandstandpush,Flexão de ombros na parede (parcial),Wall Handstand Push Up,"Use amplitude reduzida e apoio firme, sem sobrecarregar o pescoço.",Ombros,sem_link,,,,,,,
+benchedips,Mergulho no banco,Bench Dips,Não desça além da mobilidade confortável dos ombros.,Braços,sem_link,,,,,,,
+paralleldips,Paralelas (mergulho),Parallel Bar Dips,Mantenha o movimento controlado e a amplitude tolerável.,Peito,sem_link,,,,,,,
+assistedparalleldips,Paralelas com pés apoiados,Assisted Dips,Use apoio dos pés para modular a carga e manter estabilidade.,Braços,sem_link,,,,,,,
+scapularpull,Depressão escapular suspenso na barra,Scapular Pull Up,"Eleve o corpo levemente pelas escápulas, sem dobrar os cotovelos.",Costas,candidato,9M8ylnbriB0,https://www.youtube.com/watch?v=9M8ylnbriB0,Scapular Pull Ups,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+negativepull,Barra fixa excêntrica,Negative Pull Up,Desça lentamente usando apoio seguro para alcançar a posição alta.,Costas,sem_link,,,,,,,
+commando,Barra fixa com pegada alternada,Commando Pull Up,Alterne o lado da cabeça em relação à barra com controle.,Costas,candidato,Px63ik-4aLU,https://www.youtube.com/watch?v=Px63ik-4aLU,Commando Pull Ups,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+archerpull,Barra fixa arqueiro,Archer Pull Up,Progrida apenas após dominar várias barras estritas.,Costas,candidato,AeBvpCCYpGI,https://www.youtube.com/watch?v=AeBvpCCYpGI,Archer Pull Ups,Workout Database,30,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bodyweightrowrings,Remada suspensa (TRX/argolas),Suspension Row,Ajuste a inclinação do corpo para controlar a dificuldade.,Costas,sem_link,,,,,,,
+ringfacepull,Face pull suspenso (TRX/argolas),TRX Face Pull,Puxe as mãos em direção ao rosto e mantenha as escápulas ativas.,Ombros,sem_link,,,,,,,
+proneyraise,Elevação Y deitado,Prone Y Raise,Eleve os braços em Y com baixa amplitude e sem forçar o pescoço.,Ombros,sem_link,,,,,,,
+pronewraise,Elevação W deitado,Prone W Raise,Aproxime as escápulas com cotovelos flexionados sem erguer a lombar.,Ombros,sem_link,,,,,,,
+wallslide,Deslizamento de braços na parede,Wall Slides,Suba os braços deslizando na parede sem arquear a lombar.,Ombros,sem_link,,,,,,,
+scapularpush,Flexão escapular,Scapular Push Up,Mantenha cotovelos estendidos e mova somente as escápulas.,Ombros,sem_link,,,,,,,
+shouldertap,Toques no ombro em prancha,Plank Shoulder Taps,Toque alternadamente os ombros sem rodar excessivamente a pelve.,Abdômen,candidato,eyeuugrpLYA,https://www.youtube.com/watch?v=eyeuugrpLYA,Shoulder Taps,Workout Database,15,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+regressedsquat,Sentar e levantar da cadeira,Chair Squats,Sente-se suavemente e levante sem impulsionar com os braços.,Pernas,sem_link,,,,,,,
+temposquat,Agachamento livre com descida lenta,Tempo Bodyweight Squat,Desça em três segundos mantendo os calcanhares apoiados.,Pernas,sem_link,,,,,,,
+pausesquat,Agachamento com pausa inferior,Pause Squat,"Faça pausa curta na amplitude confortável, mantendo o controle.",Pernas,sem_link,,,,,,,
+sumosquat,Agachamento sumô livre,Bodyweight Sumo Squat,Abra a base sem exceder a mobilidade do quadril.,Pernas,sem_link,,,,,,,
+cyclistsquat,Agachamento com calcanhares elevados,Heels Elevated Squats,Use elevação baixa e firme sob os calcanhares.,Pernas,sem_link,,,,,,,
+pistolsupport,Agachamento unilateral com apoio,Assisted Pistol Squat,Use apoio estável para equilibrar e regular a amplitude.,Pernas,sem_link,,,,,,,
+shrimp,Agachamento shrimp,Shrimp Squat,Mantenha equilíbrio e avance gradualmente na amplitude.,Pernas,candidato,85YE86ipw_w,https://www.youtube.com/watch?v=85YE86ipw_w,Shrimp Squat Progression Guide | Beginner to Intermediate Tutorial,YouTube — pesquisa externa,,tutorial_com_variantes,Vídeo inclui progressões; conferir e selecionar o trecho da variante exata.
+cossack,Agachamento cossaco,Cossack Squats,Faça deslocamento lateral apenas na amplitude confortável.,Pernas,candidato,gfod3jiMgl4,https://www.youtube.com/watch?v=gfod3jiMgl4,Cossack Squats (Beginner to Advanced Progressions),YouTube — pesquisa externa,,tutorial_com_variantes,Vídeo inclui progressões; conferir e selecionar o trecho da variante exata.
+bulgarianbw,Agachamento búlgaro sem carga,Bodyweight Bulgarian Split Squat,Apoie o pé traseiro no banco e desça sem perder o equilíbrio.,Pernas,sem_link,,,,,,,
+stepupbw,Subida no banco (step-up),Bodyweight Step Ups,Use plataforma baixa e firme; impulsione com a perna da frente.,Pernas,sem_link,,,,,,,
+glutebridgepause,Ponte de glúteos isométrica,Glute Bridge Hold,Sustente o alto do movimento mantendo abdômen ativo.,Glúteos,sem_link,,,,,,,
+hipthrustbw,Elevação pélvica apoiada no banco,Bodyweight Hip Thrust,Apoie a parte superior das costas e evite hiperextensão lombar.,Glúteos,sem_link,,,,,,,
+hamwalkout,Caminhada de calcanhares na ponte,Hamstring Walkouts,Afaste os pés aos poucos mantendo quadril elevado.,Pernas,sem_link,,,,,,,
+singlelegdeadliftbw,Inclinação de quadril unilateral sem carga,Bodyweight Single Leg Deadlift,Incline o tronco com controle e mantenha a pelve alinhada.,Pernas,sem_link,,,,,,,
+goodmorningbw,Bom dia sem carga,Bodyweight Good Morning,Flexione o quadril preservando alinhamento da coluna.,Pernas,sem_link,,,,,,,
+calfstep,Elevação de panturrilhas no degrau,Calf Raises On Step,Use degrau firme e amplitude sem dor no tendão.,Pernas,sem_link,,,,,,,
+tibialiswall,Dorsiflexão dos pés apoiado na parede,Tibialis Raises,Mova os dedos em direção às canelas sem perder apoio dos calcanhares.,Pernas,sem_link,,,,,,,
+sideplankleg,Prancha lateral com abdução de perna,Side Plank Leg Raise,Eleve a perna sem cair o quadril.,Abdômen,sem_link,,,,,,,
+reverseplank,Prancha invertida,Reverse Plank,Eleve o quadril sem comprimir a região cervical.,Abdômen,sem_link,,,,,,,
+hollowhold,Hollow body hold,Hollow Body Hold,Mantenha a lombar suavemente apoiada e reduza a alavanca se necessário.,Abdômen,candidato,_wBPcny-7Hc,https://www.youtube.com/watch?v=_wBPcny-7Hc,Hollow Hold,Workout Database,16,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+legraise,Elevação de pernas deitado,Lying Leg Raises,Reduza a amplitude se a lombar se afastar do solo.,Abdômen,candidato,KCt2qWYPrMc,https://www.youtube.com/watch?v=KCt2qWYPrMc,Flat Bench Lying Leg Raise,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+kneetuck,Encolhimento de joelhos sentado,Seated Knee Tuck,Aproxime os joelhos do tronco controlando o equilíbrio.,Abdômen,sem_link,,,,,,,
+bearhold,Posição de urso isométrica,Bear Plank Hold,Tire levemente os joelhos do chão sem arredondar a lombar.,Abdômen,sem_link,,,,,,,
+deadbugextended,Dead bug com pernas estendidas,Dead Bug Leg Extension,Estenda os membros apenas até manter controle da lombar.,Abdômen,sem_link,,,,,,,
+birddogelbow,Bird dog com cotovelo ao joelho,Bird Dog Knee To Elbow,Aproxime cotovelo e joelho sem rodar o tronco.,Abdômen,sem_link,,,,,,,
+birdhold,Bird dog isométrico,Bird Dog Hold,Sustente membros opostos evitando inclinação lateral.,Abdômen,sem_link,,,,,,,
+dbsqueeze,Supino squeeze com halteres,Dumbbell Squeeze Press,Pressione os halteres entre si durante a subida.,Peito,sem_link,,,,,,,
+dbbentrow,Remada curvada com halteres,Bent Over Dumbbell Row,Flexione quadril e mantenha as escápulas sob controle.,Costas,candidato,dpYI8K6e-jE,https://www.youtube.com/watch?v=dpYI8K6e-jE,Bent Over Row,Workout Database,9,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+dbwideelbowrow,Remada com cotovelos abertos,Dumbbell Wide Elbow Row,Puxe cotovelos lateralmente sem forçar os ombros.,Costas,sem_link,,,,,,,
+dbneutralpress,Desenvolvimento com pegada neutra,Neutral Grip Dumbbell Shoulder Press,Mantenha punhos neutros e evite compensar pela lombar.,Ombros,sem_link,,,,,,,
+dblaterallean,Elevação lateral unilateral inclinada,Leaning Lateral Raise,Apoie a mão livre e eleve sem impulso.,Ombros,sem_link,,,,,,,
+dbyraise,Elevação em Y com halteres,Dumbbell Y Raise,Use carga leve e movimento controlado na diagonal.,Ombros,sem_link,,,,,,,
+dbspidercurl,Rosca spider no banco,Dumbbell Spider Curl,Apoie o peito no banco inclinado e flexione os cotovelos.,Braços,sem_link,,,,,,,
+dbtricepsoverhead,Extensão de tríceps acima da cabeça,Overhead Dumbbell Triceps Extension,Mantenha cotovelos apontados para cima sem forçar ombros.,Braços,candidato,b_r_LW4HEcM,https://www.youtube.com/watch?v=b_r_LW4HEcM,Seated Triceps Press,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+dbtricepskick,Coice de tríceps com halter,Dumbbell Triceps Kickback,Estabilize o tronco e estenda o cotovelo sem balançar.,Braços,candidato,WhBxKbe1-NU,https://www.youtube.com/watch?v=WhBxKbe1-NU,Tricep Dumbbell Kickback,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+dbclosepress,Supino fechado com halteres,Close Grip Dumbbell Bench Press,Mantenha cotovelos relativamente próximos ao corpo.,Peito,candidato,BaiiD8qI_W0,https://www.youtube.com/watch?v=BaiiD8qI_W0,Close-Grip Dumbbell Press,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+dbfrontsquat,Agachamento com halteres nos ombros,Dumbbell Front Squat,Apoie cargas confortáveis perto dos ombros e agache.,Pernas,sem_link,,,,,,,
+dbsumosquat,Agachamento sumô com halter,Dumbbell Sumo Squat,Segure o halter entre as pernas com base confortável.,Pernas,sem_link,,,,,,,
+dbbulgarian,Agachamento búlgaro com halteres,Dumbbell Bulgarian Split Squat,Apoie pé traseiro firmemente e controle a descida.,Pernas,sem_link,,,,,,,
+dbstepup,Step-up com halteres,Dumbbell Step Up,"Use plataforma baixa e firme, sem impulsionar com o pé traseiro.",Pernas,sem_link,,,,,,,
+dbsingleRDL,Levantamento romeno unilateral com halter,Single Leg Dumbbell Romanian Deadlift,Incline o quadril sem abrir a pelve lateralmente.,Pernas,sem_link,,,,,,,
+dbsumodead,Levantamento terra sumô com halter,Dumbbell Sumo Deadlift,"Mantenha halter próximo ao corpo, evitando arredondar a coluna.",Pernas,sem_link,,,,,,,
+dbhipthrust,Elevação pélvica com halter,Dumbbell Hip Thrust,Posicione a carga confortavelmente sobre a pelve.,Glúteos,sem_link,,,,,,,
+dbcalf,Elevação de panturrilhas com halteres,Dumbbell Calf Raise,Suba e desça com tornozelos alinhados.,Pernas,candidato,hPA98_r-6e4,https://www.youtube.com/watch?v=hPA98_r-6e4,Standing Dumbbell Calf Raise,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+dbfarmer,Caminhada do fazendeiro com halteres,Dumbbell Farmers Walk,Caminhe com tronco alto sem inclinar para os lados.,Abdômen,candidato,1uOs1hP3u4A,https://www.youtube.com/watch?v=1uOs1hP3u4A,Farmers Walk,Workout Database,13,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+dbsuitcase,Caminhada com halter unilateral,Dumbbell Suitcase Carry,Não incline o tronco para compensar a carga unilateral.,Abdômen,sem_link,,,,,,,
+bbclosebench,Supino fechado com barra,Close Grip Barbell Bench Press,Use pegada confortável e não aproxime excessivamente as mãos.,Peito,candidato,4yKLxOsrGfg,https://www.youtube.com/watch?v=4yKLxOsrGfg,Close Grip Bench Press,Workout Database,13,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbpendlay,Remada Pendlay,Pendlay Row,Inicie cada repetição do solo sem flexionar a lombar.,Costas,sem_link,,,,,,,
+bbunderrow,Remada supinada com barra,Reverse Grip Barbell Row,Controle a pegada supinada e estabilize o tronco.,Costas,candidato,i3m4R_o7_1c,https://www.youtube.com/watch?v=i3m4R_o7_1c,Reverse Grip Bent-Over Rows,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bboverhead,Desenvolvimento militar com barra,Barbell Overhead Press,Contraia abdômen e não hiperestenda a lombar.,Ombros,candidato,zoN5EH50Dro,https://www.youtube.com/watch?v=zoN5EH50Dro,Overhead Press (Military Press),Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbboxsquat,Agachamento com barra até o banco,Barbell Box Squat,Toque o banco de forma suave sem relaxar a lombar.,Pernas,sem_link,,,,,,,
+bbrdl,Levantamento romeno com barra,Barbell Romanian Deadlift,Desça com quadril para trás e barra próxima ao corpo.,Pernas,candidato,Wou9zVQrAfs,https://www.youtube.com/watch?v=Wou9zVQrAfs,Romanian Deadlift (RDL),Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbsumodead,Levantamento terra sumô com barra,Sumo Barbell Deadlift,Ajuste a abertura confortável e mantenha joelhos na direção dos pés.,Pernas,candidato,k_jHUVBU-T0,https://www.youtube.com/watch?v=k_jHUVBU-T0,Sumo Deadlift,Workout Database,7,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbgoodmorning,Bom dia com barra,Barbell Good Morning,Mantenha carga reduzida e execute dobradiça do quadril.,Pernas,candidato,q4gCaj8g5tg,https://www.youtube.com/watch?v=q4gCaj8g5tg,Good Morning,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbcalf,Elevação de panturrilhas com barra,Barbell Calf Raise,Use suporte estável e movimento de tornozelo controlado.,Pernas,candidato,5dpJj3ulwK0,https://www.youtube.com/watch?v=5dpJj3ulwK0,Standing Barbell Calf Raise,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbreversecurl,Rosca inversa com barra,Barbell Reverse Curl,Use pegada pronada e carga confortável para punhos.,Braços,candidato,vm6E-iNWQUw,https://www.youtube.com/watch?v=vm6E-iNWQUw,Reverse Barbell Curl,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bbpreachercurl,Rosca Scott com barra,Barbell Preacher Curl,Exige banco Scott; não estenda os cotovelos sob carga brusca.,Braços,sem_link,,,,,,,
+bbskull,Tríceps testa com barra,Barbell Skull Crusher,Desça lentamente perto da testa sem abrir excessivamente os cotovelos.,Braços,sem_link,,,,,,,
+bbupright,Remada alta com barra (amplitude confortável),Barbell Upright Row,Não eleve a barra se houver desconforto nos ombros.,Ombros,candidato,AWsGWt-VMl8,https://www.youtube.com/watch?v=AWsGWt-VMl8,Upright Row,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+inclinemachine,Supino inclinado em máquina,Incline Chest Press Machine,Ajuste o banco para que as alças fiquem na altura adequada.,Peito,candidato,rVh0tKDnYvs,https://www.youtube.com/watch?v=rVh0tKDnYvs,Leverage Incline Chest Press,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+cablechest,Supino em pé nos cabos,Standing Cable Chest Press,Mantenha o tronco firme e empurre de forma simétrica.,Peito,candidato,-wubBe3IYnQ,https://www.youtube.com/watch?v=-wubBe3IYnQ,Cable Chest Press,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+neutralpulldown,Puxada neutra na polia,Neutral Grip Lat Pulldown,Mantenha ombros baixos e não puxe atrás da nuca.,Costas,sem_link,,,,,,,
+closepulldown,Puxada fechada na polia,Close Grip Lat Pulldown,Conduza os cotovelos para baixo sem puxar com balanço.,Costas,candidato,jXRxMJhOCc0,https://www.youtube.com/watch?v=jXRxMJhOCc0,Close-Grip Front Lat Pulldown,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+highrowmachine,Remada alta articulada,High Row Machine,Ajuste o assento para uma trajetória confortável.,Costas,candidato,NnKqgrviXVE,https://www.youtube.com/watch?v=NnKqgrviXVE,Leverage High Row,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+chestrowmachine,Remada com apoio peitoral na máquina,Chest Supported Row Machine,Apoie o tórax e evite estender a lombar.,Costas,sem_link,,,,,,,
+machinepullover,Pullover na máquina,Pullover Machine,Ajuste posição inicial sem forçar extensão do ombro.,Costas,sem_link,,,,,,,
+assisteddipmachine,Paralelas na máquina assistida,Assisted Dip Machine,Use assistência suficiente para controlar a amplitude.,Braços,sem_link,,,,,,,
+shouldermachine,Desenvolvimento de ombros na máquina,Shoulder Press Machine,Ajuste o banco e não force a amplitude superior.,Ombros,sem_link,,,,,,,
+lateralmachine,Elevação lateral na máquina,Lateral Raise Machine,Empurre pelos apoios sem elevar os ombros.,Ombros,sem_link,,,,,,,
+reversepecdeck,Voador invertido,Reverse Pec Deck,Tracione com ombros confortáveis e sem embalo.,Ombros,sem_link,,,,,,,
+legextension,Cadeira extensora,Leg Extension Machine,Ajuste o eixo da máquina ao joelho e evite trancos.,Pernas,candidato,uM86QE59Tgc,https://www.youtube.com/watch?v=uM86QE59Tgc,Leg Extensions,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+lyinglegcurl,Mesa flexora deitada,Lying Leg Curl Machine,Evite levantar a pelve ao flexionar os joelhos.,Pernas,candidato,yjWAuFOjhuY,https://www.youtube.com/watch?v=yjWAuFOjhuY,Lying Leg Curls,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+hacksquat,Agachamento hack na máquina,Hack Squat Machine,Ajuste a base dos pés para alinhamento confortável.,Pernas,candidato,bGbHOeHXnB8,https://www.youtube.com/watch?v=bGbHOeHXnB8,Hack Squat,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+smithsplit,Agachamento dividido no Smith,Smith Machine Split Squat,Controle a posição dos pés em relação à trajetória fixa.,Pernas,candidato,iEyYqAL1TuU,https://www.youtube.com/watch?v=iEyYqAL1TuU,Smith Single-Leg Split Squat,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+hipabduction,Cadeira abdutora,Hip Abduction Machine,Afaste as coxas sem impulsionar o tronco.,Glúteos,candidato,tu4o4quPv2k,https://www.youtube.com/watch?v=tu4o4quPv2k,Thigh Abductor,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+hipadduction,Cadeira adutora,Hip Adduction Machine,Feche as pernas em amplitude confortável.,Pernas,candidato,vNixlpsswr8,https://www.youtube.com/watch?v=vNixlpsswr8,Thigh Adductor,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+glutekickmachine,Coice de glúteos na máquina,Glute Kickback Machine,Movimente a perna sem compensar pela lombar.,Glúteos,sem_link,,,,,,,
+standingcalfmachine,Panturrilha em pé na máquina,Standing Calf Raise Machine,Não use impulso dos joelhos para mover a carga.,Pernas,sem_link,,,,,,,
+preachermachine,Rosca Scott na máquina,Preacher Curl Machine,Regule o banco para estabilizar os braços.,Braços,candidato,S4dDLfp3e8w,https://www.youtube.com/watch?v=S4dDLfp3e8w,Machine Preacher Curls,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+tricepsrope,Tríceps na polia com corda,Rope Triceps Pushdown,Estenda cotovelos sem movimentar o tronco.,Braços,sem_link,,,,,,,
+tricepsvbar,Tríceps na polia com barra V,V Bar Triceps Pushdown,Mantenha punhos alinhados sem estender demais.,Braços,sem_link,,,,,,,
+tricepsoverheadcable,Tríceps acima da cabeça no cabo,Overhead Cable Triceps Extension,Estabilize ombros antes de estender cotovelos.,Braços,candidato,9Ark9S11uXw,https://www.youtube.com/watch?v=9Ark9S11uXw,Cable Rope Overhead Triceps Extension,Workout Database,,variante_proxima,"Conferir se a variante, pegada e equipamentos são os mesmos."
+cablekickback,Coice de tríceps na polia,Cable Triceps Kickback,Não balance os ombros ao estender os braços.,Braços,sem_link,,,,,,,
+cablepallof,Pallof press na polia,Cable Pallof Press,Mantenha o tronco imóvel enquanto estende os braços.,Abdômen,sem_link,,,,,,,
+bandchestpress,Supino em pé com elástico,Resistance Band Chest Press,Prenda o elástico em apoio certificado e empurre sem trancos.,Peito,sem_link,,,,,,,
+bandfly,Crucifixo com elástico,Resistance Band Chest Fly,Afaste as mãos à frente mantendo leve flexão dos cotovelos.,Peito,candidato,Skcu4HHMFq4,https://www.youtube.com/watch?v=Skcu4HHMFq4,Band Chest Fly,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bandfacepull,Face pull com elástico,Band Face Pull,Puxe em direção ao rosto e confira a segurança da fixação.,Ombros,sem_link,,,,,,,
+bandreversefly,Crucifixo invertido com elástico,Resistance Band Reverse Fly,Afaste as mãos lentamente mantendo cotovelos suaves.,Ombros,sem_link,,,,,,,
+bandlateral,Elevação lateral com elástico,Resistance Band Lateral Raise,Eleve até amplitude confortável sem inclinar o tronco.,Ombros,candidato,I0s4mvF2LYQ,https://www.youtube.com/watch?v=I0s4mvF2LYQ,Band Lateral Raise,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bandfront,Elevação frontal com elástico,Resistance Band Front Raise,Mantenha tronco estável e controle o retorno.,Ombros,sem_link,,,,,,,
+bandtricepsoverhead,Extensão de tríceps acima da cabeça com elástico,Overhead Triceps Extension with Band,Mantenha cotovelos estáveis e ajuste a tensão.,Braços,sem_link,,,,,,,
+bandgoodmorning,Bom dia com elástico,Resistance Band Good Morning,Flexione o quadril e preserve a posição neutra da coluna.,Pernas,candidato,rQmkPvfcaSU,https://www.youtube.com/watch?v=rQmkPvfcaSU,Band Good Morning,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bandglutekick,Extensão de quadril com elástico,Resistance Band Glute Kickback,Estenda a perna sem compensação lombar.,Glúteos,candidato,Oz9KXbiSt2c,https://www.youtube.com/watch?v=Oz9KXbiSt2c,Band Glute Kickback,Workout Database,,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+bandmonsterwalk,Caminhada lateral com mini band,Resistance Band Lateral Walk,Dê passos curtos mantendo tensão constante.,Glúteos,sem_link,,,,,,,
+bandpallof,Pallof press com elástico,Pallof Press with Band,Resista à rotação e mantenha as costelas estáveis.,Abdômen,sem_link,,,,,,,
+bandpallofhold,Pallof isométrico com elástico,Pallof Press Hold with Band,Segure os braços estendidos sem girar o tronco.,Abdômen,sem_link,,,,,,,
+bandwoodchop,Rotação diagonal com elástico,Resistance Band Woodchop,Gire com quadris e tronco em amplitude confortável.,Abdômen,sem_link,,,,,,,
+kbsumo,Levantamento terra sumô com kettlebell,Kettlebell Sumo Deadlift,Mantenha o peso próximo ao corpo e coluna neutra.,Pernas,sem_link,,,,,,,
+kbrow,Remada unilateral com kettlebell,Kettlebell Single Arm Row,Mantenha o tronco alinhado e evite rodar os ombros.,Costas,sem_link,,,,,,,
+kboverhead,Desenvolvimento com kettlebell,Kettlebell Overhead Press,Mantenha o punho neutro na posição de rack.,Ombros,candidato,iO6JMIW1lYQ,https://www.youtube.com/watch?v=iO6JMIW1lYQ,Kettlebell Press,Workout Database,19,nome_e_equipamento_coerentes,Correspondência por metadados; ainda requer revisão visual.
+kbfarmers,Caminhada do fazendeiro com kettlebells,Kettlebell Farmer Carry,Caminhe sem inclinar o tronco nem perder a pegada.,Abdômen,sem_link,,,,,,,
+kbsinglecarry,Caminhada unilateral com kettlebell,Single Kettlebell Suitcase Carry,Evite inclinar o tronco na direção do peso.,Abdômen,sem_link,,,,,,,

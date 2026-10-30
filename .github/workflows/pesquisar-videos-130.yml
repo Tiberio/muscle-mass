@@ -1,0 +1,28 @@
+name: Pesquisar videos pendentes Meu Treino
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Obter codigo
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pesquisar os 86 exercicios pendentes e auditar 44 candidatos
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python scripts/pesquisar_86_videos_youtube.py --directory pesquisa_videos_130 --output reports/pesquisa130
+      - name: Publicar relatorios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pesquisa-videos-130-MeuTreino
+          path: reports/pesquisa130/
+          if-no-files-found: warn
