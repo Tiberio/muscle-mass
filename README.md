@@ -1,4 +1,4 @@
-# Meu Treino — Android v0.4.0
+# Meu Treino — Android v0.4.6
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
@@ -87,3 +87,28 @@ Aprimorar progressão de cargas, controle do esforço e acompanhamento da evolu�
 ### Mi Band 7 — diagnóstico BLE experimental (v0.3.0)
 
 Em **Dispositivos → Conexões → Mi Band 7**, é possível procurar dispositivos BLE, testar a conexão GATT e verificar serviços padrão de bateria/FC. Isso **não é pareamento Huami nem acesso ao histórico**. Consulte `docs/MI_BAND_7_v0.3.0.md`.
+
+
+### v0.4.1 — Demonstrações em vídeo (piloto)
+Veja [docs/VIDEOS_EXERCICIOS_v0.4.1.md](docs/VIDEOS_EXERCICIOS_v0.4.1.md): player integrado com segmentos opcionais, cinco demonstrações inicialmente cadastradas e plano de curadoria para os 234 exercícios.
+
+
+## Vídeos demonstrativos (v0.4.2)
+
+Os vínculos exercício/vídeo são mantidos em `app/src/main/assets/exercise_videos.json` e validados em `scripts/validate_exercise_videos.py`. Veja `docs/ALTERACOES_v0.4.2.md`.
+
+## Expansão dos vídeos demonstrativos (v0.4.3)
+
+O catálogo contém 38 vínculos de vídeo para 234 exercícios. Veja `docs/VIDEOS_EXERCICIOS_v0.4.3.md` para fontes e status de verificação.
+
+## Biblioteca de vídeos v0.4.4
+
+44 dos 234 exercícios possuem vídeos individuais associados. Os outros 190 têm busca direcionada por exercício no YouTube, **não vídeos curados**. Veja `docs/ALTERACOES_v0.4.4.md`.
+
+## Pesquisa de vídeos — v0.4.5
+
+O `exercise_videos.json` mantém 44 demonstrações existentes em `videos`, 60 links identificados por metadados em `candidates` (abertura externa, sem auditoria visual nem cortes arbitrários) e 130 buscas em `discovery`. A lista e o estado de cada exercício estão em [`docs/LEVANTAMENTO_VIDEOS_v0.4.5.md`](docs/LEVANTAMENTO_VIDEOS_v0.4.5.md).
+
+## Vídeos demonstrativos — v0.4.6
+
+Após revisão manual do usuário no site, os 60 candidatos da v0.4.5 foram promovidos ao player do aplicativo: 45 vídeos integrais (até 40 segundos) e 15 trechos revisados de até 40 segundos. Há agora **104 vídeos no player**, nenhum candidato restante e **130 exercícios com busca específica**. Os 44 vídeos anteriores foram preservados. Consulte [docs/ALTERACOES_v0.4.6.md](docs/ALTERACOES_v0.4.6.md).
