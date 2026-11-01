@@ -164,7 +164,14 @@ function decide(decision){
 function navigate(dir){let n=idx(currentId);n=(n+dir+ITEMS.length)%ITEMS.length;select(ITEMS[n].id);}
 function exportFile(format){
  const results=ITEMS.filter(ex=>status(ex.id)!=='pending').map(ex=>{
-  const v=activeVideo(ex);return {exercise_id:ex.id,exercise_name_pt:ex.pt,exercise_name_en:ex.en,youtube_id:reviews[ex.id].youtube_id,duration_seconds:(ex.options.find(o=>o.id===reviews[ex.id].youtube_id)||v).duration,...reviews[ex.id]};
+  const review=reviews[ex.id];
+  const video=ex.options.find(o=>o.id===review.youtube_id);
+  const result={exercise_id:ex.id,exercise_name_pt:ex.pt,exercise_name_en:ex.en,
+   duration_seconds:video?.duration??null,...review};
+  if(review.decision==='rejected' && (skipped[ex.id]||[]).length){
+   result.discarded_ids=[...skipped[ex.id]];
+  }
+  return result;
  });
  const summary={approved:count('approved'),rejected:count('rejected'),pending:ITEMS.length-results.length,total:ITEMS.length};
  let payload,mime,filename;
@@ -177,24 +184,86 @@ function exportFile(format){
  }
  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([payload],{type:mime}));a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),600);
 }
-function importData(file){
- if(!file)return;const reader=new FileReader();reader.onload=()=>{try{
-  const obj=JSON.parse(reader.result);if(!Array.isArray(obj.results))throw Error('JSON não contém resultados');
-  const incoming={};const newChoices={};
-  for(const r of obj.results){
-   const ex=byId[r.exercise_id];if(!ex||!['approved','rejected'].includes(r.decision))throw Error('Exercício ou decisão inválidos');
-   const n=ex.options.findIndex(o=>o.id===r.youtube_id);if(n<0)throw Error('Vídeo divergente: '+ex.pt);
-   const v={duration:ex.options[n].duration};
-   if(r.decision==='approved' && v.duration>40 && !validClip(v,{start:r.start_seconds,end:r.end_seconds}))throw Error('Trecho inválido: '+ex.pt);
-   incoming[ex.id]={decision:r.decision,youtube_id:r.youtube_id,start_seconds:r.start_seconds??null,end_seconds:r.end_seconds??null,reason:r.reason||'',note:r.note||'',reviewed_at:r.reviewed_at||new Date().toISOString()};
-   newChoices[ex.id]=n;
+// Importa tanto o JSON de auditoria (que pode ter rejeição com youtube_id: null)
+// quanto os JSONs exportados pelo próprio revisor. Toda a validação ocorre
+// ANTES da confirmação e da alteração dos dados salvos no navegador.
+function parseImport(obj){
+ if(!obj || !Array.isArray(obj.results))throw Error('JSON não contém a lista de resultados');
+ const incoming={},newChoices={},newSkipped={},newDrafts={};
+ const knownOption=(ex,id)=>ex.options.some(o=>o.id===id);
+ const validIdList=(ex,ids)=>Array.isArray(ids)?ids.filter(id=>typeof id==='string' && knownOption(ex,id)):[];
+ const addSkipped=(id,ids)=>{newSkipped[id]=Array.from(new Set([...(newSkipped[id]||[]),...ids]));};
+
+ for(const r of obj.results){
+  if(!r || typeof r!=='object')throw Error('Resultado inválido no arquivo');
+  const ex=byId[r.exercise_id];
+  if(!ex || !['approved','rejected'].includes(r.decision))throw Error('Exercício ou decisão inválidos: '+String(r.exercise_id));
+  if(Object.hasOwn(incoming,ex.id))throw Error('Exercício repetido no JSON: '+ex.pt);
+  // Rejeição sem vídeo ocorre quando todas as opções daquele exercício foram recusadas.
+  const noVideo=r.decision==='rejected' && r.youtube_id==null;
+  const index=noVideo?-1:ex.options.findIndex(o=>o.id===r.youtube_id);
+  if(!noVideo && index<0)throw Error('Vídeo divergente: '+ex.pt);
+  if(r.decision==='approved' && ex.options[index].duration>40 &&
+     !validClip(ex.options[index],{start:r.start_seconds,end:r.end_seconds})){
+   throw Error('Trecho inválido: '+ex.pt);
   }
-  if(!confirm(`Importar ${Object.keys(incoming).length} decisões? As decisões dos mesmos exercícios serão substituídas.`))return;
-  reviews={...reviews,...incoming};choices={...choices,...newChoices};
-  for(const r of obj.results)if(r.start_seconds!=null&&r.end_seconds!=null){drafts[r.exercise_id]??={};drafts[r.exercise_id][r.youtube_id]={start:String(r.start_seconds),end:String(r.end_seconds)};}
-  if(obj.skipped&&typeof obj.skipped==='object')skipped={...skipped,...obj.skipped};
-  persist();select(currentId);
- }catch(err){alert('Não foi possível importar: '+err.message)}};reader.readAsText(file);
+  incoming[ex.id]={decision:r.decision,youtube_id:noVideo?null:r.youtube_id,
+   start_seconds:r.start_seconds??null,end_seconds:r.end_seconds??null,
+   reason:String(r.reason??''),note:String(r.note??''),
+   reviewed_at:r.reviewed_at||new Date().toISOString()};
+  if(index>=0)newChoices[ex.id]=index;
+  if(r.decision==='rejected'){
+   const rejectedIds=validIdList(ex,r.discarded_ids);
+   if(rejectedIds.length)addSkipped(ex.id,rejectedIds);
+  }
+  if(index>=0 && r.start_seconds!=null && r.end_seconds!=null){
+   (newDrafts[ex.id]??={})[r.youtube_id]={start:String(r.start_seconds),end:String(r.end_seconds)};
+  }
+ }
+ // Preservar recortes ainda em edição, mesmo para exercícios pendentes.
+ if(obj.drafts && typeof obj.drafts==='object' && !Array.isArray(obj.drafts)){
+  for(const [id,clips] of Object.entries(obj.drafts)){
+   const ex=byId[id];if(!ex || !clips || typeof clips!=='object' || Array.isArray(clips))continue;
+   for(const [vid,d] of Object.entries(clips)){
+    if(!knownOption(ex,vid) || !d || typeof d!=='object' || Array.isArray(d))continue;
+    if(!['string','number'].includes(typeof d.start) || !['string','number'].includes(typeof d.end))continue;
+    (newDrafts[id]??={})[vid]={start:String(d.start),end:String(d.end)};
+   }
+  }
+ }
+ if(obj.choices && typeof obj.choices==='object' && !Array.isArray(obj.choices)){
+  for(const [id,i] of Object.entries(obj.choices)){
+   if(byId[id] && !Object.hasOwn(newChoices,id) && Number.isInteger(i) && i>=0 && i<byId[id].options.length){
+    newChoices[id]=i;
+   }
+  }
+ }
+ if(obj.skipped && typeof obj.skipped==='object' && !Array.isArray(obj.skipped)){
+  for(const [id,ids] of Object.entries(obj.skipped)){
+   if(byId[id])addSkipped(id,validIdList(byId[id],ids));
+  }
+ }
+ return {incoming,newChoices,newSkipped,newDrafts};
+}
+function importData(file){
+ if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{try{
+  const {incoming,newChoices,newSkipped,newDrafts}=parseImport(JSON.parse(reader.result));
+  const total=Object.keys(incoming).length;
+  if(!confirm(`Importar ${total} decisões e os rascunhos de recorte disponíveis? As decisões dos mesmos exercícios serão substituídas. Outros exercícios serão preservados.`))return;
+  reviews={...reviews,...incoming};
+  choices={...choices,...newChoices};
+  for(const [id,ids] of Object.entries(newSkipped)){
+   skipped[id]=Array.from(new Set([...(skipped[id]||[]),...ids]));
+  }
+  for(const [id,clips] of Object.entries(newDrafts)){
+   drafts[id]={...(drafts[id]||{}),...clips};
+  }
+  persist();select(currentId,false);
+ }catch(err){alert('Não foi possível importar: '+err.message)}};
+ reader.onerror=()=>alert('Não foi possível ler o arquivo JSON selecionado.');
+ reader.readAsText(file);
 }
 $('optionPicker').addEventListener('change',e=>{
  const ex=byId[currentId];choices[ex.id]=Number(e.target.value);
