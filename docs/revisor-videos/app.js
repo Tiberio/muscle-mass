@@ -101,7 +101,7 @@ function showPoster(v){
 function loadPlayer(v,clip){
  const p=new URLSearchParams({playsinline:'1',controls:'1',rel:'0',autoplay:'1'});
  if(clip){p.set('start',String(clip.start));p.set('end',String(clip.end));clipPreviewedFor=`${v.id}:${v.youtubeId}:${clip.start}:${clip.end}`;}
- const iframe=document.createElement('iframe');iframe.src=`https://www.youtube-nocookie.com/embed/${v.youtubeId}?${p.toString()}`;
+ const iframe=document.createElement('iframe');iframe.src=`https://www.youtube.com/embed/${v.youtubeId}?${p.toString()}`;
  iframe.title='Demonstração de '+v.pt;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';
  stopPlayer();$('screen').append(iframe);
 }
