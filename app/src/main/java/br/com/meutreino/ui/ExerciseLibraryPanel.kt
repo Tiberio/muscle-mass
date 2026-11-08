@@ -50,7 +50,7 @@ import br.com.meutreino.domain.UserPrefs
                 if(exercise.safetyNote.isNotBlank())Subtext(exercise.safetyNote)
                 exercise.regressionId?.let { id -> ExerciseCatalog.byId(id)?.let { Subtext("Mais fácil: ${it.name}") } }
                 exercise.progressionId?.let { id -> ExerciseCatalog.byId(id)?.let { Subtext("Progressão: ${it.name}") } }
-                if(exercise.youtubeVideoId==null)Subtext("Vídeo específico ainda não verificado.")
+                ExerciseVideoControl(exercise.id)
             }
         }
     }

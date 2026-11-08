@@ -79,3 +79,17 @@ assert len(search_ids) == 1 and 'cablechest' in search_ids, 'Somente supino em p
 assert seen|candidate_ids|search_ids==ids, (len(seen),len(candidate_ids),len(search_ids),len(ids),'Falta cobertura')
 assert not(seen & search_ids or seen & candidate_ids or candidate_ids & search_ids)
 print(f'CATALOGO OK: {len(seen)} vídeos no player, {len(alternatives)} links externos não revisados, {len(candidate_ids)} candidatos, {len(search_ids)} buscas, {clips} trechos; {len(ids)} exercícios no total')
+
+# Regressão v0.4.8: um catálogo íntegro não basta se a UI continuar usando
+# o campo legado Exercise.youtubeVideoId. Isso causou a falha da v0.4.7.
+ui_panel=(root/'app/src/main/java/br/com/meutreino/ui/ExerciseLibraryPanel.kt').read_text(encoding='utf-8')
+ui_player=(root/'app/src/main/java/br/com/meutreino/ui/ExerciseVideoPlayer.kt').read_text(encoding='utf-8')
+repository=(root/'app/src/main/java/br/com/meutreino/ui/ExerciseVideoAssetRepository.kt').read_text(encoding='utf-8')
+assert re.search(r'\bExerciseVideoControl\s*\(\s*exercise\.id\s*\)', ui_panel), (
+    'Biblioteca de exercícios não chama o componente do player. Verifique se ExerciseLibraryPanel.kt foi enviado ao GitHub.'
+)
+assert 'exercise.youtubeVideoId' not in ui_panel, 'A UI ainda usa o campo legado youtubeVideoId'
+assert 'Vídeo específico ainda não verificado.' not in ui_panel, 'Mensagem legada encontrada: painel desatualizado'
+assert 'ExerciseVideoAssetRepository.ensureLoaded' in ui_player, 'Player não carrega catálogo JSON'
+assert 'exercise_videos.json' in repository, 'Repositório não utiliza o asset de vídeos'
+print('INTEGRACAO UI OK: biblioteca -> ExerciseVideoControl -> catálogo JSON')
