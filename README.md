@@ -1,6 +1,8 @@
-# Meu Treino — Android v0.4.6
+# Meu Treino — Android v0.4.7
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
+
+**Novidade v0.4.7:** 233 de 234 exercícios possuem demonstração selecionada; 129 vídeos novos aprovados pelo usuário foram incorporados, com trechos de até 40 s. O site também listou 172 alternativas **ainda não aprovadas**, disponíveis somente como links externos na opção “Quer mais opções de vídeos?”. O exercício *Supino em pé nos cabos* permanece com busca externa após rejeição da demonstração inadequada. Consulte [alterações v0.4.7](docs/ALTERACOES_v0.4.7.md).
 
 **Novidade v0.4.0:** biblioteca expandida para **234 exercícios**, incluindo **91 de calistenia**, com busca e filtros em **Plano → Explorar biblioteca**, instruções de execução, erros comuns, compatibilidade por ambiente/experiência, progressões documentadas e substituições mais restritas por padrão/músculo principal. Mantém dados e funcionalidades das versões anteriores. Consulte [alterações v0.4.0](docs/ALTERACOES_v0.4.0.md).
 
@@ -33,20 +35,20 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 ## Limitações importantes
 
-- **A v0.4.0 ainda não foi compilada nem executada no Android neste ambiente de elaboração.** A compilação completa será validada pelo GitHub Actions; a v0.3.3 foi validada no celular pelo usuário.
+- **A v0.4.7 ainda não foi compilada nem executada no Android neste ambiente de elaboração.** A compilação completa será validada pelo GitHub Actions; a v0.3.3 foi validada no celular pelo usuário.
 - Bluetooth com Mi Body Composition Scale 2 usa protocolo experimental. O usuário já confirmou leitura de pesagem estável no aparelho real; compatibilidade com outras unidades não é garantida.
 - Health Connect não é a Mi Band 7. A presença de um dispositivo no cadastro **não comprova** que o app do fabricante envia seus dados ao Health Connect.
 - O **IAA local** não importa cardio externo. O **IAA integrado experimental** no Painel calcula pontuação apenas para sessões externas que tenham FC suficiente, sem sobreposição com cardio local; passos e peso não pontuam.
 - Não há leitura do PAI original Xiaomi; o IAA é um indicador próprio, não clínico.
 - Percentuais de gordura, composição corporal e impedância da balança não são calculados; importamos apenas peso estabilizado.
 - Não há nuvem própria, conta, telemetria nem leitura em segundo plano.
-- O catálogo expandido contém 234 exercícios, com 91 classificados como calistenia. Exercícios sem vídeo verificado mostram instruções textuais.
+- O catálogo contém 234 exercícios, sendo 91 de calistenia. Há 233 vínculos de vídeo no player, dos quais 129 foram aprovados nesta auditoria; as alternativas externas não foram revisadas e precisam de conferência antes do uso.
 
 ## Compilação no GitHub Actions
 
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
-3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.0-debug`**.
+3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.7-debug`**.
 4. Extraia `app-debug.apk` do ZIP e instale-o.
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.

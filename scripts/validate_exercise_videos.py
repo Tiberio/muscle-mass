@@ -10,7 +10,7 @@ src=(root/'app/src/main/java/br/com/meutreino/domain/ExerciseCatalog.kt').read_t
 extra=(root/'app/src/main/java/br/com/meutreino/domain/ExerciseLibraryData.kt').read_text(encoding='utf-8')
 ids=set(re.findall(r'Exercise\("([a-z0-9]+)"',src)) | set(re.findall(r'^([a-zA-Z0-9]+)\|',extra,flags=re.M))
 seen=set(); clips=0
-assert len(c['videos']) >= 104, 'v0.4.6 preserva 44 vínculos e incorpora 60 revisões' 
+assert len(c['videos']) == 233, 'v0.4.7: 104 vídeos preservados + 129 aprovados' 
 for i,v in enumerate(c['videos']):
     eid=v['exercise_id']; yt=v['youtube_id']
     assert eid in ids,(i,eid,'ID ausente')
@@ -34,6 +34,24 @@ for i,v in enumerate(c['videos']):
             assert start == 0 and end is None, (i,eid,'Vídeo curto deve permanecer integral')
         else:
             assert end is not None and end <= duration and 0 < end-start <= 40, (i,eid,'Recorte maior que 40 s ou inválido')
+# Alternativas da pesquisa não equivalem a demonstrações aprovadas.
+# São somente links externos, nunca um segundo player embutido.
+alternatives=c.get('alternatives',[])
+assert len(alternatives) == 172, 'A pesquisa final tinha 172 opções alternativas'
+alt_keys=set()
+for i, v in enumerate(alternatives):
+    eid=v['exercise_id']; yt=v['youtube_id']
+    assert eid in seen, (i,eid,'Alternativa sem vídeo principal')
+    assert (eid,yt) not in alt_keys, (i,eid,yt,'Alternativa duplicada')
+    alt_keys.add((eid,yt))
+    assert yt != next(row['youtube_id'] for row in c['videos'] if row['exercise_id']==eid)
+    assert re.fullmatch(r'[a-zA-Z0-9_-]{11}',yt)
+    assert v['source_url']=='https://www.youtube.com/watch?v='+yt
+    assert v['verification']=='not_visually_reviewed'
+    assert v['playback_status']=='external_only'
+    assert v['title'].strip() and v['author'].strip()
+    assert isinstance(v['duration_seconds'], int) and v['duration_seconds']>0
+assert len([v for v in c['videos'] if v['verification']=='visually_reviewed']) >= 189
 candidates=c.get('candidates',[])
 candidate_ids=set()
 for i, candidate in enumerate(candidates):
@@ -57,6 +75,7 @@ for i, entry in enumerate(searches):
     assert len(entry.get('search_query','').strip())>10
     assert entry.get('exercise_name')
     search_ids.add(eid)
+assert len(search_ids) == 1 and 'cablechest' in search_ids, 'Somente supino em pé nos cabos permanece sem demonstração aprovada'
 assert seen|candidate_ids|search_ids==ids, (len(seen),len(candidate_ids),len(search_ids),len(ids),'Falta cobertura')
 assert not(seen & search_ids or seen & candidate_ids or candidate_ids & search_ids)
-print(f'CATALOGO OK: {len(seen)} vídeos no player, {len(candidate_ids)} candidatos, {len(search_ids)} buscas, {clips} trechos; {len(ids)} exercícios no total')
+print(f'CATALOGO OK: {len(seen)} vídeos no player, {len(alternatives)} links externos não revisados, {len(candidate_ids)} candidatos, {len(search_ids)} buscas, {clips} trechos; {len(ids)} exercícios no total')

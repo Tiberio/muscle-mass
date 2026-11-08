@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "notes": "v0.4.6: 234 exercícios; 44 vídeos anteriores preservados e 60 candidatos aprovados pelo usuário no revisor de vídeos (15 trechos de até 40 s, 45 vídeos completos); 130 exercícios continuam com busca específica. Aprovação do usuário não representa certificação profissional de técnica.",
+  "notes": "v0.4.7: 234 exercícios; 233 vídeos no player (104 preservados da v0.4.6 e 129 aprovados na revisão concluída em 08/11/2026), 172 alternativas de vídeo NÃO revisadas e oferecidas somente como links externos. Supino em pé nos cabos continua sem vídeo aprovado, com busca externa. Aprovação pessoal não equivale a certificação técnica profissional.",
   "videos": [
     {
       "exercise_id": "dbbench",
@@ -1255,789 +1255,3285 @@
       "duration_seconds": 14,
       "source_url": "https://www.youtube.com/watch?v=XVEMTDlNLyU",
       "original_candidate_source": "levantamento_anterior"
-    }
-  ],
-  "discovery": [
+    },
     {
       "exercise_id": "inclinepush",
-      "exercise_name": "Flexão inclinada",
-      "search_query": "Flexão inclinada exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "Gvm5Q29UHbk",
+      "author": "National Academy of Sports Medicine (NASM)",
+      "title": "How to do an Incline Push-Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 19,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Gvm5Q29UHbk"
     },
     {
       "exercise_id": "bandrow",
-      "exercise_name": "Remada com elástico",
-      "search_query": "Remada com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "rMHC8KSej_Q",
+      "author": "RL Performance (RL Performance)",
+      "title": "Resistance Band Single Arm Rows",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 20,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=rMHC8KSej_Q"
     },
     {
       "exercise_id": "lunge",
-      "exercise_name": "Avanço alternado",
-      "search_query": "Avanço alternado exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bandshoulder",
-      "exercise_name": "Desenvolvimento com elástico",
-      "search_query": "Desenvolvimento com elástico exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "closepush",
-      "exercise_name": "Flexão com mãos próximas",
-      "search_query": "Flexão com mãos próximas exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "declinepush",
-      "exercise_name": "Flexão com pés elevados",
-      "search_query": "Flexão com pés elevados exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "tempopush",
-      "exercise_name": "Flexão com descida lenta",
-      "search_query": "Flexão com descida lenta exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "pausepush",
-      "exercise_name": "Flexão com pausa inferior",
-      "search_query": "Flexão com pausa inferior exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "archerpush",
-      "exercise_name": "Flexão arqueiro",
-      "search_query": "Flexão arqueiro exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "pseudoplanche",
-      "exercise_name": "Flexão pseudo-planche",
-      "search_query": "Flexão pseudo-planche exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "s2tC7WhZw2k",
+      "author": "Coach Marielle",
+      "title": "Walking Lunges - Bodyweight",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 6,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=s2tC7WhZw2k"
     },
     {
       "exercise_id": "explosivepush",
-      "exercise_name": "Flexão explosiva",
-      "search_query": "Flexão explosiva exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hindupush",
-      "exercise_name": "Flexão hindu",
-      "search_query": "Flexão hindu exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "elevatedpike",
-      "exercise_name": "Flexão pike com pés elevados",
-      "search_query": "Flexão pike com pés elevados exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "wallhandstandpush",
-      "exercise_name": "Flexão de ombros na parede (parcial)",
-      "search_query": "Flexão de ombros na parede (parcial) exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "benchedips",
-      "exercise_name": "Mergulho no banco",
-      "search_query": "Mergulho no banco exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "paralleldips",
-      "exercise_name": "Paralelas (mergulho)",
-      "search_query": "Paralelas (mergulho) exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "assistedparalleldips",
-      "exercise_name": "Paralelas com pés apoiados",
-      "search_query": "Paralelas com pés apoiados exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "iO0sT5FDgj4",
+      "author": "Explore Movement",
+      "title": "Plyometric Push-Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 6,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=iO0sT5FDgj4"
     },
     {
       "exercise_id": "scapularpull",
-      "exercise_name": "Depressão escapular suspenso na barra",
-      "search_query": "Depressão escapular suspenso na barra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "negativepull",
-      "exercise_name": "Barra fixa excêntrica",
-      "search_query": "Barra fixa excêntrica exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "9M8ylnbriB0",
+      "author": "livfitkarl",
+      "title": "Simple Scap Pull-up Tutorial",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=9M8ylnbriB0"
     },
     {
       "exercise_id": "commando",
-      "exercise_name": "Barra fixa com pegada alternada",
-      "search_query": "Barra fixa com pegada alternada exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "Px63ik-4aLU",
+      "author": "FSP Admin",
+      "title": "Commando Pullup (monkey grip)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Px63ik-4aLU"
     },
     {
       "exercise_id": "archerpull",
-      "exercise_name": "Barra fixa arqueiro",
-      "search_query": "Barra fixa arqueiro exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bodyweightrowrings",
-      "exercise_name": "Remada suspensa (TRX/argolas)",
-      "search_query": "Remada suspensa (TRX/argolas) exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "ringfacepull",
-      "exercise_name": "Face pull suspenso (TRX/argolas)",
-      "search_query": "Face pull suspenso (TRX/argolas) exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "proneyraise",
-      "exercise_name": "Elevação Y deitado",
-      "search_query": "Elevação Y deitado exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "pronewraise",
-      "exercise_name": "Elevação W deitado",
-      "search_query": "Elevação W deitado exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "wallslide",
-      "exercise_name": "Deslizamento de braços na parede",
-      "search_query": "Deslizamento de braços na parede exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "scapularpush",
-      "exercise_name": "Flexão escapular",
-      "search_query": "Flexão escapular exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "AeBvpCCYpGI",
+      "author": "Summerfunfitness",
+      "title": "Archer pull up technique",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 30,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=AeBvpCCYpGI"
     },
     {
       "exercise_id": "shouldertap",
-      "exercise_name": "Toques no ombro em prancha",
-      "search_query": "Toques no ombro em prancha exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "regressedsquat",
-      "exercise_name": "Sentar e levantar da cadeira",
-      "search_query": "Sentar e levantar da cadeira exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "temposquat",
-      "exercise_name": "Agachamento livre com descida lenta",
-      "search_query": "Agachamento livre com descida lenta exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "pausesquat",
-      "exercise_name": "Agachamento com pausa inferior",
-      "search_query": "Agachamento com pausa inferior exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "sumosquat",
-      "exercise_name": "Agachamento sumô livre",
-      "search_query": "Agachamento sumô livre exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "cyclistsquat",
-      "exercise_name": "Agachamento com calcanhares elevados",
-      "search_query": "Agachamento com calcanhares elevados exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "pistolsupport",
-      "exercise_name": "Agachamento unilateral com apoio",
-      "search_query": "Agachamento unilateral com apoio exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "eyeuugrpLYA",
+      "author": "Well+Good",
+      "title": "How to Do Plank Shoulder Taps #shorts",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 16,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=eyeuugrpLYA"
     },
     {
       "exercise_id": "shrimp",
-      "exercise_name": "Agachamento shrimp",
-      "search_query": "Agachamento shrimp exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "85YE86ipw_w",
+      "author": "Flow Motion Fitness",
+      "title": "Shrimp Squat Progression Guide | Beginner to Intermediate Tutorial (Step-by-Step)",
+      "start_seconds": 59,
+      "end_seconds": 87,
+      "duration_seconds": 161,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=85YE86ipw_w"
     },
     {
       "exercise_id": "cossack",
-      "exercise_name": "Agachamento cossaco",
-      "search_query": "Agachamento cossaco exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bulgarianbw",
-      "exercise_name": "Agachamento búlgaro sem carga",
-      "search_query": "Agachamento búlgaro sem carga exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "stepupbw",
-      "exercise_name": "Subida no banco (step-up)",
-      "search_query": "Subida no banco (step-up) exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "glutebridgepause",
-      "exercise_name": "Ponte de glúteos isométrica",
-      "search_query": "Ponte de glúteos isométrica exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hipthrustbw",
-      "exercise_name": "Elevação pélvica apoiada no banco",
-      "search_query": "Elevação pélvica apoiada no banco exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hamwalkout",
-      "exercise_name": "Caminhada de calcanhares na ponte",
-      "search_query": "Caminhada de calcanhares na ponte exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "singlelegdeadliftbw",
-      "exercise_name": "Inclinação de quadril unilateral sem carga",
-      "search_query": "Inclinação de quadril unilateral sem carga exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "goodmorningbw",
-      "exercise_name": "Bom dia sem carga",
-      "search_query": "Bom dia sem carga exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "calfstep",
-      "exercise_name": "Elevação de panturrilhas no degrau",
-      "search_query": "Elevação de panturrilhas no degrau exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "tibialiswall",
-      "exercise_name": "Dorsiflexão dos pés apoiado na parede",
-      "search_query": "Dorsiflexão dos pés apoiado na parede exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "sideplankleg",
-      "exercise_name": "Prancha lateral com abdução de perna",
-      "search_query": "Prancha lateral com abdução de perna exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "reverseplank",
-      "exercise_name": "Prancha invertida",
-      "search_query": "Prancha invertida exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "gfod3jiMgl4",
+      "author": "Zack Henderson",
+      "title": "Cossack Squats (Beginner to Advanced Progressions)",
+      "start_seconds": 0,
+      "end_seconds": 22,
+      "duration_seconds": 700,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=gfod3jiMgl4"
     },
     {
       "exercise_id": "hollowhold",
-      "exercise_name": "Hollow body hold",
-      "search_query": "Hollow body hold exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "_wBPcny-7Hc",
+      "author": "Dmitriy Karashchuk",
+      "title": "Hollow Body Progression  #calisthenicsworkout  #calisthenics #gymnasticsworkout #core #coreworkout",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 16,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=_wBPcny-7Hc"
     },
     {
       "exercise_id": "legraise",
-      "exercise_name": "Elevação de pernas deitado",
-      "search_query": "Elevação de pernas deitado exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "kneetuck",
-      "exercise_name": "Encolhimento de joelhos sentado",
-      "search_query": "Encolhimento de joelhos sentado exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bearhold",
-      "exercise_name": "Posição de urso isométrica",
-      "search_query": "Posição de urso isométrica exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "deadbugextended",
-      "exercise_name": "Dead bug com pernas estendidas",
-      "search_query": "Dead bug com pernas estendidas exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "birddogelbow",
-      "exercise_name": "Bird dog com cotovelo ao joelho",
-      "search_query": "Bird dog com cotovelo ao joelho exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "birdhold",
-      "exercise_name": "Bird dog isométrico",
-      "search_query": "Bird dog isométrico exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbsqueeze",
-      "exercise_name": "Supino squeeze com halteres",
-      "search_query": "Supino squeeze com halteres exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "KCt2qWYPrMc",
+      "author": "Repetitions Fitness RPT",
+      "title": "Bench Leg Raises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=KCt2qWYPrMc"
     },
     {
       "exercise_id": "dbbentrow",
-      "exercise_name": "Remada curvada com halteres",
-      "search_query": "Remada curvada com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbwideelbowrow",
-      "exercise_name": "Remada com cotovelos abertos",
-      "search_query": "Remada com cotovelos abertos exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbneutralpress",
-      "exercise_name": "Desenvolvimento com pegada neutra",
-      "search_query": "Desenvolvimento com pegada neutra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dblaterallean",
-      "exercise_name": "Elevação lateral unilateral inclinada",
-      "search_query": "Elevação lateral unilateral inclinada exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbyraise",
-      "exercise_name": "Elevação em Y com halteres",
-      "search_query": "Elevação em Y com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbspidercurl",
-      "exercise_name": "Rosca spider no banco",
-      "search_query": "Rosca spider no banco exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "dpYI8K6e-jE",
+      "author": "LisaFiitt Workouts",
+      "title": "Technique tips ✅ Bent over row! #shorts",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=dpYI8K6e-jE"
     },
     {
       "exercise_id": "dbtricepsoverhead",
-      "exercise_name": "Extensão de tríceps acima da cabeça",
-      "search_query": "Extensão de tríceps acima da cabeça exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "b_r_LW4HEcM",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "✅ The PERFECT Overhead DB Tricep Extension",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=b_r_LW4HEcM"
     },
     {
       "exercise_id": "dbtricepskick",
-      "exercise_name": "Coice de tríceps com halter",
-      "search_query": "Coice de tríceps com halter exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "WhBxKbe1-NU",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "✅ The PERFECT Triceps Kickback",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=WhBxKbe1-NU"
     },
     {
       "exercise_id": "dbclosepress",
-      "exercise_name": "Supino fechado com halteres",
-      "search_query": "Supino fechado com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbfrontsquat",
-      "exercise_name": "Agachamento com halteres nos ombros",
-      "search_query": "Agachamento com halteres nos ombros exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbsumosquat",
-      "exercise_name": "Agachamento sumô com halter",
-      "search_query": "Agachamento sumô com halter exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbbulgarian",
-      "exercise_name": "Agachamento búlgaro com halteres",
-      "search_query": "Agachamento búlgaro com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbstepup",
-      "exercise_name": "Step-up com halteres",
-      "search_query": "Step-up com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbsingleRDL",
-      "exercise_name": "Levantamento romeno unilateral com halter",
-      "search_query": "Levantamento romeno unilateral com halter exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbsumodead",
-      "exercise_name": "Levantamento terra sumô com halter",
-      "search_query": "Levantamento terra sumô com halter exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbhipthrust",
-      "exercise_name": "Elevação pélvica com halter",
-      "search_query": "Elevação pélvica com halter exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "BaiiD8qI_W0",
+      "author": "jennyjeanfitness",
+      "title": "Close Grip Bench Press with Dumbbells",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=BaiiD8qI_W0"
     },
     {
       "exercise_id": "dbcalf",
-      "exercise_name": "Elevação de panturrilhas com halteres",
-      "search_query": "Elevação de panturrilhas com halteres exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "hPA98_r-6e4",
+      "author": "Horton Barbell",
+      "title": "Standing DB Calf Raises (Exercise Library)",
+      "start_seconds": 0,
+      "end_seconds": 22,
+      "duration_seconds": 55,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=hPA98_r-6e4"
     },
     {
       "exercise_id": "dbfarmer",
-      "exercise_name": "Caminhada do fazendeiro com halteres",
-      "search_query": "Caminhada do fazendeiro com halteres exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "dbsuitcase",
-      "exercise_name": "Caminhada com halter unilateral",
-      "search_query": "Caminhada com halter unilateral exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "1uOs1hP3u4A",
+      "author": "Colossus Fitness",
+      "title": "MUST TRY UNDERRATED EXERCISE! (FARMERS WALK EXPLAINED)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=1uOs1hP3u4A"
     },
     {
       "exercise_id": "bbclosebench",
-      "exercise_name": "Supino fechado com barra",
-      "search_query": "Supino fechado com barra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bbpendlay",
-      "exercise_name": "Remada Pendlay",
-      "search_query": "Remada Pendlay exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "4yKLxOsrGfg",
+      "author": "Hazzytrainer",
+      "title": "7 Steps to A Perfect Close Grip Bench ⚠️ #bench",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=4yKLxOsrGfg"
     },
     {
       "exercise_id": "bbunderrow",
-      "exercise_name": "Remada supinada com barra",
-      "search_query": "Remada supinada com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "i3m4R_o7_1c",
+      "author": "fitness vlog",
+      "title": "How to do Reverse Grip barbell Row|| Bent over barbell Row",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 7,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=i3m4R_o7_1c"
     },
     {
       "exercise_id": "bboverhead",
-      "exercise_name": "Desenvolvimento militar com barra",
-      "search_query": "Desenvolvimento militar com barra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bbboxsquat",
-      "exercise_name": "Agachamento com barra até o banco",
-      "search_query": "Agachamento com barra até o banco exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "zoN5EH50Dro",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "Perfect Overhead Press Form (DO THIS!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=zoN5EH50Dro"
     },
     {
       "exercise_id": "bbrdl",
-      "exercise_name": "Levantamento romeno com barra",
-      "search_query": "Levantamento romeno com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "Wou9zVQrAfs",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "Romanian vs Stiff-Leg Deadlift (KNOW THE DIFFERENCE!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 8,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Wou9zVQrAfs"
     },
     {
       "exercise_id": "bbsumodead",
-      "exercise_name": "Levantamento terra sumô com barra",
-      "search_query": "Levantamento terra sumô com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "k_jHUVBU-T0",
+      "author": "Gym And Fitness",
+      "title": "Learn how to perform the perfect sumo deadlift✅",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 8,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=k_jHUVBU-T0"
     },
     {
       "exercise_id": "bbgoodmorning",
-      "exercise_name": "Bom dia com barra",
-      "search_query": "Bom dia com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "q4gCaj8g5tg",
+      "author": "Good Human",
+      "title": "How to do a Barbell Good Morning",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 26,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=q4gCaj8g5tg"
     },
     {
       "exercise_id": "bbcalf",
-      "exercise_name": "Elevação de panturrilhas com barra",
-      "search_query": "Elevação de panturrilhas com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "5dpJj3ulwK0",
+      "author": "Christian Butler",
+      "title": "Barbell Standing Calf Raise",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 20,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=5dpJj3ulwK0"
     },
     {
       "exercise_id": "bbreversecurl",
-      "exercise_name": "Rosca inversa com barra",
-      "search_query": "Rosca inversa com barra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bbpreachercurl",
-      "exercise_name": "Rosca Scott com barra",
-      "search_query": "Rosca Scott com barra exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bbskull",
-      "exercise_name": "Tríceps testa com barra",
-      "search_query": "Tríceps testa com barra exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "vm6E-iNWQUw",
+      "author": "Hazzytrainer",
+      "title": "Protect your Joints: Reverse Barbell Curls ❌ #curls",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 14,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=vm6E-iNWQUw"
     },
     {
       "exercise_id": "bbupright",
-      "exercise_name": "Remada alta com barra (amplitude confortável)",
-      "search_query": "Remada alta com barra (amplitude confortável) exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "AWsGWt-VMl8",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "STOP DOING THIS Upright Row Mistake‼️",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=AWsGWt-VMl8"
     },
     {
       "exercise_id": "inclinemachine",
-      "exercise_name": "Supino inclinado em máquina",
-      "search_query": "Supino inclinado em máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "rVh0tKDnYvs",
+      "author": "Propel Fitness Center",
+      "title": "Plate Loaded Incline Chest Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=rVh0tKDnYvs"
     },
+    {
+      "exercise_id": "closepulldown",
+      "youtube_id": "jXRxMJhOCc0",
+      "author": "Stan Bakh",
+      "title": "Close grip lat pulldown tips! This video is showing my tips of performing close grip lat pulldown.",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 6,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=jXRxMJhOCc0"
+    },
+    {
+      "exercise_id": "highrowmachine",
+      "youtube_id": "NnKqgrviXVE",
+      "author": "IRON MINDSETS",
+      "title": "HOW TO DO CHEST SUPPORTED LAT PULLDOWN (HIGH ROW)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=NnKqgrviXVE"
+    },
+    {
+      "exercise_id": "legextension",
+      "youtube_id": "uM86QE59Tgc",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Leg Extension",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=uM86QE59Tgc"
+    },
+    {
+      "exercise_id": "lyinglegcurl",
+      "youtube_id": "yjWAuFOjhuY",
+      "author": "ArielYu_Fit",
+      "title": "Maximize your leg curls with these tips!",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=yjWAuFOjhuY"
+    },
+    {
+      "exercise_id": "hacksquat",
+      "youtube_id": "bGbHOeHXnB8",
+      "author": "Trent Harrison",
+      "title": "Hack squat 🔥",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 15,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=bGbHOeHXnB8"
+    },
+    {
+      "exercise_id": "smithsplit",
+      "youtube_id": "iEyYqAL1TuU",
+      "author": "Bree Porter",
+      "title": "Split squat (smith machine)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=iEyYqAL1TuU"
+    },
+    {
+      "exercise_id": "hipabduction",
+      "youtube_id": "tu4o4quPv2k",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "Hip Abduction Machine (KNOW THE DIFFERENCE!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=tu4o4quPv2k"
+    },
+    {
+      "exercise_id": "hipadduction",
+      "youtube_id": "vNixlpsswr8",
+      "author": "Cjaejr",
+      "title": "Know the difference! Abductor machine #motivation #musclebuliding #gymworkout #aesthetic #gym",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 8,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=vNixlpsswr8"
+    },
+    {
+      "exercise_id": "preachermachine",
+      "youtube_id": "S4dDLfp3e8w",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Machine Preacher Curl",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=S4dDLfp3e8w"
+    },
+    {
+      "exercise_id": "tricepsoverheadcable",
+      "youtube_id": "9Ark9S11uXw",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Low Pulley Overhead Extensions",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=9Ark9S11uXw"
+    },
+    {
+      "exercise_id": "bandfly",
+      "youtube_id": "Skcu4HHMFq4",
+      "author": "Sarah Gronborg",
+      "title": "Band Chest Fly (Floor)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Skcu4HHMFq4"
+    },
+    {
+      "exercise_id": "bandlateral",
+      "youtube_id": "I0s4mvF2LYQ",
+      "author": "All Out Gym",
+      "title": "Band Lateral Raises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 16,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=I0s4mvF2LYQ"
+    },
+    {
+      "exercise_id": "bandgoodmorning",
+      "youtube_id": "rQmkPvfcaSU",
+      "author": "Nick Forgione",
+      "title": "Resistance Band Goodmorning",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 7,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=rQmkPvfcaSU"
+    },
+    {
+      "exercise_id": "bandglutekick",
+      "youtube_id": "Oz9KXbiSt2c",
+      "author": "SOS Athletic Excellence",
+      "title": "Glute Kickback - Banded - Standing",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 15,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Oz9KXbiSt2c"
+    },
+    {
+      "exercise_id": "kboverhead",
+      "youtube_id": "iO6JMIW1lYQ",
+      "author": "Movement & Mindset",
+      "title": "Kettlebell Push Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 19,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=iO6JMIW1lYQ"
+    },
+    {
+      "exercise_id": "bandshoulder",
+      "youtube_id": "0rLjkQweIDg",
+      "author": "SKLZ",
+      "title": "Resistance Band Shoulder Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 39,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=0rLjkQweIDg"
+    },
+    {
+      "exercise_id": "closepush",
+      "youtube_id": "jdYi733XDM0",
+      "author": "Ty Rutledge Fitness",
+      "title": "Close Grip Push Ups",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 6,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=jdYi733XDM0"
+    },
+    {
+      "exercise_id": "declinepush",
+      "youtube_id": "dcV-ATSeryA",
+      "author": "Max Euceda",
+      "title": "STOP doing DECLINE PUSH-UPS like this!",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=dcV-ATSeryA"
+    },
+    {
+      "exercise_id": "tempopush",
+      "youtube_id": "-nqGGKBDZtk",
+      "author": "SweatwithSarah",
+      "title": "Slow tempo push ups",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 6,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=-nqGGKBDZtk"
+    },
+    {
+      "exercise_id": "pausepush",
+      "youtube_id": "yQEx9OC2C3E",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "Push-Up Mistake (SAVE YOUR SHOULDERS!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 8,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=yQEx9OC2C3E"
+    },
+    {
+      "exercise_id": "archerpush",
+      "youtube_id": "7-4Uq64blA8",
+      "author": "STRIQfit",
+      "title": "How to do the Archer Push-Up | Calisthenics University Ep 22",
+      "start_seconds": 22,
+      "end_seconds": 45,
+      "duration_seconds": 177,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=7-4Uq64blA8"
+    },
+    {
+      "exercise_id": "pseudoplanche",
+      "youtube_id": "cFHPFmhlDjg",
+      "author": "STRIQfit",
+      "title": "Pseudo Push-Ups in 30 seconds or less",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 19,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=cFHPFmhlDjg"
+    },
+    {
+      "exercise_id": "hindupush",
+      "youtube_id": "QraO1UIy1Uw",
+      "author": "Aakash Wadhwani",
+      "title": "You should know this about Hindu Push Ups✅ #gym #fitness #bodybuidling #workout",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=QraO1UIy1Uw"
+    },
+    {
+      "exercise_id": "elevatedpike",
+      "youtube_id": "8URA3YSur2M",
+      "author": "Tom Peto Training",
+      "title": "PIKE PUSH UP FEET ELEVATED | Technique Demo",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 27,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=8URA3YSur2M"
+    },
+    {
+      "exercise_id": "wallhandstandpush",
+      "youtube_id": "WxgJS48wf1M",
+      "author": "Jacked Gymnastics",
+      "title": "Wall Facing Handstand Push up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 22,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=WxgJS48wf1M"
+    },
+    {
+      "exercise_id": "benchedips",
+      "youtube_id": "0326dy_-CzM",
+      "author": "LIVESTRONG",
+      "title": "How to Do Triceps Bench Dips",
+      "start_seconds": 37,
+      "end_seconds": 76,
+      "duration_seconds": 108,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=0326dy_-CzM"
+    },
+    {
+      "exercise_id": "paralleldips",
+      "youtube_id": "U7HeutDqS_w",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do Parallel Bar Dips | Exercise Demonstration Video and Guide",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 39,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=U7HeutDqS_w"
+    },
+    {
+      "exercise_id": "assistedparalleldips",
+      "youtube_id": "LH9iZNaO7oU",
+      "author": "SE PRO-GRAM",
+      "title": "Assisted Dip Machine",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 19,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=LH9iZNaO7oU"
+    },
+    {
+      "exercise_id": "negativepull",
+      "youtube_id": "EkpJkHpJXmM",
+      "author": "Bulldog Gear",
+      "title": "Negative Pull-Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 14,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=EkpJkHpJXmM"
+    },
+    {
+      "exercise_id": "bodyweightrowrings",
+      "youtube_id": "IJhKKMzVbsk",
+      "author": "Evan Claxton Lifestyle & Performance",
+      "title": "Suspension Row - Exercise Demonstration",
+      "start_seconds": 28,
+      "end_seconds": 60,
+      "duration_seconds": 66,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=IJhKKMzVbsk"
+    },
+    {
+      "exercise_id": "ringfacepull",
+      "youtube_id": "Jbyoxer58j4",
+      "author": "Champion Physical Therapy and Performance",
+      "title": "How To Perform A TRX Face Pull",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 37,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Jbyoxer58j4"
+    },
+    {
+      "exercise_id": "proneyraise",
+      "youtube_id": "YpE7HmoJ2wY",
+      "author": "Get Strong with Emily",
+      "title": "How to do a Prone Y Raise",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 35,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=YpE7HmoJ2wY"
+    },
+    {
+      "exercise_id": "pronewraise",
+      "youtube_id": "94uAAUMJ7Jw",
+      "author": "Charlie Coyote",
+      "title": "Prone W Raise",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 17,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=94uAAUMJ7Jw"
+    },
+    {
+      "exercise_id": "wallslide",
+      "youtube_id": "i_0zLUcE-zk",
+      "author": "Daily Workout Builder",
+      "title": "Wall Slides",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 29,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=i_0zLUcE-zk"
+    },
+    {
+      "exercise_id": "scapularpush",
+      "youtube_id": "SBPRhZI2RkI",
+      "author": "Kraken Exercise Library",
+      "title": "Scapular Push-Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 28,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=SBPRhZI2RkI"
+    },
+    {
+      "exercise_id": "regressedsquat",
+      "youtube_id": "Z09h_OcV0YU",
+      "author": "In Depth Fitness",
+      "title": "Chair squats",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 7,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Z09h_OcV0YU"
+    },
+    {
+      "exercise_id": "temposquat",
+      "youtube_id": "4Ntle88WdKU",
+      "author": "Quoia Active",
+      "title": "The Beginner's Squat: Perfect this Basic Bodyweight Squat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=4Ntle88WdKU"
+    },
+    {
+      "exercise_id": "pausesquat",
+      "youtube_id": "nknf16JJTZo",
+      "author": "Barbell Logic",
+      "title": "The Paused Squat: Gym Shorts (How To)",
+      "start_seconds": 8,
+      "end_seconds": 44,
+      "duration_seconds": 49,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=nknf16JJTZo"
+    },
+    {
+      "exercise_id": "sumosquat",
+      "youtube_id": "0w4yXldQi3o",
+      "author": "Peak Functional",
+      "title": "How to Do Bodyweight Sumo Squat | Lower Body Strength & Mobility Exercise",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 27,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=0w4yXldQi3o"
+    },
+    {
+      "exercise_id": "cyclistsquat",
+      "youtube_id": "GPzRf3sfpbU",
+      "author": "The Active Life",
+      "title": "Heels Elevated Goblet Squat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 24,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=GPzRf3sfpbU"
+    },
+    {
+      "exercise_id": "pistolsupport",
+      "youtube_id": "bH3mRwnAN88",
+      "author": "[P]rehab",
+      "title": "Perform Your First Pistol Squat Using These Progressions",
+      "start_seconds": 7,
+      "end_seconds": 47,
+      "duration_seconds": 48,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=bH3mRwnAN88"
+    },
+    {
+      "exercise_id": "bulgarianbw",
+      "youtube_id": "4-qkLYDckys",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A BODYWEIGHT BULGARIAN SPLIT SQUAT | Exercise Demonstration Video and Guide",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 36,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=4-qkLYDckys"
+    },
+    {
+      "exercise_id": "stepupbw",
+      "youtube_id": "JkRC2YOUHsU",
+      "author": "Rogith23",
+      "title": "How to do a Step Up",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 24,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=JkRC2YOUHsU"
+    },
+    {
+      "exercise_id": "glutebridgepause",
+      "youtube_id": "jRqbYj7LrIU",
+      "author": "Lucy Hendricks",
+      "title": "Glute Bridge Hold",
+      "start_seconds": 1,
+      "end_seconds": 41,
+      "duration_seconds": 42,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=jRqbYj7LrIU"
+    },
+    {
+      "exercise_id": "hipthrustbw",
+      "youtube_id": "RR0oZhhUVWo",
+      "author": "Get Strong with Emily",
+      "title": "Bodyweight Hip Thrust",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 34,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=RR0oZhhUVWo"
+    },
+    {
+      "exercise_id": "hamwalkout",
+      "youtube_id": "Lv89iHuzPW4",
+      "author": "Inner Strength",
+      "title": "Hamstring Walkouts",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 39,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Lv89iHuzPW4"
+    },
+    {
+      "exercise_id": "singlelegdeadliftbw",
+      "youtube_id": "SHY8-2cErd0",
+      "author": "Kristian Leach",
+      "title": "Single Leg Deadlift Bodyweight",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 28,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=SHY8-2cErd0"
+    },
+    {
+      "exercise_id": "goodmorningbw",
+      "youtube_id": "61zbhuRiwQg",
+      "author": "Horton Barbell",
+      "title": "Bodyweight Good Mornings (Exercise Library)",
+      "start_seconds": 0,
+      "end_seconds": 40,
+      "duration_seconds": 54,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=61zbhuRiwQg"
+    },
+    {
+      "exercise_id": "calfstep",
+      "youtube_id": "PJGXyldAWk4",
+      "author": "A to Z fitness & grooming",
+      "title": "Don't do calf raises with this form|#calfraises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=PJGXyldAWk4"
+    },
+    {
+      "exercise_id": "tibialiswall",
+      "youtube_id": "Dd-8s86-zio",
+      "author": "Coach Matty Green",
+      "title": "Tibialis raises",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Dd-8s86-zio"
+    },
+    {
+      "exercise_id": "sideplankleg",
+      "youtube_id": "PAD7sMmIgts",
+      "author": "Runna",
+      "title": "Side Plank Leg Raise Tutorial - Proper Form and Technique",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 23,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=PAD7sMmIgts"
+    },
+    {
+      "exercise_id": "reverseplank",
+      "youtube_id": "ZNAxdJ6Bt00",
+      "author": "XHIT Daily",
+      "title": "Reverse Plank - XFit Daily",
+      "start_seconds": 0,
+      "end_seconds": 40,
+      "duration_seconds": 53,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=ZNAxdJ6Bt00"
+    },
+    {
+      "exercise_id": "kneetuck",
+      "youtube_id": "N8xttcxGmuE",
+      "author": "Lisa Maximus",
+      "title": "Seated Knee Tuck",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 17,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=N8xttcxGmuE"
+    },
+    {
+      "exercise_id": "bearhold",
+      "youtube_id": "h3rXdMX31Hg",
+      "author": "Summit Performance & Health",
+      "title": "Bear Hold",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 15,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=h3rXdMX31Hg"
+    },
+    {
+      "exercise_id": "deadbugextended",
+      "youtube_id": "GbSC02oU3To",
+      "author": "Hinge Health",
+      "title": "How to Do a Dead Bug: A Guide from Physical Therapists",
+      "start_seconds": 11,
+      "end_seconds": 51,
+      "duration_seconds": 73,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=GbSC02oU3To"
+    },
+    {
+      "exercise_id": "birddogelbow",
+      "youtube_id": "sQ4obp07Kt0",
+      "author": "Danny Nichols Fitness",
+      "title": "How To Do A Bird Dog Elbow To Knee",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 29,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=sQ4obp07Kt0"
+    },
+    {
+      "exercise_id": "birdhold",
+      "youtube_id": "haljYutC2Vw",
+      "author": "Wellen",
+      "title": "How To Properly Do A Bird Dog with Hold - Strength and Posture Exercises - Wellen",
+      "start_seconds": 30,
+      "end_seconds": 70,
+      "duration_seconds": 97,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=haljYutC2Vw"
+    },
+    {
+      "exercise_id": "dbsqueeze",
+      "youtube_id": "AMrygffh_dQ",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A SINGLE DUMBBELL FLOOR SQUEEZE PRESS | Exercise Demonstration Video and Guide",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 36,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=AMrygffh_dQ"
+    },
+    {
+      "exercise_id": "dbwideelbowrow",
+      "youtube_id": "WkFX6_GxAs8",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Dumbbell Row",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=WkFX6_GxAs8"
+    },
+    {
+      "exercise_id": "dbneutralpress",
+      "youtube_id": "1WOecdL8nrI",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A NEUTRAL GRIP SEATED DUMBBELL SHOULDER PRESS | Exercise Demonstration Video and Guide",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 38,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=1WOecdL8nrI"
+    },
+    {
+      "exercise_id": "dblaterallean",
+      "youtube_id": "6pYLxGYOb6s",
+      "author": "Dr. Allan Bacon",
+      "title": "Leaning Dumbbell Lateral Raise",
+      "start_seconds": 9,
+      "end_seconds": 49,
+      "duration_seconds": 52,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=6pYLxGYOb6s"
+    },
+    {
+      "exercise_id": "dbyraise",
+      "youtube_id": "JIhbYYA1Q90",
+      "author": "Davis Diley",
+      "title": "The Best Dumbbell Lateral Raise Tutorial",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 20,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=JIhbYYA1Q90"
+    },
+    {
+      "exercise_id": "dbspidercurl",
+      "youtube_id": "nvufDW-MSQk",
+      "author": "Men's Health",
+      "title": "Spider Curl",
+      "start_seconds": 20,
+      "end_seconds": 59,
+      "duration_seconds": 75,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=nvufDW-MSQk"
+    },
+    {
+      "exercise_id": "dbfrontsquat",
+      "youtube_id": "MJao9o7ROs0",
+      "author": "Bodybuilding.com",
+      "title": "Dumbbell Front Squat | Exercise Guide",
+      "start_seconds": 7,
+      "end_seconds": 47,
+      "duration_seconds": 65,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=MJao9o7ROs0"
+    },
+    {
+      "exercise_id": "dbsumosquat",
+      "youtube_id": "bRCjBCtBGIo",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Dumbbell Sumo Squat",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 14,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=bRCjBCtBGIo"
+    },
+    {
+      "exercise_id": "dbbulgarian",
+      "youtube_id": "Fmjj7wFJWRE",
+      "author": "The Active Life",
+      "title": "Bulgarian Split Squat with Dumbbells",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 20,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Fmjj7wFJWRE"
+    },
+    {
+      "exercise_id": "dbstepup",
+      "youtube_id": "9ZknEYboBOQ",
+      "author": "Bobby Maximus",
+      "title": "Dumbbell Step-up - How To",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 25,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=9ZknEYboBOQ"
+    },
+    {
+      "exercise_id": "dbsingleRDL",
+      "youtube_id": "s32cCgmRV3I",
+      "author": "Movement Physio",
+      "title": "Single Leg Kettlebell Romanian Deadlift (RDL)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=s32cCgmRV3I"
+    },
+    {
+      "exercise_id": "dbsumodead",
+      "youtube_id": "De9OUZz5W_I",
+      "author": "Mike | J2FIT Strength & Conditioning",
+      "title": "Dumbbell Sumo Deadlift (Full Tutorial) - Dumbbell Only Glute Exercises",
+      "start_seconds": 1,
+      "end_seconds": 41,
+      "duration_seconds": 57,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=De9OUZz5W_I"
+    },
+    {
+      "exercise_id": "dbhipthrust",
+      "youtube_id": "a1Gp_RevjmY",
+      "author": "Keren Zumba",
+      "title": "(Stage 2) Dumbbell Hip Thrust Tutorial",
+      "start_seconds": 1,
+      "end_seconds": 41,
+      "duration_seconds": 74,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=a1Gp_RevjmY"
+    },
+    {
+      "exercise_id": "dbsuitcase",
+      "youtube_id": "VD6u03iRsD8",
+      "author": "Strong Made Simple",
+      "title": "Dumbbell Suitcase Carry",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 16,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=VD6u03iRsD8"
+    },
+    {
+      "exercise_id": "bbpendlay",
+      "youtube_id": "tYxEGi7ir4I",
+      "author": "MB Performance Institute",
+      "title": "Pendlay Row",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 23,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=tYxEGi7ir4I"
+    },
+    {
+      "exercise_id": "bbboxsquat",
+      "youtube_id": "KO2nP-jp8oU",
+      "author": "Core Blend Training",
+      "title": "How to: Barbell Box Squat",
+      "start_seconds": 3,
+      "end_seconds": 43,
+      "duration_seconds": 46,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=KO2nP-jp8oU"
+    },
+    {
+      "exercise_id": "bbpreachercurl",
+      "youtube_id": "7ixqAPO6JvU",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "FIX Your Preacher Curls (DO THIS!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=7ixqAPO6JvU"
+    },
+    {
+      "exercise_id": "bbskull",
+      "youtube_id": "v6uHja-uSHY",
+      "author": "Danny Nichols Fitness",
+      "title": "How To Do A Barbell Skull Crusher",
+      "start_seconds": 10,
+      "end_seconds": 50,
+      "duration_seconds": 50,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=v6uHja-uSHY"
+    },
+    {
+      "exercise_id": "neutralpulldown",
+      "youtube_id": "E1FK9APxk54",
+      "author": "Seriously Strong Training",
+      "title": "Neutral Grip Pulldowns [Perfect Form in 60 Seconds]",
+      "start_seconds": 10,
+      "end_seconds": 50,
+      "duration_seconds": 62,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=E1FK9APxk54"
+    },
+    {
+      "exercise_id": "chestrowmachine",
+      "youtube_id": "FTwvmczf7bE",
+      "author": "Gerardi Performance",
+      "title": "How To Properly Use The Chest Supported Row Machine With Good Form (Exercise Demonstration)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=FTwvmczf7bE"
+    },
+    {
+      "exercise_id": "machinepullover",
+      "youtube_id": "BYYiU0YapXk",
+      "author": "Dr. Joel Seedman",
+      "title": "Best STRENGTH Machine!! Nautilus Pullover from Arthur Jones. Hammer Strength for Lats, Core, & Arms",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=BYYiU0YapXk"
+    },
+    {
+      "exercise_id": "assisteddipmachine",
+      "youtube_id": "LH9iZNaO7oU",
+      "author": "SE PRO-GRAM",
+      "title": "Assisted Dip Machine",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 19,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=LH9iZNaO7oU"
+    },
+    {
+      "exercise_id": "shouldermachine",
+      "youtube_id": "6v4nrRVySj0",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "✅ The PERFECT Machine Shoulder Press!",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=6v4nrRVySj0"
+    },
+    {
+      "exercise_id": "lateralmachine",
+      "youtube_id": "Zi9nYtLsuz0",
+      "author": "Etage Athletic Club",
+      "title": "Freemotion Lateral Raise Machine",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 23,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=Zi9nYtLsuz0"
+    },
+    {
+      "exercise_id": "reversepecdeck",
+      "youtube_id": "-TKqxK7-ehc",
+      "author": "Jeremy Sry",
+      "title": "How to PROPERLY do Reverse Pec Deck!",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 18,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=-TKqxK7-ehc"
+    },
+    {
+      "exercise_id": "glutekickmachine",
+      "youtube_id": "WhtxQnm4254",
+      "author": "SIU Rec Center",
+      "title": "Glute Kickback Machine",
+      "start_seconds": 11,
+      "end_seconds": 51,
+      "duration_seconds": 58,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=WhtxQnm4254"
+    },
+    {
+      "exercise_id": "standingcalfmachine",
+      "youtube_id": "95itLfMBG40",
+      "author": "BrooklynFitness",
+      "title": "Standing Calf Raise (Machine)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 8,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=95itLfMBG40"
+    },
+    {
+      "exercise_id": "tricepsrope",
+      "youtube_id": "1FoWlRS2Edc",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "✅ Do Triceps Pushdown LIKE THIS!",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=1FoWlRS2Edc"
+    },
+    {
+      "exercise_id": "tricepsvbar",
+      "youtube_id": "1FjkhpZsaxc",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The Perfect Triceps Pushdown (DO THIS!)",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=1FjkhpZsaxc"
+    },
+    {
+      "exercise_id": "cablekickback",
+      "youtube_id": "WhBxKbe1-NU",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "✅ The PERFECT Triceps Kickback",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 11,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=WhBxKbe1-NU"
+    },
+    {
+      "exercise_id": "cablepallof",
+      "youtube_id": "xeFp4MXad98",
+      "author": "FIT.nl",
+      "title": "Cable Pallof Press | Proper Form Tutorial for Core Stability",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 27,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=xeFp4MXad98"
+    },
+    {
+      "exercise_id": "bandchestpress",
+      "youtube_id": "T0UJ0W-_yIE",
+      "author": "LGN Lyfestile",
+      "title": "Resistance Band Standing Chest Press",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 9,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=T0UJ0W-_yIE"
+    },
+    {
+      "exercise_id": "bandfacepull",
+      "youtube_id": "CSP7YpPv3ds",
+      "author": "Men's Health",
+      "title": "Band Face Pull",
+      "start_seconds": 0,
+      "end_seconds": 40,
+      "duration_seconds": 52,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=CSP7YpPv3ds"
+    },
+    {
+      "exercise_id": "bandreversefly",
+      "youtube_id": "arw9w79rUPI",
+      "author": "Dom Thorpe",
+      "title": "Reverse Fly with Resistance Band",
+      "start_seconds": 0,
+      "end_seconds": 40,
+      "duration_seconds": 50,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=arw9w79rUPI"
+    },
+    {
+      "exercise_id": "bandfront",
+      "youtube_id": "PxILozLWs24",
+      "author": "Global Fitness Club",
+      "title": "How to Do: Resistance Band Front Raise",
+      "start_seconds": 0,
+      "end_seconds": 40,
+      "duration_seconds": 49,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=PxILozLWs24"
+    },
+    {
+      "exercise_id": "bandtricepsoverhead",
+      "youtube_id": "xPgtezPGbOk",
+      "author": "TailoredPersonalTraining",
+      "title": "Banded Overhead Tricep Extension",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 12,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=xPgtezPGbOk"
+    },
+    {
+      "exercise_id": "bandmonsterwalk",
+      "youtube_id": "M5uxEQH5BUM",
+      "author": "National Academy of Sports Medicine (NASM)",
+      "title": "How to do Lateral Band Walking",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 17,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=M5uxEQH5BUM"
+    },
+    {
+      "exercise_id": "bandpallof",
+      "youtube_id": "JEjKGg7dVVA",
+      "author": "Coach Miranda",
+      "title": "Pallof Press - resistance band",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 28,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=JEjKGg7dVVA"
+    },
+    {
+      "exercise_id": "bandpallofhold",
+      "youtube_id": "bnpqMNtaBIA",
+      "author": "Derek Ward",
+      "title": "Pallof Press Hold",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 13,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=bnpqMNtaBIA"
+    },
+    {
+      "exercise_id": "bandwoodchop",
+      "youtube_id": "64RP6a4zK7Q",
+      "author": "Karlie Booker",
+      "title": "Resistance Band Standing Low to High Woodchop",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 10,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=64RP6a4zK7Q"
+    },
+    {
+      "exercise_id": "kbsumo",
+      "youtube_id": "FpeXq8U6KdA",
+      "author": "Danny Nichols Fitness",
+      "title": "How To Do A Kettlebell Sumo Deadlift",
+      "start_seconds": 3,
+      "end_seconds": 41,
+      "duration_seconds": 41,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=FpeXq8U6KdA"
+    },
+    {
+      "exercise_id": "kbrow",
+      "youtube_id": "1fSk8shAVPE",
+      "author": "Dr. Carl Baird",
+      "title": "Upper Body Kettlebell Exercise For Beginners | Single Arm Kettlebell Row",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 33,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=1fSk8shAVPE"
+    },
+    {
+      "exercise_id": "kbfarmers",
+      "youtube_id": "CiN1iw856rQ",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A KETTLEBELL FARMERS WALK CARRY | Exercise Demonstration Video and Guide",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 38,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=CiN1iw856rQ"
+    },
+    {
+      "exercise_id": "kbsinglecarry",
+      "youtube_id": "T5XLh0rXbxQ",
+      "author": "All Day Fit",
+      "title": "1-Kettlebell Suitcase Carry",
+      "start_seconds": 0,
+      "end_seconds": null,
+      "duration_seconds": 16,
+      "verification": "visually_reviewed",
+      "review_source": "user_video_reviewer",
+      "source_url": "https://www.youtube.com/watch?v=T5XLh0rXbxQ"
+    }
+  ],
+  "discovery": [
     {
       "exercise_id": "cablechest",
       "exercise_name": "Supino em pé nos cabos",
       "search_query": "Supino em pé nos cabos exercício demonstração execução correta",
       "status": "search_only"
+    }
+  ],
+  "candidates": [],
+  "alternatives": [
+    {
+      "exercise_id": "bandshoulder",
+      "youtube_id": "jsxoqm3Im18",
+      "author": "Flint House Police Rehabilitation",
+      "title": "Mini Band Shoulder Press",
+      "duration_seconds": 18,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=jsxoqm3Im18"
+    },
+    {
+      "exercise_id": "bandshoulder",
+      "youtube_id": "rjB5ZVY4c6k",
+      "author": "Heather Oliva Fit",
+      "title": "How to: Mini band shoulder press #shoulderworkout #homeworkout #fit #personaltrainer",
+      "duration_seconds": 10,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=rjB5ZVY4c6k"
+    },
+    {
+      "exercise_id": "closepush",
+      "youtube_id": "zWWqJZzn2Xg",
+      "author": "MFA Health and Fitness",
+      "title": "Close Grip Push-Up Form 🔥💯✅ #shrots #viral #fitness #pushups",
+      "duration_seconds": 6,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=zWWqJZzn2Xg"
+    },
+    {
+      "exercise_id": "closepush",
+      "youtube_id": "5afQUU8VllM",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A CLOSE GRIP PUSH UP ON KNEES | Exercise Demonstration Video and Guide",
+      "duration_seconds": 45,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=5afQUU8VllM"
+    },
+    {
+      "exercise_id": "declinepush",
+      "youtube_id": "lx-49Yjqm-Q",
+      "author": "Explore Movement",
+      "title": "Decline Push-Ups",
+      "duration_seconds": 7,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lx-49Yjqm-Q"
+    },
+    {
+      "exercise_id": "declinepush",
+      "youtube_id": "7vbNMc3-CV8",
+      "author": "Clans Master",
+      "title": "Decline Push ups are great to build your upper chest they are harder than regular push ups.",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=7vbNMc3-CV8"
+    },
+    {
+      "exercise_id": "tempopush",
+      "youtube_id": "kAT59hZSFew",
+      "author": "Ben Barker Fitness",
+      "title": "Tempo Push-Ups: Slow Eccentrics for Bigger Gains",
+      "duration_seconds": 81,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=kAT59hZSFew"
+    },
+    {
+      "exercise_id": "tempopush",
+      "youtube_id": "pKZ-lkKKMws",
+      "author": "Stozfit",
+      "title": "The Only Push Up Guide You Will Ever Need",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=pKZ-lkKKMws"
+    },
+    {
+      "exercise_id": "pausepush",
+      "youtube_id": "_wYRaVHVr6g",
+      "author": "STRIQfit",
+      "title": "Lets Fix your Pike Push-Ups!",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=_wYRaVHVr6g"
+    },
+    {
+      "exercise_id": "pausepush",
+      "youtube_id": "vkfZsBQ9faE",
+      "author": "Leaner After 50",
+      "title": "What 30 Days of Push-Ups Does to Your Body After 50",
+      "duration_seconds": 385,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=vkfZsBQ9faE"
+    },
+    {
+      "exercise_id": "archerpush",
+      "youtube_id": "eZNvTorsU6I",
+      "author": "The Calisthenics Project",
+      "title": "How to Master the Archer Push-Up (Step-by-Step)",
+      "duration_seconds": 269,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=eZNvTorsU6I"
+    },
+    {
+      "exercise_id": "archerpush",
+      "youtube_id": "ZLWko5aP1FM",
+      "author": "Minus The Gym",
+      "title": "Archer Push Ups Tutorial | Progressions From Basic Push Ups",
+      "duration_seconds": 388,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ZLWko5aP1FM"
+    },
+    {
+      "exercise_id": "pseudoplanche",
+      "youtube_id": "HkGcKQ36Mfo",
+      "author": "Vitaly Pavlenko",
+      "title": "PSEUDO PLANCHE Push Ups",
+      "duration_seconds": 18,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=HkGcKQ36Mfo"
+    },
+    {
+      "exercise_id": "pseudoplanche",
+      "youtube_id": "L7GKps5ygkQ",
+      "author": "Adam Morgan",
+      "title": "Pseudo Planche Push Ups | FULL TUTORIAL",
+      "duration_seconds": 496,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=L7GKps5ygkQ"
+    },
+    {
+      "exercise_id": "hindupush",
+      "youtube_id": "ZxjEdqiRWRs",
+      "author": "CRUX",
+      "title": "VIDYUT JAMMWAL SHOWS YOU HOW TO DO THE PERFECT HINDU PUSH-UPS",
+      "duration_seconds": 120,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ZxjEdqiRWRs"
+    },
+    {
+      "exercise_id": "hindupush",
+      "youtube_id": "CdH5dT12axE",
+      "author": "Original Strength",
+      "title": "How to do the Hindu Pushup - and Why!",
+      "duration_seconds": 137,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=CdH5dT12axE"
+    },
+    {
+      "exercise_id": "elevatedpike",
+      "youtube_id": "_FfCWr4B6z8",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A Feet Elevated Pike Push Up | Exercise Demonstration Video and Guide",
+      "duration_seconds": 44,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=_FfCWr4B6z8"
+    },
+    {
+      "exercise_id": "elevatedpike",
+      "youtube_id": "3d-xLoUAP0o",
+      "author": "STRIQfit",
+      "title": "Elevated Pike Push-ups - Calisthenics Short",
+      "duration_seconds": 20,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=3d-xLoUAP0o"
+    },
+    {
+      "exercise_id": "wallhandstandpush",
+      "youtube_id": "pgLPjBLEo2s",
+      "author": "WODprep",
+      "title": "Wall Facing Handstand Push Up - New Movement (Tips and Tricks!)",
+      "duration_seconds": 648,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=pgLPjBLEo2s"
+    },
+    {
+      "exercise_id": "wallhandstandpush",
+      "youtube_id": "coY7DyHj7-I",
+      "author": "FitnessFAQs",
+      "title": "Wall Handstand Push-Ups Changed Everything",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=coY7DyHj7-I"
+    },
+    {
+      "exercise_id": "benchedips",
+      "youtube_id": "jdFzYGmvDyg",
+      "author": "ATHLEAN-X™",
+      "title": "Stop Doing Bench Dips Like This!",
+      "duration_seconds": 306,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=jdFzYGmvDyg"
+    },
+    {
+      "exercise_id": "benchedips",
+      "youtube_id": "c3ZGl4pAwZ4",
+      "author": "ScottHermanFitness",
+      "title": "How To: Bench Dip",
+      "duration_seconds": 98,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=c3ZGl4pAwZ4"
+    },
+    {
+      "exercise_id": "paralleldips",
+      "youtube_id": "1c3ESEgomn4",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do JUMPING PARALLEL BAR DIPS | Exercise Demonstration Video and Guide",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=1c3ESEgomn4"
+    },
+    {
+      "exercise_id": "paralleldips",
+      "youtube_id": "eLI7t-5wHno",
+      "author": "Strength Project",
+      "title": "Parallel Bar Support Hold Position Exercise- Dips Calisthenics Gymnastics Tutorial",
+      "duration_seconds": 218,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=eLI7t-5wHno"
+    },
+    {
+      "exercise_id": "assistedparalleldips",
+      "youtube_id": "kbmVlw-i0Vs",
+      "author": "Travis Tarrant",
+      "title": "Exercise Tutorial: Assisted Dips",
+      "duration_seconds": 141,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=kbmVlw-i0Vs"
+    },
+    {
+      "exercise_id": "assistedparalleldips",
+      "youtube_id": "yZ83t4mrPrI",
+      "author": "Renaissance Periodization",
+      "title": "Assisted Dip",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=yZ83t4mrPrI"
+    },
+    {
+      "exercise_id": "negativepull",
+      "youtube_id": "R8xNrImzdwI",
+      "author": "Bodybuilding.com",
+      "title": "How To Do a Negative Pull-Up | Exercise Guide",
+      "duration_seconds": 62,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=R8xNrImzdwI"
+    },
+    {
+      "exercise_id": "negativepull",
+      "youtube_id": "3w8Pnbl70SQ",
+      "author": "Calixpert",
+      "title": "How To Do Negative Pull Ups",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=3w8Pnbl70SQ"
+    },
+    {
+      "exercise_id": "bodyweightrowrings",
+      "youtube_id": "RSe1FA8qxVg",
+      "author": "IKON Fitness",
+      "title": "Suspension Rows",
+      "duration_seconds": 75,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=RSe1FA8qxVg"
+    },
+    {
+      "exercise_id": "bodyweightrowrings",
+      "youtube_id": "NIOpl0Q90uY",
+      "author": "Forge Personal Training",
+      "title": "Suspended Row",
+      "duration_seconds": 167,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=NIOpl0Q90uY"
+    },
+    {
+      "exercise_id": "ringfacepull",
+      "youtube_id": "A3_sS4UUHNE",
+      "author": "Fitness Pain Free",
+      "title": "How to Perform a TRX Face Pull",
+      "duration_seconds": 52,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=A3_sS4UUHNE"
+    },
+    {
+      "exercise_id": "ringfacepull",
+      "youtube_id": "zgZ7_o5aYlw",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To Do A TRX FACE PULL | Exercise Demonstration Video and Guide",
+      "duration_seconds": 65,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=zgZ7_o5aYlw"
+    },
+    {
+      "exercise_id": "proneyraise",
+      "youtube_id": "7NaNt-txiqc",
+      "author": "Cosnett Training Systems",
+      "title": "Prone Y raise",
+      "duration_seconds": 86,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=7NaNt-txiqc"
+    },
+    {
+      "exercise_id": "proneyraise",
+      "youtube_id": "_uvCj0C1NA0",
+      "author": "Daily Workout Builder",
+      "title": "Prone Y",
+      "duration_seconds": 32,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=_uvCj0C1NA0"
+    },
+    {
+      "exercise_id": "pronewraise",
+      "youtube_id": "lWta671_6mE",
+      "author": "Daily Workout Builder",
+      "title": "Prone W",
+      "duration_seconds": 24,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lWta671_6mE"
+    },
+    {
+      "exercise_id": "pronewraise",
+      "youtube_id": "tl9GV1DjwYs",
+      "author": "FitFx Training",
+      "title": "Prone W Raises Tutorial | Strengthen Your Posture, Back, Shoulders, Improve Neck & Shoulder Pain",
+      "duration_seconds": 48,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=tl9GV1DjwYs"
+    },
+    {
+      "exercise_id": "wallslide",
+      "youtube_id": "GLty-L_JxXk",
+      "author": "Baptist Health",
+      "title": "Wall Slides",
+      "duration_seconds": 46,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=GLty-L_JxXk"
+    },
+    {
+      "exercise_id": "wallslide",
+      "youtube_id": "WIdjSjzNS2A",
+      "author": "The Active Life",
+      "title": "Serratus Wall Slides",
+      "duration_seconds": 36,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=WIdjSjzNS2A"
+    },
+    {
+      "exercise_id": "scapularpush",
+      "youtube_id": "tu9DyLjSd4Y",
+      "author": "Foundation Chiropractic + Physiotherapy",
+      "title": "Scapular Push Up and Push Up with a Plus",
+      "duration_seconds": 80,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=tu9DyLjSd4Y"
+    },
+    {
+      "exercise_id": "scapularpush",
+      "youtube_id": "NKekqeudgWs",
+      "author": "The Active Life",
+      "title": "Scap Push ups",
+      "duration_seconds": 17,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=NKekqeudgWs"
+    },
+    {
+      "exercise_id": "regressedsquat",
+      "youtube_id": "LrNhnsWPtgQ",
+      "author": "Baylor Scott & White Health",
+      "title": "Cardiac Rehab – Chair Squats",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=LrNhnsWPtgQ"
+    },
+    {
+      "exercise_id": "regressedsquat",
+      "youtube_id": "w2jbtOQ_bdM",
+      "author": "Margaret Martin, Physical Therapist",
+      "title": "Increase Hip Strength: Modified Chair Squats for Seniors",
+      "duration_seconds": 622,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=w2jbtOQ_bdM"
+    },
+    {
+      "exercise_id": "temposquat",
+      "youtube_id": "qNPVjehTyKA",
+      "author": "Dr. Carl Baird",
+      "title": "The Tempo Squat | Squat Progressions",
+      "duration_seconds": 74,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=qNPVjehTyKA"
+    },
+    {
+      "exercise_id": "temposquat",
+      "youtube_id": "n_xLyzPEX7A",
+      "author": "Chris Gates Fitness",
+      "title": "How To Bodyweight Squat With Perfect Form & Technique. #bodyweightworkout #squats #squats #squatting",
+      "duration_seconds": 21,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=n_xLyzPEX7A"
+    },
+    {
+      "exercise_id": "pausesquat",
+      "youtube_id": "aa2rwP18HpQ",
+      "author": "CanditoTrainingHQ",
+      "title": "Perfecting Pause Squats",
+      "duration_seconds": 356,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=aa2rwP18HpQ"
+    },
+    {
+      "exercise_id": "pausesquat",
+      "youtube_id": "HV711kwdeQw",
+      "author": "Alan Thrall (Untamed Strength)",
+      "title": "The PAUSED SQUAT: Untamed Special",
+      "duration_seconds": 437,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=HV711kwdeQw"
+    },
+    {
+      "exercise_id": "sumosquat",
+      "youtube_id": "c44X65gbyHQ",
+      "author": "Dr Devon",
+      "title": "Fix your sumo squat",
+      "duration_seconds": 10,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=c44X65gbyHQ"
+    },
+    {
+      "exercise_id": "sumosquat",
+      "youtube_id": "kjlfpqXnyL8",
+      "author": "Well+Good",
+      "title": "How To Do A Sumo Squat | The Right Way | Well+Good",
+      "duration_seconds": 110,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=kjlfpqXnyL8"
+    },
+    {
+      "exercise_id": "cyclistsquat",
+      "youtube_id": "dMI2eY8tvc0",
+      "author": "High Performance HQ",
+      "title": "Heels Elevated DB Goblet Squat",
+      "duration_seconds": 6,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=dMI2eY8tvc0"
+    },
+    {
+      "exercise_id": "cyclistsquat",
+      "youtube_id": "vqicVIvYo68",
+      "author": "Fitonomy - Get Fit at Home",
+      "title": "Squat: Elevated Heels vs. Toes – What’s the Difference?",
+      "duration_seconds": 6,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=vqicVIvYo68"
+    },
+    {
+      "exercise_id": "pistolsupport",
+      "youtube_id": "aYZnBGYloG4",
+      "author": "Squat University",
+      "title": "Unlock🔓 Your 1st Pistol Squat",
+      "duration_seconds": 52,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=aYZnBGYloG4"
+    },
+    {
+      "exercise_id": "pistolsupport",
+      "youtube_id": "vq5-vdgJc0I",
+      "author": "Squat University",
+      "title": "How to Get Your First PISTOL SQUAT (Step-by-Step Progression)",
+      "duration_seconds": 379,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=vq5-vdgJc0I"
+    },
+    {
+      "exercise_id": "bulgarianbw",
+      "youtube_id": "J1PEjNVe7po",
+      "author": "SquatCouple",
+      "title": "📌Bulgarian Split Squat Made Easy ✅ vs. ❌",
+      "duration_seconds": 10,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=J1PEjNVe7po"
+    },
+    {
+      "exercise_id": "bulgarianbw",
+      "youtube_id": "uBSoEWZu07k",
+      "author": "ArielYu_Fit",
+      "title": "Bulgarian Split Squat – Key Tips for Glute-Focused",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=uBSoEWZu07k"
+    },
+    {
+      "exercise_id": "stepupbw",
+      "youtube_id": "PzDbmqL6qo8",
+      "author": "Summit Performance Club",
+      "title": "How To: Weighted Step Ups",
+      "duration_seconds": 54,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=PzDbmqL6qo8"
+    },
+    {
+      "exercise_id": "stepupbw",
+      "youtube_id": "S9uzCELLo_0",
+      "author": "Margaux Schmidt Fit",
+      "title": "Step Ups each Leg",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=S9uzCELLo_0"
+    },
+    {
+      "exercise_id": "glutebridgepause",
+      "youtube_id": "Q_Bpj91Yiis",
+      "author": "PostureFlow",
+      "title": "Glute Bridge Exercise - The correct way of doing it",
+      "duration_seconds": 400,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Q_Bpj91Yiis"
+    },
+    {
+      "exercise_id": "glutebridgepause",
+      "youtube_id": "LORVjN2bg5o",
+      "author": "Claire DeFitt",
+      "title": "Glute Bridge Form #glutebridge #formcheck #homeworkouts",
+      "duration_seconds": 11,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=LORVjN2bg5o"
+    },
+    {
+      "exercise_id": "hipthrustbw",
+      "youtube_id": "tqGid2LoyEw",
+      "author": "Aubin Grove, Kwinana & Harrisdale Physiotherapy",
+      "title": "Hip Thrust (Bodyweight)",
+      "duration_seconds": 7,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=tqGid2LoyEw"
+    },
+    {
+      "exercise_id": "hipthrustbw",
+      "youtube_id": "PqC0fmyNlmw",
+      "author": "ArielYu_Fit",
+      "title": "Hip Thrust Tips",
+      "duration_seconds": 27,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=PqC0fmyNlmw"
+    },
+    {
+      "exercise_id": "hamwalkout",
+      "youtube_id": "5aNInenMN0w",
+      "author": "The Active Life",
+      "title": "Hamstring Walkouts",
+      "duration_seconds": 27,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=5aNInenMN0w"
+    },
+    {
+      "exercise_id": "hamwalkout",
+      "youtube_id": "YOnrl0Ar6D4",
+      "author": "Daily Workout Builder",
+      "title": "Hamstring Walk Outs",
+      "duration_seconds": 20,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=YOnrl0Ar6D4"
+    },
+    {
+      "exercise_id": "singlelegdeadliftbw",
+      "youtube_id": "JQZqPsmeesc",
+      "author": "ConstantlyVariedFitness",
+      "title": "Movement Demo | Body Weight Single Leg Romanian Deadlift",
+      "duration_seconds": 22,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JQZqPsmeesc"
+    },
+    {
+      "exercise_id": "singlelegdeadliftbw",
+      "youtube_id": "84hrdsHgDuQ",
+      "author": "Well+Good",
+      "title": "How To Do A Single Leg Deadlift | The Right Way | Well+Good",
+      "duration_seconds": 201,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=84hrdsHgDuQ"
+    },
+    {
+      "exercise_id": "goodmorningbw",
+      "youtube_id": "sAAn3y-qxP4",
+      "author": "Le Sweat",
+      "title": "Good Morning | No Equipment [How To]",
+      "duration_seconds": 20,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=sAAn3y-qxP4"
+    },
+    {
+      "exercise_id": "goodmorningbw",
+      "youtube_id": "nczH_7m1TnI",
+      "author": "Crossfit CDA",
+      "title": "Body Weight Good Mornings",
+      "duration_seconds": 33,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=nczH_7m1TnI"
+    },
+    {
+      "exercise_id": "calfstep",
+      "youtube_id": "jsOeqL0pXI4",
+      "author": "O'Coach - HIIT Timer, Yoga, Tabata, Rehab App",
+      "title": "Calf Raises Benefits | Increase Calf Strength",
+      "duration_seconds": 16,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=jsOeqL0pXI4"
+    },
+    {
+      "exercise_id": "calfstep",
+      "youtube_id": "CtyIVeJH6lI",
+      "author": "Rehab and Revive",
+      "title": "You're Doing Calf Raises WRONG | The Correct Way Taught By Physical Therapist",
+      "duration_seconds": 108,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=CtyIVeJH6lI"
+    },
+    {
+      "exercise_id": "tibialiswall",
+      "youtube_id": "pQcvW08rnAk",
+      "author": "Physio Room Co",
+      "title": "Tibialis Anterior Raises",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=pQcvW08rnAk"
+    },
+    {
+      "exercise_id": "tibialiswall",
+      "youtube_id": "-rP_9ZVBf9M",
+      "author": "R&G Fitness",
+      "title": "Tibialis Raise",
+      "duration_seconds": 50,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=-rP_9ZVBf9M"
+    },
+    {
+      "exercise_id": "sideplankleg",
+      "youtube_id": "DyEBBcz0EYI",
+      "author": "Horton Barbell",
+      "title": "Side Plank w/ Leg Raise (Exercise Library)",
+      "duration_seconds": 52,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=DyEBBcz0EYI"
+    },
+    {
+      "exercise_id": "sideplankleg",
+      "youtube_id": "ZZkgopVBPMg",
+      "author": "stoneclinicPT",
+      "title": "Core Exercises: Side Plank With Leg Lift",
+      "duration_seconds": 45,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ZZkgopVBPMg"
+    },
+    {
+      "exercise_id": "reverseplank",
+      "youtube_id": "fwpOA3o7vFs",
+      "author": "At Home Chiro",
+      "title": "Reverse Plank - The Most Efficient Core Exercise",
+      "duration_seconds": 248,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=fwpOA3o7vFs"
+    },
+    {
+      "exercise_id": "reverseplank",
+      "youtube_id": "PgezBeNqke0",
+      "author": "Hinge Health",
+      "title": "How to Do a Reverse Plank: A Guide from Physical Therapists",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=PgezBeNqke0"
+    },
+    {
+      "exercise_id": "kneetuck",
+      "youtube_id": "FP-H-Sdk4RA",
+      "author": "Human Forge",
+      "title": "SEATED KNEE TUCK",
+      "duration_seconds": 5,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=FP-H-Sdk4RA"
+    },
+    {
+      "exercise_id": "kneetuck",
+      "youtube_id": "54q250IUEAc",
+      "author": "LIVESTRONG",
+      "title": "How to Do a Seated Knee Tuck",
+      "duration_seconds": 58,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=54q250IUEAc"
+    },
+    {
+      "exercise_id": "bearhold",
+      "youtube_id": "HV2ME5C4Fhs",
+      "author": "Dr. Chris Pieton || Pelvic Floor PT",
+      "title": "Bear Plank",
+      "duration_seconds": 47,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=HV2ME5C4Fhs"
+    },
+    {
+      "exercise_id": "bearhold",
+      "youtube_id": "nGSFAjjf9oI",
+      "author": "Strong And Fit",
+      "title": "HOW TO DO A BEAR PLANK",
+      "duration_seconds": 25,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=nGSFAjjf9oI"
+    },
+    {
+      "exercise_id": "deadbugextended",
+      "youtube_id": "44DvnHadhMw",
+      "author": "North Shore Pro-Active Health",
+      "title": "Dead bugs with leg extension",
+      "duration_seconds": 127,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=44DvnHadhMw"
+    },
+    {
+      "exercise_id": "deadbugextended",
+      "youtube_id": "LsqE-fzkd4M",
+      "author": "thespotter123",
+      "title": "Deadbug Leg extension",
+      "duration_seconds": 179,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=LsqE-fzkd4M"
+    },
+    {
+      "exercise_id": "birddogelbow",
+      "youtube_id": "JmhoC6p0_n8",
+      "author": "Michael Fox",
+      "title": "Bird Dog 4 Point Knee to Elbow",
+      "duration_seconds": 19,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JmhoC6p0_n8"
+    },
+    {
+      "exercise_id": "birddogelbow",
+      "youtube_id": "t7cCVsdTMWc",
+      "author": "RaffyDave",
+      "title": "Demonstration Video   Bird Dog Series  Movement Enhancement KNEE TO ELBOW REGRESSION",
+      "duration_seconds": 82,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=t7cCVsdTMWc"
+    },
+    {
+      "exercise_id": "birdhold",
+      "youtube_id": "knsOPG88idk",
+      "author": "Performance Outpost",
+      "title": "Bird Dog - Hold",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=knsOPG88idk"
+    },
+    {
+      "exercise_id": "birdhold",
+      "youtube_id": "QABW99qPiNM",
+      "author": "Muscle & Motion",
+      "title": "Bird Dog Exercise | Improve Your Core and Balance",
+      "duration_seconds": 79,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=QABW99qPiNM"
+    },
+    {
+      "exercise_id": "dbsqueeze",
+      "youtube_id": "G2j_lJf6ljk",
+      "author": "Kraken Exercise Library",
+      "title": "Dumbbell Squeeze Press",
+      "duration_seconds": 40,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=G2j_lJf6ljk"
+    },
+    {
+      "exercise_id": "dbsqueeze",
+      "youtube_id": "afhV-OIVxC8",
+      "author": "Jordan Syatt",
+      "title": "Dumbbell Squeeze Press Exercise Video Tutorial",
+      "duration_seconds": 165,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=afhV-OIVxC8"
+    },
+    {
+      "exercise_id": "dbwideelbowrow",
+      "youtube_id": "z0rtLeSW5Cc",
+      "author": "Elite Performance",
+      "title": "How to do Dumbbell Bent Over Row!",
+      "duration_seconds": 27,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=z0rtLeSW5Cc"
+    },
+    {
+      "exercise_id": "dbwideelbowrow",
+      "youtube_id": "dD-jK2l_zQE",
+      "author": "Rosati Strength Systems",
+      "title": "How to dumbbell bent over row without hurting your back",
+      "duration_seconds": 24,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=dD-jK2l_zQE"
+    },
+    {
+      "exercise_id": "dbneutralpress",
+      "youtube_id": "aO_1PB0X_lU",
+      "author": "BestFit Training",
+      "title": "Neutral Grip Dumbbell Shoulder Press",
+      "duration_seconds": 19,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=aO_1PB0X_lU"
+    },
+    {
+      "exercise_id": "dbneutralpress",
+      "youtube_id": "7oH0algsdww",
+      "author": "The Hybrid Headquarters",
+      "title": "Seated Neutral Grip Dumbbell Shoulder Press Exercise Demo",
+      "duration_seconds": 20,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=7oH0algsdww"
+    },
+    {
+      "exercise_id": "dblaterallean",
+      "youtube_id": "qWif_7SOYpQ",
+      "author": "Buff Dudes Workouts",
+      "title": "How To Perform the Leaning Lateral Raise | Shoulders Exercise Tutorial",
+      "duration_seconds": 94,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=qWif_7SOYpQ"
+    },
+    {
+      "exercise_id": "dblaterallean",
+      "youtube_id": "KVauca12MF4",
+      "author": "TylerPath",
+      "title": "Do This Instead of Leaning Cable Lateral Raises",
+      "duration_seconds": 18,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=KVauca12MF4"
+    },
+    {
+      "exercise_id": "dbyraise",
+      "youtube_id": "lXp16YozXgk",
+      "author": "Physique Development",
+      "title": "How to Perform Dumbbell Y Raise | Strengthen Your Lower Traps",
+      "duration_seconds": 150,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lXp16YozXgk"
+    },
+    {
+      "exercise_id": "dbyraise",
+      "youtube_id": "6lW8m7iRblc",
+      "author": "ArielYu_Fit",
+      "title": "Dumbbell Lateral Raise Tips:",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=6lW8m7iRblc"
+    },
+    {
+      "exercise_id": "dbspidercurl",
+      "youtube_id": "ke2shAeQ0O8",
+      "author": "Renaissance Periodization",
+      "title": "Dumbbell Spider Curl",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ke2shAeQ0O8"
+    },
+    {
+      "exercise_id": "dbspidercurl",
+      "youtube_id": "z1uuyKW5PRk",
+      "author": "Mike | J2FIT Strength & Conditioning",
+      "title": "Dumbbell Spider Curl Form (How-To in 90 Seconds)",
+      "duration_seconds": 91,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=z1uuyKW5PRk"
+    },
+    {
+      "exercise_id": "dbfrontsquat",
+      "youtube_id": "B86Zj72LwzA",
+      "author": "CrossFit",
+      "title": "The Dumbbell Front Squat",
+      "duration_seconds": 62,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=B86Zj72LwzA"
+    },
+    {
+      "exercise_id": "dbfrontsquat",
+      "youtube_id": "RC5XZ3Bto0k",
+      "author": "CrossFit 190",
+      "title": "Dumbbell Front Squat Demo- CrossFit 190",
+      "duration_seconds": 19,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=RC5XZ3Bto0k"
+    },
+    {
+      "exercise_id": "dbsumosquat",
+      "youtube_id": "wsaQ8Z7TZJY",
+      "author": "DEMIC",
+      "title": "Dumbbell Sumo Squat  Target Glutes the Right Way #shorts",
+      "duration_seconds": 38,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=wsaQ8Z7TZJY"
+    },
+    {
+      "exercise_id": "dbsumosquat",
+      "youtube_id": "lQLy8unq9L8",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "Goblet Squat vs Sumo Dumbbell Squat",
+      "duration_seconds": 6,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lQLy8unq9L8"
+    },
+    {
+      "exercise_id": "dbbulgarian",
+      "youtube_id": "uODWo4YqbT8",
+      "author": "Davis Diley",
+      "title": "How to Bulgarian Split Squat | 3 Simple Steps",
+      "duration_seconds": 55,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=uODWo4YqbT8"
+    },
+    {
+      "exercise_id": "dbbulgarian",
+      "youtube_id": "uBSoEWZu07k",
+      "author": "ArielYu_Fit",
+      "title": "Bulgarian Split Squat – Key Tips for Glute-Focused",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=uBSoEWZu07k"
+    },
+    {
+      "exercise_id": "dbstepup",
+      "youtube_id": "hgkk12L_Umk",
+      "author": "Kelly Matthews",
+      "title": "HOW TO DO A DUMBBELL STEP-UP | Coach Kelly Cues",
+      "duration_seconds": 260,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=hgkk12L_Umk"
+    },
+    {
+      "exercise_id": "dbstepup",
+      "youtube_id": "7AtIjR-QqVA",
+      "author": "Bodybuilding.com",
+      "title": "Dumbbell Step Ups - Leg Exercise - Bodybuilding.com",
+      "duration_seconds": 48,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=7AtIjR-QqVA"
+    },
+    {
+      "exercise_id": "dbsingleRDL",
+      "youtube_id": "Zfr6wizR8rs",
+      "author": "Squat University",
+      "title": "The BEST Single-Leg RDL Tutorial (Romanian Deadlift)",
+      "duration_seconds": 557,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Zfr6wizR8rs"
+    },
+    {
+      "exercise_id": "dbsingleRDL",
+      "youtube_id": "hQgFixeXdZo",
+      "author": "Mike | J2FIT Strength & Conditioning",
+      "title": "Dumbbell Romanian (RDL) Deadlift |TECHNIQUE for Beginners",
+      "duration_seconds": 79,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=hQgFixeXdZo"
+    },
+    {
+      "exercise_id": "dbsumodead",
+      "youtube_id": "6P_8ul6xBmc",
+      "author": "Live Lean TV Daily Exercises",
+      "title": "How To: Dumbbell Sumo Deadlift",
+      "duration_seconds": 80,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=6P_8ul6xBmc"
+    },
+    {
+      "exercise_id": "dbsumodead",
+      "youtube_id": "GavYxz6FOUw",
+      "author": "Lift With Michelle - Exercise Form Tutorials",
+      "title": "Dumbbell Sumo Deadlift Exercise Tutorial | Dumbbell Deadlift",
+      "duration_seconds": 106,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=GavYxz6FOUw"
+    },
+    {
+      "exercise_id": "dbhipthrust",
+      "youtube_id": "29OfN4ztW_g",
+      "author": "Mike | J2FIT Strength & Conditioning",
+      "title": "Dumbbell Hip Thrust (FULL TUTORIAL) - Glute Exercises for Beginners",
+      "duration_seconds": 81,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=29OfN4ztW_g"
+    },
+    {
+      "exercise_id": "dbhipthrust",
+      "youtube_id": "mC56j1VdFfA",
+      "author": "Abound Athletics",
+      "title": "How to hip thrust with dumbbell",
+      "duration_seconds": 51,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=mC56j1VdFfA"
+    },
+    {
+      "exercise_id": "dbsuitcase",
+      "youtube_id": "jJ-EIBLIKeo",
+      "author": "KVMedWellness",
+      "title": "Dumbbell Suitcase Carry",
+      "duration_seconds": 7,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=jJ-EIBLIKeo"
+    },
+    {
+      "exercise_id": "dbsuitcase",
+      "youtube_id": "v8O0kNuvp_k",
+      "author": "Rosati Strength Systems",
+      "title": "The most underrated core / ab exercise - How to suitcase carry",
+      "duration_seconds": 21,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=v8O0kNuvp_k"
+    },
+    {
+      "exercise_id": "bbpendlay",
+      "youtube_id": "EzFkN5ge5_k",
+      "author": "Onnit Academy",
+      "title": "Pendlay Row",
+      "duration_seconds": 9,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=EzFkN5ge5_k"
+    },
+    {
+      "exercise_id": "bbpendlay",
+      "youtube_id": "Wv7f0uIKh8o",
+      "author": "PureGym",
+      "title": "How To Do A Pendlay Row",
+      "duration_seconds": 11,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Wv7f0uIKh8o"
+    },
+    {
+      "exercise_id": "bbboxsquat",
+      "youtube_id": "JYxj9fSe5yw",
+      "author": "Westside Barbell",
+      "title": "How to Box Squat Correctly | Westside Barbell com",
+      "duration_seconds": 76,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JYxj9fSe5yw"
+    },
+    {
+      "exercise_id": "bbboxsquat",
+      "youtube_id": "rMEPHwNhQfo",
+      "author": "The Active Life",
+      "title": "Box Squat Movement Demo",
+      "duration_seconds": 22,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=rMEPHwNhQfo"
+    },
+    {
+      "exercise_id": "bbpreachercurl",
+      "youtube_id": "S4dDLfp3e8w",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT Machine Preacher Curl",
+      "duration_seconds": 9,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=S4dDLfp3e8w"
+    },
+    {
+      "exercise_id": "bbpreachercurl",
+      "youtube_id": "P13VQDU1q9c",
+      "author": "No.1 Gym",
+      "title": "How to use the preacher curl bench",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=P13VQDU1q9c"
+    },
+    {
+      "exercise_id": "bbskull",
+      "youtube_id": "zR9gty7LUxE",
+      "author": "Jarrah Martin Fitness",
+      "title": "Skull crushers",
+      "duration_seconds": 14,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=zR9gty7LUxE"
+    },
+    {
+      "exercise_id": "bbskull",
+      "youtube_id": "dtkD5sQLFL4",
+      "author": "Max Euceda",
+      "title": "STOP doing SKULLCRUSHERS like This!",
+      "duration_seconds": 14,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=dtkD5sQLFL4"
     },
     {
       "exercise_id": "neutralpulldown",
-      "exercise_name": "Puxada neutra na polia",
-      "search_query": "Puxada neutra na polia exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "JFYBQMYFiFQ",
+      "author": "Marzrodie",
+      "title": "Master the Neutral-Grip Lat Pulldown | Build a Wider, Stronger Back!",
+      "duration_seconds": 10,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JFYBQMYFiFQ"
     },
     {
-      "exercise_id": "closepulldown",
-      "exercise_name": "Puxada fechada na polia",
-      "search_query": "Puxada fechada na polia exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "highrowmachine",
-      "exercise_name": "Remada alta articulada",
-      "search_query": "Remada alta articulada exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "neutralpulldown",
+      "youtube_id": "KgZqDuNx7rI",
+      "author": "Physique Development",
+      "title": "The BEST way to Perform the Neutral Grip Lat Pulldown | Form Tutorial",
+      "duration_seconds": 295,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=KgZqDuNx7rI"
     },
     {
       "exercise_id": "chestrowmachine",
-      "exercise_name": "Remada com apoio peitoral na máquina",
-      "search_query": "Remada com apoio peitoral na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "FU6YQawma2Q",
+      "author": "Colossus Fitness",
+      "title": "How to Properly Use Chest Supported Row Machine (QUICK FIXES)",
+      "duration_seconds": 126,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=FU6YQawma2Q"
+    },
+    {
+      "exercise_id": "chestrowmachine",
+      "youtube_id": "azN0upTD8Go",
+      "author": "Gerardi Performance",
+      "title": "How to PROPERLY Use The Chest Supported Seated Row Machine with Good Form (Exercise Demonstration)",
+      "duration_seconds": 24,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=azN0upTD8Go"
     },
     {
       "exercise_id": "machinepullover",
-      "exercise_name": "Pullover na máquina",
-      "search_query": "Pullover na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "zFnwVh5UTqQ",
+      "author": "Business & Bodybuilding",
+      "title": "Prime Lat Pullover Machine Tutorial",
+      "duration_seconds": 71,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=zFnwVh5UTqQ"
+    },
+    {
+      "exercise_id": "machinepullover",
+      "youtube_id": "naFwkhf1igc",
+      "author": "Optimal Hypertrophy",
+      "title": "RIGHT Way to use the Pullover Machine! (DRIVE w/ your Elbows!) | 6x Mr. Olympia Dorian Yates",
+      "duration_seconds": 20,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=naFwkhf1igc"
     },
     {
       "exercise_id": "assisteddipmachine",
-      "exercise_name": "Paralelas na máquina assistida",
-      "search_query": "Paralelas na máquina assistida exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "EQmyN04oTq4",
+      "author": "Online Library - Coach Carlos",
+      "title": "Assisted Dip Machine",
+      "duration_seconds": 40,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=EQmyN04oTq4"
+    },
+    {
+      "exercise_id": "assisteddipmachine",
+      "youtube_id": "D8RIzFsK8gA",
+      "author": "Wavvy Fitness",
+      "title": "TUTORIAL: How To Use The Assisted Dip Machine (PLANET FITNESS)",
+      "duration_seconds": 135,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=D8RIzFsK8gA"
     },
     {
       "exercise_id": "shouldermachine",
-      "exercise_name": "Desenvolvimento de ombros na máquina",
-      "search_query": "Desenvolvimento de ombros na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "GcY6TZxfS0k",
+      "author": "PureGym",
+      "title": "How To Use The Shoulder Press Machine",
+      "duration_seconds": 11,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=GcY6TZxfS0k"
+    },
+    {
+      "exercise_id": "shouldermachine",
+      "youtube_id": "Gkk-6q7Rq-s",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "How to Perform the Machine Shoulder Press",
+      "duration_seconds": 16,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Gkk-6q7Rq-s"
     },
     {
       "exercise_id": "lateralmachine",
-      "exercise_name": "Elevação lateral na máquina",
-      "search_query": "Elevação lateral na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "e8xAk2N7_ME",
+      "author": "Allegiance Training",
+      "title": "Machine lateral raise",
+      "duration_seconds": 10,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=e8xAk2N7_ME"
+    },
+    {
+      "exercise_id": "lateralmachine",
+      "youtube_id": "Kl3LEzQ5Zqs",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The Perfect Lateral Raise (DO THIS!)",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Kl3LEzQ5Zqs"
     },
     {
       "exercise_id": "reversepecdeck",
-      "exercise_name": "Voador invertido",
-      "search_query": "Voador invertido exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "kSP7aFT_fjQ",
+      "author": "Jesse James East",
+      "title": "The Correct Reverse Pec Deck Form @JeffNippard",
+      "duration_seconds": 27,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=kSP7aFT_fjQ"
     },
     {
-      "exercise_id": "legextension",
-      "exercise_name": "Cadeira extensora",
-      "search_query": "Cadeira extensora exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "lyinglegcurl",
-      "exercise_name": "Mesa flexora deitada",
-      "search_query": "Mesa flexora deitada exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hacksquat",
-      "exercise_name": "Agachamento hack na máquina",
-      "search_query": "Agachamento hack na máquina exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "smithsplit",
-      "exercise_name": "Agachamento dividido no Smith",
-      "search_query": "Agachamento dividido no Smith exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hipabduction",
-      "exercise_name": "Cadeira abdutora",
-      "search_query": "Cadeira abdutora exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "hipadduction",
-      "exercise_name": "Cadeira adutora",
-      "search_query": "Cadeira adutora exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "reversepecdeck",
+      "youtube_id": "O2J8Qs7Wl3U",
+      "author": "TylerPath",
+      "title": "How to do Reverse Flys for Rear Delts on Pec Deck Fly",
+      "duration_seconds": 15,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=O2J8Qs7Wl3U"
     },
     {
       "exercise_id": "glutekickmachine",
-      "exercise_name": "Coice de glúteos na máquina",
-      "search_query": "Coice de glúteos na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "3fBptAH0Rnw",
+      "author": "KevTheTrainer",
+      "title": "GLUTE KICKBACK MACHINE TUTORIAL 🦵🏼// Build your bottoms with this! #gluteworkout #planetfitness",
+      "duration_seconds": 29,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=3fBptAH0Rnw"
+    },
+    {
+      "exercise_id": "glutekickmachine",
+      "youtube_id": "gg2pvITT1IA",
+      "author": "QuanBFit",
+      "title": "Glute Kickback Machine the RIGHT way🔥outfit @dfyne.official code- QUANB #glutes#glutesworkout",
+      "duration_seconds": 113,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=gg2pvITT1IA"
     },
     {
       "exercise_id": "standingcalfmachine",
-      "exercise_name": "Panturrilha em pé na máquina",
-      "search_query": "Panturrilha em pé na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "xwszHjl2D40",
+      "author": "Thomas",
+      "title": "Standing Calf Raise Machine",
+      "duration_seconds": 9,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=xwszHjl2D40"
     },
     {
-      "exercise_id": "preachermachine",
-      "exercise_name": "Rosca Scott na máquina",
-      "search_query": "Rosca Scott na máquina exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "standingcalfmachine",
+      "youtube_id": "ffCkIkBODC4",
+      "author": "KevTheTrainer",
+      "title": "NEW Planet Fitness Standing Calf Raise Machine (HOW TO USE!)",
+      "duration_seconds": 62,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ffCkIkBODC4"
     },
     {
       "exercise_id": "tricepsrope",
-      "exercise_name": "Tríceps na polia com corda",
-      "search_query": "Tríceps na polia com corda exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "-xa-6cQaZKY",
+      "author": "Renaissance Periodization",
+      "title": "Rope Pushdown",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=-xa-6cQaZKY"
+    },
+    {
+      "exercise_id": "tricepsrope",
+      "youtube_id": "1FjkhpZsaxc",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The Perfect Triceps Pushdown (DO THIS!)",
+      "duration_seconds": 9,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=1FjkhpZsaxc"
     },
     {
       "exercise_id": "tricepsvbar",
-      "exercise_name": "Tríceps na polia com barra V",
-      "search_query": "Tríceps na polia com barra V exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "8xT4OwwiACQ",
+      "author": "Electrum Performance",
+      "title": "Heavy triceps - V bar triceps pushdown technique cues",
+      "duration_seconds": 39,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=8xT4OwwiACQ"
     },
     {
-      "exercise_id": "tricepsoverheadcable",
-      "exercise_name": "Tríceps acima da cabeça no cabo",
-      "search_query": "Tríceps acima da cabeça no cabo exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "tricepsvbar",
+      "youtube_id": "PqrWgK5gduo",
+      "author": "Chris Delaney",
+      "title": "TRICEP PUSHDOWN - V BAR",
+      "duration_seconds": 33,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=PqrWgK5gduo"
     },
     {
       "exercise_id": "cablekickback",
-      "exercise_name": "Coice de tríceps na polia",
-      "search_query": "Coice de tríceps na polia exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "VIH5vgxw_9c",
+      "author": "WarriorBabe",
+      "title": "Tricep Cable Kickback",
+      "duration_seconds": 37,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=VIH5vgxw_9c"
+    },
+    {
+      "exercise_id": "cablekickback",
+      "youtube_id": "lcj_g59eBzE",
+      "author": "Muscle Recruitment",
+      "title": "TRICEPS KICKBACKS WITH A CABLE!?",
+      "duration_seconds": 28,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lcj_g59eBzE"
     },
     {
       "exercise_id": "cablepallof",
-      "exercise_name": "Pallof press na polia",
-      "search_query": "Pallof press na polia exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "ma2OjgP5XDc",
+      "author": "Warbird Academy",
+      "title": "Cable Pallof Press",
+      "duration_seconds": 41,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ma2OjgP5XDc"
+    },
+    {
+      "exercise_id": "cablepallof",
+      "youtube_id": "YWfioXCZCu0",
+      "author": "UVM Campus Recreation",
+      "title": "Cable Pallof Press",
+      "duration_seconds": 32,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=YWfioXCZCu0"
     },
     {
       "exercise_id": "bandchestpress",
-      "exercise_name": "Supino em pé com elástico",
-      "search_query": "Supino em pé com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "Go9VC4bH8Ac",
+      "author": "Dawn Brooks",
+      "title": "Chest Press with a resistance band",
+      "duration_seconds": 27,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Go9VC4bH8Ac"
     },
     {
-      "exercise_id": "bandfly",
-      "exercise_name": "Crucifixo com elástico",
-      "search_query": "Crucifixo com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "bandchestpress",
+      "youtube_id": "Rn-hf5iauTc",
+      "author": "Fitness My Life",
+      "title": "How To Do Chest Press With Resistance Band | Chest Workout | Fitness My Life",
+      "duration_seconds": 53,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=Rn-hf5iauTc"
     },
     {
       "exercise_id": "bandfacepull",
-      "exercise_name": "Face pull com elástico",
-      "search_query": "Face pull com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "1s-0WtJMsu8",
+      "author": "Movement Physio",
+      "title": "Banded Face-pull",
+      "duration_seconds": 11,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=1s-0WtJMsu8"
+    },
+    {
+      "exercise_id": "bandfacepull",
+      "youtube_id": "JBpj9-3tP0c",
+      "author": "Fitness My Life",
+      "title": "How To Do Face Pull With Resistance Band | Upper Back & Rear Delts Workout | Fitness My Life",
+      "duration_seconds": 49,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JBpj9-3tP0c"
     },
     {
       "exercise_id": "bandreversefly",
-      "exercise_name": "Crucifixo invertido com elástico",
-      "search_query": "Crucifixo invertido com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "cyihFNmsq-A",
+      "author": "ScottHermanFitness",
+      "title": "How To: Resistance Band Reverse Fly",
+      "duration_seconds": 170,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=cyihFNmsq-A"
     },
     {
-      "exercise_id": "bandlateral",
-      "exercise_name": "Elevação lateral com elástico",
-      "search_query": "Elevação lateral com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "bandreversefly",
+      "youtube_id": "PH85FWn3l0c",
+      "author": "Margaret Martin, Physical Therapist",
+      "title": "Reverse Fly with Resistance Bands",
+      "duration_seconds": 190,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=PH85FWn3l0c"
     },
     {
       "exercise_id": "bandfront",
-      "exercise_name": "Elevação frontal com elástico",
-      "search_query": "Elevação frontal com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "JiY7P4nHguU",
+      "author": "MSK & ACL Physiotherapy London",
+      "title": "Shoulder Rehab - Resistance Band Front Raise (Inside Grip) | Physiotherapy",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JiY7P4nHguU"
+    },
+    {
+      "exercise_id": "bandfront",
+      "youtube_id": "9cDGMzxXVcU",
+      "author": "STRAFFR",
+      "title": "Front Raise | Resistance Band",
+      "duration_seconds": 7,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=9cDGMzxXVcU"
     },
     {
       "exercise_id": "bandtricepsoverhead",
-      "exercise_name": "Extensão de tríceps acima da cabeça com elástico",
-      "search_query": "Extensão de tríceps acima da cabeça com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "NTk0Igxqcsk",
+      "author": "Andrew Kwong (DeltaBolic)",
+      "title": "The PERFECT High Cable Overhead Triceps Extension",
+      "duration_seconds": 12,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=NTk0Igxqcsk"
     },
     {
-      "exercise_id": "bandgoodmorning",
-      "exercise_name": "Bom dia com elástico",
-      "search_query": "Bom dia com elástico exercício demonstração execução correta",
-      "status": "search_only"
-    },
-    {
-      "exercise_id": "bandglutekick",
-      "exercise_name": "Extensão de quadril com elástico",
-      "search_query": "Extensão de quadril com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "bandtricepsoverhead",
+      "youtube_id": "a5rUdCeTtSE",
+      "author": "SKLZ",
+      "title": "Resistance Band Tricep Extensions",
+      "duration_seconds": 48,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=a5rUdCeTtSE"
     },
     {
       "exercise_id": "bandmonsterwalk",
-      "exercise_name": "Caminhada lateral com mini band",
-      "search_query": "Caminhada lateral com mini band exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "HW9xLHrLhxI",
+      "author": "Trifecta Therapeutics: Sports Rehab & Performance",
+      "title": "Lateral Band Walks",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=HW9xLHrLhxI"
+    },
+    {
+      "exercise_id": "bandmonsterwalk",
+      "youtube_id": "6eoK_yxY8Ak",
+      "author": "Ohio State Wexner Medical Center",
+      "title": "Lateral band walks | Ohio State Sports Medicine",
+      "duration_seconds": 42,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=6eoK_yxY8Ak"
     },
     {
       "exercise_id": "bandpallof",
-      "exercise_name": "Pallof press com elástico",
-      "search_query": "Pallof press com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "99evyH71IWs",
+      "author": "Queens University of Charlotte Sports Performance",
+      "title": "Band Pallof Press",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=99evyH71IWs"
+    },
+    {
+      "exercise_id": "bandpallof",
+      "youtube_id": "5_8d8vHgZvU",
+      "author": "Girls Gone Strong | Women's Health & Fitness",
+      "title": "Pallof Press - How To Do Pallof Presses + Variations",
+      "duration_seconds": 118,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=5_8d8vHgZvU"
     },
     {
       "exercise_id": "bandpallofhold",
-      "exercise_name": "Pallof isométrico com elástico",
-      "search_query": "Pallof isométrico com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "JEjKGg7dVVA",
+      "author": "Coach Miranda",
+      "title": "Pallof Press - resistance band",
+      "duration_seconds": 28,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=JEjKGg7dVVA"
+    },
+    {
+      "exercise_id": "bandpallofhold",
+      "youtube_id": "99evyH71IWs",
+      "author": "Queens University of Charlotte Sports Performance",
+      "title": "Band Pallof Press",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=99evyH71IWs"
     },
     {
       "exercise_id": "bandwoodchop",
-      "exercise_name": "Rotação diagonal com elástico",
-      "search_query": "Rotação diagonal com elástico exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "ooP1Zq6lq5Y",
+      "author": "Meglio TV",
+      "title": "Woodchop Exercise with Resistance Band",
+      "duration_seconds": 161,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=ooP1Zq6lq5Y"
+    },
+    {
+      "exercise_id": "bandwoodchop",
+      "youtube_id": "lZfTfU7CfRE",
+      "author": "Kade Jungkurth",
+      "title": "How to do resistance band wood chops",
+      "duration_seconds": 23,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=lZfTfU7CfRE"
     },
     {
       "exercise_id": "kbsumo",
-      "exercise_name": "Levantamento terra sumô com kettlebell",
-      "search_query": "Levantamento terra sumô com kettlebell exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "sGNMEtZCkRY",
+      "author": "ScottHermanFitness",
+      "title": "How To: Kettlebell Sumo Deadlift",
+      "duration_seconds": 110,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=sGNMEtZCkRY"
+    },
+    {
+      "exercise_id": "kbsumo",
+      "youtube_id": "k_jHUVBU-T0",
+      "author": "Gym And Fitness",
+      "title": "Learn how to perform the perfect sumo deadlift✅",
+      "duration_seconds": 8,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=k_jHUVBU-T0"
     },
     {
       "exercise_id": "kbrow",
-      "exercise_name": "Remada unilateral com kettlebell",
-      "search_query": "Remada unilateral com kettlebell exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "B0XNMCohjoo",
+      "author": "FitSW Fitness Software",
+      "title": "Single Arm Kettlebell Row - Exercise Demo How-to",
+      "duration_seconds": 6,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=B0XNMCohjoo"
     },
     {
-      "exercise_id": "kboverhead",
-      "exercise_name": "Desenvolvimento com kettlebell",
-      "search_query": "Desenvolvimento com kettlebell exercício demonstração execução correta",
-      "status": "search_only"
+      "exercise_id": "kbrow",
+      "youtube_id": "R2TBqv5xGTE",
+      "author": "eHowFitness",
+      "title": "What Does a Single Arm Kettlebell Row Work? : Tips for Staying Fit",
+      "duration_seconds": 80,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=R2TBqv5xGTE"
     },
     {
       "exercise_id": "kbfarmers",
-      "exercise_name": "Caminhada do fazendeiro com kettlebells",
-      "search_query": "Caminhada do fazendeiro com kettlebells exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "92cwGLa-wdQ",
+      "author": "Criticalbench",
+      "title": "Kettlebell Farmer Walk w/ Strength Coach Zach Even-Esh",
+      "duration_seconds": 204,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=92cwGLa-wdQ"
+    },
+    {
+      "exercise_id": "kbfarmers",
+      "youtube_id": "z7E_YU9P1jU",
+      "author": "Dr. Carl Baird",
+      "title": "How to Perform the Farmer’s Carry",
+      "duration_seconds": 140,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=z7E_YU9P1jU"
     },
     {
       "exercise_id": "kbsinglecarry",
-      "exercise_name": "Caminhada unilateral com kettlebell",
-      "search_query": "Caminhada unilateral com kettlebell exercício demonstração execução correta",
-      "status": "search_only"
+      "youtube_id": "0nB68R04bGE",
+      "author": "Celanese Chiropractic Health & Performance",
+      "title": "Kettlebell Suitcase Carry",
+      "duration_seconds": 37,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=0nB68R04bGE"
+    },
+    {
+      "exercise_id": "kbsinglecarry",
+      "youtube_id": "BaRMAhD7SP4",
+      "author": "HEARTCORE Athletics",
+      "title": "Kettlebell Suitcase Carry | HEARTCORE Athletics",
+      "duration_seconds": 29,
+      "verification": "not_visually_reviewed",
+      "playback_status": "external_only",
+      "source_url": "https://www.youtube.com/watch?v=BaRMAhD7SP4"
     }
-  ],
-  "candidates": []
+  ]
 }

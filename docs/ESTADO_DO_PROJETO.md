@@ -8,3 +8,5 @@
 - **v0.4.0 (código preparado):** 234 exercícios (91 de calistenia), biblioteca consultável, critérios de substituição revisados e nova seleção para treinos alternados. Ainda sem validação da compilação Android e do uso real no celular.
 
 As integrações com dispositivos, IAA e banco Room v3 foram preservadas; não há migração de dados na v0.4.0. A versão não representa prescrição médica individual nem pontuação PAI oficial Xiaomi.
+
+- **v0.4.7 (08/11/2026, código preparado):** importados os 129 vídeos selecionados na revisão final, mantendo os 104 anteriores; 233/234 exercícios com player. Foram catalogadas 172 alternativas **não revisadas** para abertura externa. Uma busca permanece devido à rejeição do único vídeo proposto. Validação estrutural local: OK. A compilação Android e teste real no aparelho ainda estão pendentes.
