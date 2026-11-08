@@ -93,3 +93,14 @@ assert 'Vídeo específico ainda não verificado.' not in ui_panel, 'Mensagem le
 assert 'ExerciseVideoAssetRepository.ensureLoaded' in ui_player, 'Player não carrega catálogo JSON'
 assert 'exercise_videos.json' in repository, 'Repositório não utiliza o asset de vídeos'
 print('INTEGRACAO UI OK: biblioteca -> ExerciseVideoControl -> catálogo JSON')
+
+# Regressão v0.4.9: player incorporado deve ter origem HTTPS e fallback explícito.
+embed_source=(root/'app/src/main/java/br/com/meutreino/ui/YoutubeEmbedPage.kt').read_text(encoding='utf-8')
+assert 'loadDataWithBaseURL(' in ui_player, 'Player não usa página HTML com base de origem HTTPS'
+assert 'YoutubeEmbedPage.baseUrl(appContext.packageName)' in ui_player
+assert 'YoutubeEmbedPage.html(video.embedUrl)' in ui_player
+assert 'view.loadUrl(\n                        video.embedUrl' not in ui_player, 'Não usar abertura direta do embed sem base HTTPS'
+assert 'referrerpolicy=\"strict-origin\"' in embed_source, 'HTML precisa fornecer Referrer válido'
+assert 'onReceivedError(' in ui_player and 'onReceivedHttpError(' in ui_player
+assert 'Abrir original no YouTube' in ui_player, 'Fallback externo obrigatório'
+print('PLAYER WEBVIEW OK: HTML com base HTTPS + diagnostico de falhas + fallback externo')

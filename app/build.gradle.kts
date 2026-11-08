@@ -12,8 +12,8 @@ android {
         applicationId = "br.com.meutreino"
         minSdk = 26
         targetSdk = 35
-        versionCode = 15
-        versionName = "0.4.8"
+        versionCode = 16
+        versionName = "0.4.9"
     }
     buildFeatures { compose = true }
     compileOptions {

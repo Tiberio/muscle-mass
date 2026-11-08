@@ -1,8 +1,10 @@
-# Meu Treino — Android v0.4.8
+# Meu Treino — Android v0.4.9
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
-**Novidade v0.4.8:** correção de integração entre a tela **Ver orientações** e o player de vídeos. O pacote anterior não havia incluído `ExerciseLibraryPanel.kt` ao enviar arquivos alterados ao GitHub. O teste de validação agora exige a ligação da interface ao catálogo. Nenhum dado do usuário nem regra de treino foram alterados. Consulte [alterações v0.4.8](docs/ALTERACOES_v0.4.8.md).
+**Novidade v0.4.9:** tentativa de correção de reprodução incorporada no Android WebView. A página HTML do player agora é carregada com origem HTTPS e oferece mensagens de diagnóstico e recarga. A opção externa para YouTube permanece. Consulte [alterações v0.4.9](docs/ALTERACOES_v0.4.9.md).
+
+**Base v0.4.8:** correção de integração entre a tela **Ver orientações** e o player de vídeos. O pacote anterior não havia incluído `ExerciseLibraryPanel.kt` ao enviar arquivos alterados ao GitHub. O teste de validação agora exige a ligação da interface ao catálogo. Nenhum dado do usuário nem regra de treino foram alterados. Consulte [alterações v0.4.8](docs/ALTERACOES_v0.4.8.md).
 
 **Base v0.4.7:** 233 de 234 exercícios possuem demonstração selecionada; 129 vídeos novos aprovados pelo usuário foram incorporados, com trechos de até 40 s. O site também listou 172 alternativas **ainda não aprovadas**, disponíveis somente como links externos na opção “Quer mais opções de vídeos?”. O exercício *Supino em pé nos cabos* permanece com busca externa após rejeição da demonstração inadequada. Consulte [alterações v0.4.7](docs/ALTERACOES_v0.4.7.md).
 
@@ -50,7 +52,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
-3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.8-debug`**.
+3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.9-debug`**.
 4. Extraia `app-debug.apk` do ZIP e instale-o.
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.

@@ -6,7 +6,12 @@ import java.net.URLEncoder
 import br.com.meutreino.domain.ExerciseCatalog
 import br.com.meutreino.domain.ExerciseVideoDiscoveryCatalog
 import br.com.meutreino.domain.ExerciseVideoCandidateCatalog
+import android.util.Log
+import android.graphics.Color
 import android.webkit.WebChromeClient
+import android.webkit.WebResourceError
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.*
@@ -29,6 +34,8 @@ fun ExerciseVideoControl(exerciseId: String) {
         ExerciseVideoCatalog.forExercise(exerciseId)
     }
     var open by remember(exerciseId) { mutableStateOf(false) }
+    var playbackError by remember(exerciseId) { mutableStateOf<String?>(null) }
+    var reloadCount by remember(exerciseId) { mutableIntStateOf(0) }
     if (video == null) {
         val name = ExerciseCatalog.byId(exerciseId)?.name ?: exerciseId
         val candidate = ExerciseVideoCandidateCatalog.forExercise(exerciseId)
@@ -63,44 +70,77 @@ fun ExerciseVideoControl(exerciseId: String) {
     if (video.clipped) Subtext("Trecho selecionado do vídeo original.")
     if (video.verification != "visually_reviewed")
         Subtext("Vídeo associado pelo título ou descrição; técnica ainda pendente de revisão visual.")
-    // Não criamos cópia de material de terceiros; o player é servido pelo YouTube.
-    key(video.exerciseId, video.youtubeId, video.startSeconds, video.endSeconds) {
-        val currentView = remember { arrayOfNulls<WebView>(1) }
-        DisposableEffect(Unit) {
-            onDispose {
-                currentView[0]?.apply {
-                    stopLoading()
-                    loadUrl("about:blank")
-                    destroy()
+    // Reprodução sob demanda no player oficial incorporado do YouTube.
+    // Uma página HTML com base HTTPS fornece a origem (Referer) do aplicativo.
+    // O antigo loadUrl direto com Referer android-app:// falhava em alguns WebViews.
+    if (playbackError == null) {
+        key(video.exerciseId, video.youtubeId, video.startSeconds, video.endSeconds, reloadCount) {
+            AndroidView(
+                modifier = Modifier.fillMaxWidth().height(220.dp),
+                factory = { appContext ->
+                    WebView(appContext).also { view ->
+                        view.setBackgroundColor(Color.BLACK)
+                        view.settings.javaScriptEnabled = true
+                        view.settings.domStorageEnabled = true
+                        view.settings.mediaPlaybackRequiresUserGesture = true
+                        view.settings.allowFileAccess = false
+                        view.settings.allowContentAccess = false
+                        view.webChromeClient = WebChromeClient()
+                        view.webViewClient = object : WebViewClient() {
+                            override fun onReceivedError(
+                                view: WebView?, request: WebResourceRequest?, error: WebResourceError?
+                            ) {
+                                if (request != null && error != null &&
+                                    (request.isForMainFrame || YoutubeEmbedPage.isEmbedRequest(request.url.toString()))
+                                ) {
+                                    val detail = "Erro WebView ${error.errorCode}: ${error.description}"
+                                    Log.e("MeuTreinoVideos", "$detail (${request.url})")
+                                    playbackError = detail
+                                }
+                            }
+
+                            override fun onReceivedHttpError(
+                                view: WebView?, request: WebResourceRequest?, errorResponse: WebResourceResponse?
+                            ) {
+                                if (request != null && errorResponse != null &&
+                                    YoutubeEmbedPage.isEmbedRequest(request.url.toString())
+                                ) {
+                                    val detail = "Erro HTTP ${errorResponse.statusCode} ao carregar o YouTube"
+                                    Log.e("MeuTreinoVideos", "$detail (${request.url})")
+                                    playbackError = detail
+                                }
+                            }
+                        }
+                        view.loadDataWithBaseURL(
+                            YoutubeEmbedPage.baseUrl(appContext.packageName),
+                            YoutubeEmbedPage.html(video.embedUrl),
+                            "text/html",
+                            "UTF-8",
+                            null
+                        )
+                    }
+                },
+                onRelease = { view ->
+                    view.stopLoading()
+                    view.loadUrl("about:blank")
+                    view.destroy()
                 }
-                currentView[0] = null
-            }
+            )
         }
-        AndroidView(
-            modifier = Modifier.fillMaxWidth().height(220.dp),
-            factory = { appContext ->
-                WebView(appContext).also { view ->
-                    view.settings.javaScriptEnabled = true
-                    view.settings.domStorageEnabled = true
-                    view.settings.mediaPlaybackRequiresUserGesture = true
-                    view.webChromeClient = WebChromeClient()
-                    view.webViewClient = WebViewClient()
-                    // Identifica o aplicativo ao YouTube, conforme as regras de embeds em WebView.
-                    view.loadUrl(
-                        video.embedUrl,
-                        mapOf("Referer" to "android-app://${appContext.packageName}")
-                    )
-                    currentView[0] = view
-                }
-            }
-        )
+    } else {
+        Subtext("Não foi possível abrir o player incorporado neste dispositivo.")
+        Subtext("Diagnóstico: ${playbackError}")
+        OutlineButton("Tentar novamente", onClick = {
+            playbackError = null
+            reloadCount += 1
+        })
     }
     OutlineButton("Abrir original no YouTube", onClick = {
         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(video.watchUrl)))
     })
     AdditionalVideoOptions(exerciseId)
-    OutlineButton("Fechar demonstração", onClick = { open = false })
-    Subtext("Se o criador bloquear a incorporação, use 'Abrir original no YouTube'. Requer internet.")
+    OutlineButton("Fechar demonstração", onClick = { open = false; playbackError = null })
+    Subtext("Se o player incorporado falhar, use 'Abrir original no YouTube'. Requer internet e WebView atualizado.")
 }
 
 
