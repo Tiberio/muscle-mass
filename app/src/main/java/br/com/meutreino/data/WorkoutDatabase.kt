@@ -7,6 +7,8 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Delete
 import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.RoomDatabase
@@ -18,6 +20,7 @@ import kotlinx.coroutines.flow.Flow
 data class WorkoutSessionEntity(
     @PrimaryKey(autoGenerate=true) val id: Long = 0,
     val planId: String,
+    val planVersionId: Long? = null,
     val title: String,
     val environment: String,
     val startedAt: Long,
@@ -60,7 +63,36 @@ data class WeightMeasurementEntity(
     val source: String
 )
 
+/** Medidas inseridas pelo usuário; nunca inferir circunferência a partir de peso. */
+@Entity(tableName="body_measurements", indices=[Index(value=["site", "recordedAt"])])
+data class BodyMeasurementEntity(
+    @PrimaryKey(autoGenerate=true) val id: Long = 0,
+    val recordedAt: Long,
+    val site: String,
+    val centimeters: Double,
+    val source: String = "manual"
+)
+
+/** Versões imutáveis do plano gerado, com conteúdo textual para consulta offline. */
+@Entity(tableName="plan_versions", indices=[Index(value=["fingerprint"], unique=true)])
+data class PlanVersionEntity(
+    @PrimaryKey(autoGenerate=true) val id: Long = 0,
+    val createdAt: Long,
+    val fingerprint: String,
+    val content: String,
+    val reason: String
+)
+
 @Dao interface WorkoutDao {
+    @Insert suspend fun insertBodyMeasurement(measurement: BodyMeasurementEntity): Long
+    @Delete suspend fun deleteBodyMeasurement(measurement: BodyMeasurementEntity)
+    @Query("SELECT * FROM body_measurements ORDER BY recordedAt DESC, id DESC")
+    fun observeBodyMeasurements(): Flow<List<BodyMeasurementEntity>>
+    @Insert(onConflict=OnConflictStrategy.IGNORE) suspend fun insertPlanVersion(version: PlanVersionEntity): Long
+    @Query("SELECT * FROM plan_versions WHERE fingerprint=:fingerprint LIMIT 1")
+    suspend fun findPlanVersion(fingerprint: String): PlanVersionEntity?
+    @Query("SELECT * FROM plan_versions ORDER BY createdAt DESC, id DESC")
+    fun observePlanVersions(): Flow<List<PlanVersionEntity>>
     @Insert suspend fun insertWeight(measurement: WeightMeasurementEntity): Long
     @Query("SELECT * FROM weight_measurements ORDER BY recordedAt DESC, id DESC")
     fun observeWeights(): Flow<List<WeightMeasurementEntity>>
@@ -83,7 +115,7 @@ data class WeightMeasurementEntity(
     fun observeAllSets(): Flow<List<WorkoutSetEntity>>
 }
 
-@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class,WeightMeasurementEntity::class],version=3,exportSchema=false)
+@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class,WeightMeasurementEntity::class,BodyMeasurementEntity::class,PlanVersionEntity::class],version=4,exportSchema=false)
 abstract class WorkoutDatabase: RoomDatabase() {
     abstract fun dao(): WorkoutDao
 }
@@ -102,5 +134,17 @@ val MIGRATION_2_3 = object: Migration(2,3) {
     override fun migrate(db: SupportSQLiteDatabase) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `weight_measurements` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `recordedAt` INTEGER NOT NULL, `kilograms` REAL NOT NULL, `source` TEXT NOT NULL)")
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_weight_measurements_recordedAt` ON `weight_measurements` (`recordedAt`)")
+    }
+}
+
+
+/** v0.5.0: migração aditiva 3→4; não apaga sessões, séries, cardio nem pesagens. */
+val MIGRATION_3_4 = object: Migration(3,4) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE sessions ADD COLUMN planVersionId INTEGER")
+        db.execSQL("CREATE TABLE IF NOT EXISTS `body_measurements` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `recordedAt` INTEGER NOT NULL, `site` TEXT NOT NULL, `centimeters` REAL NOT NULL, `source` TEXT NOT NULL)")
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_body_measurements_site_recordedAt` ON `body_measurements` (`site`, `recordedAt`)")
+        db.execSQL("CREATE TABLE IF NOT EXISTS `plan_versions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `createdAt` INTEGER NOT NULL, `fingerprint` TEXT NOT NULL, `content` TEXT NOT NULL, `reason` TEXT NOT NULL)")
+        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_plan_versions_fingerprint` ON `plan_versions` (`fingerprint`)")
     }
 }

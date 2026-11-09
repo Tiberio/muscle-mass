@@ -120,3 +120,12 @@ O `exercise_videos.json` mantém 44 demonstrações existentes em `videos`, 60 l
 ## Vídeos demonstrativos — v0.4.6
 
 Após revisão manual do usuário no site, os 60 candidatos da v0.4.5 foram promovidos ao player do aplicativo: 45 vídeos integrais (até 40 segundos) e 15 trechos revisados de até 40 segundos. Há agora **104 vídeos no player**, nenhum candidato restante e **130 exercícios com busca específica**. Os 44 vídeos anteriores foram preservados. Consulte [docs/ALTERACOES_v0.4.6.md](docs/ALTERACOES_v0.4.6.md).
+
+## v0.5.0 — Evolução e avaliação corporal
+
+- **Plano → Explorar biblioteca → Ver orientações:** um único botão **Abrir vídeo no Youtube**. Não há mais player WebView experimental.
+- **Histórico → Evolução:** séries reais, cargas, repetições, RIR, gráficos e exposição por grupo muscular.
+- **Histórico → Medidas:** circunferências manuais, histórico, gráficos e exclusão com confirmação.
+- **Histórico → Fichas:** registro persistente de versões, tempo e sessões reais por versão (novas sessões).
+- **Migração Room 3→4** aditiva, sem perda intencional dos dados existentes. Para atualizar, **não desinstale** a versão anterior.
+- Implementação do motor de revisão inteligente/80% fica para v0.6.0. Ver `docs/ALTERACOES_v0.5.0.md`.

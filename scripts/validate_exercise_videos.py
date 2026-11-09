@@ -78,7 +78,7 @@ for i, entry in enumerate(searches):
 assert len(search_ids) == 1 and 'cablechest' in search_ids, 'Somente supino em pé nos cabos permanece sem demonstração aprovada'
 assert seen|candidate_ids|search_ids==ids, (len(seen),len(candidate_ids),len(search_ids),len(ids),'Falta cobertura')
 assert not(seen & search_ids or seen & candidate_ids or candidate_ids & search_ids)
-print(f'CATALOGO OK: {len(seen)} vídeos no player, {len(alternatives)} links externos não revisados, {len(candidate_ids)} candidatos, {len(search_ids)} buscas, {clips} trechos; {len(ids)} exercícios no total')
+print(f'CATALOGO OK: {len(seen)} vídeos principais, {len(alternatives)} links externos não revisados, {len(candidate_ids)} candidatos, {len(search_ids)} buscas, {clips} trechos; {len(ids)} exercícios no total')
 
 # Regressão v0.4.8: um catálogo íntegro não basta se a UI continuar usando
 # o campo legado Exercise.youtubeVideoId. Isso causou a falha da v0.4.7.
@@ -94,23 +94,11 @@ assert 'ExerciseVideoAssetRepository.ensureLoaded' in ui_player, 'Player não ca
 assert 'exercise_videos.json' in repository, 'Repositório não utiliza o asset de vídeos'
 print('INTEGRACAO UI OK: biblioteca -> ExerciseVideoControl -> catálogo JSON')
 
-# Regressão v0.4.9: player incorporado deve ter origem HTTPS e fallback explícito.
-embed_source=(root/'app/src/main/java/br/com/meutreino/ui/YoutubeEmbedPage.kt').read_text(encoding='utf-8')
-assert 'loadDataWithBaseURL(' in ui_player, 'Player não usa página HTML com base de origem HTTPS'
-assert 'YoutubeEmbedPage.baseUrl(appContext.packageName)' in ui_player
-assert 'YoutubeEmbedPage.html(video.embedUrl)' in ui_player
-assert 'view.loadUrl(\n                        video.embedUrl' not in ui_player, 'Não usar abertura direta do embed sem base HTTPS'
-assert 'referrerpolicy=\"strict-origin\"' in embed_source, 'HTML precisa fornecer Referrer válido'
-assert 'onReceivedError(' in ui_player and 'onReceivedHttpError(' in ui_player
-assert 'Abrir original no YouTube' in ui_player, 'Fallback externo obrigatório'
-print('PLAYER WEBVIEW OK: HTML com base HTTPS + diagnostico de falhas + fallback externo')
-
-# Regressão v0.4.10: o primeiro botão de demonstração não pode abrir o WebView.
-assert 'openEmbeddedInCustomTab(context, video.embedUrl, video.watchUrl)' in ui_player, 'Falta abrir Custom Tabs no botão principal'
-assert 'Intent.EXTRA_REFERRER' in ui_player, 'Custom Tabs deve identificar o aplicativo ao YouTube'
-assert 'android-app://${context.packageName}' in ui_player, 'Referer do app ausente'
-assert 'Testar player incorporado (experimental)' in ui_player
-assert 'onClick = { open = true }' not in ui_player, 'Botão principal voltou ao WebView sujeito a erro'
-assert 'Abrir original no YouTube' in ui_player, 'É obrigatório manter fallback oficial'
-assert 'implementation("androidx.browser:browser:1.9.0")' in (root/'app/build.gradle.kts').read_text(encoding='utf-8')
-print('REPRODUCAO OK: demonstração por Custom Tabs com Referer; WebView apenas experimental e fallback externo preservado')
+# v0.5.0: um único botão do vídeo principal deve abrir no YouTube.
+assert 'openYoutube(context, video.watchUrl)' in ui_player, 'Vídeo principal deve abrir por ACTION_VIEW'
+assert 'Abrir vídeo no Youtube' in ui_player, 'Botão único de abertura não encontrado'
+for forbidden in ('Ver demonstração', 'Abrir original no YouTube', 'Testar player incorporado (experimental)', 'WebView(', 'AndroidView('):
+    assert forbidden not in ui_player, f'UI contém o antigo player experimental: {forbidden}'
+assert 'AdditionalVideoOptions(exerciseId)' in ui_player, 'Opções alternativas desaparecidas'
+assert 'ExerciseVideoAssetRepository.ensureLoaded' in ui_player, 'Não carregou vídeos do JSON'
+print('VIDEO UI v0.5.0 OK: apenas YouTube externo, sem WebView experimental')

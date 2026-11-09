@@ -7,6 +7,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import br.com.meutreino.MainViewModel
 import br.com.meutreino.data.WeightMeasurementEntity
+import br.com.meutreino.data.BodyMeasurementEntity
+import br.com.meutreino.data.PlanVersionEntity
 import br.com.meutreino.devices.HealthConnectGateway
 import br.com.meutreino.devices.HealthSnapshot
 import androidx.compose.foundation.layout.*
@@ -34,7 +36,10 @@ import java.util.Locale
 @Composable fun HistoryScreen(sessions:List<WorkoutSessionEntity>,sets:List<WorkoutSetEntity>,
     cardio:List<CardioActivityEntity>,onDelete:(Long,()->Unit)->Unit,
     onAddCardio:(Int,String,String,()->Unit)->Unit,
-    weights:List<WeightMeasurementEntity>,health:HealthSnapshot?){
+    weights:List<WeightMeasurementEntity>,health:HealthSnapshot?,
+    bodyMeasurements:List<BodyMeasurementEntity>, planVersions:List<PlanVersionEntity>,
+    onAddBody:(String,Double,()->Unit)->Unit,
+    onDeleteBody:(BodyMeasurementEntity,()->Unit)->Unit){
     var section by remember{mutableStateOf("Sessões")}
     var deleteConfirm by remember{mutableStateOf(false)}
     var manualMinutes by remember{mutableStateOf("")}
@@ -47,8 +52,11 @@ import java.util.Locale
     val formatter=remember{SimpleDateFormat("dd/MM/yyyy HH:mm",Locale("pt","BR"))}
     Column(Modifier.fillMaxSize().padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)){
         Title("Histórico")
-        Row(horizontalArrangement=Arrangement.spacedBy(8.dp)){
-            listOf("Sessões","Evolução","Saúde").forEach{v->Choice(v,section==v,{section=v;selectedSession=null},Modifier.weight(1f))}
+        Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+            horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+            listOf("Sessões","Evolução","Medidas","Fichas","Saúde").forEach { v ->
+                Choice(v,section==v,{section=v;selectedSession=null})
+            }
         }
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
             when(section){
@@ -77,24 +85,9 @@ import java.util.Locale
                         }}
                     }
                 }
-                "Evolução" -> {
-                    Subtext("Progressão baseada somente em séries realmente registradas.")
-                    val byExercise=sets.groupBy{it.exerciseName}
-                    if(byExercise.isEmpty())Pane{Subtext("Registre algumas sessões para começar a visualizar sua progressão.")}
-                    byExercise.keys.sorted().forEach{name->Pane{
-                        Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
-                            Text(name,modifier=Modifier.weight(1f))
-                            TextButton(onClick={selectedExercise=if(selectedExercise==name)null else name}){Text("Detalhes")}
-                        }
-                        val values=byExercise[name].orEmpty()
-                        Subtext("${values.size} séries · última carga: ${values.maxByOrNull{it.recordedAt}?.loadKg?.toString()?:"—"} kg")
-                        if(selectedExercise==name){
-                            values.sortedBy{it.recordedAt}.takeLast(12).forEach{set->
-                                Subtext("${formatter.format(Date(set.recordedAt))}: ${set.repetitions} reps · ${set.loadKg?.let{"$it kg"}?:"sem carga registrada"}")
-                            }
-                        }
-                    }}
-                }
+                "Evolução" -> PerformancePanel(sessions,sets)
+                "Medidas" -> BodyMeasurementsPanel(bodyMeasurements,onAddBody,onDeleteBody)
+                "Fichas" -> PlanVersionsPanel(planVersions,sessions,sets)
                 else -> {
                     Pane{
                         Text("Dados de saúde",color=LightBlue)

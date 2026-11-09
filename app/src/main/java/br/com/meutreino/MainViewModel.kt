@@ -8,6 +8,9 @@ import br.com.meutreino.data.SettingsStore
 import br.com.meutreino.data.CardioActivityEntity
 import br.com.meutreino.data.MIGRATION_1_2
 import br.com.meutreino.data.MIGRATION_2_3
+import br.com.meutreino.data.MIGRATION_3_4
+import br.com.meutreino.data.BodyMeasurementEntity
+import br.com.meutreino.data.PlanVersionEntity
 import br.com.meutreino.data.WeightMeasurementEntity
 import br.com.meutreino.devices.HealthConnectGateway
 import br.com.meutreino.devices.HealthSnapshot
@@ -21,6 +24,7 @@ import br.com.meutreino.data.WorkoutSessionEntity
 import br.com.meutreino.data.WorkoutSetEntity
 import br.com.meutreino.domain.ExerciseCatalog
 import br.com.meutreino.domain.UserPrefs
+import br.com.meutreino.domain.PlanVersionSnapshot
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -32,7 +36,7 @@ import kotlinx.coroutines.sync.withLock
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     private val store = SettingsStore(application)
-    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2,MIGRATION_2_3).build()
+    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2,MIGRATION_2_3,MIGRATION_3_4).build()
     private val dao = db.dao()
     private val health = HealthConnectGateway(application)
     val scaleScanner = MiScaleScanner(application)
@@ -41,6 +45,8 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     val healthMessage = MutableStateFlow("Acesso opcional. Você controla as permissões no Android.")
     val healthBusy = MutableStateFlow(false)
     val weightHistory = dao.observeWeights().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val bodyMeasurements = dao.observeBodyMeasurements().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val planVersions = dao.observePlanVersions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     private val writeLock = Mutex()
     val prefs: StateFlow<UserPrefs?> = store.data.stateIn(viewModelScope,SharingStarted.Eagerly,null)
     val sessions = dao.observeSessions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
@@ -50,11 +56,35 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     val temporaryEnvironment=MutableStateFlow<String?>(null)
     val showMessage=MutableStateFlow<String?>(null)
 
-    init { viewModelScope.launch { activeSession.value=dao.activeSession() } }
+    init {
+        viewModelScope.launch {
+            activeSession.value=dao.activeSession()
+            // Criar a primeira versão somente a partir de agora para perfis pré-v0.5.0.
+            val existingPrefs = store.data.first()
+            if (existingPrefs.planAccepted) ensurePlanVersion(existingPrefs, existingPrefs.defaultEnvironment, "Ficha existente ao atualizar")
+        }
+    }
+
+    private suspend fun ensurePlanVersion(p: UserPrefs, environment: String, reason: String): Long {
+        val env = environment.ifBlank { p.environments.firstOrNull() ?: "Casa sem equipamentos" }
+        val content = PlanVersionSnapshot.content(p, env)
+        val fingerprint = PlanVersionSnapshot.fingerprint(content)
+        dao.findPlanVersion(fingerprint)?.let { return it.id }
+        val inserted = dao.insertPlanVersion(PlanVersionEntity(
+            createdAt=System.currentTimeMillis(), fingerprint=fingerprint, content=content, reason=reason
+        ))
+        return if(inserted > 0L) inserted else dao.findPlanVersion(fingerprint)?.id
+            ?: error("Não foi possível registrar a versão da ficha")
+    }
     private fun current(): UserPrefs = prefs.value ?: UserPrefs()
     fun edit(change:(UserPrefs)->UserPrefs) {
         viewModelScope.launch { // serializar alterações evita sobrescrever taps consecutivos
-            writeLock.withLock { store.save(change(store.data.first())) }
+            writeLock.withLock {
+                val before = store.data.first()
+                val updated = change(before)
+                store.save(updated)
+                if (updated.planAccepted) ensurePlanVersion(updated, updated.defaultEnvironment, "Plano aprovado ou editado")
+            }
         }
     }
     fun patch(change:(UserPrefs)->UserPrefs) = edit { change(it).copy(planAccepted=false) }
@@ -77,7 +107,12 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch {
             val existing=dao.activeSession()
             if(existing!=null) { activeSession.value=existing;onStarted(existing.id);return@launch }
-            val id=dao.insertSession(WorkoutSessionEntity(planId=planId,title=title,environment=environment,startedAt=System.currentTimeMillis()))
+            val activePrefs = store.data.first()
+            val version = ensurePlanVersion(activePrefs, environment, "Ficha utilizada em sessão")
+            val id=dao.insertSession(WorkoutSessionEntity(
+                planId=planId,planVersionId=version,title=title,environment=environment,
+                startedAt=System.currentTimeMillis()
+            ))
             activeSession.value=dao.activeSession()
             onStarted(id)
         }
@@ -110,6 +145,19 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             dao.insertCardio(CardioActivityEntity(UUID.randomUUID().toString(),System.currentTimeMillis(),minutes,intensity,modality))
             onSaved()
         }
+    }
+    fun addBodyMeasurement(site: String, centimeters: Double, onSaved: ()->Unit) {
+        if (site !in br.com.meutreino.domain.BodyMeasurementRules.sites ||
+            !br.com.meutreino.domain.BodyMeasurementRules.valid(centimeters)) return
+        viewModelScope.launch {
+            dao.insertBodyMeasurement(BodyMeasurementEntity(
+                recordedAt=System.currentTimeMillis(), site=site, centimeters=centimeters, source="manual"
+            ))
+            onSaved()
+        }
+    }
+    fun deleteBodyMeasurement(item: BodyMeasurementEntity, onDone: ()->Unit) {
+        viewModelScope.launch { dao.deleteBodyMeasurement(item); onDone() }
     }
     fun healthAvailable(): Boolean = try {
         HealthConnectGateway.available(getApplication())
