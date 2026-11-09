@@ -104,3 +104,13 @@ assert 'referrerpolicy=\"strict-origin\"' in embed_source, 'HTML precisa fornece
 assert 'onReceivedError(' in ui_player and 'onReceivedHttpError(' in ui_player
 assert 'Abrir original no YouTube' in ui_player, 'Fallback externo obrigatório'
 print('PLAYER WEBVIEW OK: HTML com base HTTPS + diagnostico de falhas + fallback externo')
+
+# Regressão v0.4.10: o primeiro botão de demonstração não pode abrir o WebView.
+assert 'openEmbeddedInCustomTab(context, video.embedUrl, video.watchUrl)' in ui_player, 'Falta abrir Custom Tabs no botão principal'
+assert 'Intent.EXTRA_REFERRER' in ui_player, 'Custom Tabs deve identificar o aplicativo ao YouTube'
+assert 'android-app://${context.packageName}' in ui_player, 'Referer do app ausente'
+assert 'Testar player incorporado (experimental)' in ui_player
+assert 'onClick = { open = true }' not in ui_player, 'Botão principal voltou ao WebView sujeito a erro'
+assert 'Abrir original no YouTube' in ui_player, 'É obrigatório manter fallback oficial'
+assert 'implementation("androidx.browser:browser:1.9.0")' in (root/'app/build.gradle.kts').read_text(encoding='utf-8')
+print('REPRODUCAO OK: demonstração por Custom Tabs com Referer; WebView apenas experimental e fallback externo preservado')

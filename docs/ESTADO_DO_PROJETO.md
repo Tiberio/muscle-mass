@@ -1,3 +1,5 @@
+**Status v0.4.10:** reprodução padrão via Custom Tabs, player WebView experimental; validação real pendente.
+
 # Estado do Meu Treino — 20/10/2026
 
 - v0.1.1: primeira versão compilada e instalada.

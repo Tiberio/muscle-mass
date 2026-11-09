@@ -1,7 +1,11 @@
 package br.com.meutreino.ui
 
+import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
+import androidx.browser.customtabs.CustomTabsIntent
 import java.net.URLEncoder
 import br.com.meutreino.domain.ExerciseCatalog
 import br.com.meutreino.domain.ExerciseVideoDiscoveryCatalog
@@ -62,17 +66,36 @@ fun ExerciseVideoControl(exerciseId: String) {
         return
     }
     if (!open) {
-        OutlineButton("▶ Ver demonstração", onClick = { open = true })
+        // Caminho principal: aba de navegador vinculada ao app (Custom Tabs),
+        // recomendado pelo YouTube. Evita o WebView que falhou nos testes reais.
+        OutlineButton("▶ Ver demonstração", onClick = {
+            openEmbeddedInCustomTab(context, video.embedUrl, video.watchUrl)
+        })
+        OutlineButton("Abrir original no YouTube", onClick = {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(video.watchUrl)))
+        })
+        if (video.clipped) {
+            val beginning = formatVideoTime(video.startSeconds)
+            val ending = video.endSeconds?.let(::formatVideoTime)
+            Subtext("Trecho recomendado: $beginning${ending?.let { " até $it" } ?: " em diante"}. " +
+                "A abertura pelo YouTube pode não encerrar automaticamente no tempo final.")
+        }
+        Subtext("A demonstração abre em uma aba do navegador, permitindo voltar ao treino. " +
+            "O player incorporado na tela continua disponível apenas para diagnóstico.")
         AdditionalVideoOptions(exerciseId)
+        OutlineButton("Testar player incorporado (experimental)", onClick = {
+            playbackError = null
+            open = true
+        })
         return
     }
     Subtext("Demonstração: ${video.title} · ${video.author}")
     if (video.clipped) Subtext("Trecho selecionado do vídeo original.")
     if (video.verification != "visually_reviewed")
         Subtext("Vídeo associado pelo título ou descrição; técnica ainda pendente de revisão visual.")
-    // Reprodução sob demanda no player oficial incorporado do YouTube.
+    // Modo experimental: WebView em tela, preservado para diagnóstico.
     // Uma página HTML com base HTTPS fornece a origem (Referer) do aplicativo.
-    // O antigo loadUrl direto com Referer android-app:// falhava em alguns WebViews.
+    // Algumas instalações Android falham neste modo; Custom Tabs é o padrão.
     if (playbackError == null) {
         key(video.exerciseId, video.youtubeId, video.startSeconds, video.endSeconds, reloadCount) {
             AndroidView(
@@ -169,3 +192,30 @@ private fun AdditionalVideoOptions(exerciseId: String) {
         }
     }
 }
+
+
+/** Abre o player oficial em aba Custom Tabs com a identidade do aplicativo.
+ * Técnica descrita pelo YouTube: Intent.EXTRA_REFERRER com android-app://<package>.
+ * Se não houver navegador adequado, retorna ao link original, já testado no celular.
+ */
+private fun openEmbeddedInCustomTab(context: Context, embedUrl: String, watchUrl: String) {
+    try {
+        val tab = CustomTabsIntent.Builder()
+            .setShareState(CustomTabsIntent.SHARE_STATE_OFF)
+            .build()
+        tab.intent.putExtra(
+            Intent.EXTRA_REFERRER, Uri.parse("android-app://${context.packageName}")
+        )
+        tab.launchUrl(context, Uri.parse(embedUrl))
+    } catch (error: Exception) {
+        Log.w("MeuTreinoVideos", "Custom Tabs não abriu; usando YouTube original", error)
+        try {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(watchUrl)))
+        } catch (fallbackError: ActivityNotFoundException) {
+            Log.e("MeuTreinoVideos", "Nenhum aplicativo disponível para visualizar o vídeo", fallbackError)
+            Toast.makeText(context, "Não há navegador ou YouTube disponível para abrir o vídeo.", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+private fun formatVideoTime(seconds: Int): String = "%02d:%02d".format(seconds / 60, seconds % 60)

@@ -2,6 +2,8 @@
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
+**v0.4.10:** A demonstração usa por padrão uma aba de navegador (Custom Tabs), com identificação de origem exigida pelo YouTube. A reprodução no WebView está disponível apenas como teste experimental; o original no YouTube permanece acessível. Consulte [alterações v0.4.10](docs/ALTERACOES_v0.4.10.md).
+
 **Novidade v0.4.9:** tentativa de correção de reprodução incorporada no Android WebView. A página HTML do player agora é carregada com origem HTTPS e oferece mensagens de diagnóstico e recarga. A opção externa para YouTube permanece. Consulte [alterações v0.4.9](docs/ALTERACOES_v0.4.9.md).
 
 **Base v0.4.8:** correção de integração entre a tela **Ver orientações** e o player de vídeos. O pacote anterior não havia incluído `ExerciseLibraryPanel.kt` ao enviar arquivos alterados ao GitHub. O teste de validação agora exige a ligação da interface ao catálogo. Nenhum dado do usuário nem regra de treino foram alterados. Consulte [alterações v0.4.8](docs/ALTERACOES_v0.4.8.md).

@@ -12,8 +12,8 @@ android {
         applicationId = "br.com.meutreino"
         minSdk = 26
         targetSdk = 35
-        versionCode = 16
-        versionName = "0.4.9"
+        versionCode = 17
+        versionName = "0.4.10"
     }
     buildFeatures { compose = true }
     compileOptions {
@@ -31,6 +31,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.activity:activity-compose:1.13.0")
+    implementation("androidx.browser:browser:1.9.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
     implementation("androidx.datastore:datastore-preferences:1.2.1")
