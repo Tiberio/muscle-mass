@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import br.com.meutreino.MainViewModel
+import br.com.meutreino.domain.ReviewSnapshotBuilder
 import br.com.meutreino.domain.TrainingPlanner
 import br.com.meutreino.domain.UserPrefs
 
@@ -27,8 +28,12 @@ import br.com.meutreino.domain.UserPrefs
     val weights by vm.weightHistory.collectAsState()
     val bodyMeasurements by vm.bodyMeasurements.collectAsState()
     val planVersions by vm.planVersions.collectAsState()
+    val bodyGoals by vm.bodyGoals.collectAsState()
+    val recoveryCheckIns by vm.recoveryCheckIns.collectAsState()
     val healthSnapshot by vm.healthSnapshot.collectAsState()
     val plan=remember(p){TrainingPlanner.build(p)}
+    val reviewEarlyNotice = ReviewSnapshotBuilder.prepare(p,planVersions,sessions,allSets,
+        recoveryCheckIns,bodyGoals,bodyMeasurements,"VARIEDADE")?.second?.eligibleForEarlyReview == true
     
     val showTabs=p.onboardingCompleted&&p.planAccepted&&page=="main"
     val message by vm.showMessage.collectAsState()
@@ -49,6 +54,7 @@ import br.com.meutreino.domain.UserPrefs
                 !p.planAccepted && page!="workout" -> PlanProposal(plan,p,onAccept={vm.acceptPlan();page="main"},onEdit={
                     wizardTarget="review";editFromProfile=false;page="wizard"
                 },onOverride=vm::changeExercise)
+                page=="review" -> ReviewScreen(vm,p,onBack={page="main";tab="Plano"})
                 page=="workout" && active!=null -> WorkoutScreen(vm, p,active!!,plan,allSets.filter{it.sessionId==active!!.id},
                     onExit={page="main"},onFinished={page="main";tab="Histórico"})
                 else -> when(tab){
@@ -57,11 +63,12 @@ import br.com.meutreino.domain.UserPrefs
                         val env=temporary ?: p.defaultEnvironment.ifBlank {p.environments.firstOrNull()?:"Casa sem equipamentos"}
                         vm.start(s.id,s.title,env){page="workout"}
                     },onResume={page="workout"})
-                    "Plano" -> PlanScreen(p,plan,onChangeDay={id,day->vm.changeAssignment(id,day)},onOverride={id,ex,replacement->vm.changeExercise(id,ex,replacement)},onRefresh={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
+                    "Plano" -> PlanScreen(p,plan,onChangeDay={id,day->vm.changeAssignment(id,day)},onOverride={id,ex,replacement->vm.changeExercise(id,ex,replacement)},onRefresh={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}},onReview={page="review"},reviewNotice=reviewEarlyNotice)
                     "Histórico" -> HistoryScreen(
                         sessions,allSets,cardioRecords,vm::deleteSession,vm::addManualCardio,
-                        weights,healthSnapshot,bodyMeasurements,planVersions,
-                        vm::addBodyMeasurement,vm::deleteBodyMeasurement
+                        weights,healthSnapshot,bodyMeasurements,planVersions,bodyGoals,
+                        vm::addBodyMeasurement,vm::deleteBodyMeasurement,
+                        vm::setBodyGoal,vm::removeBodyGoal
                     )
                     "Dispositivos" -> DeviceScreen(p,vm)
                     else -> ProfileScreen(p,onEdit={ target ->wizardTarget=target;editFromProfile=true;page="wizard" },onResetPlan={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})

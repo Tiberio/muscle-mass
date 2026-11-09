@@ -69,7 +69,7 @@ import java.time.temporal.TemporalAdjusters
     onChangeToday:(String?)->Unit,onStart:(PlannedSession)->Unit,onResume:()->Unit
 ){
     val env=temporary?:p.defaultEnvironment.ifBlank{p.environments.firstOrNull()?:"Casa sem equipamentos"}
-    val actualPlan=remember(p,env){TrainingPlanner.build(p.copy(defaultEnvironment=env))}
+    val actualPlan=remember(p,env){EffectiveTrainingPlan.build(p,env)}
     val now=LocalDate.now()
     val todayLabel=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")[now.dayOfWeek.value-1]
     val weekStart=now.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY))
@@ -142,7 +142,7 @@ import java.time.temporal.TemporalAdjusters
 }
 
 @Composable fun PlanScreen(p:UserPrefs,plan:TrainingPlan,onChangeDay:(String,String)->Unit,
-    onOverride:(String,String,String)->Unit,onRefresh:()->Unit){
+    onOverride:(String,String,String)->Unit,onRefresh:()->Unit,onReview:()->Unit,reviewNotice:Boolean){
     var selected by remember {mutableStateOf<String?>(null)}
     var showBalance by remember{mutableStateOf(false)}
     var showLibrary by remember { mutableStateOf(false) }
@@ -220,6 +220,10 @@ import java.time.temporal.TemporalAdjusters
                         Subtext("Cardio leve contribui para a atividade, mas não recebe pontos aeróbicos no IAA 0.2.0.")
                     }
                     OutlineButton("Explorar biblioteca de ${ExerciseCatalog.all.size} exercícios",onClick={showLibrary=true})
+                    if(reviewNotice) Pane { Text("Sua ficha já pode ser reavaliada",color=LightBlue)
+                        Subtext("Um dos marcos de tempo ou execução foi alcançado. Isso não obriga a trocar exercícios.") }
+                    OutlineButton("Solicitar variação da ficha",onClick=onReview)
+                    Subtext("Avaliação por tempo, execuções reais, recuperação e evolução; nenhuma troca ocorre automaticamente.")
                     OutlineButton("Ver equilíbrio muscular",onClick={showBalance=true})
                     OutlineButton("Gerar uma nova proposta",onRefresh)
                 }

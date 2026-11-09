@@ -8,7 +8,7 @@ import java.security.MessageDigest
 object PlanVersionSnapshot {
     fun content(p: UserPrefs, environment: String): String {
         val actual = p.copy(defaultEnvironment = environment)
-        val plan = TrainingPlanner.build(actual)
+        val plan = EffectiveTrainingPlan.build(actual, environment)
         return buildString {
             append("Ambiente: ").append(environment).append('\n')
             append("Objetivo: ").append(p.objective).append('\n')

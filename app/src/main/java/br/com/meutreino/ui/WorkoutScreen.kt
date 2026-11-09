@@ -24,7 +24,7 @@ import kotlinx.coroutines.delay
 
 @Composable fun WorkoutScreen(vm:MainViewModel,p:UserPrefs,active:WorkoutSessionEntity,
     originalPlan:TrainingPlan,logged:List<WorkoutSetEntity>,onExit:()->Unit,onFinished:()->Unit){
-    val envPlan=remember(p,active.environment){TrainingPlanner.build(p.copy(defaultEnvironment=active.environment))}
+    val envPlan=remember(p,active.environment){EffectiveTrainingPlan.build(p,active.environment)}
     val planned=envPlan.sessions.firstOrNull{it.id==active.planId}?.exercises.orEmpty()
     var index by remember(active.id){mutableIntStateOf(0)}
     var resting by remember(active.id){mutableStateOf(false)}
@@ -32,7 +32,6 @@ import kotlinx.coroutines.delay
     var reps by remember(active.id){mutableStateOf("10")}
     var load by remember(active.id){mutableStateOf("")}
     var rir by remember(active.id){mutableStateOf<Int?>(null)}
-    var showVideoHelp by remember{mutableStateOf(false)}
     var cardioMinutes by remember(active.id){mutableStateOf("0")}
     var cardioIntensity by remember(active.id){mutableStateOf("MODERADA")}
     var cardioPage by remember(active.id){mutableStateOf(false)}
@@ -47,13 +46,8 @@ import kotlinx.coroutines.delay
     }
     LaunchedEffect(resting){ while(resting&&seconds>0){delay(1000);seconds--} }
     val pres=planned.getOrNull(index)
-    val base=pres?.exercise
-    val ex=base?.let { baseEx ->
-        val candidate=ExerciseCatalog.byId(p.overrides["${active.planId}:${baseEx.id}"]?:baseEx.id)
-        val allowed=ExerciseCatalog.equivalents(baseEx,active.environment,p.equipments,p.experience)
-        candidate?.takeIf { it in allowed } ?: baseEx
-    }
-    val doneForExercise=base?.let{b->logged.count{it.exerciseId==b.id}}?:0
+    val ex=pres?.exercise
+    val doneForExercise=ex?.let{b->logged.count{it.exerciseId==b.id}}?:0
     val hasLoad=ex?.required?.any{it in setOf("Halteres","Máquinas","Barra e anilhas","Kettlebell")}==true
     fun advance(){
         resting=false;seconds=90;rir=null
@@ -113,15 +107,7 @@ import kotlinx.coroutines.delay
                         if(ex.safetyNote.isNotBlank())Subtext(ex.safetyNote)
                         ex.regressionId?.let { id -> ExerciseCatalog.byId(id)?.let { before -> Subtext("Versão mais fácil: ${before.name}") } }
                         ex.progressionId?.let { id -> ExerciseCatalog.byId(id)?.let { after -> Subtext("Progressão: ${after.name}") } }
-                        if(ex.youtubeVideoId!=null){
-                            PrimaryButton("▶ Ver vídeo no YouTube",onClick={
-                                val url="https://www.youtube.com/watch?v=${ex.youtubeVideoId}"
-                                context.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse(url)))
-                            })
-                        }else{
-                            OutlineButton("Vídeo ainda não cadastrado",onClick={showVideoHelp=!showVideoHelp})
-                            if(showVideoHelp)Subtext("Só adicionaremos vídeos específicos que forem previamente verificados. O registro do treino funciona sem vídeo.")
-                        }
+                        ExerciseVideoControl(ex.id)
                     }
                     Pane {
                         Text("Registre a série realizada",style=MaterialTheme.typography.titleMedium)
@@ -140,7 +126,7 @@ import kotlinx.coroutines.delay
                         val repetitions=reps.toIntOrNull()
                         val numericLoad=load.toDoubleOrNull()
                         PrimaryButton("Concluir série",enabled=repetitions in 1..500 && (!hasLoad||numericLoad!=null&&numericLoad in 0.0..2000.0),onClick={
-                            vm.recordSet(active.id,base!!.id,ex.name,doneForExercise+1,repetitions?:0,if(hasLoad)numericLoad else null,rir){
+                            vm.recordSet(active.id,ex.id,ex.name,doneForExercise+1,repetitions?:0,if(hasLoad)numericLoad else null,rir){
                                 resting=true;seconds=90
                             }
                         })

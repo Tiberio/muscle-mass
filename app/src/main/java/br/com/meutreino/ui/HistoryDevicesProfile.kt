@@ -7,6 +7,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import br.com.meutreino.MainViewModel
 import br.com.meutreino.data.WeightMeasurementEntity
+import br.com.meutreino.data.BodyMeasurementGoalEntity
 import br.com.meutreino.data.BodyMeasurementEntity
 import br.com.meutreino.data.PlanVersionEntity
 import br.com.meutreino.devices.HealthConnectGateway
@@ -38,8 +39,11 @@ import java.util.Locale
     onAddCardio:(Int,String,String,()->Unit)->Unit,
     weights:List<WeightMeasurementEntity>,health:HealthSnapshot?,
     bodyMeasurements:List<BodyMeasurementEntity>, planVersions:List<PlanVersionEntity>,
+    bodyGoals:List<BodyMeasurementGoalEntity>,
     onAddBody:(String,Double,()->Unit)->Unit,
-    onDeleteBody:(BodyMeasurementEntity,()->Unit)->Unit){
+    onDeleteBody:(BodyMeasurementEntity,()->Unit)->Unit,
+    onSaveGoal:(String,Double,Double,()->Unit)->Unit,
+    onDeleteGoal:(BodyMeasurementGoalEntity)->Unit){
     var section by remember{mutableStateOf("Sessões")}
     var deleteConfirm by remember{mutableStateOf(false)}
     var manualMinutes by remember{mutableStateOf("")}
@@ -86,7 +90,7 @@ import java.util.Locale
                     }
                 }
                 "Evolução" -> PerformancePanel(sessions,sets)
-                "Medidas" -> BodyMeasurementsPanel(bodyMeasurements,onAddBody,onDeleteBody)
+                "Medidas" -> BodyMeasurementsPanel(bodyMeasurements,bodyGoals,onAddBody,onDeleteBody,onSaveGoal,onDeleteGoal)
                 "Fichas" -> PlanVersionsPanel(planVersions,sessions,sets)
                 else -> {
                     Pane{

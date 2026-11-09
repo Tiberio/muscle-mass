@@ -3,7 +3,7 @@ import re
 import sqlite3
 from pathlib import Path
 source = (Path(__file__).resolve().parents[1] / 'app/src/main/java/br/com/meutreino/data/WorkoutDatabase.kt').read_text()
-block = source.split('val MIGRATION_3_4 = ',1)[1]
+block = source.split('val MIGRATION_3_4 = ',1)[1].split('val MIGRATION_4_5 = ',1)[0]
 statements = re.findall(r'db\.execSQL\("([^\"]+)"\)',block)
 assert len(statements)==5, f'Esperados cinco comandos SQL, encontrados {len(statements)}'
 conn = sqlite3.connect(':memory:')

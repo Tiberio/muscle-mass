@@ -14,6 +14,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.dp
+import br.com.meutreino.data.BodyMeasurementGoalEntity
+import br.com.meutreino.domain.ReviewEngine
 import br.com.meutreino.data.BodyMeasurementEntity
 import br.com.meutreino.data.PlanVersionEntity
 import br.com.meutreino.data.WorkoutSessionEntity
@@ -124,13 +126,17 @@ fun PerformancePanel(sessions: List<WorkoutSessionEntity>, sets: List<WorkoutSet
 @Composable
 fun BodyMeasurementsPanel(
     items: List<BodyMeasurementEntity>,
+    goals: List<BodyMeasurementGoalEntity>,
     onAdd: (String,Double,()->Unit)->Unit,
-    onDelete: (BodyMeasurementEntity,()->Unit)->Unit
+    onDelete: (BodyMeasurementEntity,()->Unit)->Unit,
+    onSaveGoal: (String,Double,Double,()->Unit)->Unit,
+    onDeleteGoal: (BodyMeasurementGoalEntity)->Unit
 ) {
     var site by remember { mutableStateOf(BodyMeasurementRules.sites.first()) }
     var menuOpen by remember { mutableStateOf(false) }
     var raw by remember { mutableStateOf("") }
     var pendingDelete by remember { mutableStateOf<BodyMeasurementEntity?>(null) }
+    var targetRaw by remember { mutableStateOf("") }
     val parsed = BodyMeasurementRules.parse(raw)
     val valid = parsed!=null && BodyMeasurementRules.valid(parsed)
     Pane {
@@ -172,6 +178,31 @@ fun BodyMeasurementsPanel(
                 Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically) {
                     Text("${day(item.recordedAt)} · ${number(item.centimeters)} cm",modifier=Modifier.weight(1f))
                     TextButton(onClick={pendingDelete=item}) { Text("Excluir") }
+                }
+            }
+        }
+    }
+    Pane {
+        Text("Meta de circunferência (opcional)",color=LightBlue)
+        Subtext("A meta registra a variação desejada de uma circunferência; não determina por si só troca de ficha nem comprova hipertrofia.")
+        val goal=goals.firstOrNull { it.site==site }
+        if(goal!=null) {
+            Subtext("Início: ${number(goal.initialCm)} cm · alvo: ${number(goal.targetCm)} cm")
+            val updated=items.filter { it.site==site && it.recordedAt>=goal.startedAt }.maxByOrNull { it.recordedAt }
+            val progress=updated?.let { ReviewEngine.goalProgress(site,goal.initialCm,goal.targetCm,it.centimeters) }
+            Subtext(if(progress==null) "Registre uma nova medição após definir a meta para acompanhar o progresso."
+                else "Avanço da variação planejada: ${ReviewEngine.pct(progress.fraction)} (não corresponde à porcentagem da circunferência).")
+            OutlineButton("Excluir meta",onClick={onDeleteGoal(goal)})
+        } else {
+            val latest=readings.lastOrNull()
+            if(latest==null) Subtext("Registre primeiro uma medição para definir valor inicial e alvo.")
+            else {
+                Subtext("Medida inicial proposta: ${number(latest.centimeters)} cm (última registrada).")
+                OutlinedTextField(value=targetRaw,onValueChange={targetRaw=it.filter { ch -> ch.isDigit()||ch==','||ch=='.' }.take(8)},
+                    label={Text("Meta em centímetros")},singleLine=true,modifier=Modifier.fillMaxWidth())
+                val desired=BodyMeasurementRules.parse(targetRaw)
+                PrimaryButton("Definir meta",enabled=desired!=null && BodyMeasurementRules.valid(desired) && desired!=latest.centimeters) {
+                    onSaveGoal(site,latest.centimeters,desired!!) { targetRaw="" }
                 }
             }
         }

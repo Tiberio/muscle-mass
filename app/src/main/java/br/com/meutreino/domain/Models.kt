@@ -22,6 +22,9 @@ data class UserPrefs(
     val overrides: Map<String, String> = emptyMap(),
     val assignments: Map<String, String> = emptyMap(),
     val onboardingCompleted: Boolean = false,
+    val reviewWindowDays: Int = 56,
+    val reviewGroupExposures: Int = 10,
+    val reviewEarlyPercent: Int = 80,
     val planAccepted: Boolean = false
 )
 

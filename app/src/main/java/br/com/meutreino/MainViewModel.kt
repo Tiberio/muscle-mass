@@ -8,7 +8,11 @@ import br.com.meutreino.data.SettingsStore
 import br.com.meutreino.data.CardioActivityEntity
 import br.com.meutreino.data.MIGRATION_1_2
 import br.com.meutreino.data.MIGRATION_2_3
+import br.com.meutreino.data.MIGRATION_4_5
 import br.com.meutreino.data.MIGRATION_3_4
+import br.com.meutreino.data.RecoveryCheckInEntity
+import br.com.meutreino.data.BodyMeasurementGoalEntity
+import br.com.meutreino.data.PlanReviewEventEntity
 import br.com.meutreino.data.BodyMeasurementEntity
 import br.com.meutreino.data.PlanVersionEntity
 import br.com.meutreino.data.WeightMeasurementEntity
@@ -25,6 +29,9 @@ import br.com.meutreino.data.WorkoutSetEntity
 import br.com.meutreino.domain.ExerciseCatalog
 import br.com.meutreino.domain.UserPrefs
 import br.com.meutreino.domain.PlanVersionSnapshot
+import br.com.meutreino.domain.ReviewSnapshotBuilder
+import br.com.meutreino.domain.ExerciseCatalog
+import br.com.meutreino.domain.TrainingPlanner
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -36,7 +43,7 @@ import kotlinx.coroutines.sync.withLock
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     private val store = SettingsStore(application)
-    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2,MIGRATION_2_3,MIGRATION_3_4).build()
+    private val db = Room.databaseBuilder(application,WorkoutDatabase::class.java,"workouts_v1.db").addMigrations(MIGRATION_1_2,MIGRATION_2_3,MIGRATION_3_4,MIGRATION_4_5).build()
     private val dao = db.dao()
     private val health = HealthConnectGateway(application)
     val scaleScanner = MiScaleScanner(application)
@@ -47,6 +54,9 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     val weightHistory = dao.observeWeights().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     val bodyMeasurements = dao.observeBodyMeasurements().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     val planVersions = dao.observePlanVersions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val recoveryCheckIns = dao.observeRecoveryCheckIns().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val bodyGoals = dao.observeBodyGoals().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
+    val reviewEvents = dao.observeReviewEvents().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
     private val writeLock = Mutex()
     val prefs: StateFlow<UserPrefs?> = store.data.stateIn(viewModelScope,SharingStarted.Eagerly,null)
     val sessions = dao.observeSessions().stateIn(viewModelScope,SharingStarted.Eagerly,emptyList())
@@ -159,6 +169,108 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     fun deleteBodyMeasurement(item: BodyMeasurementEntity, onDone: ()->Unit) {
         viewModelScope.launch { dao.deleteBodyMeasurement(item); onDone() }
     }
+    fun updateReviewSettings(days: Int, groupCount: Int, earlyPercent: Int) {
+        if (days !in 28..112 || groupCount !in 6..20 || earlyPercent !in 60..100) return
+        edit { it.copy(reviewWindowDays=days, reviewGroupExposures=groupCount, reviewEarlyPercent=earlyPercent) }
+    }
+    fun addRecovery(state: String, onSaved: ()->Unit) {
+        if (state !in setOf("BEM","CANSADO","DOR_PERSISTENTE")) return
+        viewModelScope.launch {
+            val p=store.data.first()
+            val version=ReviewSnapshotBuilder.activeVersion(p,planVersions.value)
+            dao.insertRecoveryCheckIn(RecoveryCheckInEntity(
+                recordedAt=System.currentTimeMillis(),planVersionId=version?.id,state=state
+            ))
+            onSaved()
+        }
+    }
+    fun setBodyGoal(site:String, initial:Double, target:Double, onSaved:()->Unit) {
+        if(site !in br.com.meutreino.domain.BodyMeasurementRules.sites ||
+            !initial.isFinite() || !target.isFinite() || initial !in 5.0..250.0 ||
+            target !in 5.0..250.0 || initial==target) return
+        viewModelScope.launch {
+            dao.upsertBodyGoal(BodyMeasurementGoalEntity(site,initial,target,System.currentTimeMillis()))
+            onSaved()
+        }
+    }
+    fun removeBodyGoal(goal:BodyMeasurementGoalEntity) { viewModelScope.launch { dao.deleteBodyGoal(goal) } }
+
+    /** Alteração pontual solicitada pelo usuário, somente depois da prévia e confirmações. */
+    fun applyReviewedVariation(planId:String, originalId:String, replacementId:String,
+                               fromVersionId:Long, verdict:String, reason:String, evidence:String,
+                               onDone:(Boolean)->Unit) {
+        viewModelScope.launch {
+            try {
+                writeLock.withLock {
+                    if(dao.activeSession()!=null) {
+                        notify("Finalize ou descarte o treino ativo antes de modificar a ficha.")
+                        onDone(false)
+                        return@withLock
+                    }
+                    val p=store.data.first()
+                    val lastRecovery=dao.latestRecovery(fromVersionId)
+                    if(reason=="DOR_PERSISTENTE" || reason=="EQUIPAMENTO" ||
+                       (lastRecovery?.state=="DOR_PERSISTENTE" &&
+                        System.currentTimeMillis()-lastRecovery.recordedAt <= 14L*86_400_000L)) {
+                        notify("Não será gerada variação automática diante de dor persistente ou equipamentos incompatíveis. Revise as condições e busque orientação profissional se a dor continuar.")
+                        onDone(false)
+                        return@withLock
+                    }
+                    val active=ReviewSnapshotBuilder.activeVersion(p,planVersions.value)
+                    if(active?.id != fromVersionId) {
+                        notify("A ficha mudou desde a análise. Reabra a revisão antes de aplicar.")
+                        onDone(false)
+                        return@withLock
+                    }
+                    val env=p.defaultEnvironment.ifBlank { p.environments.firstOrNull() ?: "Casa sem equipamentos" }
+                    val base=TrainingPlanner.build(p.copy(defaultEnvironment=env))
+                    val session=base.sessions.firstOrNull { it.id==planId }
+                    val original=session?.exercises?.firstOrNull { it.exercise.id==originalId }?.exercise
+                    val replacement=ExerciseCatalog.byId(replacementId)
+                    val currentId=p.overrides["$planId:$originalId"] ?: originalId
+                    val inSession=session?.exercises?.any { ex ->
+                        val effectiveId=p.overrides["$planId:${ex.exercise.id}"] ?: ex.exercise.id
+                        ex.exercise.id!=originalId && effectiveId==replacementId
+                    } ?: false
+                    if(original==null || replacement==null || currentId==replacementId || inSession ||
+                       replacement !in ExerciseCatalog.equivalents(original,env,p.equipments,p.experience)) {
+                        notify("Alternativa indisponível ou incompatível. Nenhuma alteração foi feita.")
+                        onDone(false)
+                        return@withLock
+                    }
+                    val proposed=p.copy(overrides=p.overrides+("$planId:$originalId" to replacementId))
+                    val oldFingerprint=PlanVersionSnapshot.fingerprint(PlanVersionSnapshot.content(p,env))
+                    val newFingerprint=PlanVersionSnapshot.fingerprint(PlanVersionSnapshot.content(proposed,env))
+                    if(oldFingerprint==newFingerprint) {
+                        notify("A proposta não muda o conteúdo da ficha. Nenhuma alteração foi feita.")
+                        onDone(false)
+                        return@withLock
+                    }
+                    // Registra o snapshot antes de tornar o novo plano ativo.
+                    val newVersion=ensurePlanVersion(proposed,env,"Variação confirmada: $reason")
+                    store.save(proposed)
+                    dao.insertReviewEvent(PlanReviewEventEntity(
+                        recordedAt=System.currentTimeMillis(),fromVersionId=fromVersionId,toVersionId=newVersion,
+                        verdict=verdict,userReason=reason,outcome="APLICADA",evidence=evidence
+                    ))
+                    onDone(true)
+                    notify("Variação aplicada. A versão anterior permanece no Histórico → Fichas.")
+                }
+            } catch (e:Exception) {
+                notify("Não foi possível salvar a variação: ${e.localizedMessage ?: "erro"}")
+                onDone(false)
+            }
+        }
+    }
+
+    fun logReviewDecision(versionId:Long?, verdict:String, reason:String, evidence:String, outcome:String) {
+        if(outcome !in setOf("MANTIDA","CANCELADA")) return
+        viewModelScope.launch { dao.insertReviewEvent(PlanReviewEventEntity(
+            recordedAt=System.currentTimeMillis(),fromVersionId=versionId,toVersionId=null,
+            verdict=verdict,userReason=reason,outcome=outcome,evidence=evidence
+        )) }
+    }
+
     fun healthAvailable(): Boolean = try {
         HealthConnectGateway.available(getApplication())
     } catch (_: Exception) { false }

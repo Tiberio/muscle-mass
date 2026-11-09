@@ -83,7 +83,50 @@ data class PlanVersionEntity(
     val reason: String
 )
 
+/** Check-in voluntário. Não representa diagnóstico ou triagem clínica. */
+@Entity(tableName="recovery_checkins", indices=[Index(value=["recordedAt"])])
+data class RecoveryCheckInEntity(
+    @PrimaryKey(autoGenerate=true) val id: Long = 0,
+    val planVersionId: Long?,
+    val recordedAt: Long,
+    val state: String
+)
+
+/** Meta explícita por circunferência. Não confundir com completude de registros. */
+@Entity(tableName="body_measurement_goals")
+data class BodyMeasurementGoalEntity(
+    @PrimaryKey val site: String,
+    val initialCm: Double,
+    val targetCm: Double,
+    val startedAt: Long
+)
+
+/** Trilha de decisões de revisão; a ficha não muda até aplicação final explícita. */
+@Entity(tableName="plan_review_events", indices=[Index(value=["recordedAt"])])
+data class PlanReviewEventEntity(
+    @PrimaryKey(autoGenerate=true) val id: Long = 0,
+    val recordedAt: Long,
+    val fromVersionId: Long?,
+    val toVersionId: Long?,
+    val verdict: String,
+    val userReason: String,
+    val outcome: String,
+    val evidence: String
+)
+
 @Dao interface WorkoutDao {
+    @Insert suspend fun insertRecoveryCheckIn(entry: RecoveryCheckInEntity): Long
+    @Query("SELECT * FROM recovery_checkins ORDER BY recordedAt DESC, id DESC")
+    fun observeRecoveryCheckIns(): Flow<List<RecoveryCheckInEntity>>
+    @Query("SELECT * FROM recovery_checkins WHERE planVersionId=:versionId ORDER BY recordedAt DESC, id DESC LIMIT 1")
+    suspend fun latestRecovery(versionId:Long): RecoveryCheckInEntity?
+    @Insert(onConflict=OnConflictStrategy.REPLACE) suspend fun upsertBodyGoal(goal: BodyMeasurementGoalEntity)
+    @Delete suspend fun deleteBodyGoal(goal: BodyMeasurementGoalEntity)
+    @Query("SELECT * FROM body_measurement_goals ORDER BY site")
+    fun observeBodyGoals(): Flow<List<BodyMeasurementGoalEntity>>
+    @Insert suspend fun insertReviewEvent(event: PlanReviewEventEntity): Long
+    @Query("SELECT * FROM plan_review_events ORDER BY recordedAt DESC, id DESC")
+    fun observeReviewEvents(): Flow<List<PlanReviewEventEntity>>
     @Insert suspend fun insertBodyMeasurement(measurement: BodyMeasurementEntity): Long
     @Delete suspend fun deleteBodyMeasurement(measurement: BodyMeasurementEntity)
     @Query("SELECT * FROM body_measurements ORDER BY recordedAt DESC, id DESC")
@@ -115,7 +158,7 @@ data class PlanVersionEntity(
     fun observeAllSets(): Flow<List<WorkoutSetEntity>>
 }
 
-@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class,WeightMeasurementEntity::class,BodyMeasurementEntity::class,PlanVersionEntity::class],version=4,exportSchema=false)
+@Database(entities=[WorkoutSessionEntity::class,WorkoutSetEntity::class,CardioActivityEntity::class,WeightMeasurementEntity::class,BodyMeasurementEntity::class,PlanVersionEntity::class,RecoveryCheckInEntity::class,BodyMeasurementGoalEntity::class,PlanReviewEventEntity::class],version=5,exportSchema=false)
 abstract class WorkoutDatabase: RoomDatabase() {
     abstract fun dao(): WorkoutDao
 }
@@ -146,5 +189,16 @@ val MIGRATION_3_4 = object: Migration(3,4) {
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_body_measurements_site_recordedAt` ON `body_measurements` (`site`, `recordedAt`)")
         db.execSQL("CREATE TABLE IF NOT EXISTS `plan_versions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `createdAt` INTEGER NOT NULL, `fingerprint` TEXT NOT NULL, `content` TEXT NOT NULL, `reason` TEXT NOT NULL)")
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_plan_versions_fingerprint` ON `plan_versions` (`fingerprint`)")
+    }
+}
+
+/** v0.6.0: migração aditiva 4→5, preserva os dados clínicos e de treino existentes. */
+val MIGRATION_4_5 = object: Migration(4,5) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS `recovery_checkins` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planVersionId` INTEGER, `recordedAt` INTEGER NOT NULL, `state` TEXT NOT NULL)")
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_recovery_checkins_recordedAt` ON `recovery_checkins` (`recordedAt`)")
+        db.execSQL("CREATE TABLE IF NOT EXISTS `body_measurement_goals` (`site` TEXT NOT NULL, `initialCm` REAL NOT NULL, `targetCm` REAL NOT NULL, `startedAt` INTEGER NOT NULL, PRIMARY KEY(`site`))")
+        db.execSQL("CREATE TABLE IF NOT EXISTS `plan_review_events` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `recordedAt` INTEGER NOT NULL, `fromVersionId` INTEGER, `toVersionId` INTEGER, `verdict` TEXT NOT NULL, `userReason` TEXT NOT NULL, `outcome` TEXT NOT NULL, `evidence` TEXT NOT NULL)")
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_plan_review_events_recordedAt` ON `plan_review_events` (`recordedAt`)")
     }
 }

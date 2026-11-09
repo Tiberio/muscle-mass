@@ -38,6 +38,12 @@ jobs:
       - name: Verificar migração SQL 3 para 4
         run: python3 tests/RoomMigrationV4SmokeTest.py
 
+      - name: Verificar migração SQL 4 para 5
+        run: python3 tests/RoomMigrationV5SmokeTest.py
+
+      - name: Verificar integração da revisão de ficha
+        run: python3 scripts/validate_review_feature.py
+
       - name: Testar e compilar APK de depuração
         run: gradle --no-daemon --stacktrace :app:testDebugUnitTest :app:assembleDebug
 
@@ -45,6 +51,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: MeuTreino-Android-v0.5.0-debug
+          name: MeuTreino-Android-v0.6.0-debug
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error

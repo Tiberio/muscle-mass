@@ -40,6 +40,9 @@ class SettingsStore(private val context: Context) {
         put("deviceNames",JSONArray(p.deviceNames));put("deviceApp",p.deviceApp)
         put("importHistory",p.importHistory)
         put("overrides",JSONObject(p.overrides));put("assignments",JSONObject(p.assignments))
+        put("reviewWindowDays",p.reviewWindowDays)
+        put("reviewGroupExposures",p.reviewGroupExposures)
+        put("reviewEarlyPercent",p.reviewEarlyPercent)
         put("onboardingCompleted",p.onboardingCompleted);put("planAccepted",p.planAccepted)
     }
     private fun decode(o: JSONObject) = UserPrefs(
@@ -56,6 +59,9 @@ class SettingsStore(private val context: Context) {
         cardioIntensity=o.optString("cardioIntensity","Adaptativa"),deviceNames=list(o,"deviceNames"),
         deviceApp=o.optString("deviceApp","Zepp Life"),importHistory=o.optBoolean("importHistory",false),
         overrides=map(o,"overrides"),assignments=map(o,"assignments"),
+        reviewWindowDays=o.optInt("reviewWindowDays",56).coerceIn(28,112),
+        reviewGroupExposures=o.optInt("reviewGroupExposures",10).coerceIn(6,20),
+        reviewEarlyPercent=o.optInt("reviewEarlyPercent",80).coerceIn(60,100),
         onboardingCompleted=o.optBoolean("onboardingCompleted",false),planAccepted=o.optBoolean("planAccepted",false)
     )
 }

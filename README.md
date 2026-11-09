@@ -129,3 +129,8 @@ Após revisão manual do usuário no site, os 60 candidatos da v0.4.5 foram prom
 - **Histórico → Fichas:** registro persistente de versões, tempo e sessões reais por versão (novas sessões).
 - **Migração Room 3→4** aditiva, sem perda intencional dos dados existentes. Para atualizar, **não desinstale** a versão anterior.
 - Implementação do motor de revisão inteligente/80% fica para v0.6.0. Ver `docs/ALTERACOES_v0.5.0.md`.
+
+
+## Atualização v0.6.0 — Revisão inteligente da ficha
+
+A partir da v0.5.0 validada, acrescenta **Plano → Solicitar variação da ficha**, análise de tempo, sessões efetivas e exposições por grupo, check-in voluntário de recuperação, metas explícitas de circunferência e variação **pontual equivalente** com prévia e confirmações. O limiar de 80% inicia reavaliação, não impõe troca. Migração Room 4→5 preserva históricos. Consulte `docs/ALTERACOES_v0.6.0.md` para limitações e teste.
