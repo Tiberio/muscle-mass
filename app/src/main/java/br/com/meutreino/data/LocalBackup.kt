@@ -92,7 +92,7 @@ internal object LocalBackup {
         val payload = j("profile" to profile,"tables" to tables)
         val digest = sha256(payload)
         return j("format" to FORMAT,"schema" to VERSION,"exportedAt" to System.currentTimeMillis(),
-            "appVersion" to "1.0.0","payload" to payload,"sha256" to digest).toString(2)
+            "appVersion" to "1.0.1","payload" to payload,"sha256" to digest).toString(2)
     }
 
     data class Parsed(val profile: JSONObject, val snapshot: Snapshot)

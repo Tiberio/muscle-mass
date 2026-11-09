@@ -1,8 +1,8 @@
-# Meu Treino — Android v1.0.0
+# Meu Treino — Android v1.0.1
 
-**Status:** v1.0.0 preparada para compilação no GitHub e validação no celular, usando a v0.6.0 aprovada como base. Ainda é um APK **debug**, não uma versão de loja.
+**Status:** v1.0.1 preparada para compilação no GitHub e instalação limpa no celular. Os recursos da v1.0.0 foram preservados; esta correção estabelece uma assinatura de depuração persistente para futuras atualizações. Continua sendo APK **debug**, não versão de loja.
 
-**Novidade v1.0.0:** backup local em **Perfil → Cópia de segurança** e restauração em instalação nova, inclusive na tela de boas-vindas. Formato JSON com verificação SHA-256, gravação transacional Room, proteção contra substituição de registros existentes e cuidados de privacidade. O banco permanece Room v5, sem nova migração. [Notas, limites e roteiro de teste](docs/ALTERACOES_v1.0.0.md).
+**Recursos introduzidos na v1.0.0 e mantidos:** backup local em **Perfil → Cópia de segurança** e restauração em instalação nova, inclusive na tela de boas-vindas. Formato JSON com verificação SHA-256, gravação transacional Room, proteção contra substituição de registros existentes e cuidados de privacidade. O banco permanece Room v5, sem nova migração. [Notas, limites e roteiro de teste](docs/ALTERACOES_v1.0.0.md).
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
@@ -56,6 +56,8 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 ## Compilação no GitHub Actions
 
+**Antes do próximo `git push`:** crie uma chave de depuração persistente com `bash scripts/criar_chave_debug_persistente.sh` e salve a saída `base64 -w0` no secret `MEUTREINO_DEBUG_KEYSTORE_B64`, em Settings → Secrets and variables → Actions. Guia: [Assinatura v1.0.1](docs/ASSINATURA_PERSISTENTE_v1.0.1.md). Sem o secret, o workflow falhará intencionalmente.
+
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
 3. Após sucesso, baixe o artifact **`MeuTreino-Android-v1.0.0-debug`**.
@@ -63,7 +65,7 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.
 
-**Aviso de dados:** APKs de depuração gerados por trabalhos diferentes podem utilizar chaves de assinatura diferentes. Se `adb install -r app-debug.apk` acusar `INSTALL_FAILED_UPDATE_INCOMPATIBLE`, não desinstale a versão antiga precipitadamente, pois os dados podem ser perdidos. A v1.0.0 acrescentou backup manual, mas a assinatura persistente de release ainda precisa ser configurada antes de distribuição externa.
+**Primeira instalação da v1.0.1:** o APK anterior pode ter certificado incompatível. O usuário optou por reinstalação limpa, que apaga os dados locais; faça isso apenas depois de obter APK novo compilado com a chave persistente. A partir da v1.0.1, conserve a mesma chave no GitHub para instalar novas versões por cima, com o mesmo `applicationId` e `versionCode` crescente. Para distribuição pública será necessária uma assinatura de release separada.
 
 ## Testes e desenvolvimento local
 
@@ -138,3 +140,6 @@ Após revisão manual do usuário no site, os 60 candidatos da v0.4.5 foram prom
 ## Atualização v0.6.0 — Revisão inteligente da ficha
 
 A partir da v0.5.0 validada, acrescenta **Plano → Solicitar variação da ficha**, análise de tempo, sessões efetivas e exposições por grupo, check-in voluntário de recuperação, metas explícitas de circunferência e variação **pontual equivalente** com prévia e confirmações. O limiar de 80% inicia reavaliação, não impõe troca. Migração Room 4→5 preserva históricos. Consulte `docs/ALTERACOES_v0.6.0.md` para limitações e teste.
+
+
+> **Aviso importante para instalação da v1.0.0:** o workflow antigo não fixava a assinatura debug; se o Android mostrar conflito de pacote, **não desinstale a v0.6.0**. Veja `docs/ASSINATURA_E_MIGRACAO_v1.0.0.md` e faça backup dos dados antes de migrar.

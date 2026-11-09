@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Verificações estáticas do v1.0.0; NÃO substitui compilação Android nem teste de restauração real."""
+"""Verificações dos recursos de backup introduzidos na v1.0.0. NÃO substitui testes Android."""
 from pathlib import Path
 import re
 root = Path(__file__).resolve().parents[1]
 app = root/'app/src/main/java/br/com/meutreino'
 gradle = (root/'app/build.gradle.kts').read_text()
-assert 'versionName = "1.0.0"' in gradle
-assert 'versionCode = 20' in gradle
+assert re.search(r'versionName\s*=\s*"1\.0\.[0-9]+"', gradle)
+assert re.search(r'versionCode\s*=\s*(2[0-9]|[3-9][0-9]+)\b', gradle)
 wf = (root/'.github/workflows/android-debug.yml').read_text()
-assert 'MeuTreino-Android-v1.0.0-debug' in wf
+assert re.search(r'MeuTreino-Android-v1\.0\.[0-9]+-debug', wf)
 assert 'validate_release_v100.py' in wf
 code = (app/'data/LocalBackup.kt').read_text()
 db = (app/'data/WorkoutDatabase.kt').read_text()
@@ -29,4 +29,4 @@ assert 'LocalBackupPanel(vm)' in (app/'ui/HistoryDevicesProfile.kt').read_text()
 assert 'LocalBackupPanel(vm, compact=true)' in (app/'ui/WizardScreen.kt').read_text()
 assert '"0.6.0"' not in gradle
 assert 'OnConflictStrategy.REPLACE' not in re.search(r'suspend fun insertSession.*', db).group()
-print('RELEASE v1.0.0 OK: 9 coleções de backup, SHA-256, restauração bloqueada para histórico ocupado, UI SAF e Room v5')
+print('RECURSOS BACKUP v1.0.x OK: 9 coleções de backup, SHA-256, restauração bloqueada para histórico ocupado, UI SAF e Room v5')

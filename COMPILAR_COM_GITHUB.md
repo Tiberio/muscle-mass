@@ -26,7 +26,7 @@ Substitua `SEU_USUARIO` pelo nome da sua conta e use o URL exato mostrado pelo G
 2. Clique em **Compilar APK Android** (menu lateral).
 3. Clique em **Run workflow** e selecione a branch `main` (a execução também pode ocorrer automaticamente após o `push`).
 4. Abra a execução mais recente e acompanhe os passos; em caso de erro, copie a seção inicial da mensagem `FAILURE` ou `e: ...`, não apenas as últimas linhas do resumo.
-5. **Somente se a compilação terminar com sucesso**, abra a página dessa execução e procure **Artifacts → MeuTreino-Android-v1.0.0-debug**. Baixe o ZIP e extraia `app-debug.apk`.
+5. **Somente se a compilação terminar com sucesso**, abra a página dessa execução e procure **Artifacts → MeuTreino-Android-v1.0.1-debug**. Baixe o ZIP e extraia `app-debug.apk`.
 6. Instale no telefone. Se o `adb` já estiver instalado pelo Synaptic e a depuração USB autorizada:
 
 ```bash
@@ -43,6 +43,14 @@ Também é possível transferir `app-debug.apk` para o telefone e abri-lo pelo g
 - Este workflow está preparado, mas **a compilação Android ainda não foi executada**: podem aparecer erros Kotlin/Gradle no primeiro build, que precisaremos corrigir a partir do log.
 - É uma versão de depuração para testes pessoais, não uma publicação na Play Store.
 
-## Atualização v1.0.0
+## Atualização v1.0.1 — assinatura persistente
 
-Este repositório já existe: execute os comandos de atualização fornecidos no chat, em vez de reiniciar o Git. Após instalar **por cima** da v0.6.0, use **Perfil → Cópia de segurança** para exportar um backup manual. Não desinstale a versão anterior antes de confirmar que os registros continuam visíveis; instalações com assinatura incompatível exigem uma solução separada para preservar os dados. O APK gerado neste workflow ainda é de depuração.
+Este projeto já está no repositório GitHub: **não** execute novamente `git init`.
+
+1. Gere uma chave local com `bash scripts/criar_chave_debug_persistente.sh`.
+2. Configure `MEUTREINO_DEBUG_KEYSTORE_B64` no GitHub (Settings → Secrets and variables → Actions). Veja `docs/ASSINATURA_PERSISTENTE_v1.0.1.md`.
+3. Envie o patch pelo Git. O workflow **falha** se o secret estiver ausente.
+4. No final da compilação, `scripts/verificar_assinatura_apk.sh` compara o certificado SHA-256 do APK com a chave persistente. A etapa precisa mostrar `ASSINATURA OK`.
+5. Só então, por escolha do usuário, desinstale o app antigo e instale `app-debug.apk` da v1.0.1. Isso **apaga os dados locais anteriores**. Depois, a mesma chave deve ser reutilizada nas atualizações.
+
+Não inclua `debug.keystore` nem a saída base64 em commits, Issues ou mensagens. A assinatura de depuração **não** deve ser utilizada para publicação na Play Store.

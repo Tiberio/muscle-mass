@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+**/build/
+.build-tools/
+local.properties
+*.iml
+.DS_Store
+
+# Material de assinatura: nunca versionar a chave privada
+*.keystore
+*.jks
+*.p12
+*.pfx
+*keystore*.b64

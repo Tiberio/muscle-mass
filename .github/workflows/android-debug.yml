@@ -32,6 +32,26 @@ jobs:
         with:
           gradle-version: '9.4.1'
 
+      # Cada job do GitHub Actions começa em um runner temporário. Sem esta chave,
+      # o Android Gradle Plugin pode criar um debug.keystore diferente a cada build,
+      # tornando impossível atualizar o app no celular sem apagar seus dados.
+      - name: Carregar assinatura de depuração persistente
+        env:
+          MEUTREINO_DEBUG_KEYSTORE_B64: ${{ secrets.MEUTREINO_DEBUG_KEYSTORE_B64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$MEUTREINO_DEBUG_KEYSTORE_B64" ]; then
+            echo "::error::Configure o secret MEUTREINO_DEBUG_KEYSTORE_B64 antes de compilar. Veja docs/ASSINATURA_PERSISTENTE_v1.0.1.md."
+            exit 1
+          fi
+          mkdir -p "$HOME/.android"
+          chmod 700 "$HOME/.android"
+          printf '%s' "$MEUTREINO_DEBUG_KEYSTORE_B64" | base64 --decode > "$HOME/.android/debug.keystore"
+          chmod 600 "$HOME/.android/debug.keystore"
+          test -s "$HOME/.android/debug.keystore"
+          keytool -list -keystore "$HOME/.android/debug.keystore" -alias androiddebugkey -storepass android > /dev/null
+
       - name: Validar catalogo JSON de videos
         run: python3 scripts/validate_exercise_videos.py
 
@@ -47,16 +67,22 @@ jobs:
       - name: Verificar imports Kotlin duplicados
         run: python3 scripts/check_kotlin_imports.py
 
-      - name: Validar requisitos do lançamento v1.0.0
-        run: python3 scripts/validate_release_v100.py
+      - name: Validar requisitos do lançamento v1.0.1
+        run: |
+          python3 scripts/validate_release_v100.py
+          python3 scripts/validate_release_v101.py
 
       - name: Testar e compilar APK de depuração
         run: gradle --no-daemon --console=plain :app:testDebugUnitTest :app:assembleDebug
+
+      - name: Verificar assinatura do APK contra o certificado persistente
+        shell: bash
+        run: bash scripts/verificar_assinatura_apk.sh app/build/outputs/apk/debug/app-debug.apk
 
       - name: Publicar APK para download
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: MeuTreino-Android-v1.0.0-debug
+          name: MeuTreino-Android-v1.0.1-debug
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
