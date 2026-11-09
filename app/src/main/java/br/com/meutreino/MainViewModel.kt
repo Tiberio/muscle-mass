@@ -1,6 +1,9 @@
 package br.com.meutreino
 
 import android.app.Application
+import android.net.Uri
+import java.io.ByteArrayOutputStream
+import br.com.meutreino.data.LocalBackup
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
@@ -47,6 +50,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val health = HealthConnectGateway(application)
     val scaleScanner = MiScaleScanner(application)
     val bandProbe = MiBand7Probe(application)
+    val backupBusy = MutableStateFlow(false)
     val healthSnapshot = MutableStateFlow<HealthSnapshot?>(null)
     val healthMessage = MutableStateFlow("Acesso opcional. Você controla as permissões no Android.")
     val healthBusy = MutableStateFlow(false)
@@ -314,6 +318,73 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
         edit { it.copy(weightKg = String.format(java.util.Locale.US, "%.2f", mostRecent.kilograms)) }
         notify("Peso importado do histórico da balança. Você pode editá-lo no Perfil.")
     }
+    /** Exportação solicitada pelo usuário, usando Storage Access Framework (sem permissão ampla). */
+    fun exportLocalBackup(uri: Uri) {
+        if (backupBusy.value) return
+        backupBusy.value = true
+        viewModelScope.launch {
+            try {
+                val application = getApplication<Application>()
+                val exported = writeLock.withLock {
+                    val profile = store.exportProfileJson()
+                    val snapshot = LocalBackup.read(db)
+                    LocalBackup.serialize(profile, snapshot)
+                }
+                require(exported.toByteArray(Charsets.UTF_8).size <= LocalBackup.MAX_BYTES) {
+                    "Backup maior que 30 MB; interrompa a exportação e consulte as orientações."
+                }
+                withContext(Dispatchers.IO) {
+                    val output = application.contentResolver.openOutputStream(uri, "w")
+                        ?: error("Não foi possível abrir o arquivo escolhido")
+                    output.bufferedWriter(Charsets.UTF_8).use { it.write(exported) }
+                }
+                notify("Backup exportado. Guarde o arquivo JSON em local privado; ele contém seus registros de treino, medidas e perfil.")
+            } catch (e: Exception) {
+                notify("Falha ao exportar backup: ${e.localizedMessage ?: "erro desconhecido"}")
+            } finally { backupBusy.value = false }
+        }
+    }
+
+    /** Restauração somente em instalação sem histórico, após confirmação explícita na interface. */
+    fun restoreLocalBackup(uri: Uri) {
+        if (backupBusy.value) return
+        backupBusy.value = true
+        viewModelScope.launch {
+            try {
+                val application = getApplication<Application>()
+                val fileText = withContext(Dispatchers.IO) {
+                    val input = application.contentResolver.openInputStream(uri)
+                        ?: error("Não foi possível abrir o arquivo escolhido")
+                    input.use { stream ->
+                        val output = ByteArrayOutputStream()
+                        val buffer = ByteArray(8192)
+                        while (true) {
+                            val count = stream.read(buffer)
+                            if (count < 0) break
+                            if (count > 0) {
+                                require(output.size() + count <= LocalBackup.MAX_BYTES) { "Arquivo maior que 30 MB" }
+                                output.write(buffer, 0, count)
+                            }
+                        }
+                        output.toString(Charsets.UTF_8.name())
+                    }
+                }
+                val parsed = withContext(Dispatchers.Default) { LocalBackup.parse(fileText) }
+                val importedProfile = store.parseBackupProfile(parsed.profile)
+                writeLock.withLock {
+                    // Os registros reais nunca são substituídos. O Room revalida isso na transação.
+                    LocalBackup.restore(db, parsed.snapshot)
+                    store.save(importedProfile)
+                }
+                activeSession.value = dao.activeSession()
+                temporaryEnvironment.value = null
+                notify("Backup restaurado. Confira Perfil, Histórico e Fichas antes de iniciar um treino.")
+            } catch (e: Exception) {
+                notify("Restauração não concluída: ${e.localizedMessage ?: "arquivo inválido ou dados já existentes"}. Confira o histórico antes de tentar novamente; dados existentes não devem ser apagados.")
+            } finally { backupBusy.value = false }
+        }
+    }
+
     fun notify(text:String){showMessage.value=text}
     fun clearMessage(){showMessage.value=null}
     override fun onCleared() { scaleScanner.stop(); bandProbe.close(); super.onCleared(); db.close() }

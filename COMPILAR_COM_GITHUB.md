@@ -26,7 +26,7 @@ Substitua `SEU_USUARIO` pelo nome da sua conta e use o URL exato mostrado pelo G
 2. Clique em **Compilar APK Android** (menu lateral).
 3. Clique em **Run workflow** e selecione a branch `main` (a execução também pode ocorrer automaticamente após o `push`).
 4. Abra a execução mais recente e acompanhe os passos; em caso de erro, copie a seção inicial da mensagem `FAILURE` ou `e: ...`, não apenas as últimas linhas do resumo.
-5. **Somente se a compilação terminar com sucesso**, abra a página dessa execução e procure **Artifacts → MeuTreino-Android-debug**. Baixe o ZIP e extraia `app-debug.apk`.
+5. **Somente se a compilação terminar com sucesso**, abra a página dessa execução e procure **Artifacts → MeuTreino-Android-v1.0.0-debug**. Baixe o ZIP e extraia `app-debug.apk`.
 6. Instale no telefone. Se o `adb` já estiver instalado pelo Synaptic e a depuração USB autorizada:
 
 ```bash
@@ -42,3 +42,7 @@ Também é possível transferir `app-debug.apk` para o telefone e abri-lo pelo g
 - O runner GitHub Actions baixa SDK/Gradle e dependências para executar a compilação, mas **não instala nem modifica pacotes no Debian**.
 - Este workflow está preparado, mas **a compilação Android ainda não foi executada**: podem aparecer erros Kotlin/Gradle no primeiro build, que precisaremos corrigir a partir do log.
 - É uma versão de depuração para testes pessoais, não uma publicação na Play Store.
+
+## Atualização v1.0.0
+
+Este repositório já existe: execute os comandos de atualização fornecidos no chat, em vez de reiniciar o Git. Após instalar **por cima** da v0.6.0, use **Perfil → Cópia de segurança** para exportar um backup manual. Não desinstale a versão anterior antes de confirmar que os registros continuam visíveis; instalações com assinatura incompatível exigem uma solução separada para preservar os dados. O APK gerado neste workflow ainda é de depuração.

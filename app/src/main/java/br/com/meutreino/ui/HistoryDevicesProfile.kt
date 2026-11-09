@@ -349,7 +349,7 @@ import java.util.Locale
     }
 }
 
-@Composable fun ProfileScreen(p:UserPrefs,onEdit:(String)->Unit,onResetPlan:()->Unit){
+@Composable fun ProfileScreen(p:UserPrefs,vm:MainViewModel,onEdit:(String)->Unit,onResetPlan:()->Unit){
     var showConfirmation by remember{mutableStateOf(false)}
     val sections=listOf(
         Triple("Perfil físico","${p.age.ifBlank{"—"}} anos · ${p.experience}","basic"),
@@ -377,6 +377,7 @@ import java.util.Locale
                     TextButton(onClick={onEdit(route)}){Icon(Icons.Default.Edit,null);Text("Editar")}
                 }
             }}
+            LocalBackupPanel(vm)
             Pane{
                 Text("Planejamento")
                 Subtext("Mudanças importantes devem gerar um novo plano para revisão, sem modificar o histórico passado.")

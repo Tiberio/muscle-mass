@@ -105,6 +105,7 @@ private val weekdays=listOf("Seg","Ter","Qua","Qui","Sex","Sáb","Dom")
                     Pane {Text("Seu treino, seu ritmo.",style=MaterialTheme.typography.titleLarge)
                         Subtext("Planos de força e cardio, exercícios demonstrados em vídeo, registro de séries e integração de saúde quando disponível.")}
                     Subtext("Os dados ficam no celular. Você pode alterar o plano e os equipamentos posteriormente.")
+                    LocalBackupPanel(vm, compact=true)
                 }
                 "basic" -> Pane {
                     Subtext("Idade é necessária para personalizar as recomendações; altura e peso são opcionais.")

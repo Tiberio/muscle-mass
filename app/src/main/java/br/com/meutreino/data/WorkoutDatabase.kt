@@ -115,6 +115,27 @@ data class PlanReviewEventEntity(
 )
 
 @Dao interface WorkoutDao {
+    // v1.0.0 — fotografia consistente do banco para backup voluntário.
+    @Query("SELECT * FROM sessions ORDER BY id") suspend fun backupSessions(): List<WorkoutSessionEntity>
+    @Query("SELECT * FROM sets ORDER BY id") suspend fun backupSets(): List<WorkoutSetEntity>
+    @Query("SELECT * FROM cardio_activities ORDER BY id") suspend fun backupCardio(): List<CardioActivityEntity>
+    @Query("SELECT * FROM weight_measurements ORDER BY id") suspend fun backupWeights(): List<WeightMeasurementEntity>
+    @Query("SELECT * FROM body_measurements ORDER BY id") suspend fun backupBodyMeasurements(): List<BodyMeasurementEntity>
+    @Query("SELECT * FROM plan_versions ORDER BY id") suspend fun backupPlanVersions(): List<PlanVersionEntity>
+    @Query("SELECT * FROM recovery_checkins ORDER BY id") suspend fun backupRecovery(): List<RecoveryCheckInEntity>
+    @Query("SELECT * FROM body_measurement_goals ORDER BY site") suspend fun backupGoals(): List<BodyMeasurementGoalEntity>
+    @Query("SELECT * FROM plan_review_events ORDER BY id") suspend fun backupReviewEvents(): List<PlanReviewEventEntity>
+
+    // Importação de backup: só permitida se não houver registros reais.
+    // Uma ficha inicial gerada durante o onboarding pode ser descartada em favor do backup.
+    @Query("""SELECT
+        (SELECT COUNT(*) FROM sessions) + (SELECT COUNT(*) FROM sets) +
+        (SELECT COUNT(*) FROM cardio_activities) + (SELECT COUNT(*) FROM weight_measurements) +
+        (SELECT COUNT(*) FROM body_measurements) + (SELECT COUNT(*) FROM recovery_checkins) +
+        (SELECT COUNT(*) FROM body_measurement_goals) + (SELECT COUNT(*) FROM plan_review_events)
+        """) suspend fun countNonPlanRecords(): Int
+    @Query("SELECT COUNT(*) FROM plan_versions") suspend fun countPlanVersions(): Int
+    @Query("DELETE FROM plan_versions") suspend fun clearInitialPlanVersionsForRestore()
     @Insert suspend fun insertRecoveryCheckIn(entry: RecoveryCheckInEntity): Long
     @Query("SELECT * FROM recovery_checkins ORDER BY recordedAt DESC, id DESC")
     fun observeRecoveryCheckIns(): Flow<List<RecoveryCheckInEntity>>

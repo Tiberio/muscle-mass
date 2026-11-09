@@ -1,4 +1,8 @@
-# Meu Treino — Android v0.4.9
+# Meu Treino — Android v1.0.0
+
+**Status:** v1.0.0 preparada para compilação no GitHub e validação no celular, usando a v0.6.0 aprovada como base. Ainda é um APK **debug**, não uma versão de loja.
+
+**Novidade v1.0.0:** backup local em **Perfil → Cópia de segurança** e restauração em instalação nova, inclusive na tela de boas-vindas. Formato JSON com verificação SHA-256, gravação transacional Room, proteção contra substituição de registros existentes e cuidados de privacidade. O banco permanece Room v5, sem nova migração. [Notas, limites e roteiro de teste](docs/ALTERACOES_v1.0.0.md).
 
 Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface escura, planejador de musculação e cardio, registro de sessões e índice de atividade semanal **IAA**. Os tempos de musculação e cardio continuam **independentes**.
 
@@ -37,11 +41,11 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 - Leitura de Health Connect ao abrir Dispositivos e sob demanda, com permissão Android: passos agregados, evolução diária de FC, sessões, peso e sono, quando presentes.
 - Busca Bluetooth por peso estabilizado da Mi Body Composition Scale 2, com confirmação manual antes de salvar.
 - Pesagens confirmadas salvas em banco Room com origem informada; botão **Importar da balança** copia último peso confirmado ao perfil.
-- Banco `Room v3` com migração explícita `1→2→3`, evitando apagar históricos.
+- Banco `Room v5` com migrações explícitas `1→2→3→4→5`, evitando apagar históricos.
 
 ## Limitações importantes
 
-- **A v0.4.8 ainda não foi compilada nem executada no Android neste ambiente de elaboração.** A v0.4.7 compilou e foi instalada pelo usuário, porém apresentou a interface legada de vídeos devido à ausência de um arquivo na atualização enviada ao GitHub. A compilação v0.4.8 requer validação no GitHub Actions e no celular.
+- **A v1.0.0 ainda não foi compilada nem executada no Android neste ambiente.** A v0.6.0 anterior foi compilada, instalada e testada pelo usuário, inclusive com troca e histórico de fichas.
 - Bluetooth com Mi Body Composition Scale 2 usa protocolo experimental. O usuário já confirmou leitura de pesagem estável no aparelho real; compatibilidade com outras unidades não é garantida.
 - Health Connect não é a Mi Band 7. A presença de um dispositivo no cadastro **não comprova** que o app do fabricante envia seus dados ao Health Connect.
 - O **IAA local** não importa cardio externo. O **IAA integrado experimental** no Painel calcula pontuação apenas para sessões externas que tenham FC suficiente, sem sobreposição com cardio local; passos e peso não pontuam.
@@ -54,12 +58,12 @@ Projeto Android **Kotlin + Jetpack Compose + Room + DataStore**, com interface e
 
 1. Envie os arquivos ao repositório já existente com `git add -A`, `git commit` e `git push`.
 2. Abra **Actions → Compilar APK Android** e acompanhe a execução.
-3. Após sucesso, baixe o artifact **`MeuTreino-Android-v0.4.9-debug`**.
+3. Após sucesso, baixe o artifact **`MeuTreino-Android-v1.0.0-debug`**.
 4. Extraia `app-debug.apk` do ZIP e instale-o.
 
 O GitHub usa JDK 21, Gradle 9.4.1, Android SDK 37 e Build Tools 36.0.0, preservando sua preferência por não instalar essas ferramentas manualmente no Debian.
 
-**Aviso de dados:** APKs de depuração gerados por trabalhos diferentes podem utilizar chaves de assinatura diferentes. Se `adb install -r app-debug.apk` acusar `INSTALL_FAILED_UPDATE_INCOMPATIBLE`, não desinstale a versão antiga precipitadamente, pois os dados podem ser perdidos. Um processo de assinatura persistente e backup voluntário é uma melhoria futura.
+**Aviso de dados:** APKs de depuração gerados por trabalhos diferentes podem utilizar chaves de assinatura diferentes. Se `adb install -r app-debug.apk` acusar `INSTALL_FAILED_UPDATE_INCOMPATIBLE`, não desinstale a versão antiga precipitadamente, pois os dados podem ser perdidos. A v1.0.0 acrescentou backup manual, mas a assinatura persistente de release ainda precisa ser configurada antes de distribuição externa.
 
 ## Testes e desenvolvimento local
 

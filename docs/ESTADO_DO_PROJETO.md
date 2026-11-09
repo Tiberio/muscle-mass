@@ -23,3 +23,6 @@ As integrações com dispositivos, IAA e banco Room v3 foram preservadas; não h
 
 - **v0.5.0 (08/11/2026):** usuário confirmou compilação e funcionamento de Evolução, Medidas, Fichas e botão único YouTube no dispositivo.
 - **v0.6.0 (código preparado):** revisão guiada por tempo, sessões e grupos, metas de medida, recuperação, solicitação de variação pontual equivalente e dupla confirmação quando desfavorável. Room 4→5, logs de decisões e IDs reais de exercícios. Testes locais: motor Kotlin, migração SQLite e integração textual. **Compilação GitHub e instalação Android ainda pendentes.** Consulte `docs/ALTERACOES_v0.6.0.md`.
+
+- **v0.6.0 (09/11/2026, validada):** usuário confirmou compilação e teste real no celular: parecer de que a troca ainda não é recomendada, cancelamento sem alterar ficha, dupla confirmação da troca antecipada, aplicação efetiva e duas versões (#1 e #2) disponíveis no histórico.
+- **v1.0.0 (09/11/2026, código preparado):** consolidação com exportação/restauração manual JSON de perfil e nove conjuntos de registros Room, integridade SHA-256 e proteção contra importação sobre histórico existente. Room v5 sem alteração. Testes locais passaram; compilação GitHub e testes no telefone pendentes. Ver `docs/ALTERACOES_v1.0.0.md`.

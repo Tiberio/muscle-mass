@@ -71,7 +71,7 @@ import br.com.meutreino.domain.UserPrefs
                         vm::setBodyGoal,vm::removeBodyGoal
                     )
                     "Dispositivos" -> DeviceScreen(p,vm)
-                    else -> ProfileScreen(p,onEdit={ target ->wizardTarget=target;editFromProfile=true;page="wizard" },onResetPlan={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
+                    else -> ProfileScreen(p,vm,onEdit={ target ->wizardTarget=target;editFromProfile=true;page="wizard" },onResetPlan={vm.patch{it.copy(assignments=emptyMap(),overrides=emptyMap())}})
                 }
             }
             if(message!=null){

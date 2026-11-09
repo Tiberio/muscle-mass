@@ -7,6 +7,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import br.com.meutreino.domain.UserPrefs
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.first
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -19,6 +20,15 @@ class SettingsStore(private val context: Context) {
         try { decode(JSONObject(values[key] ?: "{}")) } catch (_: Exception) { UserPrefs() }
     }
     suspend fun save(p: UserPrefs) { context.userDataStore.edit { it[key] = encode(p).toString() } }
+    /** A cópia inclui todos os campos persistidos do perfil; não exporta tokens de saúde. */
+    suspend fun exportProfileJson(): JSONObject = encode(data.first())
+    fun parseBackupProfile(obj: JSONObject): UserPrefs {
+        require(obj.has("onboardingCompleted") && obj.has("planAccepted") && obj.has("overrides")) {
+            "Perfil do backup incompleto ou incompatível"
+        }
+        return decode(obj)
+    }
+
 
     private fun list(obj: JSONObject, key: String): List<String> = obj.optJSONArray(key)?.let { a ->
         (0 until a.length()).map { a.optString(it) }.filter { it.isNotBlank() }
