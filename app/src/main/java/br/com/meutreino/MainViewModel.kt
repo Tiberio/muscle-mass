@@ -26,7 +26,6 @@ import java.util.UUID
 import br.com.meutreino.data.WorkoutDatabase
 import br.com.meutreino.data.WorkoutSessionEntity
 import br.com.meutreino.data.WorkoutSetEntity
-import br.com.meutreino.domain.ExerciseCatalog
 import br.com.meutreino.domain.UserPrefs
 import br.com.meutreino.domain.PlanVersionSnapshot
 import br.com.meutreino.domain.ReviewSnapshotBuilder

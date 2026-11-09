@@ -42,3 +42,12 @@ Room 4→5, somente aditiva: cria três tabelas, dois índices; preserva `sessio
 5. Em Revisão, selecione “Cansado” ou “Dor persistente”, verifique aviso de cautela; com dor persistente a alteração automática deve ser bloqueada.
 6. Confira diferença entre **tempo**, **sessões efetivas** e **exposições por grupo** e ajuste o limite de 80% para observar o aviso antecipado (sem alteração automática).
 7. Verifique persistência após fechar e reabrir o aplicativo. Sem sessão ativa, confirme que as fichas antigas permanecem disponíveis.
+
+
+## Correção de compilação (09/11/2026)
+
+- Eliminada importação duplicada de `ExerciseCatalog` em `MainViewModel.kt`, capaz de causar `conflicting import` no compilador Kotlin.
+- Adicionado `scripts/check_kotlin_imports.py` e nova etapa preventiva no GitHub Actions.
+- Ajustado o comando Gradle de CI para `--console=plain` sem `--stacktrace` por padrão, para facilitar a identificação de linhas de erro `e:` em futuras falhas.
+- `versionName=0.6.0` e `versionCode=19` permanecem inalterados; a versão anterior não chegou a gerar APK. Não há migração nova nem alteração no formato do banco.
+- Validação completa do APK Android continua dependente da execução do GitHub Actions.

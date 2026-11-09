@@ -44,8 +44,11 @@ jobs:
       - name: Verificar integração da revisão de ficha
         run: python3 scripts/validate_review_feature.py
 
+      - name: Verificar imports Kotlin duplicados
+        run: python3 scripts/check_kotlin_imports.py
+
       - name: Testar e compilar APK de depuração
-        run: gradle --no-daemon --stacktrace :app:testDebugUnitTest :app:assembleDebug
+        run: gradle --no-daemon --console=plain :app:testDebugUnitTest :app:assembleDebug
 
       - name: Publicar APK para download
         if: success()
