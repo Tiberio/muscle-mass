@@ -11,6 +11,10 @@ create = (root/'scripts/criar_chave_debug_persistente.sh').read_text()
 
 assert 'versionName = "1.0.1"' in app
 assert 'versionCode = 21' in app
+assert 'MEUTREINO_DEBUG_KEYSTORE_PATH' in app, 'O Gradle deve ler caminho da chave persistente'
+assert 'getByName("debug")' in app, 'Deve configurar assinatura do tipo debug'
+assert 'storeFile = file(persistentDebugKeystorePath)' in app, 'Gradle deve usar o arquivo do CI'
+assert 'signingConfig = signingConfigs.getByName("debug")' in app, 'buildType debug deve usar o signingConfig configurado'
 assert '"appVersion" to "1.0.1"' in (root/'app/src/main/java/br/com/meutreino/data/LocalBackup.kt').read_text()
 assert 'MeuTreino-Android-v1.0.1-debug' in workflow
 assert 'MEUTREINO_DEBUG_KEYSTORE_B64' in workflow
@@ -18,10 +22,13 @@ assert 'secrets.MEUTREINO_DEBUG_KEYSTORE_B64' in workflow
 assert 'base64 --decode > "$HOME/.android/debug.keystore"' in workflow
 assert 'test -s "$HOME/.android/debug.keystore"' in workflow
 assert 'keytool -list -keystore "$HOME/.android/debug.keystore"' in workflow
+assert 'MEUTREINO_DEBUG_KEYSTORE_PATH=%s' in workflow and '>> "$GITHUB_ENV"' in workflow, 'Workflow deve transmitir caminho ao Gradle'
+assert ':app:signingReport' in workflow, 'Relatorio deve revelar keystore usada pelo Gradle'
+assert 'MEUTREINO_DEBUG_KEYSTORE_PATH' in verify, 'Verificador deve ler a mesma chave que Gradle'
 assert 'bash scripts/verificar_assinatura_apk.sh' in workflow
 assert 'ASSINATURA OK' in verify
 assert 'EXPECTED' in verify and 'ACTUAL' in verify
 assert 'if [[ "$EXPECTED" != "$ACTUAL" ]]' in verify
 assert 'if [[ -e "$KEY" ]]' in create, 'Script nao pode sobrescrever chave existente'
 assert '*.keystore' in ignored and '*.jks' in ignored
-print('RELEASE v1.0.1 OK: versionCode 21, versionName 1.0.1, secret obrigatorio, comparacao SHA-256 e chave protegida')
+print('RELEASE v1.0.1 OK: assinatura debug explicita, keystore persistente no Gradle, comparacao SHA-256 e chave protegida')

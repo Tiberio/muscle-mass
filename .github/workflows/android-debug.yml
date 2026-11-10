@@ -51,6 +51,8 @@ jobs:
           chmod 600 "$HOME/.android/debug.keystore"
           test -s "$HOME/.android/debug.keystore"
           keytool -list -keystore "$HOME/.android/debug.keystore" -alias androiddebugkey -storepass android > /dev/null
+          # A mesma chave deve ser usada explicitamente pelo Gradle no build debug.
+          printf 'MEUTREINO_DEBUG_KEYSTORE_PATH=%s\n' "$HOME/.android/debug.keystore" >> "$GITHUB_ENV"
 
       - name: Validar catalogo JSON de videos
         run: python3 scripts/validate_exercise_videos.py
@@ -71,6 +73,9 @@ jobs:
         run: |
           python3 scripts/validate_release_v100.py
           python3 scripts/validate_release_v101.py
+
+      - name: Exibir configuracao de assinatura escolhida pelo Gradle
+        run: gradle --no-daemon --console=plain :app:signingReport
 
       - name: Testar e compilar APK de depuração
         run: gradle --no-daemon --console=plain :app:testDebugUnitTest :app:assembleDebug

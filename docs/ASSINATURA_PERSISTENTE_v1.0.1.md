@@ -4,7 +4,7 @@
 
 O Android só aceita atualização sobre o mesmo pacote (`br.com.meutreino`) se a assinatura do novo APK for compatível. Como os runners do GitHub Actions são descartáveis, o APK debug precisa receber **a mesma chave em todas as execuções**. A v1.0.1 usa `versionCode=21`; o banco permanece Room v5.
 
-O workflow recebe a cópia da chave exclusivamente via secret do GitHub e falha se não encontrar esse secret. Depois de compilar, verifica automaticamente se o certificado SHA-256 do APK **coincide** com o da chave fornecida.
+O workflow recebe a cópia da chave exclusivamente via secret do GitHub e falha se não encontrar esse secret. **Correção adicional:** a partir do hotfix, o Gradle também recebe explicitamente `MEUTREINO_DEBUG_KEYSTORE_PATH` e vincula esse arquivo ao `signingConfig` de `debug`. Sem essa vinculação, o APK anterior foi assinado com uma chave diferente, mesmo após o secret ter sido carregado. Depois de compilar, verifica automaticamente se o certificado SHA-256 do APK **coincide** com o da chave fornecida.
 
 ## 1. Criar a chave uma única vez (Debian 13)
 
@@ -37,8 +37,11 @@ Se o secret já existir, preserve a chave antiga **se ela foi utilizada para ass
 Atualize seu repositório com os arquivos fornecidos e execute os testes. Faça `git commit` e `git push origin main`. No GitHub Actions, confira:
 
 - Etapa **Carregar assinatura de depuração persistente**: passou
+- Etapa **Exibir configuracao de assinatura escolhida pelo Gradle**: o `signingReport` deve mostrar o caminho da chave carregada
 - Etapa **Verificar assinatura do APK contra o certificado persistente**: mostra `ASSINATURA OK`
 - Artefato: `MeuTreino-Android-v1.0.1-debug` (contém `app-debug.apk`)
+
+O hotfix pode ser aplicado **sem alterar o secret nem criar outra chave**, desde que a chave configurada no GitHub seja a mesma salva no Debian.
 
 Um workflow executado antes da criação do secret pode falhar como previsto: **não use o APK gerado por um workflow antigo**.
 

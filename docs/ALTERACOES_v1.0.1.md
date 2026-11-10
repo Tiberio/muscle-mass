@@ -24,3 +24,12 @@ Configure primeiro a chave e secret, compile a v1.0.1, veja o resultado `ASSINAT
 - Script de verificação SHA-256 testado em ambiente simulado com certificados correspondentes e diferentes.
 - Criação da chave testada para garantir que execuções repetidas não a substituem.
 - **Compilação Android completa, APK real e instalação no dispositivo ainda pendentes.**
+
+## Hotfix da assinatura após falha no GitHub Actions
+
+- Corrigido `app/build.gradle.kts`: o `buildType debug` agora recebe explicitamente `signingConfig` apontando para o keystore persistente (`MEUTREINO_DEBUG_KEYSTORE_PATH`).
+- O workflow transmite o caminho pelo arquivo `$GITHUB_ENV` e executa `:app:signingReport`, permitindo conferir o arquivo de assinatura utilizado pelo Gradle.
+- O verificador de SHA-256 usa a mesma variável de caminho para evitar divergência na origem da verificação.
+- O validador `validate_release_v101.py` passa a exigir a conexão entre configuração Gradle, workflow e verificador.
+- Sem mudanças na versão (`1.0.1`/código `21`), no banco Room ou nas funcionalidades.
+- **Ainda requer build GitHub bem-sucedido e instalação Android para confirmação.**

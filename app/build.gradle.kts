@@ -4,6 +4,10 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
+// No CI, a chave persistente e entregue por MEUTREINO_DEBUG_KEYSTORE_PATH.
+// Sem a variavel (desenvolvimento local), mantem-se a assinatura debug padrao.
+val persistentDebugKeystorePath = providers.environmentVariable("MEUTREINO_DEBUG_KEYSTORE_PATH").orNull
+
 android {
     namespace = "br.com.meutreino"
     compileSdk = 37
@@ -14,6 +18,21 @@ android {
         targetSdk = 35
         versionCode = 21
         versionName = "1.0.1"
+    }
+    signingConfigs {
+        getByName("debug") {
+            if (!persistentDebugKeystorePath.isNullOrBlank()) {
+                storeFile = file(persistentDebugKeystorePath)
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
+        }
+    }
+    buildTypes {
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
     buildFeatures { compose = true }
     compileOptions {

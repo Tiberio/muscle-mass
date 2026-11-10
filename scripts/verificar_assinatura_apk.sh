@@ -3,7 +3,7 @@
 set -euo pipefail
 
 APK="${1:-app/build/outputs/apk/debug/app-debug.apk}"
-KEY="${HOME}/.android/debug.keystore"
+KEY="${MEUTREINO_DEBUG_KEYSTORE_PATH:-${HOME}/.android/debug.keystore}"
 APKSIGNER="${ANDROID_HOME:?ANDROID_HOME nao definido}/build-tools/36.0.0/apksigner"
 
 for file in "$APK" "$KEY" "$APKSIGNER"; do
